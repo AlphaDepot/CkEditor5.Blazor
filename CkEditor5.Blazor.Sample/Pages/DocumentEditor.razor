@@ -1,0 +1,39 @@
+@page "/DocumentEditor"
+@using CkEditor5.Blazor.Models
+@using CkEditor5.Blazor.Sample.Data
+
+@inject IJSRuntime Js
+<PageTitle>Document Editor</PageTitle>
+<h2> Document Editor </h2>
+<p>A simple form with a Document CKEditor instances for testing</p>
+<EditForm Model="@_formData" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    <div class="mb-3">
+        <label for="editor5">Document Editor:</label>
+        <CkEditor Id="editor5" Variant="EditorVariant.DocumentEditor"
+                  Value="@_formData.Editor1Content" OnValueChanged="@(value => _formData.Editor1Content = value)" />
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
+    <p>On submit it gets logged to the console</p>
+</EditForm>
+
+@code {
+    private readonly FormData _formData = new();
+    
+    private async Task HandleValidSubmit()
+    {
+        await Js.InvokeVoidAsync("console.log", _formData);
+    }
+
+    public class FormData
+    {
+        public string Editor1Content { get; set; }  = HtmlDataConstants.InitialData;
+
+    }
+
+    
+}

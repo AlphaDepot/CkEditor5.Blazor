@@ -1,0 +1,34 @@
+
+::deep .editor-container_inline-editor .editor-container__editor {
+    min-width: 795px;
+    max-width: 795px;
+}
+
+::deep .editor_container__word-count {
+    border-left: 1px solid var(--ck-color-base-border);
+    border-right: 1px solid var(--ck-color-base-border);
+    border-bottom: 1px solid var(--ck-color-base-border);
+}
+
+::deep .editor_container__word-count .ck-word-count {
+    color: var(--ck-color-text);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--ck-spacing-small);
+    font-size: var(--ck-font-size-base);
+    line-height: var(--ck-line-height-base);
+    font-family: var(--ck-font-face);
+    padding: var(--ck-spacing-small) var(--ck-spacing-standard);
+}
+
+::deep .editor-container_include-word-count.editor-container_classic-editor .editor_container__word-count {
+    border: 1px solid var(--ck-color-base-border);
+    border-radius: var(--ck-border-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+}
+
+::deep .editor-container_include-word-count.editor-container_classic-editor .editor-container__editor .ck-editor .ck-editor__editable {
+    border-radius: 0;
+}

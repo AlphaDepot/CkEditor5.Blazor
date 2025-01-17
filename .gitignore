@@ -1,0 +1,33 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+/CkEditor5.Blazor.sln.DotSettings.user
+/CkEditor5.Blazor.Sample/CkEditor5.Blazor.Sample.csproj.user
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+.vs
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

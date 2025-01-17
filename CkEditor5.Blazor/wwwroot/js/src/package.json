@@ -1,0 +1,22 @@
+{
+  "name": "ckeditor5-blazor",
+  "private": true,
+  "version": "9.44.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/css-modules": "^1.0.5",
+    "@types/node": "^22.10.6",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "@microsoft/dotnet-js-interop": "^8.0.0",
+    "ckeditor5": "^44.1.0",
+    "ckeditor5-premium-features": "^44.1.0"
+  }
+}

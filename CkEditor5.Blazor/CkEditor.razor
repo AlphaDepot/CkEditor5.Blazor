@@ -1,0 +1,190 @@
+@inject IJSRuntime Js
+@using CkEditor5.Blazor.Models
+@using Microsoft.JSInterop
+@implements IAsyncDisposable
+@*
+Note: The use of <x> in the markup is necessary.
+If the MarkupString is not enclosed within a tag, the following errors may repeatedly appear in the console:
+TypeError: Cannot read properties of null (reading 'removeChild')
+TypeError: Cannot read properties of undefined (reading 'parentNode')
+*@
+<div>
+    @switch (Variant)
+    {
+        case EditorVariant.InlineEditor:
+            <div class="editor-container editor-container_inline-editor" >
+                <div class="editor-container__editor">
+                    <div @ref="EditorElement" id="@Id" class="@Class">
+                        @*<x> See note above*@
+                        <x>@((MarkupString)Value)</x>
+                    </div>
+                </div>
+            </div>
+            break;
+        case EditorVariant.BalloonEditor:
+            <div class="editor-container editor-container_balloon-editor" >
+                <div class="editor-container__editor">
+                    <div @ref="EditorElement" id="@Id" class="@Class">
+                        @*<x> See note above*@
+                        <x>@((MarkupString)Value)</x>
+                    </div>
+                </div>
+            </div>
+            break;
+        case EditorVariant.DocumentEditor:
+            <div class="editor-container editor-container_document-editor">
+                <div class="editor-container__menu-bar"></div>
+                <div class="editor-container__toolbar"></div>
+                <div class="editor-container__editor-wrapper">
+                    <div class="editor-container__sidebar">
+                        <div id="editor-outline"></div>
+                    </div>
+                    <div class="editor-container__editor">
+                        <div @ref="EditorElement" id="@Id" class="@Class">
+                            @*<x> See note above*@
+                            <x>@((MarkupString)Value)</x>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            break;
+        case EditorVariant.ClassicEditor:
+        default:
+            <div class="editor-container editor-container_classic-editor editor-container_include-word-count" >
+                <div class="editor-container__editor">
+                    <textarea @ref="EditorElement" id="@Id" class="@Class">
+                    @Value
+                </textarea>
+                </div>
+                <div class="editor_container__word-count" ></div>
+            </div>
+            break;
+    }
+</div>
+
+
+@code {
+    [Parameter] public string? Id { get; set; }
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public EventCallback<string> OnValueChanged { get; set; }
+    [Parameter] public CkEditorConfiguration Configuration { get; set; } = CkEditorConfiguration.Default;
+    [Parameter] public EditorVariant Variant { get; set; } = EditorVariant.ClassicEditor;
+    [Parameter]
+    public string Value
+    {
+        get => _value ?? "";
+        set
+        {
+            if (_value == value)
+                return;
+            _value = value;
+            if (IsInitialized)
+                _ = SetData(_value);
+        }
+    }
+
+    [Parameter]
+    public bool IsReadOnly
+    {
+        get => _isReadOnly;
+        set
+        {
+            if (_isReadOnly == value)
+                return;
+            _isReadOnly = value;
+            if (IsInitialized)
+                _ = ToggleReadOnly(_isReadOnly);
+        }
+    }
+  
+    private ElementReference EditorElement { get; set; }
+    private IJSObjectReference? JsEditorInstance { get; set; }
+    private DotNetObjectReference<CkEditor>? _dotNetObjectReference;
+    private bool IsInitialized { get; set; }
+    private string? _value;
+    private bool _isReadOnly;
+    private bool _isFirstRender = true;
+    
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+            return;
+        
+        var module = await Js.InvokeAsync<IJSObjectReference>("import", "./_content/CkEditor5.Blazor/js/dist/ckeditor5.js");
+        _dotNetObjectReference = DotNetObjectReference.Create(this);
+       
+        switch (Variant)
+        {
+            case EditorVariant.ClassicEditor:
+                JsEditorInstance = await module.InvokeAsync<IJSObjectReference>("BlazorClassicEditor.create", EditorElement, Configuration, _dotNetObjectReference);
+                break;
+            case EditorVariant.InlineEditor:
+                JsEditorInstance = await module.InvokeAsync<IJSObjectReference>("BlazorInlineEditor.create", EditorElement, Configuration, _dotNetObjectReference);
+                break;
+            case EditorVariant.BalloonEditor:
+                JsEditorInstance = await module.InvokeAsync<IJSObjectReference>("BlazorBalloonEditor.create", EditorElement, Configuration, _dotNetObjectReference);
+                break;
+            case EditorVariant.DocumentEditor:
+                JsEditorInstance = await module.InvokeAsync<IJSObjectReference>("BlazorDecoupledEditor.create", EditorElement, Configuration, _dotNetObjectReference);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+            
+        // If Id is not set, use the element Id
+        Id = Id is null ? EditorElement.Id : $"{Id} {EditorElement.Id}";
+            
+        if (IsReadOnly)
+            await ToggleReadOnly(true);
+            
+        IsInitialized = true;
+    }
+
+    [JSInvokable]
+    public async Task EditorValueChanged(string data)
+    {
+        _value = data;
+        if (OnValueChanged.HasDelegate)
+            await OnValueChanged.InvokeAsync(data);
+        StateHasChanged();
+    }
+
+    public async Task SetData(string content)
+    {
+        if (JsEditorInstance is null) return;
+        await JsEditorInstance.InvokeVoidAsync("data.set", content);
+    }
+    
+    public async Task<string> GetData()
+    {
+        if (JsEditorInstance is null) return string.Empty;
+       return await JsEditorInstance.InvokeAsync<string>("data.get");
+    }
+
+    
+    public async ValueTask ToggleReadOnly(bool isReadOnly)
+    {
+        if (JsEditorInstance is null) return;
+        var lockId = "blazor-readonly-lock" + EditorElement.Id;
+        if (isReadOnly)
+        {
+            await JsEditorInstance.InvokeVoidAsync("enableReadOnlyMode", lockId);
+        }
+        else
+        {
+            await JsEditorInstance.InvokeVoidAsync("disableReadOnlyMode", lockId);
+        }
+        _isReadOnly = isReadOnly;
+    }
+    
+    public async ValueTask DisposeAsync()
+    {
+        if (JsEditorInstance is null) return;
+        await JsEditorInstance.InvokeVoidAsync("destroy");
+        _dotNetObjectReference?.Dispose();
+        GC.SuppressFinalize(this);
+    }
+}
+

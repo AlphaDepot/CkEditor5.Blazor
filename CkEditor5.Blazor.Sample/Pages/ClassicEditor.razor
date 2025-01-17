@@ -1,0 +1,50 @@
+@page "/ClassicEditor"
+@using CkEditor5.Blazor.Sample.Data
+
+@inject IJSRuntime Js
+<PageTitle>Classic Editors</PageTitle>
+<h2> Classic Editors </h2>
+<p>A simple form with two Classic CKEditor instances for testing</p>
+<EditForm Model="@_formData" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="editor1">Classic Editor 1:</label>
+        <CkEditor Id="editor1" Value="@_formData.Editor1Content" OnValueChanged="@(value => _formData.Editor1Content = value)" />
+    </div>
+  
+    <div class="mb-3">
+        <label for="editor2">Classic Editor 2 with read only toggle:  @( _isEditor2ReadOnly ? "Disabled" : "Enabled" )</label><br />
+        <button class="my-1" type="button" @onclick="ToggleReadOnly">@( _isEditor2ReadOnly ? "Enable Editing" : "Disable Editing" )</button>
+        <CkEditor Id="editor2" @ref="Ckeditor2" Value="@_formData.Editor2Content"  OnValueChanged="@(value => _formData.Editor2Content = value)" IsReadOnly="@_isEditor2ReadOnly" />
+    </div>
+    
+    <br />
+    <button type="submit">Submit</button>
+    <p>On submit it gets logged to the console</p>
+</EditForm>
+
+@code {
+    private bool _isEditor2ReadOnly = true;
+    private readonly FormData _formData = new();
+    private CkEditor? Ckeditor2 { get; set; }
+    
+    private async Task HandleValidSubmit()
+    {
+        await Js.InvokeVoidAsync("console.log", _formData);
+    }
+
+    public class FormData
+    {
+        public string Editor1Content { get; set; } = HtmlDataConstants.InitialData;
+        public string Editor2Content { get; set; } = HtmlDataConstants.InitialData;
+    }
+    
+    private async Task ToggleReadOnly()
+    {
+        if (Ckeditor2 == null) return;
+        _isEditor2ReadOnly = !_isEditor2ReadOnly;
+        await Ckeditor2.ToggleReadOnly(_isEditor2ReadOnly);
+    }
+}

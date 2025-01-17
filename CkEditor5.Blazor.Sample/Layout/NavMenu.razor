@@ -1,0 +1,55 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">CkEditor5.Blazor.Sample</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="nav flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ClassicEditor" Match="NavLinkMatch.All">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Classic Editor
+            </NavLink>
+        </div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="InlineEditor" Match="NavLinkMatch.All">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Inline Editor
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="BalloonEditor" Match="NavLinkMatch.All">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Balloon Editor
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="DocumentEditor" Match="NavLinkMatch.All">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Document Editor
+            </NavLink>
+        </div>
+        
+        
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+}

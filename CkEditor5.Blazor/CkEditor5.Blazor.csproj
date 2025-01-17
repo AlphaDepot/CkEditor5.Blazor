@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Title>$(AssemblyName)</Title>
+		<VersionPrefix>9.44.1</VersionPrefix>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>LSTSystems</Authors>
+		<Description>This package, CKEditor5.Blazor, is a Blazor wrapper for CKEditor 5, a rich text editor. It allows seamless integration of CKEditor 5 into Blazor applications, providing various editor variants such as Classic, Inline, Balloon, and Document editors. The package includes necessary configurations and JavaScript interop to facilitate the use of CKEditor 5 within Blazor components.</Description>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.0" />
+        <PackageReference Include="Microsoft.JSInterop" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Remove="wwwroot\js\src" />
+        <Folder Include="wwwroot\js\dist\" />
+    </ItemGroup>
+
+</Project>

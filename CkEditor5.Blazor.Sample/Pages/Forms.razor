@@ -1,0 +1,77 @@
+@page "/Forms"
+@using CkEditor5.Blazor.Models
+
+@inject IJSRuntime Js
+<PageTitle>Forms</PageTitle>
+<h2> Forms </h2>
+<p>A simple form with two CKEditor instances for testing</p>
+<EditForm Model="@_formData" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="editor1">Editor 1:</label>
+        <CkEditor Id="editor1" Value="@_formData.Editor1Content" OnValueChanged="@(value => _formData.Editor1Content = value)" />
+    </div>
+  
+    <div class="mb-3">
+        <label for="editor2">Editor 2 Read Only Sample:  @( _isEditor2ReadOnly ? "Disabled" : "Enabled" )</label><br />
+        <button class="my-1" type="button" @onclick="ToggleReadOnly">@( _isEditor2ReadOnly ? "Enable Editing" : "Disable Editing" )</button>
+        <CkEditor Id="editor2" @ref="ckeditor2" Value="@_formData.Editor2Content"  OnValueChanged="@(value => _formData.Editor2Content = value)" IsReadOnly="@_isEditor2ReadOnly" />
+    </div>
+
+    <div class="mb-3">
+        <label for="editor1">Editor 3 Inline:</label>
+        <CkEditor Id="editor1" Variant="EditorVariant.InlineEditor"
+                  Value="@_formData.Editor3Content" OnValueChanged="@(value => _formData.Editor3Content = value)" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="editor4">Editor 4 Balloon Editor:</label>
+        <CkEditor Id="editor4" Variant="EditorVariant.BalloonEditor"
+                  Value="@_formData.Editor4Content" OnValueChanged="@(value => _formData.Editor4Content = value)" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="editor5">Editor 5 Document Editor:</label>
+        <CkEditor Id="editor5" Variant="EditorVariant.DocumentEditor"
+                  Value="@_formData.Editor5Content" OnValueChanged="@(value => _formData.Editor5Content = value)" />
+    </div>
+    
+    <br />
+    <button type="submit">Submit</button>
+    <p>On submit it gets logged to the console</p>
+</EditForm>
+
+@code {
+    private bool _isEditor2ReadOnly = true;
+    private FormData _formData = new();
+    public CkEditor ckeditor2 { get; set; }
+
+
+    private async Task HandleValidSubmit()
+    {
+        await Js.InvokeVoidAsync("console.log", _formData);
+    }
+
+    public class FormData
+    {
+        public string Editor1Content { get; set; } = "Hello Editor 1";
+        public string Editor2Content { get; set; } = "Hello Editor 2";
+        public string Editor3Content { get; set; } = LoremIpsum;
+        public string Editor4Content { get; set; } =  LoremIpsum;
+        public string Editor5Content { get; set; } =  LoremIpsum;
+
+    }
+    
+    private async Task ToggleReadOnly()
+    {
+        _isEditor2ReadOnly = !_isEditor2ReadOnly;
+        await ckeditor2.ToggleReadOnly(_isEditor2ReadOnly);
+    }
+    
+    
+    const string LoremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
