@@ -4,8 +4,8 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 
-/CkEditor5.Blazor.sln.DotSettings.user
-/CkEditor5.Blazor.Sample/CkEditor5.Blazor.Sample.csproj.user
+*.DotSettings.user
+*.csproj.user
 
 # Logs
 logs
