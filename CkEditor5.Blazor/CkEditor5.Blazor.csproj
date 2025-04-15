@@ -9,6 +9,10 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>LSTSystems</Authors>
 		<Description>This package, CKEditor5.Blazor, is a Blazor wrapper for CKEditor 5, a rich text editor. It allows seamless integration of CKEditor 5 into Blazor applications, providing various editor variants such as Classic, Inline, Balloon, and Document editors. The package includes necessary configurations and JavaScript interop to facilitate the use of CKEditor 5 within Blazor components.</Description>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageReadmeFile >ReadMe.md</PackageReadmeFile>
+        <PackageProjectUrl>https://github.com/AlphaDepot/CkEditor5.Blazor</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AlphaDepot/CkEditor5.Blazor</RepositoryUrl>
     </PropertyGroup>
 
 
@@ -23,6 +27,12 @@
     <ItemGroup>
         <Folder Remove="wwwroot\js\src" />
         <Folder Include="wwwroot\js\dist\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Remove="wwwroot" />
+        <None Include="..\ReadMe.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
