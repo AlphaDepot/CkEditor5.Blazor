@@ -27,7 +27,7 @@ namespace CkEditor5.Blazor.Models
 
             return configuration;
         }
-
+        
         private static object GetToolbarConfiguration()
         {
             return new
@@ -45,6 +45,10 @@ namespace CkEditor5.Blazor.Models
             };
         }
 
+        /// <summary>
+        ///  Plugins configuration
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_core_plugincollection-PluginCollection.html" />
+        /// </summary>
         private static object[] GetPluginsConfiguration()
         {
             return
@@ -63,6 +67,10 @@ namespace CkEditor5.Blazor.Models
             ];
         }
 
+        /// <summary>
+        ///  Heading configuration
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_heading_headingconfig-HeadingConfig.html" />
+        /// </summary>
         private static object GetHeadingConfiguration()
         {
             return new
@@ -80,6 +88,10 @@ namespace CkEditor5.Blazor.Models
             };
         }
 
+        /// <summary>
+        ///  Image configuration
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_image_imageconfig-ImageConfig.html" />
+        /// </summary>
         private static object GetImageConfiguration()
         {
             return new
@@ -114,6 +126,10 @@ namespace CkEditor5.Blazor.Models
             };
         }
 
+        /// <summary>
+        ///  Style configuration
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_style_styleconfig-StyleConfig.html" />
+        /// </summary>
         private static object GetStyleConfiguration()
         {
             return new
