@@ -40566,6 +40566,8 @@ var fontBackground = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg
 var fontColor = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.4 10.3 10 4.5l-2.4 5.8h4.8zm.5 1.2H7.1L5.7 15H4.2l5-12h1.6l5 12h-1.5L13 11.5zm3.1 7H4a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2z"/></svg>';
 var fontFamily = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.03 3h6.149a.75.75 0 1 1 0 1.5h-5.514L11.03 3zm1.27 3h4.879a.75.75 0 1 1 0 1.5h-4.244L12.3 6zm1.27 3h3.609a.75.75 0 1 1 0 1.5h-2.973L13.57 9zm-2.754 2.5L8.038 4.785 5.261 11.5h5.555zm.62 1.5H4.641l-1.666 4.028H1.312l5.789-14h1.875l5.789 14h-1.663L11.436 13z"/></svg>';
 var fontSize = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13zm7.55 2.279.779-.779.707.707-2.265 2.265-2.193-2.265.707-.707.765.765V4.825c0-.042 0-.083.002-.123l-.77.77-.707-.707L17.207 2.5l2.265 2.265-.707.707-.782-.782c.002.043.003.089.003.135v10.454z"/></svg>';
+var fullscreenEnter = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 5.75a.75.75 0 0 1 0-1.5H15a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V6.81l-2.72 2.72a.75.75 0 0 1-1.06-1.06l2.72-2.72H11.5Z"/><path d="M9.53 10.47a.75.75 0 0 1 0 1.06l-2.72 2.72H8.5a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75v-3.5a.75.75 0 0 1 1.5 0v1.69l2.72-2.72a.75.75 0 0 1 1.06 0Z"/><path d="M2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2Zm16 1.5H2a.5.5 0 0 0-.5.5v16a.5.5 0 0 0 .5.5h16a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5Z"/></svg>';
+var fullscreenLeave = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.53 5.53a.75.75 0 0 0-1.06-1.06l-2.72 2.72V5.5a.75.75 0 0 0-1.5 0V9a.75.75 0 0 0 .75.75h3.5a.75.75 0 0 0 0-1.5h-1.69l2.72-2.72Z"/><path d="M5.5 10.25a.75.75 0 0 0 0 1.5h1.69l-2.72 2.72a.75.75 0 1 0 1.06 1.06l2.72-2.72v1.69a.75.75 0 0 0 1.5 0V11a.75.75 0 0 0-.75-.75H5.5Z"/><path d="M0 2a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm18.5 0a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v16a.5.5 0 0 0 .5.5h16a.5.5 0 0 0 .5-.5V2Z"/></svg>';
 var heading1 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9v10h-2v-8h-2V9h4zM4 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V11H4v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v4.5z"/></svg>';
 var heading2 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm16.076 8.343V18.5h-6.252c.067-.626.27-1.22.61-1.78.338-.561 1.006-1.305 2.005-2.232.804-.749 1.297-1.257 1.479-1.523.245-.368.368-.732.368-1.092 0-.398-.107-.703-.32-.917-.214-.214-.51-.32-.886-.32-.372 0-.669.111-.889.336-.22.224-.347.596-.38 1.117l-1.778-.178c.106-.982.438-1.686.997-2.114.558-.427 1.257-.64 2.095-.64.918 0 1.64.247 2.164.742.525.495.787 1.11.787 1.847 0 .419-.075.818-.225 1.197-.15.378-.388.775-.714 1.19-.216.275-.605.67-1.168 1.187-.563.516-.92.859-1.07 1.028a3.11 3.11 0 0 0-.365.495h3.542z"/></svg>';
 var heading3 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm9.989 7.53 1.726-.209c.055.44.203.777.445 1.01.24.232.533.349.876.349.368 0 .678-.14.93-.42.251-.279.377-.655.377-1.13 0-.448-.12-.803-.362-1.066a1.153 1.153 0 0 0-.882-.393c-.228 0-.501.044-.819.133l.197-1.453c.482.012.85-.092 1.105-.315.253-.222.38-.517.38-.885 0-.313-.093-.563-.279-.75-.186-.185-.434-.278-.743-.278a1.07 1.07 0 0 0-.78.317c-.216.212-.347.52-.394.927l-1.644-.28c.114-.562.287-1.012.517-1.348.231-.337.553-.601.965-.794a3.24 3.24 0 0 1 1.387-.289c.876 0 1.579.28 2.108.838.436.457.653.973.653 1.549 0 .817-.446 1.468-1.339 1.955.533.114.96.37 1.28.768.319.398.478.878.478 1.441 0 .817-.298 1.513-.895 2.088-.596.576-1.339.864-2.228.864-.842 0-1.54-.243-2.094-.727-.555-.485-.876-1.118-.965-1.901z"/></svg>';
@@ -76342,6 +76344,765 @@ class FontBackgroundColor extends Plugin {
   */
   static get pluginName() {
     return "FontBackgroundColor";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+}
+/**
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+const DIALOG_OFFSET = 28;
+class AbstractEditorHandler {
+  /**
+  * @inheritDoc
+  */
+  constructor(editor) {
+    /**
+    * Maps placeholder names to placeholder elements and moved elements.
+    */
+    __publicField(this, "_placeholderMap");
+    /**
+    * The wrapper element that holds the fullscreen mode layout.
+    */
+    __publicField(this, "_wrapper", null);
+    /**
+    * The document object in which the editor is located.
+    */
+    __publicField(this, "_document");
+    /**
+    * Data of the annotations UIs that were active before entering the fullscreen mode.
+    */
+    __publicField(this, "_annotationsUIsData", null);
+    /**
+    * The pagination body collection that is used in the fullscreen mode.
+    * If we don't move pagination lines to the fullscreen container, they won't be visible.
+    */
+    __publicField(this, "_paginationBodyCollection", null);
+    /**
+    * A callback that hides the document outline header when the source editing mode is enabled.
+    * Document outline element itself is hidden by source editing plugin.
+    */
+    /* istanbul ignore next -- @preserve */
+    __publicField(this, "_sourceEditingCallback", (_evt, _name, value2) => {
+      this.getWrapper().querySelector(".ck-fullscreen__document-outline-header").style.display = value2 ? "none" : "";
+    });
+    /**
+    * A map of elements that were hidden when entering the fullscreen mode.
+    * It is used to restore their previous visibility when leaving the fullscreen mode and avoid showing elements
+    * that were hidden before entering the fullscreen mode.
+    */
+    __publicField(this, "_hiddenElements", /* @__PURE__ */ new Map());
+    /**
+    * A map matching the ancestors of the editable element with their scroll positions before entering fullscreen mode.
+    */
+    __publicField(this, "_savedAncestorsScrollPositions", /* @__PURE__ */ new Map());
+    /**
+    * A callback that shows the revision viewer, stored to restore the original one after exiting the fullscreen mode.
+    */
+    __publicField(this, "_showRevisionViewerCallback", null);
+    /**
+    * A callback that closes the revision viewer, stored to restore the original one after exiting the fullscreen mode.
+    */
+    __publicField(this, "_closeRevisionViewerCallback", null);
+    /**
+    * Stores a bound reference to the _updateDialogPosition method, allowing it to be attached and detached from change event.
+    */
+    __publicField(this, "updateDialogPositionCallback", this._updateDialogPosition.bind(this));
+    this._placeholderMap = /* @__PURE__ */ new Map();
+    if (editor.plugins.has("RevisionHistory")) {
+      this._showRevisionViewerCallback = editor.config.get("revisionHistory").showRevisionViewerCallback;
+      this._closeRevisionViewerCallback = editor.config.get("revisionHistory").closeRevisionViewerCallback;
+    }
+    this._editor = editor;
+    this._document = this._editor.sourceElement ? this._editor.sourceElement.ownerDocument : global$1.document;
+    this._editor.config.define("fullscreen.container", this._document.body);
+    editor.on("destroy", () => {
+      if (this._wrapper) {
+        this.destroy();
+      }
+    });
+  }
+  /**
+  * Moves the given element to the fullscreen mode container, leaving a placeholder in its place.
+  */
+  moveToFullscreen(elementToMove, placeholderName) {
+    const placeholderElement = createElement(this._document, "div");
+    placeholderElement.setAttribute("data-ck-fullscreen-placeholder", placeholderName);
+    elementToMove.replaceWith(placeholderElement);
+    this.getWrapper().querySelector(`[data-ck-fullscreen="${placeholderName}"]`).append(elementToMove);
+    this._placeholderMap.set(placeholderName, {
+      placeholderElement,
+      movedElement: elementToMove
+    });
+  }
+  /**
+  * Returns a single moved element to its original place.
+  */
+  restoreMovedElementLocation(placeholderName) {
+    if (!this._placeholderMap.has(placeholderName)) {
+      return;
+    }
+    const { placeholderElement, movedElement } = this._placeholderMap.get(placeholderName);
+    placeholderElement.replaceWith(movedElement);
+    placeholderElement.remove();
+    this._placeholderMap.delete(placeholderName);
+    if (this._placeholderMap.size === 0) {
+      this._destroyContainer();
+    }
+  }
+  /**
+  * Returns the fullscreen mode container element.
+  */
+  getWrapper() {
+    if (!this._wrapper) {
+      this._wrapper = createElement(this._document, "div", {
+        class: "ck ck-fullscreen__main-wrapper"
+      });
+      this._wrapper.innerHTML = `
+				<div class="ck ck-fullscreen__top-wrapper ck-reset_all">
+					<div class="ck ck-fullscreen__menu-bar" data-ck-fullscreen="menu-bar"></div>
+					<div class="ck ck-fullscreen__toolbar" data-ck-fullscreen="toolbar"></div>
+				</div>
+				<div class="ck ck-fullscreen__editable-wrapper">
+					<div class="ck ck-fullscreen__sidebar ck-fullscreen__left-sidebar" data-ck-fullscreen="left-sidebar">
+						<div class="ck ck-fullscreen__left-sidebar--sticky" data-ck-fullscreen="left-sidebar-sticky"></div>
+					</div>
+					<div class="ck ck-fullscreen__editable" data-ck-fullscreen="editable">
+						<div class="ck ck-fullscreen__pagination-view" data-ck-fullscreen="pagination-view"></div>
+					</div>
+					<div class="ck ck-fullscreen__sidebar ck-fullscreen__right-sidebar" data-ck-fullscreen="right-sidebar"></div>
+				</div>
+				<div class="ck ck-fullscreen__bottom-wrapper">
+					<div class="ck ck-fullscreen__body-wrapper" data-ck-fullscreen="body-wrapper"></div>
+				</div>
+			`;
+      this._editor.config.get("fullscreen.container").appendChild(this._wrapper);
+    }
+    return this._wrapper;
+  }
+  /**
+  * Enables the fullscreen mode. It executes the editor-specific enable handler and then the configured callback.
+  */
+  enable() {
+    this._saveAncestorsScrollPositions(this._editor.ui.getEditableElement());
+    this._defaultOnEnter();
+    if (this._editor.config.get("fullscreen.container") === this._document.body) {
+      this._document.body.classList.add("ck-fullscreen");
+      this._document.body.parentElement.classList.add("ck-fullscreen");
+    }
+    if (this._editor.plugins.has("Dialog")) {
+      this._registerFullscreenDialogPositionAdjustments();
+    }
+    /* istanbul ignore if -- @preserve */
+    if (this._editor.plugins.has("PresenceListUI")) {
+      this._generatePresenceListContainer();
+    }
+    /* istanbul ignore if -- @preserve */
+    if (this._editor.plugins.has("DocumentOutlineUI")) {
+      this._generateDocumentOutlineContainer();
+    }
+    /* istanbul ignore next -- @preserve */
+    if (this._editor.plugins.has("Pagination") && this._editor.plugins.get("Pagination").isEnabled) {
+      const paginationRenderer = this._editor.plugins.get("PaginationRenderer");
+      paginationRenderer.setupScrollableAncestor();
+      this._paginationBodyCollection = new BodyCollection(this._editor.locale);
+      this._paginationBodyCollection.attachToDom();
+      paginationRenderer.linesRepository.setViewCollection(this._paginationBodyCollection);
+      this._editor.once("destroy", () => {
+        this._paginationBodyCollection.detachFromDom();
+      });
+      this.moveToFullscreen(this._paginationBodyCollection.bodyCollectionContainer, "body-wrapper");
+    }
+    /* istanbul ignore if -- @preserve */
+    if (this._editor.plugins.has("AnnotationsUIs")) {
+      this._overrideAnnotationsUIs();
+    }
+    if (this._editor.plugins.has("RevisionHistory")) {
+      /* istanbul ignore if -- @preserve */
+      if (this._editor.plugins.get("RevisionHistory").isRevisionViewerOpen) {
+        this._editor.config.get("revisionHistory.closeRevisionViewerCallback")();
+      }
+      this._overrideRevisionHistoryCallbacks();
+    }
+    if (this._editor.plugins.has("SourceEditing") && this._editor.plugins.has("DocumentOutlineUI")) {
+      this._editor.plugins.get("SourceEditing").on("change:isSourceEditingMode", this._sourceEditingCallback);
+    }
+    for (const element of this._editor.config.get("fullscreen.container").children) {
+      if (element !== this._wrapper && !element.classList.contains("ck-body-wrapper") && !element.classList.contains("ckbox-wrapper") && // Already hidden elements are not hidden again to avoid accidentally showing them after leaving fullscreen.
+      element.style.display !== "none") {
+        this._hiddenElements.set(element, element.style.display);
+        element.style.display = "none";
+      }
+    }
+    if (this._editor.config.get("fullscreen.onEnterCallback")) {
+      this._editor.config.get("fullscreen.onEnterCallback")(this.getWrapper());
+    }
+  }
+  /**
+  * Disables the fullscreen mode by restoring all moved elements and destroying the fullscreen container.
+  */
+  disable() {
+    var _a4;
+    if (this._editor.config.get("fullscreen.onLeaveCallback")) {
+      this._editor.config.get("fullscreen.onLeaveCallback")(this.getWrapper());
+    }
+    this._document.body.classList.remove("ck-fullscreen");
+    this._document.body.parentElement.classList.remove("ck-fullscreen");
+    /* istanbul ignore if -- @preserve */
+    if (this._editor.plugins.has("DocumentOutlineUI")) {
+      this._restoreDocumentOutlineDefaultContainer();
+    }
+    /* istanbul ignore if -- @preserve */
+    if (this._annotationsUIsData) {
+      this._restoreAnnotationsUIs();
+    }
+    if (this._editor.plugins.has("RevisionHistory")) {
+      this._restoreRevisionHistoryCallbacks();
+    }
+    if (this._editor.plugins.has("SourceEditing") && this._editor.plugins.has("DocumentOutlineUI")) {
+      this._editor.plugins.get("SourceEditing").off("change:isSourceEditingMode", this._sourceEditingCallback);
+    }
+    for (const placeholderName of this._placeholderMap.keys()) {
+      this.restoreMovedElementLocation(placeholderName);
+    }
+    this._editor.ui.view.toolbar.switchBehavior(this._editor.config.get("toolbar.shouldNotGroupWhenFull") === true ? "static" : "dynamic");
+    if (this._placeholderMap.size === 0) {
+      this._destroyContainer();
+    }
+    for (const [ancestor, value2] of this._savedAncestorsScrollPositions) {
+      ancestor.scrollTo(value2.scrollLeft, value2.scrollTop);
+    }
+    this._savedAncestorsScrollPositions.clear();
+    /* istanbul ignore next -- @preserve */
+    if (this._editor.plugins.has("Pagination") && this._editor.plugins.get("Pagination").isEnabled) {
+      const paginationRenderer = this._editor.plugins.get("PaginationRenderer");
+      paginationRenderer.setupScrollableAncestor();
+      paginationRenderer.linesRepository.setViewCollection(this._editor.ui.view.body);
+      this._paginationBodyCollection.detachFromDom();
+      (_a4 = this._paginationBodyCollection) == null ? void 0 : _a4.destroy();
+    }
+    if (this._editor.plugins.has("Dialog")) {
+      this._unregisterFullscreenDialogPositionAdjustments();
+    }
+  }
+  /**
+  * @inheritDoc
+  */
+  destroy() {
+    for (const { placeholderElement, movedElement } of this._placeholderMap.values()) {
+      placeholderElement.remove();
+      movedElement.remove();
+    }
+    this._destroyContainer();
+    this._document.body.classList.remove("ck-fullscreen");
+    this._document.body.parentElement.classList.remove("ck-fullscreen");
+  }
+  /**
+  * A function that moves the editor UI elements to the fullscreen mode. It should be set by the particular editor type handler.
+  *
+  * Returns the fullscreen mode container element so it can be further customized via
+  * `fullscreen.onEnterCallback` configuration property.
+  */
+  _defaultOnEnter() {
+    return this.getWrapper();
+  }
+  /**
+  * Destroys the fullscreen mode container.
+  */
+  _destroyContainer() {
+    if (!this._wrapper) {
+      return;
+    }
+    this._wrapper.remove();
+    this._wrapper = null;
+    for (const [element, displayValue] of this._hiddenElements) {
+      element.style.display = displayValue;
+    }
+    this._hiddenElements.clear();
+  }
+  /**
+  * Checks if the PresenceListUI plugin is available and moves its elements to fullscreen mode.
+  */
+  // Code coverage is provided in the commercial package repository as integration unit tests.
+  /* istanbul ignore next -- @preserve */
+  _generatePresenceListContainer() {
+    const t2 = this._editor.t;
+    const presenceListElement = createElement(document, "div", {
+      class: "ck ck-fullscreen__left-sidebar-item"
+    });
+    presenceListElement.innerHTML = `
+			<div class="ck ck-fullscreen__left-sidebar-header"></div>
+			<div class="ck ck-fullscreen__presence-list" data-ck-fullscreen="presence-list"></div>
+		`;
+    presenceListElement.firstElementChild.innerText = t2("Connected users");
+    document.querySelector('[data-ck-fullscreen="left-sidebar-sticky"]').appendChild(presenceListElement);
+    const presenceListUI = this._editor.plugins.get("PresenceListUI");
+    this.moveToFullscreen(presenceListUI.view.element, "presence-list");
+  }
+  /**
+  * Checks if the DocumentOutlineUI plugin is available and moves its elements to fullscreen mode.
+  */
+  // Code coverage is provided in the commercial package repository as integration unit tests.
+  /* istanbul ignore next -- @preserve */
+  _generateDocumentOutlineContainer() {
+    const t2 = this._editor.t;
+    const documentOutlineHeaderElement = createElement(document, "div", {
+      class: "ck-fullscreen__left-sidebar-item ck-fullscreen__left-sidebar-item--no-margin"
+    });
+    documentOutlineHeaderElement.innerHTML = `
+			<div class="ck ck-fullscreen__left-sidebar-header ck-fullscreen__document-outline-header"></div>
+		`;
+    documentOutlineHeaderElement.firstElementChild.innerText = t2("Document outline");
+    const documentOutlineBodyWrapper = createElement(document, "div", {
+      class: "ck ck-fullscreen__left-sidebar-item ck-fullscreen__document-outline-wrapper"
+    });
+    documentOutlineBodyWrapper.innerHTML = `
+			<div class="ck ck-fullscreen__document-outline" data-ck-fullscreen="document-outline"></div>
+		`;
+    document.querySelector('[data-ck-fullscreen="left-sidebar"]').appendChild(documentOutlineBodyWrapper);
+    document.querySelector('[data-ck-fullscreen="left-sidebar-sticky"]').appendChild(documentOutlineHeaderElement);
+    const documentOutlineUI = this._editor.plugins.get("DocumentOutlineUI");
+    documentOutlineUI.view.documentOutlineContainer = document.querySelector('[data-ck-fullscreen="left-sidebar"]');
+    this.moveToFullscreen(documentOutlineUI.view.element, "document-outline");
+  }
+  /**
+  * Restores the default value of documentOutlineContainer, which is modified in fullscreen mode.
+  */
+  // Code coverage is provided in the commercial package repository as integration unit tests.
+  /* istanbul ignore next -- @preserve */
+  _restoreDocumentOutlineDefaultContainer() {
+    const documentOutlineUI = this._editor.plugins.get("DocumentOutlineUI");
+    documentOutlineUI.view.documentOutlineContainer = documentOutlineUI.view.element;
+  }
+  /**
+  * Stores the current state of the annotations UIs to restore it when leaving fullscreen mode.
+  */
+  // Code coverage is provided in the commercial package repository as integration unit tests.
+  /* istanbul ignore next -- @preserve */
+  _overrideAnnotationsUIs() {
+    const annotationsUIs = this._editor.plugins.get("AnnotationsUIs");
+    this._annotationsUIsData = new Map(annotationsUIs.uisData);
+    const sidebarPlugin = this._editor.plugins.get("Sidebar");
+    if (!sidebarPlugin.container) {
+      sidebarPlugin.setContainer(this.getWrapper().querySelector('[data-ck-fullscreen="right-sidebar"]'));
+    }
+    const annotationsFilters = /* @__PURE__ */ new Map();
+    for (const [uiName, data] of [
+      ...this._annotationsUIsData
+    ]) {
+      if (data.filter !== annotationsUIs.defaultFilter) {
+        annotationsFilters.set(uiName, data.filter);
+      }
+    }
+    annotationsUIs.deactivateAll();
+    if (annotationsFilters.has("wideSidebar")) {
+      annotationsUIs.activate("wideSidebar", annotationsFilters.get("wideSidebar"));
+    } else if (annotationsFilters.size) {
+      annotationsUIs.activate("wideSidebar", (annotation) => [
+        ...annotationsFilters.values()
+      ].some((filter) => filter(annotation)));
+    } else {
+      annotationsUIs.switchTo("wideSidebar");
+    }
+    this.moveToFullscreen(sidebarPlugin.container.firstElementChild, "right-sidebar");
+  }
+  /**
+  * Restores the saved state of the annotations UIs.
+  */
+  // Code coverage is provided in the commercial package repository as integration unit tests.
+  /* istanbul ignore next -- @preserve */
+  _restoreAnnotationsUIs() {
+    const annotationsUIs = this._editor.plugins.get("AnnotationsUIs");
+    annotationsUIs.deactivateAll();
+    for (const [uiName, data] of [
+      ...this._annotationsUIsData
+    ]) {
+      annotationsUIs.activate(uiName, data.filter);
+    }
+    this._annotationsUIsData = null;
+  }
+  /**
+  * Modifies the revision history viewer callbacks to display the viewer in the fullscreen mode.
+  */
+  _overrideRevisionHistoryCallbacks() {
+    /* istanbul ignore next -- @preserve */
+    this._editor.config.set("revisionHistory.showRevisionViewerCallback", async () => {
+      const revisionViewerEditor = await this._showRevisionViewerCallback();
+      if (this._editor.plugins.has("DocumentOutlineUI")) {
+        this.getWrapper().querySelector(".ck-fullscreen__document-outline-header").style.display = "none";
+      }
+      this.restoreMovedElementLocation("editable");
+      this.restoreMovedElementLocation("toolbar");
+      this.restoreMovedElementLocation("right-sidebar");
+      if (this._annotationsUIsData) {
+        this._restoreAnnotationsUIs();
+      }
+      if (this._editor.ui.view.menuBarView) {
+        this._editor.ui.view.menuBarView.disable();
+      }
+      this.moveToFullscreen(revisionViewerEditor.ui.getEditableElement(), "editable");
+      this.moveToFullscreen(revisionViewerEditor.ui.view.toolbar.element, "toolbar");
+      this.moveToFullscreen(this._editor.config.get("revisionHistory.viewerSidebarContainer"), "right-sidebar");
+      return revisionViewerEditor;
+    });
+    /* istanbul ignore next -- @preserve */
+    this._editor.config.set("revisionHistory.closeRevisionViewerCallback", async () => {
+      this.restoreMovedElementLocation("toolbar");
+      this.restoreMovedElementLocation("editable");
+      this.restoreMovedElementLocation("right-sidebar");
+      if (this._editor.plugins.has("DocumentOutlineUI")) {
+        this.getWrapper().querySelector(".ck-fullscreen__document-outline-header").style.display = "";
+      }
+      this.moveToFullscreen(this._editor.ui.getEditableElement(), "editable");
+      this.moveToFullscreen(this._editor.ui.view.toolbar.element, "toolbar");
+      await this._closeRevisionViewerCallback();
+      if (this._editor.plugins.has("AnnotationsUIs")) {
+        this._overrideAnnotationsUIs();
+      }
+      if (this._editor.ui.view.menuBarView) {
+        this._editor.ui.view.menuBarView.enable();
+      }
+    });
+  }
+  /**
+  * Resets the revision history viewer callbacks to their original values.
+  */
+  _restoreRevisionHistoryCallbacks() {
+    /* istanbul ignore next -- @preserve */
+    this._editor.config.set("revisionHistory.showRevisionViewerCallback", async () => {
+      return this._showRevisionViewerCallback();
+    });
+    /* istanbul ignore next -- @preserve */
+    this._editor.config.set("revisionHistory.closeRevisionViewerCallback", async () => {
+      return this._closeRevisionViewerCallback();
+    });
+  }
+  /**
+  * Adds an event listener when the dialog opens to adjust its position in fullscreen mode,
+  * utilizing the empty space on the right side of the editable element.
+  */
+  _registerFullscreenDialogPositionAdjustments() {
+    const dialog = this._editor.plugins.get("Dialog");
+    this._setNewDialogPosition();
+    dialog.on("change:isOpen", this.updateDialogPositionCallback, {
+      priority: "highest"
+    });
+  }
+  /**
+  * Removes an event listener that adjusts the dialog's position in fullscreen mode.
+  */
+  _unregisterFullscreenDialogPositionAdjustments() {
+    const dialog = this._editor.plugins.get("Dialog");
+    const dialogView = dialog.view;
+    if (dialogView && dialogView.position === null) {
+      dialogView.position = DialogViewPosition.EDITOR_TOP_SIDE;
+    }
+    if (dialogView) {
+      dialogView.updatePosition();
+    }
+    dialog.off("change:isOpen", this.updateDialogPositionCallback);
+  }
+  /**
+  * If dialog is open, adjust its positioning.
+  */
+  _updateDialogPosition(_evt, _name, isOpen) {
+    if (isOpen) {
+      this._setNewDialogPosition();
+    }
+  }
+  /**
+  * Adjusts the dialog position to utilize the empty space on the right side of the editable.
+  * The new dialog position should be on the right side of the fullscreen view with a 30px margin.
+  * Only dialogs with the position set to "editor-top-side" should have their position changed.
+  */
+  _setNewDialogPosition() {
+    const dialog = this._editor.plugins.get("Dialog");
+    const dialogView = dialog.view;
+    if (!dialogView || dialogView.position !== DialogViewPosition.EDITOR_TOP_SIDE) {
+      return;
+    }
+    const fullscreenViewContainerRect = new Rect(this._wrapper).getVisible();
+    const editorContainerRect = new Rect(document.querySelector(".ck-fullscreen__editable")).getVisible();
+    const dialogRect = new Rect(dialogView.element.querySelector(".ck-dialog")).getVisible();
+    const scrollOffset = new Rect(document.querySelector(".ck-fullscreen__editable-wrapper")).excludeScrollbarsAndBorders().getVisible().width - new Rect(document.querySelector(".ck-fullscreen__editable-wrapper")).getVisible().width;
+    if (fullscreenViewContainerRect && editorContainerRect && dialogRect) {
+      dialogView.position = null;
+      dialogView.moveTo(fullscreenViewContainerRect.left + fullscreenViewContainerRect.width - dialogRect.width - DIALOG_OFFSET + scrollOffset, editorContainerRect.top);
+    }
+  }
+  /**
+  * Saves the scroll positions of all ancestors of the given element.
+  */
+  _saveAncestorsScrollPositions(domElement) {
+    let element = domElement.parentElement;
+    if (!element) {
+      return;
+    }
+    while (element) {
+      const overflowY = element.style.overflowY || global$1.window.getComputedStyle(element).overflowY;
+      const overflowX = element.style.overflowX || global$1.window.getComputedStyle(element).overflowX;
+      if (overflowY === "auto" || overflowY === "scroll" || overflowX === "auto" || overflowX === "scroll") {
+        this._savedAncestorsScrollPositions.set(element, {
+          scrollLeft: element.scrollLeft,
+          scrollTop: element.scrollTop
+        });
+      } else if (element.tagName === "HTML") {
+        this._savedAncestorsScrollPositions.set(element, {
+          scrollLeft: element.scrollLeft,
+          scrollTop: element.scrollTop
+        });
+      }
+      element = element.parentElement;
+    }
+  }
+}
+class ClassicEditorHandler extends AbstractEditorHandler {
+  /**
+  * @inheritDoc
+  */
+  constructor(editor) {
+    super(editor);
+    /**
+    * An editor instance.
+    */
+    __publicField(this, "_editor");
+    this._editor = editor;
+  }
+  /**
+  * A function that moves the editor UI elements to the fullscreen mode.
+  */
+  _defaultOnEnter() {
+    const editorUI = this._editor.ui;
+    const editorUIView = editorUI.view;
+    /* istanbul ignore next -- @preserve */
+    if (this._editor.plugins.has("Pagination") && this._editor.plugins.get("Pagination").isEnabled) {
+      this.moveToFullscreen(editorUI.getEditableElement().parentElement.querySelector(".ck-pagination-view"), "pagination-view");
+    }
+    this.moveToFullscreen(editorUI.getEditableElement(), "editable");
+    this.moveToFullscreen(editorUIView.toolbar.element, "toolbar");
+    editorUIView.toolbar.switchBehavior(this._editor.config.get("fullscreen.toolbar.shouldNotGroupWhenFull") === true ? "static" : "dynamic");
+    this.getWrapper().setAttribute("dir", editorUIView.element.getAttribute("dir"));
+    this.getWrapper().classList.add("ck-rounded-corners");
+    if (this._editor.config.get("fullscreen.menuBar.isVisible")) {
+      if (!editorUIView.menuBarView) {
+        editorUIView.menuBarView = new MenuBarView(this._editor.locale);
+        editorUIView.menuBarView.render();
+        editorUI.initMenuBar(editorUIView.menuBarView);
+      }
+      this.moveToFullscreen(editorUIView.menuBarView.element, "menu-bar");
+    }
+    return this.getWrapper();
+  }
+}
+class DecoupledEditorHandler extends AbstractEditorHandler {
+  /**
+  * @inheritDoc
+  */
+  constructor(editor) {
+    super(editor);
+    /**
+    * An editor instance.
+    */
+    __publicField(this, "_editor");
+    this._editor = editor;
+  }
+  /**
+  * A function that moves the editor UI elements to the fullscreen mode.
+  */
+  _defaultOnEnter() {
+    /* istanbul ignore next -- @preserve */
+    if (this._editor.plugins.has("Pagination") && this._editor.plugins.get("Pagination").isEnabled) {
+      this.moveToFullscreen(this._editor.ui.getEditableElement().parentElement.querySelector(".ck-pagination-view"), "pagination-view");
+    }
+    this.moveToFullscreen(this._editor.ui.getEditableElement(), "editable");
+    this.moveToFullscreen(this._editor.ui.view.toolbar.element, "toolbar");
+    this._editor.ui.view.toolbar.switchBehavior(this._editor.config.get("fullscreen.toolbar.shouldNotGroupWhenFull") === true ? "static" : "dynamic");
+    if (this._editor.config.get("fullscreen.menuBar.isVisible")) {
+      this.moveToFullscreen(this._editor.ui.view.menuBarView.element, "menu-bar");
+    }
+    return this.getWrapper();
+  }
+}
+class FullscreenCommand extends Command$1 {
+  /**
+  * @inheritDoc
+  */
+  constructor(editor) {
+    super(editor);
+    /**
+    * Specialized class handling the fullscreen mode toggling for a specific editor type.
+    */
+    __publicField(this, "_fullscreenHandler");
+    this.affectsData = false;
+    this.isEnabled = true;
+    this.value = false;
+    if (editor instanceof ClassicEditor) {
+      this._fullscreenHandler = new ClassicEditorHandler(editor);
+    } else if (editor instanceof DecoupledEditor) {
+      this._fullscreenHandler = new DecoupledEditorHandler(editor);
+    } else {
+      this._fullscreenHandler = new AbstractEditorHandler(editor);
+    }
+  }
+  /**
+  * Toggles the fullscreen mode.
+  */
+  execute() {
+    if (this.value) {
+      this._disableFullscreenMode();
+    } else {
+      this._enableFullscreenMode();
+    }
+  }
+  /**
+  * Enables the fullscreen mode.
+  */
+  _enableFullscreenMode() {
+    this._fullscreenHandler.enable();
+    this.value = true;
+  }
+  /**
+  * Disables the fullscreen mode.
+  */
+  _disableFullscreenMode() {
+    this._fullscreenHandler.disable();
+    this.value = false;
+  }
+}
+class FullscreenEditing extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "FullscreenEditing";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  constructor(editor) {
+    super(editor);
+    editor.config.define("fullscreen.menuBar.isVisible", true);
+    editor.config.define("fullscreen.toolbar.shouldNotGroupWhenFull", editor.config.get("toolbar.shouldNotGroupWhenFull") === true);
+  }
+  /**
+  * @inheritDoc
+  */
+  init() {
+    this.editor.commands.add("toggleFullscreen", new FullscreenCommand(this.editor));
+    const t2 = this.editor.locale.t;
+    this.editor.keystrokes.set("Ctrl+Shift+F", (evt, cancel2) => {
+      this.editor.execute("toggleFullscreen");
+      if (!env.isBlink) {
+        this.editor.editing.view.document.isFocused = false;
+        this.editor.ui.view.toolbar.focusTracker.focusedElement = null;
+      }
+      this.editor.editing.view.scrollToTheSelection();
+      this.editor.editing.view.focus();
+      cancel2();
+    });
+    this.editor.accessibility.addKeystrokeInfos({
+      keystrokes: [
+        {
+          label: t2("Toggle fullscreen mode"),
+          keystroke: "CTRL+SHIFT+F"
+        }
+      ],
+      categoryId: "navigation"
+    });
+  }
+}
+const COMMAND_NAME = "toggleFullscreen";
+class FullscreenUI extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get requires() {
+    return [
+      FullscreenEditing
+    ];
+  }
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "FullscreenUI";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  init() {
+    const editor = this.editor;
+    editor.ui.componentFactory.add("fullscreen", () => this._createButton(ButtonView));
+    editor.ui.componentFactory.add("menuBar:fullscreen", () => this._createButton(MenuBarMenuListItemButtonView));
+  }
+  /**
+  * Creates a button that toggles the fullscreen mode.
+  */
+  _createButton(ButtonClass) {
+    const editor = this.editor;
+    const t2 = editor.t;
+    const command = editor.commands.get(COMMAND_NAME);
+    const view = new ButtonClass(editor.locale);
+    view.set({
+      isToggleable: true
+    });
+    view.bind("isEnabled").to(command, "isEnabled");
+    view.bind("isOn").to(command, "value");
+    if (view instanceof MenuBarMenuListItemButtonView) {
+      view.set({
+        role: "menuitemcheckbox",
+        label: t2("Fullscreen mode")
+      });
+    } else {
+      view.bind("icon").to(command, "value", (value2) => value2 ? fullscreenLeave : fullscreenEnter);
+      view.bind("label").to(command, "value", (value2) => value2 ? t2("Leave fullscreen mode") : t2("Enter fullscreen mode"));
+      view.set({
+        tooltip: true
+      });
+    }
+    this.listenTo(view, "execute", () => {
+      editor.execute(COMMAND_NAME);
+      if (!env.isBlink) {
+        this.editor.ui.view.toolbar.focusTracker.focusedElement = null;
+      }
+      editor.editing.view.scrollToTheSelection();
+      editor.editing.view.focus();
+    });
+    return view;
+  }
+}
+class Fullscreen extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get requires() {
+    return [
+      FullscreenEditing,
+      FullscreenUI
+    ];
+  }
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "Fullscreen";
   }
   /**
   * @inheritDoc
@@ -161062,7 +161823,8 @@ const corePlugins = {
   "Title": Title,
   "PasteFromMarkdownExperimental": PasteFromMarkdownExperimental,
   "BalloonToolbar": BalloonToolbar,
-  "BlockToolbar": BlockToolbar
+  "BlockToolbar": BlockToolbar,
+  "Fullscreen": Fullscreen
 };
 const premiumPlugins = {
   "CKBox": CKBox,

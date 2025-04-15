@@ -83,7 +83,8 @@ import {
     Undo,
     Widget,
     WordCount,
-    BlockToolbar
+    BlockToolbar,
+    Fullscreen
 } from "ckeditor5";
 import {
     AIAssistant,
@@ -201,6 +202,7 @@ export const corePlugins: { [key: string]: any } = {
     "PasteFromMarkdownExperimental": PasteFromMarkdownExperimental,
     "BalloonToolbar": BalloonToolbar,
     "BlockToolbar": BlockToolbar,
+    "Fullscreen": Fullscreen,
 };
 
 

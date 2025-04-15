@@ -21,7 +21,8 @@ namespace CkEditor5.Blazor.Models
                 ["placeholder"] = "Type or paste your content here!",
                 ["style"] = GetStyleConfiguration(),
                 ["table"] = new { contentToolbar = new[] { "tableColumn", "tableRow", "mergeTableCells", "tableProperties", "tableCellProperties" } },
-                ["updateSourceElementOnDestroy"] = true
+                ["updateSourceElementOnDestroy"] = true,
+                ["fullscreen"] = GetFullscreenConfiguration(),
             };
 
             return configuration;
@@ -33,7 +34,7 @@ namespace CkEditor5.Blazor.Models
             {
                 items = new[]
                 {
-                    "sourceEditing", "showBlocks", "findAndReplace", "|", "heading", "style", "|",
+                    "sourceEditing","fullscreen", "showBlocks", "findAndReplace", "|", "heading", "style", "|",
                     "fontSize", "fontFamily", "fontColor", "fontBackgroundColor", "|", "bold", "italic",
                     "underline", "strikethrough", "subscript", "superscript", "code", "removeFormat", "|",
                     "specialCharacters", "horizontalLine", "pageBreak", "link", "bookmark", "insertImage",
@@ -46,9 +47,9 @@ namespace CkEditor5.Blazor.Models
 
         private static object[] GetPluginsConfiguration()
         {
-            return new object[]
-            {
-                "Alignment", "Autoformat", "AutoImage", "Autosave", "Base64UploadAdapter", "BlockQuote", "Bold",
+            return
+            [
+                "Alignment","Fullscreen", "Autoformat", "AutoImage", "Autosave", "Base64UploadAdapter", "BlockQuote", "Bold",
                 "Bookmark", "CloudServices", "Code", "CodeBlock", "Essentials", "FindAndReplace", "FontBackgroundColor",
                 "FontColor", "FontFamily", "FontSize", "FullPage", "GeneralHtmlSupport", "Heading", "Highlight",
                 "HorizontalLine", "HtmlComment", "HtmlEmbed", "ImageBlock", "ImageCaption", "ImageInline", "ImageInsert",
@@ -59,7 +60,7 @@ namespace CkEditor5.Blazor.Models
                 "SpecialCharactersLatin", "SpecialCharactersMathematical", "SpecialCharactersText", "Strikethrough",
                 "Style", "Subscript", "Superscript", "Table", "TableCaption", "TableCellProperties", "TableColumnResize",
                 "TableProperties", "TableToolbar", "TextTransformation", "TodoList", "Underline", "WordCount"
-            };
+            ];
         }
 
         private static object GetHeadingConfiguration()
@@ -125,6 +126,19 @@ namespace CkEditor5.Blazor.Models
                     new { name = "Code (dark)", element = "pre", classes = new[] { "fancy-code", "fancy-code-dark" } },
                     new { name = "Code (bright)", element = "pre", classes = new[] { "fancy-code", "fancy-code-bright" } }
                 }
+            };
+        }
+
+        /**
+         *  Fullscreen configuration
+         *  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_fullscreen_fullscreenconfig-FullscreenConfig.html" />
+         */
+        private static object GetFullscreenConfiguration()
+        {
+            return new
+            {
+                menuBar = new { isVisible = true },
+                toolbar = new { shouldNotGroupWhenFull = true },
             };
         }
     }
