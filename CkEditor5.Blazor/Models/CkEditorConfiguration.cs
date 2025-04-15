@@ -92,6 +92,10 @@ namespace CkEditor5.Blazor.Models
             };
         }
 
+        /// <summary>
+        ///  Link configuration
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_link_linkconfig-LinkConfig.html" />
+        /// </summary>
         private static object GetLinkConfiguration()
         {
             return new
