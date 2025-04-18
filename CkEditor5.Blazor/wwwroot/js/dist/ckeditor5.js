@@ -40652,6 +40652,7 @@ var tableOfContents = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/sv
 var tableProperties = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v5h4V2h1v5h5v1h-5v4h.021l-.172.351-1.916.28-.151.027c-.287.063-.54.182-.755.341L8 13v5H7v-5H2v-1h5V8H2V7h5V2h1zm4 6H8v4h4V8z" opacity=".6"/><path d="m15.5 11.5 1.323 2.68 2.957.43-2.14 2.085.505 2.946L15.5 18.25l-2.645 1.39.505-2.945-2.14-2.086 2.957-.43L15.5 11.5zM17 1a2 2 0 0 1 2 2v9.475l-.85-.124-.857-1.736a2.048 2.048 0 0 0-.292-.44L17 3H3v14h7.808l.402.392L10.935 19H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14z"/></svg>';
 var tableRow = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 1h15A1.5 1.5 0 0 1 19 2.5v15a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 1 17.5v-15A1.5 1.5 0 0 1 2.5 1zM2 2v16h16V2H2z" opacity=".6"/><path d="M7 2h1v16H7V2zm5 0h1v16h-1V2z" opacity=".6"/><path d="M1 6h18a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm1 2v4h4V8H2zm6 0v4h4V8H8zm6 0v4h4V8h-4z"/></svg>';
 var table = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z"/></svg>';
+var tableLayout = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 4.121C1.5 2.95 2.426 2 3.568 2h12.864c1.142 0 2.068.95 2.068 2.121V16.38c0 1.171-.926 2.121-2.068 2.121H3.568c-1.142 0-2.068-.95-2.068-2.121V4.12Zm2.068-.707a.699.699 0 0 0-.69.707V6.38h14.244V4.12a.698.698 0 0 0-.69-.707H3.568Zm13.554 4.38h-4.968v3.939h4.968V7.794Zm0 5.353h-4.968v3.939h4.278c.381 0 .69-.317.69-.707v-3.232Zm-6.347 3.939V7.794H2.878v8.585c0 .39.309.707.69.707h7.207Z"/></svg>';
 var templateGeneric = '<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">\n    <path fill="#F0F0F0" d="M2 0h41s2 0 2 2v41s0 2 -2 2h-41s-2 0 -2 -2v-41s0 -2 2 -2" />\n    <path fill="#D5D5D5" d="M11 10h10s1 0 1 1v24s0 1 -1 1h-10s-1 0 -1 -1v-24s0 -1 1 -1" />\n    <path fill="#D5D5D5" d="M25 10h10s1 0 1 1v10s0 1 -1 1h-10s-1 0 -1 -1v-10s0 -1 1 -1" />\n    <path fill="#D5D5D5" d="M25 24h10s1 0 1 1v10s0 1 -1 1h-10s-1 0 -1 -1v-10s0 -1 1 -1" />\n</svg>\n';
 var template = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M8 0H3a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM2.5 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V2Z"/><path clip-rule="evenodd" d="M13 0h5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-5Z"/><path clip-rule="evenodd" d="M13 10h5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Zm0 1.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5h-5Z"/></svg>';
 var textAlternative = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.035 1C2.446 1 2 1.54 2 2.098V10.5h1.5v-8h13v8H18V2.098C18 1.539 17.48 1 16.9 1H3.035Zm10.453 2.61a1.885 1.885 0 0 0-1.442.736 1.89 1.89 0 0 0 1.011 2.976 1.903 1.903 0 0 0 2.253-1.114 1.887 1.887 0 0 0-1.822-2.598ZM7.463 8.163a.611.611 0 0 0-.432.154L5.071 10.5h5.119L7.88 8.348a.628.628 0 0 0-.417-.185Zm6.236 1.059a.62.62 0 0 0-.42.164L12.07 10.5h2.969l-.92-1.113a.618.618 0 0 0-.42-.165ZM.91 11.5a.91.91 0 0 0-.91.912v6.877c0 .505.405.91.91.91h18.178a.91.91 0 0 0 .912-.91v-6.877a.908.908 0 0 0-.912-.912H.91ZM3.668 13h1.947l2.135 5.7H5.898l-.28-.946H3.601l-.278.945H1.516L3.668 13Zm4.947 0h1.801v4.3h2.7v1.4h-4.5V13h-.001Zm4.5 0h5.4v1.4h-1.798v4.3h-1.701v-4.3h-1.9V13h-.001Zm-8.517 1.457-.614 2.059h1.262l-.648-2.059Z"/></svg>';
@@ -99564,7 +99565,7 @@ class MediaEmbedCommand extends Command$1 {
     const selection = model.document.selection;
     const selectedMedia = getSelectedMediaModelWidget(selection);
     this.value = selectedMedia ? selectedMedia.getAttribute("url") : void 0;
-    this.isEnabled = isMediaSelected(selection) || isAllowedInParent(selection, model);
+    this.isEnabled = isMediaSelected(selection) || isAllowedInParent$2(selection, model);
   }
   /**
   * Executes the command, which either:
@@ -99588,7 +99589,7 @@ class MediaEmbedCommand extends Command$1 {
     }
   }
 }
-function isAllowedInParent(selection, model) {
+function isAllowedInParent$2(selection, model) {
   const insertionRange = findOptimalInsertionRange(selection, model);
   let parent = insertionRange.start.parent;
   if (parent.isEmpty && !model.schema.isLimit(parent)) {
@@ -111908,6 +111909,108 @@ class Table extends Plugin {
     return true;
   }
 }
+class PlainTableOutput extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "PlainTableOutput";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  static get requires() {
+    return [
+      Table
+    ];
+  }
+  /**
+  * @inheritDoc
+  */
+  init() {
+    const editor = this.editor;
+    editor.conversion.for("dataDowncast").elementToStructure({
+      model: "table",
+      view: downcastTableElement,
+      converterPriority: "high"
+    });
+    if (editor.plugins.has("TableCaption")) {
+      editor.conversion.for("dataDowncast").elementToElement({
+        model: "caption",
+        view: (modelElement, { writer: writer2 }) => {
+          if (modelElement.parent.name === "table") {
+            return writer2.createContainerElement("caption");
+          }
+        },
+        converterPriority: "high"
+      });
+    }
+    if (editor.plugins.has("TableProperties")) {
+      downcastTableBorderAndBackgroundAttributes(editor);
+    }
+    editor.conversion.for("upcast").add((dispatcher) => {
+      dispatcher.on("element:table", (evt, data, conversionApi) => {
+        conversionApi.consumable.consume(data.viewItem, {
+          classes: "table"
+        });
+      });
+    });
+  }
+}
+function downcastTableElement(table2, { writer: writer2 }) {
+  const headingRows = table2.getAttribute("headingRows") || 0;
+  const headRowsSlot = writer2.createSlot((element) => element.is("element", "tableRow") && element.index < headingRows);
+  const bodyRowsSlot = writer2.createSlot((element) => element.is("element", "tableRow") && element.index >= headingRows);
+  const childrenSlot = writer2.createSlot((element) => !element.is("element", "tableRow"));
+  const theadElement = writer2.createContainerElement("thead", null, headRowsSlot);
+  const tbodyElement = writer2.createContainerElement("tbody", null, bodyRowsSlot);
+  const tableContentElements = [];
+  if (headingRows) {
+    tableContentElements.push(theadElement);
+  }
+  if (headingRows < table2.childCount) {
+    tableContentElements.push(tbodyElement);
+  }
+  return writer2.createContainerElement("table", {
+    class: "table"
+  }, [
+    childrenSlot,
+    ...tableContentElements
+  ]);
+}
+function downcastTableBorderAndBackgroundAttributes(editor) {
+  const modelAttributes = {
+    "border-width": "tableBorderWidth",
+    "border-color": "tableBorderColor",
+    "border-style": "tableBorderStyle",
+    "background-color": "tableBackgroundColor"
+  };
+  for (const [styleName, modelAttribute] of Object.entries(modelAttributes)) {
+    editor.conversion.for("dataDowncast").add((dispatcher) => {
+      return dispatcher.on(`attribute:${modelAttribute}:table`, (evt, data, conversionApi) => {
+        const { item, attributeNewValue } = data;
+        const { mapper, writer: writer2 } = conversionApi;
+        if (!conversionApi.consumable.consume(item, evt.name)) {
+          return;
+        }
+        const table2 = mapper.toViewElement(item);
+        if (attributeNewValue) {
+          writer2.setStyle(styleName, attributeNewValue, table2);
+        } else {
+          writer2.removeStyle(styleName, table2);
+        }
+      }, {
+        priority: "high"
+      });
+    });
+  }
+}
 function getSelectionAffectedTableWidget(selection) {
   const selectedTable = getSelectedTableWidget(selection);
   if (selectedTable) {
@@ -114037,6 +114140,200 @@ class TableCellProperties extends Plugin {
     ];
   }
 }
+class TableLayoutUI extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "TableLayoutUI";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  init() {
+    const editor = this.editor;
+    const t2 = this.editor.t;
+    editor.ui.componentFactory.add("insertTableLayout", (locale) => {
+      const command = editor.commands.get("insertTableLayout");
+      const dropdownView = createDropdown(locale);
+      dropdownView.bind("isEnabled").to(command);
+      dropdownView.buttonView.set({
+        icon: tableLayout,
+        label: t2("Insert table layout"),
+        tooltip: true
+      });
+      let insertTableLayoutView;
+      dropdownView.on("change:isOpen", () => {
+        if (insertTableLayoutView) {
+          return;
+        }
+        insertTableLayoutView = new InsertTableView(locale);
+        dropdownView.panelView.children.add(insertTableLayoutView);
+        insertTableLayoutView.delegate("execute").to(dropdownView);
+        dropdownView.on("execute", () => {
+          editor.execute("insertTableLayout", {
+            rows: insertTableLayoutView.rows,
+            columns: insertTableLayoutView.columns
+          });
+          editor.editing.view.focus();
+        });
+      });
+      return dropdownView;
+    });
+    editor.ui.componentFactory.add("menuBar:insertTableLayout", (locale) => {
+      const command = editor.commands.get("insertTableLayout");
+      const menuView = new MenuBarMenuView(locale);
+      const insertTableLayoutView = new InsertTableView(locale);
+      insertTableLayoutView.delegate("execute").to(menuView);
+      menuView.on("change:isOpen", (event, name, isOpen) => {
+        if (!isOpen) {
+          insertTableLayoutView.reset();
+        }
+      });
+      insertTableLayoutView.on("execute", () => {
+        editor.execute("insertTableLayout", {
+          rows: insertTableLayoutView.rows,
+          columns: insertTableLayoutView.columns
+        });
+        editor.editing.view.focus();
+      });
+      menuView.buttonView.set({
+        label: t2("Table layout"),
+        icon: tableLayout
+      });
+      menuView.panelView.children.add(insertTableLayoutView);
+      menuView.bind("isEnabled").to(command);
+      return menuView;
+    });
+    editor.ui.componentFactory.add("tableType", () => {
+      const editor2 = this.editor;
+      const t3 = editor2.t;
+      const button = new DropdownButtonView(editor2.locale);
+      button.set({
+        label: t3("Table type"),
+        icon: tableProperties,
+        tooltip: true
+      });
+      return createTableTypeDropdown(editor2, button);
+    });
+  }
+  /**
+  * @inheritDoc
+  */
+  afterInit() {
+    const editor = this.editor;
+    if (!editor.plugins.has("TablePropertiesUI")) {
+      return;
+    }
+    const tablePropertiesUI = editor.plugins.get("TablePropertiesUI");
+    editor.ui.componentFactory.add("tableProperties", (locale) => {
+      const baseButton = tablePropertiesUI._createTablePropertiesButton();
+      const splitButtonView = new SplitButtonView(locale, baseButton);
+      return createTableTypeDropdown(editor, splitButtonView);
+    });
+  }
+}
+function createTableTypeDropdown(editor, dropdownButton) {
+  const t2 = editor.t;
+  const locale = editor.locale;
+  const tableTypeCommand = editor.commands.get("tableType");
+  const dropdownView = createDropdown(locale, dropdownButton);
+  const itemsDefinitions = createTableLayoutTypeDropdownItems(editor);
+  addListToDropdown(dropdownView, itemsDefinitions, {
+    ariaLabel: t2("Table type options"),
+    role: "menu"
+  });
+  dropdownButton.tooltip = t2("Choose table type");
+  dropdownView.on("execute", (evt) => {
+    const tableType = evt.source.tableType;
+    if (tableType) {
+      tableTypeCommand.execute(tableType);
+    }
+  });
+  return dropdownView;
+}
+function createTableLayoutTypeDropdownItems(editor) {
+  const t2 = editor.t;
+  const tableTypeCommand = editor.commands.get("tableType");
+  const itemDefinitions = new Collection();
+  itemDefinitions.add(createTableTypeDropdownItem(tableTypeCommand, "layout", t2("Layout table")));
+  itemDefinitions.add(createTableTypeDropdownItem(tableTypeCommand, "content", t2("Content table")));
+  return itemDefinitions;
+}
+function createTableTypeDropdownItem(tableTypeCommand, type, label) {
+  const model = new Model({
+    label,
+    role: "menuitemradio",
+    withText: true,
+    tableType: type
+  });
+  model.bind("isEnabled").to(tableTypeCommand, "isEnabled");
+  model.bind("isOn").to(tableTypeCommand, "value", (value2) => value2 === type);
+  return {
+    type: "button",
+    model
+  };
+}
+class InsertTableLayoutCommand extends Command$1 {
+  /**
+  * @inheritDoc
+  */
+  refresh() {
+    const model = this.editor.model;
+    const selection = model.document.selection;
+    const schema = model.schema;
+    this.isEnabled = isAllowedInParent(selection, schema);
+  }
+  /**
+  * Executes the command.
+  *
+  * Inserts a layout table with the given number of rows and columns into the editor.
+  *
+  * @param options.rows The number of rows to create in the inserted table. Default value is 2.
+  * @param options.columns The number of columns to create in the inserted table. Default value is 2.
+  * @fires execute
+  */
+  execute(options = {}) {
+    const editor = this.editor;
+    const model = editor.model;
+    const tableUtils = editor.plugins.get("TableUtils");
+    model.change((writer2) => {
+      const normalizedOptions = {
+        rows: options.rows || 2,
+        columns: options.columns || 2
+      };
+      const table2 = tableUtils.createTable(writer2, normalizedOptions);
+      writer2.setAttribute("tableType", "layout", table2);
+      model.insertObject(table2, null, null, {
+        findOptimalPosition: "auto"
+      });
+      const singleColumnWidth = `${100 / normalizedOptions.columns}%`;
+      const columnWidths = Array(normalizedOptions.columns).fill(singleColumnWidth);
+      const tableWidthsCommand = editor.commands.get("resizeColumnWidths");
+      tableWidthsCommand.execute({
+        tableWidth: "100%",
+        columnWidths,
+        table: table2
+      });
+      writer2.setSelection(writer2.createPositionAt(table2.getNodeByPath([
+        0,
+        0,
+        0
+      ]), 0));
+    });
+  }
+}
+function isAllowedInParent(selection, schema) {
+  const positionParent = selection.getFirstPosition().parent;
+  const validParent = positionParent === positionParent.root ? positionParent : positionParent.parent;
+  return schema.checkChild(validParent, "table");
+}
 class TableWidthsCommand extends Command$1 {
   /**
   * @inheritDoc
@@ -114769,6 +115066,337 @@ class TableColumnResize extends Plugin {
   */
   static get isOfficialPlugin() {
     return true;
+  }
+}
+class TableTypeCommand extends Command$1 {
+  /**
+  * @inheritDoc
+  */
+  refresh() {
+    const model = this.editor.model;
+    const selection = model.document.selection;
+    const selectedTable = getSelectionAffectedTable(selection);
+    if (selectedTable) {
+      this.isEnabled = true;
+      this.value = selectedTable.getAttribute("tableType");
+    } else {
+      this.isEnabled = false;
+      this.value = null;
+    }
+  }
+  /**
+  * Executes the command.
+  *
+  * Set table type by the given table type parameter.
+  *
+  * @param tableType The type of table it should become.
+  * @fires execute
+  */
+  execute(tableType) {
+    const editor = this.editor;
+    const model = editor.model;
+    const selection = model.document.selection;
+    const table2 = getSelectionAffectedTable(selection);
+    const currentTableType = table2.getAttribute("tableType");
+    if (currentTableType === tableType) {
+      return;
+    }
+    model.change((writer2) => {
+      writer2.setAttribute("tableType", tableType, table2);
+      model.schema.removeDisallowedAttributes([
+        table2
+      ], writer2);
+      const tableChildren = table2.getChildren();
+      for (const child of tableChildren) {
+        if (!model.schema.checkChild(table2, child)) {
+          writer2.remove(child);
+        }
+      }
+    });
+  }
+}
+const TABLE_TYPES = [
+  "content",
+  "layout"
+];
+class TableLayoutEditing extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "TableLayoutEditing";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get requires() {
+    return [
+      TableColumnResize
+    ];
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  init() {
+    this._defineSchema();
+    this._defineConverters();
+    this._defineClipboardPasteHandlers();
+    this._registerTableTypeAttributePostfixer();
+    this.editor.commands.add("insertTableLayout", new InsertTableLayoutCommand(this.editor));
+    this.editor.commands.add("tableType", new TableTypeCommand(this.editor));
+  }
+  /**
+  * Defines the schema for the table layout feature.
+  */
+  _defineSchema() {
+    const { schema } = this.editor.model;
+    schema.extend("table", {
+      allowAttributes: "tableType"
+    });
+    schema.addChildCheck(layoutTableCheck, "caption");
+    schema.addAttributeCheck(layoutTableCheck, "headingRows");
+    schema.addAttributeCheck(layoutTableCheck, "headingColumns");
+  }
+  /**
+  * Defines the converters for the table layout feature.
+  */
+  _defineConverters() {
+    const { editor } = this;
+    const { conversion } = editor;
+    const preferredExternalTableType = editor.config.get("table.tableLayout.preferredExternalTableType");
+    conversion.for("upcast").add(upcastLayoutTable(preferredExternalTableType));
+    conversion.for("dataDowncast").add(dataDowncastLayoutTable());
+    conversion.for("editingDowncast").attributeToAttribute({
+      model: {
+        key: "tableType",
+        values: [
+          "layout",
+          "content"
+        ]
+      },
+      view: {
+        layout: {
+          key: "class",
+          value: [
+            "layout-table"
+          ]
+        },
+        content: {
+          key: "class",
+          value: [
+            "content-table"
+          ]
+        }
+      }
+    });
+  }
+  /**
+  * Handles the clipboard content insertion events.
+  *
+  * - If the content is from another editor, do not override the table type.
+  * - If the content is from another source, set the table type to 'content'.
+  *
+  * It handles the scenario when user copies `<table></table>` from Word. We do not want to
+  * change the table type to `layout` because it is really `content` table.
+  */
+  _defineClipboardPasteHandlers() {
+    const { plugins } = this.editor;
+    if (!plugins.has("ClipboardPipeline")) {
+      return;
+    }
+    const clipboardPipeline = plugins.get("ClipboardPipeline");
+    this.listenTo(clipboardPipeline, "contentInsertion", (evt, data) => {
+      if (data.sourceEditorId) {
+        return;
+      }
+      this.editor.model.change((writer2) => {
+        for (const { item } of writer2.createRangeIn(data.content)) {
+          if (item.is("element", "table")) {
+            writer2.setAttribute("tableType", "content", item);
+          }
+        }
+      });
+    });
+  }
+  /**
+  * Registers a post-fixer that sets the `tableType` attribute to `content` for inserted "default" tables.
+  * Also fixes potential issues with the table structure when the `tableType` attribute has been changed.
+  */
+  _registerTableTypeAttributePostfixer() {
+    const editor = this.editor;
+    editor.model.document.registerPostFixer((writer2) => {
+      const changes = editor.model.document.differ.getChanges();
+      let hasChanged = false;
+      for (const entry of changes) {
+        if (entry.type == "insert" && entry.name != "$text") {
+          const element = entry.position.nodeAfter;
+          const range = writer2.createRangeOn(element);
+          for (const item of range.getItems()) {
+            if (item.is("element", "table") && !item.hasAttribute("tableType")) {
+              writer2.setAttribute("tableType", "content", item);
+              hasChanged = true;
+            }
+          }
+        }
+        if (entry.type == "attribute" && entry.attributeKey == "tableType") {
+          for (const item of entry.range.getItems()) {
+            if (item.is("element", "table")) {
+              editor.model.schema.removeDisallowedAttributes([
+                item
+              ], writer2);
+              const tableChildren = item.getChildren();
+              for (const child of tableChildren) {
+                if (!editor.model.schema.checkChild(item, child)) {
+                  writer2.remove(child);
+                  hasChanged = true;
+                }
+              }
+            }
+          }
+        }
+      }
+      return hasChanged;
+    });
+  }
+}
+function upcastLayoutTable(preferredExternalTableType) {
+  return (dispatcher) => {
+    dispatcher.on("element:table", (evt, data, conversionApi) => {
+      const viewTable = data.viewItem;
+      if (!conversionApi.consumable.test(viewTable, {
+        name: true
+      })) {
+        return;
+      }
+      const resolvedTableType = resolveTableType(viewTable, preferredExternalTableType);
+      if (resolvedTableType == "content") {
+        return;
+      }
+      const table2 = conversionApi.writer.createElement("table", {
+        tableType: "layout"
+      });
+      if (!conversionApi.safeInsert(table2, data.modelCursor)) {
+        return;
+      }
+      conversionApi.consumable.consume(viewTable, {
+        name: true
+      });
+      conversionApi.consumable.consume(viewTable, {
+        attributes: [
+          "role"
+        ]
+      });
+      conversionApi.consumable.consume(viewTable, {
+        classes: [
+          "layout-table"
+        ]
+      });
+      for (const tableChild of viewTable.getChildren()) {
+        if (tableChild.is("element")) {
+          for (const row of tableChild.getChildren()) {
+            if (row.is("element", "tr")) {
+              conversionApi.convertItem(row, conversionApi.writer.createPositionAt(table2, "end"));
+            }
+          }
+        }
+      }
+      conversionApi.convertChildren(viewTable, conversionApi.writer.createPositionAt(table2, "end"));
+      if (table2.isEmpty) {
+        const row = conversionApi.writer.createElement("tableRow");
+        conversionApi.writer.insert(row, conversionApi.writer.createPositionAt(table2, "end"));
+        createEmptyTableCell(conversionApi.writer, conversionApi.writer.createPositionAt(row, "end"));
+      }
+      conversionApi.updateConversionResult(table2, data);
+    }, {
+      priority: "high"
+    });
+    dispatcher.on("element:table", (evt, data, conversionApi) => {
+      const { viewItem, modelRange } = data;
+      if (modelRange) {
+        conversionApi.writer.setAttribute("tableType", resolveTableType(viewItem, preferredExternalTableType), modelRange);
+        conversionApi.consumable.consume(viewItem, {
+          classes: [
+            "layout-table"
+          ]
+        });
+        conversionApi.consumable.consume(viewItem, {
+          classes: [
+            "content-table"
+          ]
+        });
+      }
+    }, {
+      priority: "low"
+    });
+  };
+}
+function dataDowncastLayoutTable() {
+  return (dispatcher) => {
+    return dispatcher.on("attribute:tableType:table", (evt, data, conversionApi) => {
+      const { item, attributeNewValue } = data;
+      const { mapper, writer: writer2 } = conversionApi;
+      if (!conversionApi.consumable.test(item, evt.name)) {
+        return;
+      }
+      const table2 = mapper.toViewElement(item);
+      writer2.addClass(`${attributeNewValue}-table`, table2);
+      if (attributeNewValue == "layout") {
+        writer2.setAttribute("role", "presentation", table2);
+      }
+      conversionApi.consumable.consume(item, evt.name);
+    });
+  };
+}
+function resolveTableType(viewTable, preferredExternalTableType) {
+  if (viewTable.hasClass("content-table")) {
+    return "content";
+  }
+  if (viewTable.hasClass("layout-table")) {
+    return "layout";
+  }
+  if (preferredExternalTableType && TABLE_TYPES.includes(preferredExternalTableType)) {
+    return preferredExternalTableType;
+  }
+  const parent = viewTable.parent;
+  if (parent.is("element", "figure") || Array.from(viewTable.getChildren()).some((child) => child.is("element", "caption"))) {
+    return "content";
+  }
+  return "layout";
+}
+function layoutTableCheck(context) {
+  if (context.endsWith("table") && context.last.getAttribute("tableType") == "layout") {
+    return false;
+  }
+}
+class TableLayout extends Plugin {
+  /**
+  * @inheritDoc
+  */
+  static get pluginName() {
+    return "TableLayout";
+  }
+  /**
+  * @inheritDoc
+  */
+  static get isOfficialPlugin() {
+    return true;
+  }
+  /**
+  * @inheritDoc
+  */
+  static get requires() {
+    return [
+      PlainTableOutput,
+      TableColumnResize,
+      TableLayoutEditing,
+      TableLayoutUI
+    ];
   }
 }
 class TablePropertyCommand extends Command$1 {
@@ -162932,7 +163560,8 @@ const corePlugins = {
   "PasteFromMarkdownExperimental": PasteFromMarkdownExperimental,
   "BalloonToolbar": BalloonToolbar,
   "BlockToolbar": BlockToolbar,
-  "Fullscreen": Fullscreen
+  "Fullscreen": Fullscreen,
+  "TableLayout": TableLayout
 };
 const premiumPlugins = {
   "CKBox": CKBox,

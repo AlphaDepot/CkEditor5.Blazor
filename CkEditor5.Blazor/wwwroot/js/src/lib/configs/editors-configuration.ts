@@ -84,7 +84,8 @@ import {
     Widget,
     WordCount,
     BlockToolbar,
-    Fullscreen
+    Fullscreen,
+    TableLayout
 } from "ckeditor5";
 import {
     AIAssistant,
@@ -205,6 +206,7 @@ export const corePlugins: { [key: string]: any } = {
     "BalloonToolbar": BalloonToolbar,
     "BlockToolbar": BlockToolbar,
     "Fullscreen": Fullscreen,
+    "TableLayout": TableLayout,
 };
 
 
