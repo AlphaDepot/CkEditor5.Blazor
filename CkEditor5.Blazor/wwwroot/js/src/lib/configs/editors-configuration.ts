@@ -108,7 +108,9 @@ import {
     RealTimeCollaborativeTrackChanges,
     RevisionHistory,
     SlashCommand,
-    TableOfContents, Template, TrackChanges, TrackChangesData
+    TableOfContents, Template, TrackChanges, TrackChangesData,
+    ExportInlineStyles,
+    EmailConfigurationHelper
 } from "ckeditor5-premium-features";
 
 
@@ -234,7 +236,9 @@ export const premiumPlugins: { [key: string]: any } = {
     "TrackChanges": TrackChanges,
     "TrackChangesData": TrackChangesData,
     "Pagination": Pagination,
-    "Template": Template
+    "Template": Template,
+    "ExportInlineStyles": ExportInlineStyles,
+    "EmailConfigurationHelper": EmailConfigurationHelper,
 };
 
 // For future use of extra plugins from the community

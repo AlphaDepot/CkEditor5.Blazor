@@ -1,36 +1,36 @@
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value2) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value: value2 }) : obj[key] = value2;
 var __publicField = (obj, key, value2) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value2);
-var _a2, _b, _c, _d, _e2, _f, _g;
-function _mergeNamespaces(n10, m9) {
-  for (var i13 = 0; i13 < m9.length; i13++) {
-    const e6 = m9[i13];
-    if (typeof e6 !== "string" && !Array.isArray(e6)) {
-      for (const k5 in e6) {
-        if (k5 !== "default" && !(k5 in n10)) {
-          const d5 = Object.getOwnPropertyDescriptor(e6, k5);
-          if (d5) {
-            Object.defineProperty(n10, k5, d5.get ? d5 : {
+var _a2, _b, _c, _d, _e2, _f, _g, _h, _i2;
+function _mergeNamespaces(n12, m10) {
+  for (var i14 = 0; i14 < m10.length; i14++) {
+    const e7 = m10[i14];
+    if (typeof e7 !== "string" && !Array.isArray(e7)) {
+      for (const k5 in e7) {
+        if (k5 !== "default" && !(k5 in n12)) {
+          const d6 = Object.getOwnPropertyDescriptor(e7, k5);
+          if (d6) {
+            Object.defineProperty(n12, k5, d6.get ? d6 : {
               enumerable: true,
-              get: () => e6[k5]
+              get: () => e7[k5]
             });
           }
         }
       }
     }
   }
-  return Object.freeze(Object.defineProperty(n10, Symbol.toStringTag, { value: "Module" }));
+  return Object.freeze(Object.defineProperty(n12, Symbol.toStringTag, { value: "Module" }));
 }
-function identity(x4) {
-  return x4;
+function identity(x5) {
+  return x5;
 }
 function noop() {
 }
 function isPrimitive(value2) {
   return value2 == null || typeof value2 !== "object" && typeof value2 !== "function";
 }
-function isTypedArray$1(x4) {
-  return ArrayBuffer.isView(x4) && !(x4 instanceof DataView);
+function isTypedArray$1(x5) {
+  return ArrayBuffer.isView(x5) && !(x5 instanceof DataView);
 }
 function clone$3(obj) {
   if (isPrimitive(obj)) {
@@ -135,8 +135,8 @@ function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack = /* @
   if (Array.isArray(valueToClone)) {
     const result = new Array(valueToClone.length);
     stack.set(valueToClone, result);
-    for (let i13 = 0; i13 < valueToClone.length; i13++) {
-      result[i13] = cloneDeepWithImpl(valueToClone[i13], i13, objectToClone, stack, cloneValue);
+    for (let i14 = 0; i14 < valueToClone.length; i14++) {
+      result[i14] = cloneDeepWithImpl(valueToClone[i14], i14, objectToClone, stack, cloneValue);
     }
     if (Object.hasOwn(valueToClone, "index")) {
       result.index = valueToClone.index;
@@ -176,8 +176,8 @@ function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack = /* @
   if (isTypedArray$1(valueToClone)) {
     const result = new (Object.getPrototypeOf(valueToClone)).constructor(valueToClone.length);
     stack.set(valueToClone, result);
-    for (let i13 = 0; i13 < valueToClone.length; i13++) {
-      result[i13] = cloneDeepWithImpl(valueToClone[i13], i13, objectToClone, stack, cloneValue);
+    for (let i14 = 0; i14 < valueToClone.length; i14++) {
+      result[i14] = cloneDeepWithImpl(valueToClone[i14], i14, objectToClone, stack, cloneValue);
     }
     return result;
   }
@@ -224,8 +224,8 @@ function cloneDeepWithImpl(valueToClone, keyToClone, objectToClone, stack = /* @
 }
 function copyProperties(target, source2, objectToClone = target, stack, cloneValue) {
   const keys = [...Object.keys(source2), ...getSymbols(source2)];
-  for (let i13 = 0; i13 < keys.length; i13++) {
-    const key = keys[i13];
+  for (let i14 = 0; i14 < keys.length; i14++) {
+    const key = keys[i14];
     const descriptor = Object.getOwnPropertyDescriptor(target, key);
     if (descriptor == null || descriptor.writable) {
       target[key] = cloneDeepWithImpl(source2[key], key, objectToClone, stack, cloneValue);
@@ -269,42 +269,42 @@ function cloneDeep$1(obj) {
 function eq(value2, other) {
   return value2 === other || Number.isNaN(value2) && Number.isNaN(other);
 }
-function isEqualWith$1(a9, b3, areValuesEqual) {
-  return isEqualWithImpl(a9, b3, void 0, void 0, void 0, void 0, areValuesEqual);
+function isEqualWith$1(a9, b4, areValuesEqual) {
+  return isEqualWithImpl(a9, b4, void 0, void 0, void 0, void 0, areValuesEqual);
 }
-function isEqualWithImpl(a9, b3, property2, aParent, bParent, stack, areValuesEqual) {
-  const result = areValuesEqual(a9, b3, property2, aParent, bParent, stack);
+function isEqualWithImpl(a9, b4, property2, aParent, bParent, stack, areValuesEqual) {
+  const result = areValuesEqual(a9, b4, property2, aParent, bParent, stack);
   if (result !== void 0) {
     return result;
   }
-  if (typeof a9 === typeof b3) {
+  if (typeof a9 === typeof b4) {
     switch (typeof a9) {
       case "bigint":
       case "string":
       case "boolean":
       case "symbol":
       case "undefined": {
-        return a9 === b3;
+        return a9 === b4;
       }
       case "number": {
-        return a9 === b3 || Object.is(a9, b3);
+        return a9 === b4 || Object.is(a9, b4);
       }
       case "function": {
-        return a9 === b3;
+        return a9 === b4;
       }
       case "object": {
-        return areObjectsEqual(a9, b3, stack, areValuesEqual);
+        return areObjectsEqual(a9, b4, stack, areValuesEqual);
       }
     }
   }
-  return areObjectsEqual(a9, b3, stack, areValuesEqual);
+  return areObjectsEqual(a9, b4, stack, areValuesEqual);
 }
-function areObjectsEqual(a9, b3, stack, areValuesEqual) {
-  if (Object.is(a9, b3)) {
+function areObjectsEqual(a9, b4, stack, areValuesEqual) {
+  if (Object.is(a9, b4)) {
     return true;
   }
   let aTag = getTag(a9);
-  let bTag = getTag(b3);
+  let bTag = getTag(b4);
   if (aTag === argumentsTag) {
     aTag = objectTag;
   }
@@ -316,54 +316,54 @@ function areObjectsEqual(a9, b3, stack, areValuesEqual) {
   }
   switch (aTag) {
     case stringTag:
-      return a9.toString() === b3.toString();
+      return a9.toString() === b4.toString();
     case numberTag: {
-      const x4 = a9.valueOf();
-      const y2 = b3.valueOf();
-      return eq(x4, y2);
+      const x5 = a9.valueOf();
+      const y3 = b4.valueOf();
+      return eq(x5, y3);
     }
     case booleanTag:
     case dateTag:
     case symbolTag:
-      return Object.is(a9.valueOf(), b3.valueOf());
+      return Object.is(a9.valueOf(), b4.valueOf());
     case regexpTag: {
-      return a9.source === b3.source && a9.flags === b3.flags;
+      return a9.source === b4.source && a9.flags === b4.flags;
     }
     case functionTag: {
-      return a9 === b3;
+      return a9 === b4;
     }
   }
   stack = stack ?? /* @__PURE__ */ new Map();
   const aStack = stack.get(a9);
-  const bStack = stack.get(b3);
+  const bStack = stack.get(b4);
   if (aStack != null && bStack != null) {
-    return aStack === b3;
+    return aStack === b4;
   }
-  stack.set(a9, b3);
-  stack.set(b3, a9);
+  stack.set(a9, b4);
+  stack.set(b4, a9);
   try {
     switch (aTag) {
       case mapTag: {
-        if (a9.size !== b3.size) {
+        if (a9.size !== b4.size) {
           return false;
         }
         for (const [key, value2] of a9.entries()) {
-          if (!b3.has(key) || !isEqualWithImpl(value2, b3.get(key), key, a9, b3, stack, areValuesEqual)) {
+          if (!b4.has(key) || !isEqualWithImpl(value2, b4.get(key), key, a9, b4, stack, areValuesEqual)) {
             return false;
           }
         }
         return true;
       }
       case setTag: {
-        if (a9.size !== b3.size) {
+        if (a9.size !== b4.size) {
           return false;
         }
         const aValues = Array.from(a9.values());
-        const bValues = Array.from(b3.values());
-        for (let i13 = 0; i13 < aValues.length; i13++) {
-          const aValue = aValues[i13];
+        const bValues = Array.from(b4.values());
+        for (let i14 = 0; i14 < aValues.length; i14++) {
+          const aValue = aValues[i14];
           const index2 = bValues.findIndex((bValue) => {
-            return isEqualWithImpl(aValue, bValue, void 0, a9, b3, stack, areValuesEqual);
+            return isEqualWithImpl(aValue, bValue, void 0, a9, b4, stack, areValuesEqual);
           });
           if (index2 === -1) {
             return false;
@@ -384,52 +384,52 @@ function areObjectsEqual(a9, b3, stack, areValuesEqual) {
       case bigInt64ArrayTag:
       case float32ArrayTag:
       case float64ArrayTag: {
-        if (typeof Buffer !== "undefined" && Buffer.isBuffer(a9) !== Buffer.isBuffer(b3)) {
+        if (typeof Buffer !== "undefined" && Buffer.isBuffer(a9) !== Buffer.isBuffer(b4)) {
           return false;
         }
-        if (a9.length !== b3.length) {
+        if (a9.length !== b4.length) {
           return false;
         }
-        for (let i13 = 0; i13 < a9.length; i13++) {
-          if (!isEqualWithImpl(a9[i13], b3[i13], i13, a9, b3, stack, areValuesEqual)) {
+        for (let i14 = 0; i14 < a9.length; i14++) {
+          if (!isEqualWithImpl(a9[i14], b4[i14], i14, a9, b4, stack, areValuesEqual)) {
             return false;
           }
         }
         return true;
       }
       case arrayBufferTag: {
-        if (a9.byteLength !== b3.byteLength) {
+        if (a9.byteLength !== b4.byteLength) {
           return false;
         }
-        return areObjectsEqual(new Uint8Array(a9), new Uint8Array(b3), stack, areValuesEqual);
+        return areObjectsEqual(new Uint8Array(a9), new Uint8Array(b4), stack, areValuesEqual);
       }
       case dataViewTag: {
-        if (a9.byteLength !== b3.byteLength || a9.byteOffset !== b3.byteOffset) {
+        if (a9.byteLength !== b4.byteLength || a9.byteOffset !== b4.byteOffset) {
           return false;
         }
-        return areObjectsEqual(new Uint8Array(a9), new Uint8Array(b3), stack, areValuesEqual);
+        return areObjectsEqual(new Uint8Array(a9), new Uint8Array(b4), stack, areValuesEqual);
       }
       case errorTag: {
-        return a9.name === b3.name && a9.message === b3.message;
+        return a9.name === b4.name && a9.message === b4.message;
       }
       case objectTag: {
-        const areEqualInstances = areObjectsEqual(a9.constructor, b3.constructor, stack, areValuesEqual) || isPlainObject$1(a9) && isPlainObject$1(b3);
+        const areEqualInstances = areObjectsEqual(a9.constructor, b4.constructor, stack, areValuesEqual) || isPlainObject$1(a9) && isPlainObject$1(b4);
         if (!areEqualInstances) {
           return false;
         }
         const aKeys = [...Object.keys(a9), ...getSymbols(a9)];
-        const bKeys = [...Object.keys(b3), ...getSymbols(b3)];
+        const bKeys = [...Object.keys(b4), ...getSymbols(b4)];
         if (aKeys.length !== bKeys.length) {
           return false;
         }
-        for (let i13 = 0; i13 < aKeys.length; i13++) {
-          const propKey = aKeys[i13];
+        for (let i14 = 0; i14 < aKeys.length; i14++) {
+          const propKey = aKeys[i14];
           const aProp = a9[propKey];
-          if (!Object.hasOwn(b3, propKey)) {
+          if (!Object.hasOwn(b4, propKey)) {
             return false;
           }
-          const bProp = b3[propKey];
-          if (!isEqualWithImpl(aProp, bProp, propKey, a9, b3, stack, areValuesEqual)) {
+          const bProp = b4[propKey];
+          if (!isEqualWithImpl(aProp, bProp, propKey, a9, b4, stack, areValuesEqual)) {
             return false;
           }
         }
@@ -441,11 +441,11 @@ function areObjectsEqual(a9, b3, stack, areValuesEqual) {
     }
   } finally {
     stack.delete(a9);
-    stack.delete(b3);
+    stack.delete(b4);
   }
 }
-function isEqual(a9, b3) {
-  return isEqualWith$1(a9, b3, noop);
+function isEqual(a9, b4) {
+  return isEqualWith$1(a9, b4, noop);
 }
 function isFunction(value2) {
   return typeof value2 === "function";
@@ -684,9 +684,9 @@ function isString$1(value2) {
 function set(obj, path, value2) {
   const resolvedPath2 = Array.isArray(path) ? path : typeof path === "string" ? toPath$1(path) : [path];
   let current = obj;
-  for (let i13 = 0; i13 < resolvedPath2.length - 1; i13++) {
-    const key = resolvedPath2[i13];
-    const nextKey = resolvedPath2[i13 + 1];
+  for (let i14 = 0; i14 < resolvedPath2.length - 1; i14++) {
+    const key = resolvedPath2[i14];
+    const nextKey = resolvedPath2[i14 + 1];
     if (current[key] == null) {
       current[key] = isIndex(nextKey) ? [] : {};
     }
@@ -825,25 +825,25 @@ function toString$1(value2) {
   }
   return result;
 }
-function isBuffer(x4) {
-  return typeof Buffer !== "undefined" && Buffer.isBuffer(x4);
+function isBuffer(x5) {
+  return typeof Buffer !== "undefined" && Buffer.isBuffer(x5);
 }
 function isPrototype(value2) {
   const constructor = value2 == null ? void 0 : value2.constructor;
   const prototype = typeof constructor === "function" ? constructor.prototype : Object.prototype;
   return value2 === prototype;
 }
-function isTypedArray(x4) {
-  return isTypedArray$1(x4);
+function isTypedArray(x5) {
+  return isTypedArray$1(x5);
 }
-function times(n10, getValue) {
-  n10 = toInteger(n10);
-  if (n10 < 1 || !Number.isSafeInteger(n10)) {
+function times(n12, getValue) {
+  n12 = toInteger(n12);
+  if (n12 < 1 || !Number.isSafeInteger(n12)) {
     return [];
   }
-  const result = new Array(n10);
-  for (let i13 = 0; i13 < n10; i13++) {
-    result[i13] = typeof getValue === "function" ? getValue(i13) : i13;
+  const result = new Array(n12);
+  for (let i14 = 0; i14 < n12; i14++) {
+    result[i14] = typeof getValue === "function" ? getValue(i14) : i14;
   }
   return result;
 }
@@ -893,15 +893,15 @@ function arrayLikeKeysIn(object) {
   return [...indices, ...keysInImpl(object).filter((key) => !filteredKeys.has(key))];
 }
 function assignIn(object, ...sources) {
-  for (let i13 = 0; i13 < sources.length; i13++) {
-    assignInImpl(object, sources[i13]);
+  for (let i14 = 0; i14 < sources.length; i14++) {
+    assignInImpl(object, sources[i14]);
   }
   return object;
 }
 function assignInImpl(object, source2) {
   const keys = keysIn(source2);
-  for (let i13 = 0; i13 < keys.length; i13++) {
-    const key = keys[i13];
+  for (let i14 = 0; i14 < keys.length; i14++) {
+    const key = keys[i14];
     if (!eq(object[key], source2[key])) {
       object[key] = source2[key];
     }
@@ -910,8 +910,8 @@ function assignInImpl(object, source2) {
 function mapValues$1(object, getNewValue) {
   const result = {};
   const keys = Object.keys(object);
-  for (let i13 = 0; i13 < keys.length; i13++) {
-    const key = keys[i13];
+  for (let i14 = 0; i14 < keys.length; i14++) {
+    const key = keys[i14];
     const value2 = object[key];
     result[key] = getNewValue(value2, key, object);
   }
@@ -932,7 +932,7 @@ function mapValues(object, getNewValue) {
   }
 }
 function isPlainObject(object) {
-  var _a4;
+  var _a3;
   if (typeof object !== "object") {
     return false;
   }
@@ -947,7 +947,7 @@ function isPlainObject(object) {
     if (tag == null) {
       return false;
     }
-    const isTagReadonly = !((_a4 = Object.getOwnPropertyDescriptor(object, Symbol.toStringTag)) == null ? void 0 : _a4.writable);
+    const isTagReadonly = !((_a3 = Object.getOwnPropertyDescriptor(object, Symbol.toStringTag)) == null ? void 0 : _a3.writable);
     if (isTagReadonly) {
       return false;
     }
@@ -963,8 +963,8 @@ function mergeWith(object, ...otherArgs) {
   const sources = otherArgs.slice(0, -1);
   const merge2 = otherArgs[otherArgs.length - 1];
   let result = object;
-  for (let i13 = 0; i13 < sources.length; i13++) {
-    const source2 = sources[i13];
+  for (let i14 = 0; i14 < sources.length; i14++) {
+    const source2 = sources[i14];
     result = mergeWithDeep(result, source2, merge2, /* @__PURE__ */ new Map());
   }
   return result;
@@ -982,13 +982,13 @@ function mergeWithDeep(target, source2, merge2, stack) {
   stack.set(source2, target);
   if (Array.isArray(source2)) {
     source2 = source2.slice();
-    for (let i13 = 0; i13 < source2.length; i13++) {
-      source2[i13] = source2[i13] ?? void 0;
+    for (let i14 = 0; i14 < source2.length; i14++) {
+      source2[i14] = source2[i14] ?? void 0;
     }
   }
   const sourceKeys = [...Object.keys(source2), ...getSymbols(source2)];
-  for (let i13 = 0; i13 < sourceKeys.length; i13++) {
-    const key = sourceKeys[i13];
+  for (let i14 = 0; i14 < sourceKeys.length; i14++) {
+    const key = sourceKeys[i14];
     let sourceValue = source2[key];
     let targetValue = target[key];
     if (isArguments(sourceValue)) {
@@ -1004,8 +1004,8 @@ function mergeWithDeep(target, source2, merge2, stack) {
       if (typeof targetValue === "object" && targetValue != null) {
         const cloned = [];
         const targetKeys = Reflect.ownKeys(targetValue);
-        for (let i14 = 0; i14 < targetKeys.length; i14++) {
-          const targetKey = targetKeys[i14];
+        for (let i15 = 0; i15 < targetKeys.length; i15++) {
+          const targetKey = targetKeys[i15];
           cloned[targetKey] = targetValue[targetKey];
         }
         targetValue = cloned;
@@ -1094,15 +1094,15 @@ function omit(obj, ...keysArr) {
     return {};
   }
   const result = cloneDeep$1(obj);
-  for (let i13 = 0; i13 < keysArr.length; i13++) {
-    let keys = keysArr[i13];
+  for (let i14 = 0; i14 < keysArr.length; i14++) {
+    let keys = keysArr[i14];
     switch (typeof keys) {
       case "object": {
         if (!Array.isArray(keys)) {
           keys = Array.from(keys);
         }
-        for (let j3 = 0; j3 < keys.length; j3++) {
-          const key = keys[j3];
+        for (let j4 = 0; j4 < keys.length; j4++) {
+          const key = keys[j4];
           unset(result, key);
         }
         break;
@@ -1120,32 +1120,32 @@ function omit(obj, ...keysArr) {
 function isElement$6(value2) {
   return isObjectLike(value2) && value2.nodeType === 1 && !isPlainObject(value2);
 }
-function after(n10, func) {
-  if (!Number.isInteger(n10) || n10 < 0) {
+function after(n12, func) {
+  if (!Number.isInteger(n12) || n12 < 0) {
     throw new Error(`n must be a non-negative integer.`);
   }
   let counter = 0;
   return (...args) => {
-    if (++counter >= n10) {
+    if (++counter >= n12) {
       return func(...args);
     }
     return void 0;
   };
 }
-function isEqualWith(a9, b3, areValuesEqual = noop) {
+function isEqualWith(a9, b4, areValuesEqual = noop) {
   if (typeof areValuesEqual !== "function") {
     areValuesEqual = noop;
   }
-  return isEqualWith$1(a9, b3, (...args) => {
+  return isEqualWith$1(a9, b4, (...args) => {
     const result = areValuesEqual(...args);
     if (result !== void 0) {
       return Boolean(result);
     }
-    if (a9 instanceof Map && b3 instanceof Map) {
-      return isEqualWith(Array.from(a9), Array.from(b3), after(2, areValuesEqual));
+    if (a9 instanceof Map && b4 instanceof Map) {
+      return isEqualWith(Array.from(a9), Array.from(b4), after(2, areValuesEqual));
     }
-    if (a9 instanceof Set && b3 instanceof Set) {
-      return isEqualWith(Array.from(a9), Array.from(b3), after(2, areValuesEqual));
+    if (a9 instanceof Set && b4 instanceof Set) {
+      return isEqualWith(Array.from(a9), Array.from(b4), after(2, areValuesEqual));
     }
   });
 }
@@ -1177,8 +1177,8 @@ function escapeRegExp(str) {
 function startCase(str) {
   const words$1 = words(normalizeForCase(str).trim());
   let result = "";
-  for (let i13 = 0; i13 < words$1.length; i13++) {
-    const word = words$1[i13];
+  for (let i14 = 0; i14 < words$1.length; i14++) {
+    const word = words$1[i14];
     if (result) {
       result += " ";
     }
@@ -1223,7 +1223,7 @@ try {
     window,
     document
   };
-} catch (e6) {
+} catch (e7) {
   /* istanbul ignore next -- @preserve */
   globalVar = {
     window: {},
@@ -1234,7 +1234,7 @@ var global$1 = globalVar;
 function getUserAgent() {
   try {
     return navigator.userAgent.toLowerCase();
-  } catch (e6) {
+  } catch (e7) {
     return "";
   }
 }
@@ -1296,12 +1296,12 @@ function isMotionReduced() {
  * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
-function fastDiff(a9, b3, cmp, atomicChanges) {
-  cmp = cmp || function(a10, b4) {
-    return a10 === b4;
+function fastDiff(a9, b4, cmp, atomicChanges) {
+  cmp = cmp || function(a10, b5) {
+    return a10 === b5;
   };
   const arrayA = Array.isArray(a9) ? a9 : Array.prototype.slice.call(a9);
-  const arrayB = Array.isArray(b3) ? b3 : Array.prototype.slice.call(b3);
+  const arrayB = Array.isArray(b4) ? b4 : Array.prototype.slice.call(b4);
   const changeIndexes = findChangeBoundaryIndexes(arrayA, arrayB, cmp);
   const result = atomicChanges ? changeIndexesToAtomicChanges(changeIndexes, arrayB.length) : changeIndexesToChanges(arrayB, changeIndexes);
   return result;
@@ -1327,9 +1327,9 @@ function findChangeBoundaryIndexes(arr1, arr2, cmp) {
   };
 }
 function findFirstDifferenceIndex(arr1, arr2, cmp) {
-  for (let i13 = 0; i13 < Math.max(arr1.length, arr2.length); i13++) {
-    if (arr1[i13] === void 0 || arr2[i13] === void 0 || !cmp(arr1[i13], arr2[i13])) {
-      return i13;
+  for (let i14 = 0; i14 < Math.max(arr1.length, arr2.length); i14++) {
+    if (arr1[i14] === void 0 || arr2[i14] === void 0 || !cmp(arr1[i14], arr2[i14])) {
+      return i14;
     }
   }
   return -1;
@@ -1376,63 +1376,63 @@ function changeIndexesToAtomicChanges(changeIndexes, newLength) {
   }
   return result;
 }
-function diff$1(a9, b3, cmp) {
-  cmp = cmp || function(a10, b4) {
-    return a10 === b4;
+function diff$1(a9, b4, cmp) {
+  cmp = cmp || function(a10, b5) {
+    return a10 === b5;
   };
   const aLength = a9.length;
-  const bLength = b3.length;
+  const bLength = b4.length;
   if (aLength > 200 || bLength > 200 || aLength + bLength > 300) {
-    return diff$1.fastDiff(a9, b3, cmp, true);
+    return diff$1.fastDiff(a9, b4, cmp, true);
   }
   let _insert2, _delete;
   if (bLength < aLength) {
     const tmp = a9;
-    a9 = b3;
-    b3 = tmp;
+    a9 = b4;
+    b4 = tmp;
     _insert2 = "delete";
     _delete = "insert";
   } else {
     _insert2 = "insert";
     _delete = "delete";
   }
-  const m9 = a9.length;
-  const n10 = b3.length;
-  const delta = n10 - m9;
+  const m10 = a9.length;
+  const n12 = b4.length;
+  const delta = n12 - m10;
   const es2 = {};
   const fp = {};
   function snake(k6) {
     const y1 = (fp[k6 - 1] !== void 0 ? fp[k6 - 1] : -1) + 1;
-    const y2 = fp[k6 + 1] !== void 0 ? fp[k6 + 1] : -1;
-    const dir = y1 > y2 ? -1 : 1;
+    const y22 = fp[k6 + 1] !== void 0 ? fp[k6 + 1] : -1;
+    const dir = y1 > y22 ? -1 : 1;
     if (es2[k6 + dir]) {
       es2[k6] = es2[k6 + dir].slice(0);
     }
     if (!es2[k6]) {
       es2[k6] = [];
     }
-    es2[k6].push(y1 > y2 ? _insert2 : _delete);
-    let y3 = Math.max(y1, y2);
-    let x4 = y3 - k6;
-    while (x4 < m9 && y3 < n10 && cmp(a9[x4], b3[y3])) {
-      x4++;
+    es2[k6].push(y1 > y22 ? _insert2 : _delete);
+    let y3 = Math.max(y1, y22);
+    let x5 = y3 - k6;
+    while (x5 < m10 && y3 < n12 && cmp(a9[x5], b4[y3])) {
+      x5++;
       y3++;
       es2[k6].push("equal");
     }
     return y3;
   }
-  let p6 = 0;
+  let p7 = 0;
   let k5;
   do {
-    for (k5 = -p6; k5 < delta; k5++) {
+    for (k5 = -p7; k5 < delta; k5++) {
       fp[k5] = snake(k5);
     }
-    for (k5 = delta + p6; k5 > delta; k5--) {
+    for (k5 = delta + p7; k5 > delta; k5--) {
       fp[k5] = snake(k5);
     }
     fp[delta] = snake(delta);
-    p6++;
-  } while (fp[delta] !== n10);
+    p7++;
+  } while (fp[delta] !== n12);
   return es2[delta].slice(1);
 }
 diff$1.fastDiff = fastDiff;
@@ -1778,8 +1778,8 @@ function EmitterMixin(base) {
         eventInfo.path.push(this);
         if (callbacks) {
           callbacks = callbacks.slice();
-          for (let i13 = 0; i13 < callbacks.length; i13++) {
-            const fn = callbacks[i13].callback;
+          for (let i14 = 0; i14 < callbacks.length; i14++) {
+            const fn = callbacks[i14].callback;
             fn.call(this, eventInfo, ...args);
             if (eventInfo.off.called) {
               delete eventInfo.off.called;
@@ -1859,10 +1859,10 @@ function EmitterMixin(base) {
     _removeEventListener(event, callback) {
       const lists = getCallbacksListsForNamespace(this, event);
       for (const callbacks of lists) {
-        for (let i13 = 0; i13 < callbacks.length; i13++) {
-          if (callbacks[i13].callback == callback) {
-            callbacks.splice(i13, 1);
-            i13--;
+        for (let i14 = 0; i14 < callbacks.length; i14++) {
+          if (callbacks[i14].callback == callback) {
+            callbacks.splice(i14, 1);
+            i14--;
           }
         }
       }
@@ -1948,8 +1948,8 @@ function getCallbacksListsForNamespace(source2, eventName) {
   let callbacksLists = [
     eventNode.callbacks
   ];
-  for (let i13 = 0; i13 < eventNode.childEvents.length; i13++) {
-    const childCallbacksLists = getCallbacksListsForNamespace(source2, eventNode.childEvents[i13]);
+  for (let i14 = 0; i14 < eventNode.childEvents.length; i14++) {
+    const childCallbacksLists = getCallbacksListsForNamespace(source2, eventNode.childEvents[i14]);
     callbacksLists = callbacksLists.concat(childCallbacksLists);
   }
   return callbacksLists;
@@ -2004,17 +2004,17 @@ const decoratedMethods = Symbol("decoratedMethods");
 const decoratedOriginal = Symbol("decoratedOriginal");
 const defaultObservableClass = /* @__PURE__ */ ObservableMixin(/* @__PURE__ */ EmitterMixin());
 function ObservableMixin(base) {
-  var _a4, _b2, _c2, _d2, _e3;
+  var _a3, _b2, _c2, _d2, _e3;
   if (!base) {
     return defaultObservableClass;
   }
-  class Mixin extends (_e3 = base, _d2 = observablePropertiesSymbol, _c2 = decoratedMethods, _b2 = boundPropertiesSymbol, _a4 = boundObservablesSymbol, _e3) {
+  class Mixin extends (_e3 = base, _d2 = observablePropertiesSymbol, _c2 = decoratedMethods, _b2 = boundPropertiesSymbol, _a3 = boundObservablesSymbol, _e3) {
     constructor() {
       super(...arguments);
       __publicField(this, _d2);
       __publicField(this, _c2);
       __publicField(this, _b2);
-      __publicField(this, _a4);
+      __publicField(this, _a3);
     }
     set(name, value2) {
       if (isObject$2(name)) {
@@ -2390,16 +2390,16 @@ function count(iterable) {
  * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
-function compareArrays(a9, b3) {
-  const minLen = Math.min(a9.length, b3.length);
-  for (let i13 = 0; i13 < minLen; i13++) {
-    if (a9[i13] != b3[i13]) {
-      return i13;
+function compareArrays(a9, b4) {
+  const minLen = Math.min(a9.length, b4.length);
+  for (let i14 = 0; i14 < minLen; i14++) {
+    if (a9[i14] != b4[i14]) {
+      return i14;
     }
   }
-  if (a9.length == b3.length) {
+  if (a9.length == b4.length) {
     return "same";
-  } else if (a9.length < b3.length) {
+  } else if (a9.length < b4.length) {
     return "prefix";
   } else {
     return "extension";
@@ -2845,11 +2845,11 @@ function getRangeFromMouseEvent(domEvent) {
     return null;
   }
   const domDoc = domEvent.target.ownerDocument;
-  const x4 = domEvent.clientX;
-  const y2 = domEvent.clientY;
+  const x5 = domEvent.clientX;
+  const y3 = domEvent.clientY;
   let domRange = null;
-  if (domDoc.caretRangeFromPoint && domDoc.caretRangeFromPoint(x4, y2)) {
-    domRange = domDoc.caretRangeFromPoint(x4, y2);
+  if (domDoc.caretRangeFromPoint && domDoc.caretRangeFromPoint(x5, y3)) {
+    domRange = domDoc.caretRangeFromPoint(x5, y3);
   } else if (domEvent.rangeParent) {
     domRange = domDoc.createRange();
     domRange.setStart(domEvent.rangeParent, domEvent.rangeOffset);
@@ -3004,11 +3004,11 @@ class Rect {
   * @param y Desired vertical location.
   * @returns A rect which has been moved.
   */
-  moveTo(x4, y2) {
-    this.top = y2;
-    this.right = x4 + this.width;
-    this.bottom = y2 + this.height;
-    this.left = x4;
+  moveTo(x5, y3) {
+    this.top = y3;
+    this.right = x5 + this.width;
+    this.bottom = y3 + this.height;
+    this.left = x5;
     return this;
   }
   /**
@@ -3018,11 +3018,11 @@ class Rect {
   * @param y A vertical offset
   * @returns A rect which has been moved.
   */
-  moveBy(x4, y2) {
-    this.top += y2;
-    this.right += x4;
-    this.left += x4;
-    this.bottom += y2;
+  moveBy(x5, y3) {
+    this.top += y3;
+    this.right += x5;
+    this.left += x5;
+    this.bottom += y3;
     return this;
   }
   /**
@@ -3251,8 +3251,8 @@ class Rect {
   }
 }
 function copyRectProperties(rect, source2) {
-  for (const p6 of rectProperties) {
-    rect[p6] = source2[p6];
+  for (const p7 of rectProperties) {
+    rect[p7] = source2[p7];
   }
 }
 function isBody(value2) {
@@ -4003,7 +4003,7 @@ function _translate(language, message, quantity = 1, translations) {
     return message.string;
   }
   const dictionary = normalizedTranslations[language].dictionary;
-  const getPluralForm = normalizedTranslations[language].getPluralForm || ((n10) => n10 === 1 ? 0 : 1);
+  const getPluralForm = normalizedTranslations[language].getPluralForm || ((n12) => n12 === 1 ? 0 : 1);
   const translation = dictionary[messageId];
   if (typeof translation === "string") {
     return translation;
@@ -4566,9 +4566,9 @@ class Collection extends (/* @__PURE__ */ EmitterMixin()) {
         this._bindToExternalToInternalMap.set(externalItem, item);
         this._bindToInternalToExternalMap.set(item, externalItem);
         this.add(item, finalIndex);
-        for (let i13 = 0; i13 < externalCollection._skippedIndexesFromExternal.length; i13++) {
-          if (finalIndex <= externalCollection._skippedIndexesFromExternal[i13]) {
-            externalCollection._skippedIndexesFromExternal[i13]++;
+        for (let i14 = 0; i14 < externalCollection._skippedIndexesFromExternal.length; i14++) {
+          if (finalIndex <= externalCollection._skippedIndexesFromExternal[i14]) {
+            externalCollection._skippedIndexesFromExternal[i14]++;
           }
         }
       }
@@ -5030,11 +5030,11 @@ function exponentialDelay(options = {}) {
 function spliceArray(targetArray, insertArray, index2) {
   const originalLength = targetArray.length;
   const insertLength = insertArray.length;
-  for (let i13 = originalLength - 1; i13 >= index2; i13--) {
-    targetArray[i13 + insertLength] = targetArray[i13];
+  for (let i14 = originalLength - 1; i14 >= index2; i14--) {
+    targetArray[i14 + insertLength] = targetArray[i14];
   }
-  for (let i13 = 0; i13 < insertLength; i13++) {
-    targetArray[index2 + i13] = insertArray[i13];
+  for (let i14 = 0; i14 < insertLength; i14++) {
+    targetArray[index2 + i14] = insertArray[i14];
   }
 }
 /**
@@ -5063,7 +5063,7 @@ function parseBase64EncodedObject(encoded) {
     }
     const decoded = atob(encoded.replace(/-/g, "+").replace(/_/g, "/"));
     return JSON.parse(decoded);
-  } catch (e6) {
+  } catch (e7) {
     return null;
   }
 }
@@ -5073,8 +5073,8 @@ function parseBase64EncodedObject(encoded) {
  */
 function makeCrcTable() {
   const crcTable = [];
-  for (let n10 = 0; n10 < 256; n10++) {
-    let c8 = n10;
+  for (let n12 = 0; n12 < 256; n12++) {
+    let c8 = n12;
     for (let k5 = 0; k5 < 8; k5++) {
       if (c8 & 1) {
         c8 = 3988292384 ^ c8 >>> 1;
@@ -5082,7 +5082,7 @@ function makeCrcTable() {
         c8 = c8 >>> 1;
       }
     }
-    crcTable[n10] = c8;
+    crcTable[n12] = c8;
   }
   return crcTable;
 }
@@ -5098,8 +5098,8 @@ function crc32(inputData) {
     }
     return String(item);
   }).join("");
-  for (let i13 = 0; i13 < dataString.length; i13++) {
-    const byte = dataString.charCodeAt(i13);
+  for (let i14 = 0; i14 < dataString.length; i14++) {
+    const byte = dataString.charCodeAt(i14);
     crc = crc >>> 8 ^ crcTable[(crc ^ byte) & 255];
   }
   crc = (crc ^ -1) >>> 0;
@@ -5477,11 +5477,11 @@ let Node$2 = class Node2 extends (/* @__PURE__ */ EmitterMixin(TypeCheckable$1))
   getCommonAncestor(node, options = {}) {
     const ancestorsA = this.getAncestors(options);
     const ancestorsB = node.getAncestors(options);
-    let i13 = 0;
-    while (ancestorsA[i13] == ancestorsB[i13] && ancestorsA[i13]) {
-      i13++;
+    let i14 = 0;
+    while (ancestorsA[i14] == ancestorsB[i14] && ancestorsA[i14]) {
+      i14++;
     }
-    return i13 === 0 ? null : ancestorsA[i13 - 1];
+    return i14 === 0 ? null : ancestorsA[i14 - 1];
   }
   /**
   * Returns whether this node is before given node. `false` is returned if nodes are in different trees (for example,
@@ -7272,14 +7272,14 @@ function parseInlineStyles(stylesString) {
   if (stylesString.charAt(stylesString.length - 1) != ";") {
     stylesString = stylesString + ";";
   }
-  for (let i13 = 0; i13 < stylesString.length; i13++) {
-    const char = stylesString.charAt(i13);
+  for (let i14 = 0; i14 < stylesString.length; i14++) {
+    const char = stylesString.charAt(i14);
     if (quoteType === null) {
       switch (char) {
         case ":":
           if (!propertyName) {
-            propertyName = stylesString.substr(propertyNameStart, i13 - propertyNameStart);
-            propertyValueStart = i13 + 1;
+            propertyName = stylesString.substr(propertyNameStart, i14 - propertyNameStart);
+            propertyValueStart = i14 + 1;
           }
           break;
         case '"':
@@ -7287,12 +7287,12 @@ function parseInlineStyles(stylesString) {
           quoteType = char;
           break;
         case ";": {
-          const propertyValue = stylesString.substr(propertyValueStart, i13 - propertyValueStart);
+          const propertyValue = stylesString.substr(propertyValueStart, i14 - propertyValueStart);
           if (propertyName) {
             stylesMap.set(propertyName.trim(), propertyValue.trim());
           }
           propertyName = null;
-          propertyNameStart = i13 + 1;
+          propertyNameStart = i14 + 1;
           break;
         }
       }
@@ -7878,7 +7878,7 @@ let Element$1 = class Element2 extends Node$2 {
   getIdentity() {
     const classes = this._classes ? this._classes.keys().sort().join(",") : "";
     const styles = this._styles && String(this._styles);
-    const attributes = Array.from(this._attrs).filter(([key]) => key != "style" && key != "class").map((i13) => `${i13[0]}="${i13[1]}"`).sort().join(" ");
+    const attributes = Array.from(this._attrs).filter(([key]) => key != "style" && key != "class").map((i14) => `${i14[0]}="${i14[1]}"`).sort().join(" ");
     return this.name + (classes == "" ? "" : ` class="${classes}"`) + (!styles ? "" : ` style="${styles}"`) + (attributes == "" ? "" : ` ${attributes}`);
   }
   /**
@@ -7969,8 +7969,8 @@ let Element$1 = class Element2 extends Node$2 {
     this._fireChange("children", this, {
       index: index2
     });
-    for (let i13 = index2; i13 < index2 + howMany; i13++) {
-      this._children[i13].parent = null;
+    for (let i14 = index2; i14 < index2 + howMany; i14++) {
+      this._children[i14].parent = null;
     }
     return this._children.splice(index2, howMany);
   }
@@ -9056,11 +9056,11 @@ let Position$1 = class Position2 extends TypeCheckable$1 {
   getCommonAncestor(position) {
     const ancestorsA = this.getAncestors();
     const ancestorsB = position.getAncestors();
-    let i13 = 0;
-    while (ancestorsA[i13] == ancestorsB[i13] && ancestorsA[i13]) {
-      i13++;
+    let i14 = 0;
+    while (ancestorsA[i14] == ancestorsB[i14] && ancestorsA[i14]) {
+      i14++;
     }
-    return i13 === 0 ? null : ancestorsA[i13 - 1];
+    return i14 === 0 ? null : ancestorsA[i14 - 1];
   }
   /**
   * Checks whether this position equals given position.
@@ -11186,8 +11186,8 @@ let DocumentFragment$1 = class DocumentFragment2 extends (/* @__PURE__ */ Emitte
     this._fireChange("children", this, {
       index: index2
     });
-    for (let i13 = index2; i13 < index2 + howMany; i13++) {
-      this._children[i13].parent = null;
+    for (let i14 = index2; i14 < index2 + howMany; i14++) {
+      this._children[i14].parent = null;
     }
     return this._children.splice(index2, howMany);
   }
@@ -12132,26 +12132,26 @@ class DowncastWriter {
   * `startOffset` and `endOffset` will be wrapped.
   */
   _wrapChildren(parent, startOffset, endOffset, wrapElement) {
-    let i13 = startOffset;
+    let i14 = startOffset;
     const wrapPositions = [];
-    while (i13 < endOffset) {
-      const child = parent.getChild(i13);
+    while (i14 < endOffset) {
+      const child = parent.getChild(i14);
       const isText2 = child.is("$text");
       const isAttribute = child.is("attributeElement");
       if (isAttribute && child._canMergeAttributesFrom(wrapElement)) {
         child._mergeAttributesFrom(wrapElement);
-        wrapPositions.push(new Position$1(parent, i13));
+        wrapPositions.push(new Position$1(parent, i14));
       } else if (isText2 || !isAttribute || shouldABeOutsideB(wrapElement, child)) {
         const newAttribute = wrapElement._clone();
         child._remove();
         newAttribute._appendChild(child);
-        parent._insertChild(i13, newAttribute);
+        parent._insertChild(i14, newAttribute);
         this._addToClonedElementsGroup(newAttribute);
-        wrapPositions.push(new Position$1(parent, i13));
+        wrapPositions.push(new Position$1(parent, i14));
       } else {
         this._wrapChildren(child, 0, child.childCount, wrapElement);
       }
-      i13++;
+      i14++;
     }
     let offsetChange = 0;
     for (const position of wrapPositions) {
@@ -12172,33 +12172,33 @@ class DowncastWriter {
   * `startOffset` and `endOffset` will be unwrapped.
   */
   _unwrapChildren(parent, startOffset, endOffset, unwrapElement) {
-    let i13 = startOffset;
+    let i14 = startOffset;
     const unwrapPositions = [];
-    while (i13 < endOffset) {
-      const child = parent.getChild(i13);
+    while (i14 < endOffset) {
+      const child = parent.getChild(i14);
       if (!child.is("attributeElement")) {
-        i13++;
+        i14++;
         continue;
       }
       if (child.isSimilar(unwrapElement)) {
         const unwrapped = child.getChildren();
         const count2 = child.childCount;
         child._remove();
-        parent._insertChild(i13, unwrapped);
+        parent._insertChild(i14, unwrapped);
         this._removeFromClonedElementsGroup(child);
-        unwrapPositions.push(new Position$1(parent, i13), new Position$1(parent, i13 + count2));
-        i13 += count2;
+        unwrapPositions.push(new Position$1(parent, i14), new Position$1(parent, i14 + count2));
+        i14 += count2;
         endOffset += count2 - 1;
         continue;
       }
       if (child._canSubtractAttributesOf(unwrapElement)) {
         child._subtractAttributesOf(unwrapElement);
-        unwrapPositions.push(new Position$1(parent, i13), new Position$1(parent, i13 + 1));
-        i13++;
+        unwrapPositions.push(new Position$1(parent, i14), new Position$1(parent, i14 + 1));
+        i14++;
         continue;
       }
       this._unwrapChildren(child, 0, child.childCount, unwrapElement);
-      i13++;
+      i14++;
     }
     let offsetChange = 0;
     for (const position of unwrapPositions) {
@@ -12416,13 +12416,13 @@ function getParentContainer(position) {
   }
   return parent;
 }
-function shouldABeOutsideB(a9, b3) {
-  if (a9.priority < b3.priority) {
+function shouldABeOutsideB(a9, b4) {
+  if (a9.priority < b4.priority) {
     return true;
-  } else if (a9.priority > b3.priority) {
+  } else if (a9.priority > b4.priority) {
     return false;
   }
-  return a9.getIdentity() < b3.getIdentity();
+  return a9.getIdentity() < b4.getIdentity();
 }
 function movePositionToTextNode(position) {
   const nodeBefore = position.nodeBefore;
@@ -12892,27 +12892,27 @@ let Renderer$1 = class Renderer2 extends (/* @__PURE__ */ ObservableMixin()) {
     }
     const diff2 = this._diffNodeLists(actualDomChildren, expectedDomChildren);
     const actions = this._findUpdateActions(diff2, actualDomChildren, expectedDomChildren, areTextNodes);
-    let i13 = 0;
+    let i14 = 0;
     const nodesToUnbind = /* @__PURE__ */ new Set();
     for (const action of actions) {
       if (action === "delete") {
-        nodesToUnbind.add(actualDomChildren[i13]);
-        remove$3(actualDomChildren[i13]);
+        nodesToUnbind.add(actualDomChildren[i14]);
+        remove$3(actualDomChildren[i14]);
       } else if (action === "equal" || action === "update") {
-        i13++;
+        i14++;
       }
     }
-    i13 = 0;
+    i14 = 0;
     for (const action of actions) {
       if (action === "insert") {
-        insertAt(domElement, i13, expectedDomChildren[i13]);
-        i13++;
+        insertAt(domElement, i14, expectedDomChildren[i14]);
+        i14++;
       } else if (action === "update") {
-        this._updateTextNode(actualDomChildren[i13], expectedDomChildren[i13].data);
-        i13++;
+        this._updateTextNode(actualDomChildren[i14], expectedDomChildren[i14].data);
+        i14++;
       } else if (action === "equal") {
-        this._markDescendantTextToSync(this.domConverter.domToView(expectedDomChildren[i13]));
-        i13++;
+        this._markDescendantTextToSync(this.domConverter.domToView(expectedDomChildren[i14]));
+        i14++;
       }
     }
     for (const node of nodesToUnbind) {
@@ -13814,8 +13814,8 @@ class DomConverter {
         ...domElement.childNodes
       ];
     }
-    for (let i13 = 0; i13 < childNodes.length; i13++) {
-      const domChild = childNodes[i13];
+    for (let i14 = 0; i14 < childNodes.length; i14++) {
+      const domChild = childNodes[i14];
       const generator = this._domToView(domChild, options, inlineNodes);
       const viewChild = generator.next().value;
       if (viewChild !== null) {
@@ -13853,8 +13853,8 @@ class DomConverter {
     }
     const isBackward = this.isDomSelectionBackward(domSelection);
     const viewRanges = [];
-    for (let i13 = 0; i13 < domSelection.rangeCount; i13++) {
-      const domRange = domSelection.getRangeAt(i13);
+    for (let i14 = 0; i14 < domSelection.rangeCount; i14++) {
+      const domRange = domSelection.getRangeAt(i14);
       const viewRange = this.domRangeToView(domRange);
       if (viewRange) {
         viewRanges.push(viewRange);
@@ -14131,7 +14131,7 @@ class DomConverter {
     try {
       range.setStart(selection.anchorNode, selection.anchorOffset);
       range.setEnd(selection.focusNode, selection.focusOffset);
-    } catch (e6) {
+    } catch (e7) {
       return false;
     }
     const backward = range.collapsed;
@@ -14295,8 +14295,8 @@ class DomConverter {
         }
         const attrs = domNode.attributes;
         if (attrs) {
-          for (let l5 = attrs.length, i13 = 0; i13 < l5; i13++) {
-            viewElement._setAttribute(attrs[i13].name, attrs[i13].value);
+          for (let l5 = attrs.length, i14 = 0; i14 < l5; i14++) {
+            viewElement._setAttribute(attrs[i14].name, attrs[i14].value);
           }
         }
         if (this._isViewElementWithRawContent(viewElement, options)) {
@@ -14344,8 +14344,8 @@ class DomConverter {
       return;
     }
     let prevNodeEndsWithSpace = false;
-    for (let i13 = 0; i13 < inlineNodes.length; i13++) {
-      const node = inlineNodes[i13];
+    for (let i14 = 0; i14 < inlineNodes.length; i14++) {
+      const node = inlineNodes[i14];
       if (!node.is("$text")) {
         prevNodeEndsWithSpace = false;
         continue;
@@ -14357,8 +14357,8 @@ class DomConverter {
       } else {
         data = node.data.replace(/[ \n\t\r]{1,}/g, " ");
         nodeEndsWithSpace = /[^\S\u00A0]/.test(data.charAt(data.length - 1));
-        const prevNode = i13 > 0 ? inlineNodes[i13 - 1] : null;
-        const nextNode = i13 + 1 < inlineNodes.length ? inlineNodes[i13 + 1] : null;
+        const prevNode = i14 > 0 ? inlineNodes[i14 - 1] : null;
+        const nextNode = i14 + 1 < inlineNodes.length ? inlineNodes[i14 + 1] : null;
         const shouldLeftTrim = !prevNode || prevNode.is("element") && prevNode.name == "br" || prevNodeEndsWithSpace;
         const shouldRightTrim = nextNode ? false : !startsWithFiller(node.data);
         if (options.withChildren !== false) {
@@ -14394,8 +14394,8 @@ class DomConverter {
       }
       if (data.length == 0 && node.parent) {
         node._remove();
-        inlineNodes.splice(i13, 1);
-        i13--;
+        inlineNodes.splice(i14, 1);
+        i14--;
       } else {
         node._data = data;
         prevNodeEndsWithSpace = nodeEndsWithSpace;
@@ -15487,8 +15487,8 @@ let DataTransfer$1 = class DataTransfer2 {
   /**
   * Set a preview image of the dragged content.
   */
-  setDragImage(image2, x4, y2) {
-    this._native.setDragImage(image2, x4, y2);
+  setDragImage(image2, x5, y3) {
+    this._native.setDragImage(image2, x5, y3);
   }
   /**
   * Whether the dragging operation was canceled.
@@ -15559,8 +15559,8 @@ class InputObserver extends DomEventObserver {
     if (domEvent.inputType == "insertText" && data && data.includes("\n")) {
       const parts2 = data.split(/\n{1,2}/g);
       let partTargetRanges = targetRanges;
-      for (let i13 = 0; i13 < parts2.length; i13++) {
-        const dataPart = parts2[i13];
+      for (let i14 = 0; i14 < parts2.length; i14++) {
+        const dataPart = parts2[i14];
         if (dataPart != "") {
           this.fire(domEvent.type, domEvent, {
             data: dataPart,
@@ -15573,7 +15573,7 @@ class InputObserver extends DomEventObserver {
             viewDocument.selection.getFirstRange()
           ];
         }
-        if (i13 + 1 < parts2.length) {
+        if (i14 + 1 < parts2.length) {
           this.fire(domEvent.type, domEvent, {
             inputType: "insertParagraph",
             targetRanges: partTargetRanges
@@ -16660,8 +16660,8 @@ class Position extends TypeCheckable {
   */
   get parent() {
     let parent = this.root;
-    for (let i13 = 0; i13 < this.path.length - 1; i13++) {
-      parent = parent.getChildAtOffset(this.path[i13]);
+    for (let i14 = 0; i14 < this.path.length - 1; i14++) {
+      parent = parent.getChildAtOffset(this.path[i14]);
       if (!parent) {
         throw new CKEditorError("model-position-path-incorrect", this, {
           position: this
@@ -16724,8 +16724,8 @@ class Position extends TypeCheckable {
       return false;
     }
     let parent = this.root;
-    for (let i13 = 0; i13 < this.path.length - 1; i13++) {
-      parent = parent.getChildAtOffset(this.path[i13]);
+    for (let i14 = 0; i14 < this.path.length - 1; i14++) {
+      parent = parent.getChildAtOffset(this.path[i14]);
       if (!parent) {
         return false;
       }
@@ -16850,11 +16850,11 @@ class Position extends TypeCheckable {
   getCommonAncestor(position) {
     const ancestorsA = this.getAncestors();
     const ancestorsB = position.getAncestors();
-    let i13 = 0;
-    while (ancestorsA[i13] == ancestorsB[i13] && ancestorsA[i13]) {
-      i13++;
+    let i14 = 0;
+    while (ancestorsA[i14] == ancestorsB[i14] && ancestorsA[i14]) {
+      i14++;
     }
-    return i13 === 0 ? null : ancestorsA[i13 - 1];
+    return i14 === 0 ? null : ancestorsA[i14 - 1];
   }
   /**
   * Returns a new instance of `Position`, that has same {@link #parent parent} but it's offset
@@ -17097,12 +17097,12 @@ class Position extends TypeCheckable {
         }
       }
     } else if (compareArrays(deletePosition.getParentPath(), this.getParentPath()) == "prefix") {
-      const i13 = deletePosition.path.length - 1;
-      if (deletePosition.offset <= this.path[i13]) {
-        if (deletePosition.offset + howMany > this.path[i13]) {
+      const i14 = deletePosition.path.length - 1;
+      if (deletePosition.offset <= this.path[i14]) {
+        if (deletePosition.offset + howMany > this.path[i14]) {
           return null;
         } else {
-          transformed.path[i13] -= howMany;
+          transformed.path[i14] -= howMany;
         }
       }
     }
@@ -17126,9 +17126,9 @@ class Position extends TypeCheckable {
         transformed.offset += howMany;
       }
     } else if (compareArrays(insertPosition.getParentPath(), this.getParentPath()) == "prefix") {
-      const i13 = insertPosition.path.length - 1;
-      if (insertPosition.offset <= this.path[i13]) {
-        transformed.path[i13] += howMany;
+      const i14 = insertPosition.path.length - 1;
+      if (insertPosition.offset <= this.path[i14]) {
+        transformed.path[i14] += howMany;
       }
     }
     return transformed;
@@ -17185,13 +17185,13 @@ class Position extends TypeCheckable {
   * @returns Combined position.
   */
   _getCombined(source2, target) {
-    const i13 = source2.path.length - 1;
+    const i14 = source2.path.length - 1;
     const combined = Position._createAt(target);
     combined.stickiness = this.stickiness;
-    combined.offset = combined.offset + this.path[i13] - source2.offset;
+    combined.offset = combined.offset + this.path[i14] - source2.offset;
     combined.path = [
       ...combined.path,
-      ...this.path.slice(i13 + 1)
+      ...this.path.slice(i14 + 1)
     ];
     return combined;
   }
@@ -17782,18 +17782,18 @@ class Range extends TypeCheckable {
       new Range(this.start, this.end)
     ];
     for (const operation of operations2) {
-      for (let i13 = 0; i13 < ranges.length; i13++) {
-        const result = ranges[i13].getTransformedByOperation(operation);
-        ranges.splice(i13, 1, ...result);
-        i13 += result.length - 1;
+      for (let i14 = 0; i14 < ranges.length; i14++) {
+        const result = ranges[i14].getTransformedByOperation(operation);
+        ranges.splice(i14, 1, ...result);
+        i14 += result.length - 1;
       }
     }
-    for (let i13 = 0; i13 < ranges.length; i13++) {
-      const range = ranges[i13];
-      for (let j3 = i13 + 1; j3 < ranges.length; j3++) {
-        const next2 = ranges[j3];
+    for (let i14 = 0; i14 < ranges.length; i14++) {
+      const range = ranges[i14];
+      for (let j4 = i14 + 1; j4 < ranges.length; j4++) {
+        const next2 = ranges[j4];
         if (range.containsRange(next2) || next2.containsRange(range) || range.isEqual(next2)) {
-          ranges.splice(j3, 1);
+          ranges.splice(j4, 1);
         }
       }
     }
@@ -18092,21 +18092,21 @@ class Range extends TypeCheckable {
       return ranges[0].clone();
     }
     const ref = ranges[0];
-    ranges.sort((a9, b3) => {
-      return a9.start.isAfter(b3.start) ? 1 : -1;
+    ranges.sort((a9, b4) => {
+      return a9.start.isAfter(b4.start) ? 1 : -1;
     });
     const refIndex = ranges.indexOf(ref);
     const result = new this(ref.start, ref.end);
-    for (let i13 = refIndex - 1; i13 >= 0; i13--) {
-      if (ranges[i13].end.isEqual(result.start)) {
-        result.start = Position._createAt(ranges[i13].start);
+    for (let i14 = refIndex - 1; i14 >= 0; i14--) {
+      if (ranges[i14].end.isEqual(result.start)) {
+        result.start = Position._createAt(ranges[i14].start);
       } else {
         break;
       }
     }
-    for (let i13 = refIndex + 1; i13 < ranges.length; i13++) {
-      if (ranges[i13].start.isEqual(result.end)) {
-        result.end = Position._createAt(ranges[i13].end);
+    for (let i14 = refIndex + 1; i14 < ranges.length; i14++) {
+      if (ranges[i14].start.isEqual(result.end)) {
+        result.end = Position._createAt(ranges[i14].end);
       } else {
         break;
       }
@@ -18500,8 +18500,8 @@ class Mapper extends (/* @__PURE__ */ EmitterMixin()) {
       return viewOffset;
     }
     let modelOffset = 0;
-    for (let i13 = 0; i13 < viewOffset; i13++) {
-      modelOffset += this.getModelLength(viewParent.getChild(i13));
+    for (let i14 = 0; i14 < viewOffset; i14++) {
+      modelOffset += this.getModelLength(viewParent.getChild(i14));
     }
     return modelOffset;
   }
@@ -18742,14 +18742,14 @@ class MapperCache extends (/* @__PURE__ */ EmitterMixin()) {
     };
     cache2.maxModelOffset = modelOffset > cache2.maxModelOffset ? modelOffset : cache2.maxModelOffset;
     cache2.cacheMap.set(modelOffset, newCacheItem);
-    let i13 = cache2.cacheList.length - 1;
-    while (i13 >= 0 && cache2.cacheList[i13].modelOffset > modelOffset) {
-      i13--;
+    let i14 = cache2.cacheList.length - 1;
+    while (i14 >= 0 && cache2.cacheList[i14].modelOffset > modelOffset) {
+      i14--;
     }
-    cache2.cacheList.splice(i13 + 1, 0, newCacheItem);
+    cache2.cacheList.splice(i14 + 1, 0, newCacheItem);
     if (viewOffset > 0) {
       const viewChild = viewParent.getChild(viewOffset - 1);
-      this._nodeToCacheListIndex.set(viewChild, i13 + 1);
+      this._nodeToCacheListIndex.set(viewChild, i14 + 1);
     }
   }
   /**
@@ -19793,11 +19793,11 @@ let Node$1$1 = class Node3 extends TypeCheckable {
   getCommonAncestor(node, options = {}) {
     const ancestorsA = this.getAncestors(options);
     const ancestorsB = node.getAncestors(options);
-    let i13 = 0;
-    while (ancestorsA[i13] == ancestorsB[i13] && ancestorsA[i13]) {
-      i13++;
+    let i14 = 0;
+    while (ancestorsA[i14] == ancestorsB[i14] && ancestorsA[i14]) {
+      i14++;
     }
-    return i13 === 0 ? null : ancestorsA[i13 - 1];
+    return i14 === 0 ? null : ancestorsA[i14 - 1];
   }
   /**
   * Returns whether this node is before given node. `false` is returned if nodes are in different trees (for example,
@@ -20537,14 +20537,14 @@ class Selection extends (/* @__PURE__ */ EmitterMixin(TypeCheckable)) {
   * Checks if given range intersects with ranges that are already in the selection. Throws an error if it does.
   */
   _checkRange(range) {
-    for (let i13 = 0; i13 < this._ranges.length; i13++) {
-      if (range.isIntersecting(this._ranges[i13])) {
+    for (let i14 = 0; i14 < this._ranges.length; i14++) {
+      if (range.isIntersecting(this._ranges[i14])) {
         throw new CKEditorError("model-selection-range-intersects", [
           this,
           range
         ], {
           addedRange: range,
-          intersectingRange: this._ranges[i13]
+          intersectingRange: this._ranges[i14]
         });
       }
     }
@@ -21300,8 +21300,8 @@ class LiveSelection extends Selection {
   * Unbinds all events previously bound by live selection.
   */
   destroy() {
-    for (let i13 = 0; i13 < this._ranges.length; i13++) {
-      this._ranges[i13].detach();
+    for (let i14 = 0; i14 < this._ranges.length; i14++) {
+      this._ranges[i14].detach();
     }
     this.stopListening();
   }
@@ -21831,10 +21831,10 @@ class NodeList {
     let offset2 = this.indexToOffset(index2);
     spliceArray(this._nodes, nodesArray, index2);
     spliceArray(this._offsetToNode, makeOffsetsArray(nodesArray), offset2);
-    for (let i13 = index2; i13 < this._nodes.length; i13++) {
-      this._nodes[i13]._index = i13;
-      this._nodes[i13]._startOffset = offset2;
-      offset2 += this._nodes[i13].offsetSize;
+    for (let i14 = index2; i14 < this._nodes.length; i14++) {
+      this._nodes[i14]._index = i14;
+      this._nodes[i14]._startOffset = offset2;
+      offset2 += this._nodes[i14].offsetSize;
     }
   }
   /**
@@ -21858,10 +21858,10 @@ class NodeList {
       node._index = null;
       node._startOffset = null;
     }
-    for (let i13 = indexStart; i13 < this._nodes.length; i13++) {
-      this._nodes[i13]._index = i13;
-      this._nodes[i13]._startOffset = offset2;
-      offset2 += this._nodes[i13].offsetSize;
+    for (let i14 = indexStart; i14 < this._nodes.length; i14++) {
+      this._nodes[i14]._index = i14;
+      this._nodes[i14]._startOffset = offset2;
+      offset2 += this._nodes[i14].offsetSize;
     }
     return nodes;
   }
@@ -21884,10 +21884,10 @@ class NodeList {
     this._nodes = this._nodes.filter((node) => node.index !== null);
     this._offsetToNode = this._offsetToNode.filter((node) => node.index !== null);
     let offset2 = 0;
-    for (let i13 = 0; i13 < this._nodes.length; i13++) {
-      this._nodes[i13]._index = i13;
-      this._nodes[i13]._startOffset = offset2;
-      offset2 += this._nodes[i13].offsetSize;
+    for (let i14 = 0; i14 < this._nodes.length; i14++) {
+      this._nodes[i14]._index = i14;
+      this._nodes[i14]._startOffset = offset2;
+      offset2 += this._nodes[i14].offsetSize;
     }
   }
   /**
@@ -21904,7 +21904,7 @@ function makeOffsetsArray(nodes) {
   const offsets = [];
   let index2 = 0;
   for (const node of nodes) {
-    for (let i13 = 0; i13 < node.offsetSize; i13++) {
+    for (let i14 = 0; i14 < node.offsetSize; i14++) {
       offsets[index2++] = node;
     }
   }
@@ -23607,14 +23607,14 @@ function createChangeReducer(model) {
         data.reconvertedElements.add(node);
         const position = Position._createBefore(node);
         let changeIndex = reducedChanges.length;
-        for (let i13 = reducedChanges.length - 1; i13 >= 0; i13--) {
-          const change2 = reducedChanges[i13];
+        for (let i14 = reducedChanges.length - 1; i14 >= 0; i14--) {
+          const change2 = reducedChanges[i14];
           const changePosition = change2.type == "attribute" ? change2.range.start : change2.position;
           const positionRelation = changePosition.compareWith(position);
           if (positionRelation == "before" || change2.type == "remove" && positionRelation == "same") {
             break;
           }
-          changeIndex = i13;
+          changeIndex = i14;
         }
         reducedChanges.splice(changeIndex, 0, {
           type: "remove",
@@ -24791,14 +24791,14 @@ function fixTargetRanges(mapper, schema, view) {
     if (view.document.isComposing && !env.isAndroid) {
       return;
     }
-    for (let i13 = 0; i13 < data.targetRanges.length; i13++) {
-      const viewRange = data.targetRanges[i13];
+    for (let i14 = 0; i14 < data.targetRanges.length; i14++) {
+      const viewRange = data.targetRanges[i14];
       const modelRange = mapper.toModelRange(viewRange);
       const correctedRange = tryFixingRange(modelRange, schema);
       if (!correctedRange || correctedRange.isEqual(modelRange)) {
         continue;
       }
-      data.targetRanges[i13] = mapper.toViewRange(correctedRange);
+      data.targetRanges[i14] = mapper.toViewRange(correctedRange);
     }
   };
 }
@@ -27631,12 +27631,12 @@ function _normalizeNodes(nodes) {
     } else ;
   }
   convert2(nodes);
-  for (let i13 = 1; i13 < normalized.length; i13++) {
-    const node = normalized[i13];
-    const prev2 = normalized[i13 - 1];
+  for (let i14 = 1; i14 < normalized.length; i14++) {
+    const node = normalized[i14];
+    const prev2 = normalized[i14 - 1];
     if (node instanceof Text && prev2 instanceof Text && _haveSameAttributes(node, prev2)) {
-      normalized.splice(i13 - 1, 2, new Text(prev2.data + node.data, prev2.getAttributes()));
-      i13--;
+      normalized.splice(i14 - 1, 2, new Text(prev2.data + node.data, prev2.getAttributes()));
+      i14--;
     }
   }
   return normalized;
@@ -27772,8 +27772,8 @@ class MoveOperation extends Operation {
       throw new CKEditorError("move-operation-range-into-itself", this);
     } else if (this.sourcePosition.root == this.targetPosition.root) {
       if (compareArrays(this.sourcePosition.getParentPath(), this.targetPosition.getParentPath()) == "prefix") {
-        const i13 = this.sourcePosition.path.length - 1;
-        if (this.targetPosition.path[i13] >= sourceOffset && this.targetPosition.path[i13] < sourceOffset + this.howMany) {
+        const i14 = this.sourcePosition.path.length - 1;
+        if (this.targetPosition.path[i14] >= sourceOffset && this.targetPosition.path[i14] < sourceOffset + this.howMany) {
           throw new CKEditorError("move-operation-node-into-itself", this);
         }
       }
@@ -28915,13 +28915,13 @@ function noUpdateTransformation(a9) {
     a9
   ];
 }
-function transform$1(a9, b3, context = {}) {
-  const transformationFunction = getTransformation(a9.constructor, b3.constructor);
+function transform$1(a9, b4, context = {}) {
+  const transformationFunction = getTransformation(a9.constructor, b4.constructor);
   try {
     a9 = a9.clone();
-    return transformationFunction(a9, b3, context);
-  } catch (e6) {
-    throw e6;
+    return transformationFunction(a9, b4, context);
+  } catch (e7) {
+    throw e7;
   }
 }
 function transformSets(operationsA, operationsB, options) {
@@ -28948,12 +28948,12 @@ function transformSets(operationsA, operationsB, options) {
     originalOperationsACount: operationsA.length,
     originalOperationsBCount: operationsB.length
   };
-  let i13 = 0;
-  while (i13 < operationsA.length) {
-    const opA = operationsA[i13];
+  let i14 = 0;
+  while (i14 < operationsA.length) {
+    const opA = operationsA[i14];
     const indexB = nextTransformIndex.get(opA);
     if (indexB == operationsB.length) {
-      i13++;
+      i14++;
       continue;
     }
     const opB = operationsB[indexB];
@@ -28965,7 +28965,7 @@ function transformSets(operationsA, operationsB, options) {
     for (const newOpA of newOpsA) {
       nextTransformIndex.set(newOpA, indexB + newOpsB.length);
     }
-    operationsA.splice(i13, 1, ...newOpsA);
+    operationsA.splice(i14, 1, ...newOpsA);
     operationsB.splice(indexB, 1, ...newOpsB);
   }
   handlePartialMarkerOperations(operationsA);
@@ -29192,14 +29192,14 @@ function updateBaseVersions(operations2, baseVersion) {
   }
 }
 function padWithNoOps(operations2, howMany) {
-  for (let i13 = 0; i13 < howMany; i13++) {
+  for (let i14 = 0; i14 < howMany; i14++) {
     operations2.push(new NoOperation(0));
   }
 }
 function handlePartialMarkerOperations(operations2) {
   const markerOps = /* @__PURE__ */ new Map();
-  for (let i13 = 0; i13 < operations2.length; i13++) {
-    const op = operations2[i13];
+  for (let i14 = 0; i14 < operations2.length; i14++) {
+    const op = operations2[i14];
     if (!(op instanceof MarkerOperation)) {
       continue;
     }
@@ -29214,8 +29214,8 @@ function handlePartialMarkerOperations(operations2) {
       if (op.newRange) {
         markerOps.get(op.name).ranges.push(op.newRange);
       }
-      operations2.splice(i13, 1);
-      i13--;
+      operations2.splice(i14, 1);
+      i14--;
     }
   }
   for (const { op, ranges } of markerOps.values()) {
@@ -29226,15 +29226,15 @@ function handlePartialMarkerOperations(operations2) {
     }
   }
 }
-setTransformation(AttributeOperation, AttributeOperation, (a9, b3, context) => {
-  if (a9.key === b3.key && a9.range.start.hasSameParentAs(b3.range.start)) {
-    const operations2 = a9.range.getDifference(b3.range).map((range) => {
+setTransformation(AttributeOperation, AttributeOperation, (a9, b4, context) => {
+  if (a9.key === b4.key && a9.range.start.hasSameParentAs(b4.range.start)) {
+    const operations2 = a9.range.getDifference(b4.range).map((range) => {
       return new AttributeOperation(range, a9.key, a9.oldValue, a9.newValue, 0);
     });
-    const common = a9.range.getIntersection(b3.range);
+    const common = a9.range.getIntersection(b4.range);
     if (common) {
       if (context.aIsStrong) {
-        operations2.push(new AttributeOperation(common, b3.key, b3.newValue, a9.newValue, 0));
+        operations2.push(new AttributeOperation(common, b4.key, b4.newValue, a9.newValue, 0));
       }
     }
     if (operations2.length == 0) {
@@ -29249,21 +29249,21 @@ setTransformation(AttributeOperation, AttributeOperation, (a9, b3, context) => {
     ];
   }
 });
-setTransformation(AttributeOperation, InsertOperation, (a9, b3) => {
-  if (a9.range.start.hasSameParentAs(b3.position) && a9.range.containsPosition(b3.position)) {
-    const range = a9.range._getTransformedByInsertion(b3.position, b3.howMany, !b3.shouldReceiveAttributes);
-    const result = range.map((r9) => {
-      return new AttributeOperation(r9, a9.key, a9.oldValue, a9.newValue, a9.baseVersion);
+setTransformation(AttributeOperation, InsertOperation, (a9, b4) => {
+  if (a9.range.start.hasSameParentAs(b4.position) && a9.range.containsPosition(b4.position)) {
+    const range = a9.range._getTransformedByInsertion(b4.position, b4.howMany, !b4.shouldReceiveAttributes);
+    const result = range.map((r10) => {
+      return new AttributeOperation(r10, a9.key, a9.oldValue, a9.newValue, a9.baseVersion);
     });
-    if (b3.shouldReceiveAttributes) {
-      const op = _getComplementaryAttributeOperations(b3, a9.key, a9.oldValue);
+    if (b4.shouldReceiveAttributes) {
+      const op = _getComplementaryAttributeOperations(b4, a9.key, a9.oldValue);
       if (op) {
         result.unshift(op);
       }
     }
     return result;
   }
-  a9.range = a9.range._getTransformedByInsertion(b3.position, b3.howMany, false)[0];
+  a9.range = a9.range._getTransformedByInsertion(b4.position, b4.howMany, false)[0];
   return [
     a9
   ];
@@ -29277,14 +29277,14 @@ function _getComplementaryAttributeOperations(insertOperation, key, newValue) {
   const range = new Range(insertOperation.position, insertOperation.position.getShiftedBy(insertOperation.howMany));
   return new AttributeOperation(range, key, insertValue, newValue, 0);
 }
-setTransformation(AttributeOperation, MergeOperation, (a9, b3) => {
+setTransformation(AttributeOperation, MergeOperation, (a9, b4) => {
   const ranges = [];
-  if (a9.range.start.hasSameParentAs(b3.deletionPosition)) {
-    if (a9.range.containsPosition(b3.deletionPosition) || a9.range.start.isEqual(b3.deletionPosition)) {
-      ranges.push(Range._createFromPositionAndShift(b3.graveyardPosition, 1));
+  if (a9.range.start.hasSameParentAs(b4.deletionPosition)) {
+    if (a9.range.containsPosition(b4.deletionPosition) || a9.range.start.isEqual(b4.deletionPosition)) {
+      ranges.push(Range._createFromPositionAndShift(b4.graveyardPosition, 1));
     }
   }
-  const range = a9.range._getTransformedByMergeOperation(b3);
+  const range = a9.range._getTransformedByMergeOperation(b4);
   if (!range.isCollapsed) {
     ranges.push(range);
   }
@@ -29292,8 +29292,8 @@ setTransformation(AttributeOperation, MergeOperation, (a9, b3) => {
     return new AttributeOperation(range2, a9.key, a9.oldValue, a9.newValue, a9.baseVersion);
   });
 });
-setTransformation(AttributeOperation, MoveOperation, (a9, b3) => {
-  const ranges = _breakRangeByMoveOperation(a9.range, b3);
+setTransformation(AttributeOperation, MoveOperation, (a9, b4) => {
+  const ranges = _breakRangeByMoveOperation(a9.range, b4);
   return ranges.map((range) => new AttributeOperation(range, a9.key, a9.oldValue, a9.newValue, a9.baseVersion));
 });
 function _breakRangeByMoveOperation(range, moveOp) {
@@ -29323,86 +29323,86 @@ function _breakRangeByMoveOperation(range, moveOp) {
   }
   return result;
 }
-setTransformation(AttributeOperation, SplitOperation, (a9, b3) => {
-  if (a9.range.end.isEqual(b3.insertionPosition)) {
-    if (!b3.graveyardPosition) {
+setTransformation(AttributeOperation, SplitOperation, (a9, b4) => {
+  if (a9.range.end.isEqual(b4.insertionPosition)) {
+    if (!b4.graveyardPosition) {
       a9.range.end.offset++;
     }
     return [
       a9
     ];
   }
-  if (a9.range.start.hasSameParentAs(b3.splitPosition) && a9.range.containsPosition(b3.splitPosition)) {
+  if (a9.range.start.hasSameParentAs(b4.splitPosition) && a9.range.containsPosition(b4.splitPosition)) {
     const secondPart = a9.clone();
-    secondPart.range = new Range(b3.moveTargetPosition.clone(), a9.range.end._getCombined(b3.splitPosition, b3.moveTargetPosition));
-    a9.range.end = b3.splitPosition.clone();
+    secondPart.range = new Range(b4.moveTargetPosition.clone(), a9.range.end._getCombined(b4.splitPosition, b4.moveTargetPosition));
+    a9.range.end = b4.splitPosition.clone();
     a9.range.end.stickiness = "toPrevious";
     return [
       a9,
       secondPart
     ];
   }
-  a9.range = a9.range._getTransformedBySplitOperation(b3);
+  a9.range = a9.range._getTransformedBySplitOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(InsertOperation, AttributeOperation, (a9, b3) => {
+setTransformation(InsertOperation, AttributeOperation, (a9, b4) => {
   const result = [
     a9
   ];
-  if (a9.shouldReceiveAttributes && a9.position.hasSameParentAs(b3.range.start) && b3.range.containsPosition(a9.position)) {
-    const op = _getComplementaryAttributeOperations(a9, b3.key, b3.newValue);
+  if (a9.shouldReceiveAttributes && a9.position.hasSameParentAs(b4.range.start) && b4.range.containsPosition(a9.position)) {
+    const op = _getComplementaryAttributeOperations(a9, b4.key, b4.newValue);
     if (op) {
       result.push(op);
     }
   }
   return result;
 });
-setTransformation(InsertOperation, InsertOperation, (a9, b3, context) => {
-  if (a9.position.isEqual(b3.position) && context.aIsStrong) {
+setTransformation(InsertOperation, InsertOperation, (a9, b4, context) => {
+  if (a9.position.isEqual(b4.position) && context.aIsStrong) {
     return [
       a9
     ];
   }
-  a9.position = a9.position._getTransformedByInsertOperation(b3);
+  a9.position = a9.position._getTransformedByInsertOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(InsertOperation, MoveOperation, (a9, b3) => {
-  a9.position = a9.position._getTransformedByMoveOperation(b3);
+setTransformation(InsertOperation, MoveOperation, (a9, b4) => {
+  a9.position = a9.position._getTransformedByMoveOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(InsertOperation, SplitOperation, (a9, b3) => {
-  a9.position = a9.position._getTransformedBySplitOperation(b3);
+setTransformation(InsertOperation, SplitOperation, (a9, b4) => {
+  a9.position = a9.position._getTransformedBySplitOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(InsertOperation, MergeOperation, (a9, b3) => {
-  a9.position = a9.position._getTransformedByMergeOperation(b3);
+setTransformation(InsertOperation, MergeOperation, (a9, b4) => {
+  a9.position = a9.position._getTransformedByMergeOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(MarkerOperation, InsertOperation, (a9, b3) => {
+setTransformation(MarkerOperation, InsertOperation, (a9, b4) => {
   if (a9.oldRange) {
-    a9.oldRange = a9.oldRange._getTransformedByInsertOperation(b3)[0];
+    a9.oldRange = a9.oldRange._getTransformedByInsertOperation(b4)[0];
   }
   if (a9.newRange) {
-    a9.newRange = a9.newRange._getTransformedByInsertOperation(b3)[0];
+    a9.newRange = a9.newRange._getTransformedByInsertOperation(b4)[0];
   }
   return [
     a9
   ];
 });
-setTransformation(MarkerOperation, MarkerOperation, (a9, b3, context) => {
-  if (a9.name == b3.name) {
+setTransformation(MarkerOperation, MarkerOperation, (a9, b4, context) => {
+  if (a9.name == b4.name) {
     if (context.aIsStrong) {
-      a9.oldRange = b3.newRange ? b3.newRange.clone() : null;
+      a9.oldRange = b4.newRange ? b4.newRange.clone() : null;
     } else {
       return [
         new NoOperation(0)
@@ -29413,55 +29413,55 @@ setTransformation(MarkerOperation, MarkerOperation, (a9, b3, context) => {
     a9
   ];
 });
-setTransformation(MarkerOperation, MergeOperation, (a9, b3) => {
+setTransformation(MarkerOperation, MergeOperation, (a9, b4) => {
   if (a9.oldRange) {
-    a9.oldRange = a9.oldRange._getTransformedByMergeOperation(b3);
+    a9.oldRange = a9.oldRange._getTransformedByMergeOperation(b4);
   }
   if (a9.newRange) {
-    a9.newRange = a9.newRange._getTransformedByMergeOperation(b3);
+    a9.newRange = a9.newRange._getTransformedByMergeOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(MarkerOperation, MoveOperation, (a9, b3) => {
+setTransformation(MarkerOperation, MoveOperation, (a9, b4) => {
   const result = [
     a9
   ];
   if (a9.oldRange) {
-    a9.oldRange = Range._createFromRanges(a9.oldRange._getTransformedByMoveOperation(b3));
+    a9.oldRange = Range._createFromRanges(a9.oldRange._getTransformedByMoveOperation(b4));
   }
   if (a9.newRange) {
-    const ranges = a9.newRange._getTransformedByMoveOperation(b3);
+    const ranges = a9.newRange._getTransformedByMoveOperation(b4);
     a9.newRange = ranges[0];
-    for (let i13 = 1; i13 < ranges.length; i13++) {
+    for (let i14 = 1; i14 < ranges.length; i14++) {
       const op = a9.clone();
       op.oldRange = null;
-      op.newRange = ranges[i13];
+      op.newRange = ranges[i14];
       op.baseVersion = -1;
       result.push(op);
     }
   }
   return result;
 });
-setTransformation(MarkerOperation, SplitOperation, (a9, b3, context) => {
+setTransformation(MarkerOperation, SplitOperation, (a9, b4, context) => {
   if (a9.oldRange) {
-    a9.oldRange = a9.oldRange._getTransformedBySplitOperation(b3);
+    a9.oldRange = a9.oldRange._getTransformedBySplitOperation(b4);
   }
   if (a9.newRange) {
     if (context.abRelation) {
-      const aNewRange = a9.newRange._getTransformedBySplitOperation(b3);
-      if (a9.newRange.start.isEqual(b3.splitPosition) && context.abRelation.wasStartBeforeMergedElement) {
-        a9.newRange.start = Position._createAt(b3.insertionPosition);
-      } else if (a9.newRange.start.isEqual(b3.splitPosition) && !context.abRelation.wasInLeftElement) {
-        a9.newRange.start = Position._createAt(b3.moveTargetPosition);
+      const aNewRange = a9.newRange._getTransformedBySplitOperation(b4);
+      if (a9.newRange.start.isEqual(b4.splitPosition) && context.abRelation.wasStartBeforeMergedElement) {
+        a9.newRange.start = Position._createAt(b4.insertionPosition);
+      } else if (a9.newRange.start.isEqual(b4.splitPosition) && !context.abRelation.wasInLeftElement) {
+        a9.newRange.start = Position._createAt(b4.moveTargetPosition);
       } else {
         a9.newRange.start = aNewRange.start;
       }
-      if (a9.newRange.end.isEqual(b3.splitPosition) && context.abRelation.wasInRightElement) {
-        a9.newRange.end = Position._createAt(b3.moveTargetPosition);
-      } else if (a9.newRange.end.isEqual(b3.splitPosition) && context.abRelation.wasEndBeforeMergedElement) {
-        a9.newRange.end = Position._createAt(b3.insertionPosition);
+      if (a9.newRange.end.isEqual(b4.splitPosition) && context.abRelation.wasInRightElement) {
+        a9.newRange.end = Position._createAt(b4.moveTargetPosition);
+      } else if (a9.newRange.end.isEqual(b4.splitPosition) && context.abRelation.wasEndBeforeMergedElement) {
+        a9.newRange.end = Position._createAt(b4.insertionPosition);
       } else {
         a9.newRange.end = aNewRange.end;
       }
@@ -29469,47 +29469,47 @@ setTransformation(MarkerOperation, SplitOperation, (a9, b3, context) => {
         a9
       ];
     }
-    a9.newRange = a9.newRange._getTransformedBySplitOperation(b3);
+    a9.newRange = a9.newRange._getTransformedBySplitOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(MergeOperation, InsertOperation, (a9, b3) => {
-  if (a9.sourcePosition.hasSameParentAs(b3.position)) {
-    a9.howMany += b3.howMany;
+setTransformation(MergeOperation, InsertOperation, (a9, b4) => {
+  if (a9.sourcePosition.hasSameParentAs(b4.position)) {
+    a9.howMany += b4.howMany;
   }
-  a9.sourcePosition = a9.sourcePosition._getTransformedByInsertOperation(b3);
-  a9.targetPosition = a9.targetPosition._getTransformedByInsertOperation(b3);
+  a9.sourcePosition = a9.sourcePosition._getTransformedByInsertOperation(b4);
+  a9.targetPosition = a9.targetPosition._getTransformedByInsertOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(MergeOperation, MergeOperation, (a9, b3, context) => {
-  if (a9.sourcePosition.isEqual(b3.sourcePosition) && a9.targetPosition.isEqual(b3.targetPosition)) {
+setTransformation(MergeOperation, MergeOperation, (a9, b4, context) => {
+  if (a9.sourcePosition.isEqual(b4.sourcePosition) && a9.targetPosition.isEqual(b4.targetPosition)) {
     if (!context.bWasUndone) {
       return [
         new NoOperation(0)
       ];
     } else {
-      const path = b3.graveyardPosition.path.slice();
+      const path = b4.graveyardPosition.path.slice();
       path.push(0);
-      a9.sourcePosition = new Position(b3.graveyardPosition.root, path);
+      a9.sourcePosition = new Position(b4.graveyardPosition.root, path);
       a9.howMany = 0;
       return [
         a9
       ];
     }
   }
-  if (a9.sourcePosition.isEqual(b3.sourcePosition) && !a9.targetPosition.isEqual(b3.targetPosition) && !context.bWasUndone && context.abRelation != "splitAtSource") {
+  if (a9.sourcePosition.isEqual(b4.sourcePosition) && !a9.targetPosition.isEqual(b4.targetPosition) && !context.bWasUndone && context.abRelation != "splitAtSource") {
     const aToGraveyard = a9.targetPosition.root.rootName == "$graveyard";
-    const bToGraveyard = b3.targetPosition.root.rootName == "$graveyard";
+    const bToGraveyard = b4.targetPosition.root.rootName == "$graveyard";
     const aIsWeak = aToGraveyard && !bToGraveyard;
     const bIsWeak = bToGraveyard && !aToGraveyard;
     const forceMove = bIsWeak || !aIsWeak && context.aIsStrong;
     if (forceMove) {
-      const sourcePosition = b3.targetPosition._getTransformedByMergeOperation(b3);
-      const targetPosition = a9.targetPosition._getTransformedByMergeOperation(b3);
+      const sourcePosition = b4.targetPosition._getTransformedByMergeOperation(b4);
+      const targetPosition = a9.targetPosition._getTransformedByMergeOperation(b4);
       return [
         new MoveOperation(sourcePosition, a9.howMany, targetPosition, 0)
       ];
@@ -29519,112 +29519,112 @@ setTransformation(MergeOperation, MergeOperation, (a9, b3, context) => {
       ];
     }
   }
-  if (a9.sourcePosition.hasSameParentAs(b3.targetPosition)) {
-    a9.howMany += b3.howMany;
+  if (a9.sourcePosition.hasSameParentAs(b4.targetPosition)) {
+    a9.howMany += b4.howMany;
   }
-  a9.sourcePosition = a9.sourcePosition._getTransformedByMergeOperation(b3);
-  a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b3);
-  if (!a9.graveyardPosition.isEqual(b3.graveyardPosition) || !context.aIsStrong) {
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMergeOperation(b3);
+  a9.sourcePosition = a9.sourcePosition._getTransformedByMergeOperation(b4);
+  a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b4);
+  if (!a9.graveyardPosition.isEqual(b4.graveyardPosition) || !context.aIsStrong) {
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMergeOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(MergeOperation, MoveOperation, (a9, b3, context) => {
-  const removedRange = Range._createFromPositionAndShift(b3.sourcePosition, b3.howMany);
-  if (b3.type == "remove" && !context.bWasUndone) {
-    if (a9.deletionPosition.hasSameParentAs(b3.sourcePosition) && removedRange.containsPosition(a9.sourcePosition)) {
+setTransformation(MergeOperation, MoveOperation, (a9, b4, context) => {
+  const removedRange = Range._createFromPositionAndShift(b4.sourcePosition, b4.howMany);
+  if (b4.type == "remove" && !context.bWasUndone) {
+    if (a9.deletionPosition.hasSameParentAs(b4.sourcePosition) && removedRange.containsPosition(a9.sourcePosition)) {
       return [
         new NoOperation(0)
       ];
     }
   }
-  if (b3.sourcePosition.getShiftedBy(b3.howMany).isEqual(a9.sourcePosition)) {
+  if (b4.sourcePosition.getShiftedBy(b4.howMany).isEqual(a9.sourcePosition)) {
     a9.sourcePosition.stickiness = "toNone";
-  } else if (b3.targetPosition.isEqual(a9.sourcePosition) && context.abRelation == "mergeSourceAffected") {
+  } else if (b4.targetPosition.isEqual(a9.sourcePosition) && context.abRelation == "mergeSourceAffected") {
     a9.sourcePosition.stickiness = "toNext";
-  } else if (b3.sourcePosition.isEqual(a9.targetPosition)) {
+  } else if (b4.sourcePosition.isEqual(a9.targetPosition)) {
     a9.targetPosition.stickiness = "toNone";
-    a9.howMany -= b3.howMany;
-  } else if (b3.targetPosition.isEqual(a9.targetPosition) && context.abRelation == "mergeTargetWasBefore") {
+    a9.howMany -= b4.howMany;
+  } else if (b4.targetPosition.isEqual(a9.targetPosition) && context.abRelation == "mergeTargetWasBefore") {
     a9.targetPosition.stickiness = "toPrevious";
-    a9.howMany += b3.howMany;
+    a9.howMany += b4.howMany;
   } else {
-    if (a9.sourcePosition.hasSameParentAs(b3.targetPosition)) {
-      a9.howMany += b3.howMany;
+    if (a9.sourcePosition.hasSameParentAs(b4.targetPosition)) {
+      a9.howMany += b4.howMany;
     }
-    if (a9.sourcePosition.hasSameParentAs(b3.sourcePosition)) {
-      a9.howMany -= b3.howMany;
+    if (a9.sourcePosition.hasSameParentAs(b4.sourcePosition)) {
+      a9.howMany -= b4.howMany;
     }
   }
-  a9.sourcePosition = a9.sourcePosition._getTransformedByMoveOperation(b3);
-  a9.targetPosition = a9.targetPosition._getTransformedByMoveOperation(b3);
+  a9.sourcePosition = a9.sourcePosition._getTransformedByMoveOperation(b4);
+  a9.targetPosition = a9.targetPosition._getTransformedByMoveOperation(b4);
   a9.sourcePosition.stickiness = "toPrevious";
   a9.targetPosition.stickiness = "toNext";
-  if (!a9.graveyardPosition.isEqual(b3.targetPosition)) {
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMoveOperation(b3);
+  if (!a9.graveyardPosition.isEqual(b4.targetPosition)) {
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMoveOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(MergeOperation, SplitOperation, (a9, b3, context) => {
-  if (b3.graveyardPosition) {
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedByDeletion(b3.graveyardPosition, 1);
-    if (a9.deletionPosition.isEqual(b3.graveyardPosition)) {
-      a9.howMany = b3.howMany;
+setTransformation(MergeOperation, SplitOperation, (a9, b4, context) => {
+  if (b4.graveyardPosition) {
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedByDeletion(b4.graveyardPosition, 1);
+    if (a9.deletionPosition.isEqual(b4.graveyardPosition)) {
+      a9.howMany = b4.howMany;
     }
   }
-  if (a9.targetPosition.isEqual(b3.splitPosition)) {
-    const mergeSplittingElement = b3.graveyardPosition && a9.deletionPosition.isEqual(b3.graveyardPosition);
+  if (a9.targetPosition.isEqual(b4.splitPosition)) {
+    const mergeSplittingElement = b4.graveyardPosition && a9.deletionPosition.isEqual(b4.graveyardPosition);
     if (mergeSplittingElement || context.abRelation == "mergeTargetNotMoved") {
-      a9.sourcePosition = a9.sourcePosition._getTransformedBySplitOperation(b3);
+      a9.sourcePosition = a9.sourcePosition._getTransformedBySplitOperation(b4);
       return [
         a9
       ];
     }
   }
-  if (a9.sourcePosition.isEqual(b3.splitPosition)) {
+  if (a9.sourcePosition.isEqual(b4.splitPosition)) {
     if (context.abRelation == "mergeSourceNotMoved") {
       a9.howMany = 0;
-      a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b3);
+      a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b4);
       return [
         a9
       ];
     }
     if (context.abRelation == "mergeSameElement" || a9.sourcePosition.offset > 0) {
-      a9.sourcePosition = b3.moveTargetPosition.clone();
-      a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b3);
+      a9.sourcePosition = b4.moveTargetPosition.clone();
+      a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b4);
       return [
         a9
       ];
     }
   }
-  if (a9.sourcePosition.hasSameParentAs(b3.splitPosition)) {
-    a9.howMany = b3.splitPosition.offset;
+  if (a9.sourcePosition.hasSameParentAs(b4.splitPosition)) {
+    a9.howMany = b4.splitPosition.offset;
   }
-  a9.sourcePosition = a9.sourcePosition._getTransformedBySplitOperation(b3);
-  a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b3);
+  a9.sourcePosition = a9.sourcePosition._getTransformedBySplitOperation(b4);
+  a9.targetPosition = a9.targetPosition._getTransformedBySplitOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(MoveOperation, InsertOperation, (a9, b3) => {
+setTransformation(MoveOperation, InsertOperation, (a9, b4) => {
   const moveRange = Range._createFromPositionAndShift(a9.sourcePosition, a9.howMany);
-  const transformed = moveRange._getTransformedByInsertOperation(b3, false)[0];
+  const transformed = moveRange._getTransformedByInsertOperation(b4, false)[0];
   a9.sourcePosition = transformed.start;
   a9.howMany = transformed.end.offset - transformed.start.offset;
-  if (!a9.targetPosition.isEqual(b3.position)) {
-    a9.targetPosition = a9.targetPosition._getTransformedByInsertOperation(b3);
+  if (!a9.targetPosition.isEqual(b4.position)) {
+    a9.targetPosition = a9.targetPosition._getTransformedByInsertOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(MoveOperation, MoveOperation, (a9, b3, context) => {
+setTransformation(MoveOperation, MoveOperation, (a9, b4, context) => {
   const rangeA = Range._createFromPositionAndShift(a9.sourcePosition, a9.howMany);
-  const rangeB = Range._createFromPositionAndShift(b3.sourcePosition, b3.howMany);
+  const rangeB = Range._createFromPositionAndShift(b4.sourcePosition, b4.howMany);
   let aIsStrong = context.aIsStrong;
   let insertBefore = !context.aIsStrong;
   if (context.abRelation == "insertBefore" || context.baRelation == "insertAfter") {
@@ -29633,58 +29633,58 @@ setTransformation(MoveOperation, MoveOperation, (a9, b3, context) => {
     insertBefore = false;
   }
   let newTargetPosition;
-  if (a9.targetPosition.isEqual(b3.targetPosition) && insertBefore) {
-    newTargetPosition = a9.targetPosition._getTransformedByDeletion(b3.sourcePosition, b3.howMany);
+  if (a9.targetPosition.isEqual(b4.targetPosition) && insertBefore) {
+    newTargetPosition = a9.targetPosition._getTransformedByDeletion(b4.sourcePosition, b4.howMany);
   } else {
-    newTargetPosition = a9.targetPosition._getTransformedByMove(b3.sourcePosition, b3.targetPosition, b3.howMany);
+    newTargetPosition = a9.targetPosition._getTransformedByMove(b4.sourcePosition, b4.targetPosition, b4.howMany);
   }
-  if (_moveTargetIntoMovedRange(a9, b3) && _moveTargetIntoMovedRange(b3, a9)) {
+  if (_moveTargetIntoMovedRange(a9, b4) && _moveTargetIntoMovedRange(b4, a9)) {
     return [
-      b3.getReversed()
+      b4.getReversed()
     ];
   }
-  const bTargetsToA = rangeA.containsPosition(b3.targetPosition);
+  const bTargetsToA = rangeA.containsPosition(b4.targetPosition);
   if (bTargetsToA && rangeA.containsRange(rangeB, true)) {
-    rangeA.start = rangeA.start._getTransformedByMove(b3.sourcePosition, b3.targetPosition, b3.howMany);
-    rangeA.end = rangeA.end._getTransformedByMove(b3.sourcePosition, b3.targetPosition, b3.howMany);
+    rangeA.start = rangeA.start._getTransformedByMove(b4.sourcePosition, b4.targetPosition, b4.howMany);
+    rangeA.end = rangeA.end._getTransformedByMove(b4.sourcePosition, b4.targetPosition, b4.howMany);
     return _makeMoveOperationsFromRanges([
       rangeA
     ], newTargetPosition);
   }
   const aTargetsToB = rangeB.containsPosition(a9.targetPosition);
   if (aTargetsToB && rangeB.containsRange(rangeA, true)) {
-    rangeA.start = rangeA.start._getCombined(b3.sourcePosition, b3.getMovedRangeStart());
-    rangeA.end = rangeA.end._getCombined(b3.sourcePosition, b3.getMovedRangeStart());
+    rangeA.start = rangeA.start._getCombined(b4.sourcePosition, b4.getMovedRangeStart());
+    rangeA.end = rangeA.end._getCombined(b4.sourcePosition, b4.getMovedRangeStart());
     return _makeMoveOperationsFromRanges([
       rangeA
     ], newTargetPosition);
   }
-  const aCompB = compareArrays(a9.sourcePosition.getParentPath(), b3.sourcePosition.getParentPath());
+  const aCompB = compareArrays(a9.sourcePosition.getParentPath(), b4.sourcePosition.getParentPath());
   if (aCompB == "prefix" || aCompB == "extension") {
-    rangeA.start = rangeA.start._getTransformedByMove(b3.sourcePosition, b3.targetPosition, b3.howMany);
-    rangeA.end = rangeA.end._getTransformedByMove(b3.sourcePosition, b3.targetPosition, b3.howMany);
+    rangeA.start = rangeA.start._getTransformedByMove(b4.sourcePosition, b4.targetPosition, b4.howMany);
+    rangeA.end = rangeA.end._getTransformedByMove(b4.sourcePosition, b4.targetPosition, b4.howMany);
     return _makeMoveOperationsFromRanges([
       rangeA
     ], newTargetPosition);
   }
-  if (a9.type == "remove" && b3.type != "remove" && !context.aWasUndone && !context.forceWeakRemove) {
+  if (a9.type == "remove" && b4.type != "remove" && !context.aWasUndone && !context.forceWeakRemove) {
     aIsStrong = true;
-  } else if (a9.type != "remove" && b3.type == "remove" && !context.bWasUndone && !context.forceWeakRemove) {
+  } else if (a9.type != "remove" && b4.type == "remove" && !context.bWasUndone && !context.forceWeakRemove) {
     aIsStrong = false;
   }
   const ranges = [];
   const difference = rangeA.getDifference(rangeB);
   for (const range of difference) {
-    range.start = range.start._getTransformedByDeletion(b3.sourcePosition, b3.howMany);
-    range.end = range.end._getTransformedByDeletion(b3.sourcePosition, b3.howMany);
-    const shouldSpread = compareArrays(range.start.getParentPath(), b3.getMovedRangeStart().getParentPath()) == "same";
-    const newRanges = range._getTransformedByInsertion(b3.getMovedRangeStart(), b3.howMany, shouldSpread);
+    range.start = range.start._getTransformedByDeletion(b4.sourcePosition, b4.howMany);
+    range.end = range.end._getTransformedByDeletion(b4.sourcePosition, b4.howMany);
+    const shouldSpread = compareArrays(range.start.getParentPath(), b4.getMovedRangeStart().getParentPath()) == "same";
+    const newRanges = range._getTransformedByInsertion(b4.getMovedRangeStart(), b4.howMany, shouldSpread);
     ranges.push(...newRanges);
   }
   const common = rangeA.getIntersection(rangeB);
   if (common !== null && aIsStrong) {
-    common.start = common.start._getCombined(b3.sourcePosition, b3.getMovedRangeStart());
-    common.end = common.end._getCombined(b3.sourcePosition, b3.getMovedRangeStart());
+    common.start = common.start._getCombined(b4.sourcePosition, b4.getMovedRangeStart());
+    common.end = common.end._getCombined(b4.sourcePosition, b4.getMovedRangeStart());
     if (ranges.length === 0) {
       ranges.push(common);
     } else if (ranges.length == 1) {
@@ -29704,14 +29704,14 @@ setTransformation(MoveOperation, MoveOperation, (a9, b3, context) => {
   }
   return _makeMoveOperationsFromRanges(ranges, newTargetPosition);
 });
-setTransformation(MoveOperation, SplitOperation, (a9, b3, context) => {
+setTransformation(MoveOperation, SplitOperation, (a9, b4, context) => {
   let newTargetPosition = a9.targetPosition.clone();
-  if (!a9.targetPosition.isEqual(b3.insertionPosition) || !b3.graveyardPosition || context.abRelation == "moveTargetAfter") {
-    newTargetPosition = a9.targetPosition._getTransformedBySplitOperation(b3);
+  if (!a9.targetPosition.isEqual(b4.insertionPosition) || !b4.graveyardPosition || context.abRelation == "moveTargetAfter") {
+    newTargetPosition = a9.targetPosition._getTransformedBySplitOperation(b4);
   }
   const moveRange = Range._createFromPositionAndShift(a9.sourcePosition, a9.howMany);
-  if (moveRange.end.isEqual(b3.insertionPosition)) {
-    if (!b3.graveyardPosition) {
+  if (moveRange.end.isEqual(b4.insertionPosition)) {
+    if (!b4.graveyardPosition) {
       a9.howMany++;
     }
     a9.targetPosition = newTargetPosition;
@@ -29719,54 +29719,54 @@ setTransformation(MoveOperation, SplitOperation, (a9, b3, context) => {
       a9
     ];
   }
-  if (moveRange.start.hasSameParentAs(b3.splitPosition) && moveRange.containsPosition(b3.splitPosition)) {
-    let rightRange = new Range(b3.splitPosition, moveRange.end);
-    rightRange = rightRange._getTransformedBySplitOperation(b3);
+  if (moveRange.start.hasSameParentAs(b4.splitPosition) && moveRange.containsPosition(b4.splitPosition)) {
+    let rightRange = new Range(b4.splitPosition, moveRange.end);
+    rightRange = rightRange._getTransformedBySplitOperation(b4);
     const ranges2 = [
-      new Range(moveRange.start, b3.splitPosition),
+      new Range(moveRange.start, b4.splitPosition),
       rightRange
     ];
     return _makeMoveOperationsFromRanges(ranges2, newTargetPosition);
   }
-  if (a9.targetPosition.isEqual(b3.splitPosition) && context.abRelation == "insertAtSource") {
-    newTargetPosition = b3.moveTargetPosition;
+  if (a9.targetPosition.isEqual(b4.splitPosition) && context.abRelation == "insertAtSource") {
+    newTargetPosition = b4.moveTargetPosition;
   }
-  if (a9.targetPosition.isEqual(b3.insertionPosition) && context.abRelation == "insertBetween") {
+  if (a9.targetPosition.isEqual(b4.insertionPosition) && context.abRelation == "insertBetween") {
     newTargetPosition = a9.targetPosition;
   }
-  const transformed = moveRange._getTransformedBySplitOperation(b3);
+  const transformed = moveRange._getTransformedBySplitOperation(b4);
   const ranges = [
     transformed
   ];
-  if (b3.graveyardPosition) {
-    const movesGraveyardElement = moveRange.start.isEqual(b3.graveyardPosition) || moveRange.containsPosition(b3.graveyardPosition);
+  if (b4.graveyardPosition) {
+    const movesGraveyardElement = moveRange.start.isEqual(b4.graveyardPosition) || moveRange.containsPosition(b4.graveyardPosition);
     if (a9.howMany > 1 && movesGraveyardElement && !context.aWasUndone) {
-      ranges.push(Range._createFromPositionAndShift(b3.insertionPosition, 1));
+      ranges.push(Range._createFromPositionAndShift(b4.insertionPosition, 1));
     }
   }
   return _makeMoveOperationsFromRanges(ranges, newTargetPosition);
 });
-setTransformation(MoveOperation, MergeOperation, (a9, b3, context) => {
+setTransformation(MoveOperation, MergeOperation, (a9, b4, context) => {
   const movedRange = Range._createFromPositionAndShift(a9.sourcePosition, a9.howMany);
-  if (b3.deletionPosition.hasSameParentAs(a9.sourcePosition) && movedRange.containsPosition(b3.sourcePosition)) {
+  if (b4.deletionPosition.hasSameParentAs(a9.sourcePosition) && movedRange.containsPosition(b4.sourcePosition)) {
     if (a9.type == "remove" && !context.forceWeakRemove) {
       if (!context.aWasUndone) {
         const results = [];
-        let gyMoveSource = b3.graveyardPosition.clone();
-        let splitNodesMoveSource = b3.targetPosition._getTransformedByMergeOperation(b3);
-        const aTarget = a9.targetPosition.getTransformedByOperation(b3);
+        let gyMoveSource = b4.graveyardPosition.clone();
+        let splitNodesMoveSource = b4.targetPosition._getTransformedByMergeOperation(b4);
+        const aTarget = a9.targetPosition.getTransformedByOperation(b4);
         if (a9.howMany > 1) {
           results.push(new MoveOperation(a9.sourcePosition, a9.howMany - 1, aTarget, 0));
           gyMoveSource = gyMoveSource._getTransformedByMove(a9.sourcePosition, aTarget, a9.howMany - 1);
           splitNodesMoveSource = splitNodesMoveSource._getTransformedByMove(a9.sourcePosition, aTarget, a9.howMany - 1);
         }
-        const gyMoveTarget = b3.deletionPosition._getCombined(a9.sourcePosition, aTarget);
+        const gyMoveTarget = b4.deletionPosition._getCombined(a9.sourcePosition, aTarget);
         const gyMove = new MoveOperation(gyMoveSource, 1, gyMoveTarget, 0);
         const splitNodesMoveTargetPath = gyMove.getMovedRangeStart().path.slice();
         splitNodesMoveTargetPath.push(0);
         const splitNodesMoveTarget = new Position(gyMove.targetPosition.root, splitNodesMoveTargetPath);
         splitNodesMoveSource = splitNodesMoveSource._getTransformedByMove(gyMoveSource, gyMoveTarget, 1);
-        const splitNodesMove = new MoveOperation(splitNodesMoveSource, b3.howMany, splitNodesMoveTarget, 0);
+        const splitNodesMove = new MoveOperation(splitNodesMoveSource, b4.howMany, splitNodesMoveTarget, 0);
         results.push(gyMove);
         results.push(splitNodesMove);
         return results;
@@ -29778,8 +29778,8 @@ setTransformation(MoveOperation, MergeOperation, (a9, b3, context) => {
             new NoOperation(0)
           ];
         } else {
-          a9.sourcePosition = b3.graveyardPosition.clone();
-          a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b3);
+          a9.sourcePosition = b4.graveyardPosition.clone();
+          a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b4);
           return [
             a9
           ];
@@ -29788,43 +29788,43 @@ setTransformation(MoveOperation, MergeOperation, (a9, b3, context) => {
     }
   }
   const moveRange = Range._createFromPositionAndShift(a9.sourcePosition, a9.howMany);
-  const transformed = moveRange._getTransformedByMergeOperation(b3);
+  const transformed = moveRange._getTransformedByMergeOperation(b4);
   a9.sourcePosition = transformed.start;
   a9.howMany = transformed.end.offset - transformed.start.offset;
-  a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b3);
+  a9.targetPosition = a9.targetPosition._getTransformedByMergeOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(RenameOperation, InsertOperation, (a9, b3) => {
-  a9.position = a9.position._getTransformedByInsertOperation(b3);
+setTransformation(RenameOperation, InsertOperation, (a9, b4) => {
+  a9.position = a9.position._getTransformedByInsertOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(RenameOperation, MergeOperation, (a9, b3) => {
-  if (a9.position.isEqual(b3.deletionPosition)) {
-    a9.position = b3.graveyardPosition.clone();
+setTransformation(RenameOperation, MergeOperation, (a9, b4) => {
+  if (a9.position.isEqual(b4.deletionPosition)) {
+    a9.position = b4.graveyardPosition.clone();
     a9.position.stickiness = "toNext";
     return [
       a9
     ];
   }
-  a9.position = a9.position._getTransformedByMergeOperation(b3);
+  a9.position = a9.position._getTransformedByMergeOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(RenameOperation, MoveOperation, (a9, b3) => {
-  a9.position = a9.position._getTransformedByMoveOperation(b3);
+setTransformation(RenameOperation, MoveOperation, (a9, b4) => {
+  a9.position = a9.position._getTransformedByMoveOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(RenameOperation, RenameOperation, (a9, b3, context) => {
-  if (a9.position.isEqual(b3.position)) {
+setTransformation(RenameOperation, RenameOperation, (a9, b4, context) => {
+  if (a9.position.isEqual(b4.position)) {
     if (context.aIsStrong) {
-      a9.oldName = b3.newName;
+      a9.oldName = b4.newName;
     } else {
       return [
         new NoOperation(0)
@@ -29835,37 +29835,37 @@ setTransformation(RenameOperation, RenameOperation, (a9, b3, context) => {
     a9
   ];
 });
-setTransformation(RenameOperation, SplitOperation, (a9, b3) => {
+setTransformation(RenameOperation, SplitOperation, (a9, b4) => {
   const renamePath = a9.position.path;
-  const splitPath = b3.splitPosition.getParentPath();
-  if (compareArrays(renamePath, splitPath) == "same" && !b3.graveyardPosition) {
+  const splitPath = b4.splitPosition.getParentPath();
+  if (compareArrays(renamePath, splitPath) == "same" && !b4.graveyardPosition) {
     const extraRename = new RenameOperation(a9.position.getShiftedBy(1), a9.oldName, a9.newName, 0);
     return [
       a9,
       extraRename
     ];
   }
-  a9.position = a9.position._getTransformedBySplitOperation(b3);
+  a9.position = a9.position._getTransformedBySplitOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(RootAttributeOperation, RootAttributeOperation, (a9, b3, context) => {
-  if (a9.root === b3.root && a9.key === b3.key) {
-    if (!context.aIsStrong || a9.newValue === b3.newValue) {
+setTransformation(RootAttributeOperation, RootAttributeOperation, (a9, b4, context) => {
+  if (a9.root === b4.root && a9.key === b4.key) {
+    if (!context.aIsStrong || a9.newValue === b4.newValue) {
       return [
         new NoOperation(0)
       ];
     } else {
-      a9.oldValue = b3.newValue;
+      a9.oldValue = b4.newValue;
     }
   }
   return [
     a9
   ];
 });
-setTransformation(RootOperation, RootOperation, (a9, b3) => {
-  if (a9.rootName === b3.rootName && a9.isAdd === b3.isAdd) {
+setTransformation(RootOperation, RootOperation, (a9, b4) => {
+  if (a9.rootName === b4.rootName && a9.isAdd === b4.isAdd) {
     return [
       new NoOperation(0)
     ];
@@ -29874,24 +29874,24 @@ setTransformation(RootOperation, RootOperation, (a9, b3) => {
     a9
   ];
 });
-setTransformation(SplitOperation, InsertOperation, (a9, b3) => {
-  if (a9.splitPosition.hasSameParentAs(b3.position) && a9.splitPosition.offset < b3.position.offset) {
-    a9.howMany += b3.howMany;
+setTransformation(SplitOperation, InsertOperation, (a9, b4) => {
+  if (a9.splitPosition.hasSameParentAs(b4.position) && a9.splitPosition.offset < b4.position.offset) {
+    a9.howMany += b4.howMany;
   }
-  a9.splitPosition = a9.splitPosition._getTransformedByInsertOperation(b3);
-  a9.insertionPosition = a9.insertionPosition._getTransformedByInsertOperation(b3);
+  a9.splitPosition = a9.splitPosition._getTransformedByInsertOperation(b4);
+  a9.insertionPosition = a9.insertionPosition._getTransformedByInsertOperation(b4);
   return [
     a9
   ];
 });
-setTransformation(SplitOperation, MergeOperation, (a9, b3, context) => {
-  if (!a9.graveyardPosition && !context.bWasUndone && a9.splitPosition.hasSameParentAs(b3.sourcePosition)) {
-    const splitPath = b3.graveyardPosition.path.slice();
+setTransformation(SplitOperation, MergeOperation, (a9, b4, context) => {
+  if (!a9.graveyardPosition && !context.bWasUndone && a9.splitPosition.hasSameParentAs(b4.sourcePosition)) {
+    const splitPath = b4.graveyardPosition.path.slice();
     splitPath.push(0);
-    const splitPosition = new Position(b3.graveyardPosition.root, splitPath);
-    const insertionPosition = SplitOperation.getInsertionPosition(new Position(b3.graveyardPosition.root, splitPath));
+    const splitPosition = new Position(b4.graveyardPosition.root, splitPath);
+    const insertionPosition = SplitOperation.getInsertionPosition(new Position(b4.graveyardPosition.root, splitPath));
     const additionalSplit = new SplitOperation(splitPosition, 0, insertionPosition, null, 0);
-    a9.splitPosition = a9.splitPosition._getTransformedByMergeOperation(b3);
+    a9.splitPosition = a9.splitPosition._getTransformedByMergeOperation(b4);
     a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
     a9.graveyardPosition = additionalSplit.insertionPosition.clone();
     a9.graveyardPosition.stickiness = "toNext";
@@ -29900,28 +29900,28 @@ setTransformation(SplitOperation, MergeOperation, (a9, b3, context) => {
       a9
     ];
   }
-  if (a9.splitPosition.hasSameParentAs(b3.deletionPosition) && !a9.splitPosition.isAfter(b3.deletionPosition)) {
+  if (a9.splitPosition.hasSameParentAs(b4.deletionPosition) && !a9.splitPosition.isAfter(b4.deletionPosition)) {
     a9.howMany--;
   }
-  if (a9.splitPosition.hasSameParentAs(b3.targetPosition)) {
-    a9.howMany += b3.howMany;
+  if (a9.splitPosition.hasSameParentAs(b4.targetPosition)) {
+    a9.howMany += b4.howMany;
   }
-  a9.splitPosition = a9.splitPosition._getTransformedByMergeOperation(b3);
+  a9.splitPosition = a9.splitPosition._getTransformedByMergeOperation(b4);
   a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
   if (a9.graveyardPosition) {
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMergeOperation(b3);
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMergeOperation(b4);
   }
   return [
     a9
   ];
 });
-setTransformation(SplitOperation, MoveOperation, (a9, b3, context) => {
-  const rangeToMove = Range._createFromPositionAndShift(b3.sourcePosition, b3.howMany);
+setTransformation(SplitOperation, MoveOperation, (a9, b4, context) => {
+  const rangeToMove = Range._createFromPositionAndShift(b4.sourcePosition, b4.howMany);
   if (a9.graveyardPosition) {
     const gyElementMoved = rangeToMove.start.isEqual(a9.graveyardPosition) || rangeToMove.containsPosition(a9.graveyardPosition);
     if (!context.bWasUndone && gyElementMoved) {
-      const sourcePosition = a9.splitPosition._getTransformedByMoveOperation(b3);
-      const newParentPosition = a9.graveyardPosition._getTransformedByMoveOperation(b3);
+      const sourcePosition = a9.splitPosition._getTransformedByMoveOperation(b4);
+      const newParentPosition = a9.graveyardPosition._getTransformedByMoveOperation(b4);
       const newTargetPath = newParentPosition.path.slice();
       newTargetPath.push(0);
       const newTargetPosition = new Position(newParentPosition.root, newTargetPath);
@@ -29930,12 +29930,12 @@ setTransformation(SplitOperation, MoveOperation, (a9, b3, context) => {
         moveOp
       ];
     }
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMoveOperation(b3);
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedByMoveOperation(b4);
   }
-  const splitAtTarget = a9.splitPosition.isEqual(b3.targetPosition);
+  const splitAtTarget = a9.splitPosition.isEqual(b4.targetPosition);
   if (splitAtTarget && (context.baRelation == "insertAtSource" || context.abRelation == "splitBefore")) {
-    a9.howMany += b3.howMany;
-    a9.splitPosition = a9.splitPosition._getTransformedByDeletion(b3.sourcePosition, b3.howMany);
+    a9.howMany += b4.howMany;
+    a9.splitPosition = a9.splitPosition._getTransformedByDeletion(b4.sourcePosition, b4.howMany);
     a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
     return [
       a9
@@ -29949,31 +29949,31 @@ setTransformation(SplitOperation, MoveOperation, (a9, b3, context) => {
       a9
     ];
   }
-  if (a9.splitPosition.hasSameParentAs(b3.sourcePosition) && rangeToMove.containsPosition(a9.splitPosition)) {
-    const howManyRemoved = b3.howMany - (a9.splitPosition.offset - b3.sourcePosition.offset);
+  if (a9.splitPosition.hasSameParentAs(b4.sourcePosition) && rangeToMove.containsPosition(a9.splitPosition)) {
+    const howManyRemoved = b4.howMany - (a9.splitPosition.offset - b4.sourcePosition.offset);
     a9.howMany -= howManyRemoved;
-    if (a9.splitPosition.hasSameParentAs(b3.targetPosition) && a9.splitPosition.offset < b3.targetPosition.offset) {
-      a9.howMany += b3.howMany;
+    if (a9.splitPosition.hasSameParentAs(b4.targetPosition) && a9.splitPosition.offset < b4.targetPosition.offset) {
+      a9.howMany += b4.howMany;
     }
-    a9.splitPosition = b3.sourcePosition.clone();
+    a9.splitPosition = b4.sourcePosition.clone();
     a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
     return [
       a9
     ];
   }
-  if (!b3.sourcePosition.isEqual(b3.targetPosition)) {
-    if (a9.splitPosition.hasSameParentAs(b3.sourcePosition) && a9.splitPosition.offset <= b3.sourcePosition.offset) {
-      a9.howMany -= b3.howMany;
+  if (!b4.sourcePosition.isEqual(b4.targetPosition)) {
+    if (a9.splitPosition.hasSameParentAs(b4.sourcePosition) && a9.splitPosition.offset <= b4.sourcePosition.offset) {
+      a9.howMany -= b4.howMany;
     }
-    if (a9.splitPosition.hasSameParentAs(b3.targetPosition) && a9.splitPosition.offset < b3.targetPosition.offset) {
-      a9.howMany += b3.howMany;
+    if (a9.splitPosition.hasSameParentAs(b4.targetPosition) && a9.splitPosition.offset < b4.targetPosition.offset) {
+      a9.howMany += b4.howMany;
     }
   }
   a9.splitPosition.stickiness = "toNone";
-  a9.splitPosition = a9.splitPosition._getTransformedByMoveOperation(b3);
+  a9.splitPosition = a9.splitPosition._getTransformedByMoveOperation(b4);
   a9.splitPosition.stickiness = "toNext";
   if (a9.graveyardPosition) {
-    a9.insertionPosition = a9.insertionPosition._getTransformedByMoveOperation(b3);
+    a9.insertionPosition = a9.insertionPosition._getTransformedByMoveOperation(b4);
   } else {
     a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
   }
@@ -29981,36 +29981,36 @@ setTransformation(SplitOperation, MoveOperation, (a9, b3, context) => {
     a9
   ];
 });
-setTransformation(SplitOperation, SplitOperation, (a9, b3, context) => {
-  if (a9.splitPosition.isEqual(b3.splitPosition)) {
-    if (!a9.graveyardPosition && !b3.graveyardPosition) {
+setTransformation(SplitOperation, SplitOperation, (a9, b4, context) => {
+  if (a9.splitPosition.isEqual(b4.splitPosition)) {
+    if (!a9.graveyardPosition && !b4.graveyardPosition) {
       return [
         new NoOperation(0)
       ];
     }
-    if (a9.graveyardPosition && b3.graveyardPosition && a9.graveyardPosition.isEqual(b3.graveyardPosition)) {
+    if (a9.graveyardPosition && b4.graveyardPosition && a9.graveyardPosition.isEqual(b4.graveyardPosition)) {
       return [
         new NoOperation(0)
       ];
     }
     if (context.abRelation == "splitBefore") {
       a9.howMany = 0;
-      a9.graveyardPosition = a9.graveyardPosition._getTransformedBySplitOperation(b3);
+      a9.graveyardPosition = a9.graveyardPosition._getTransformedBySplitOperation(b4);
       return [
         a9
       ];
     }
   }
-  if (a9.graveyardPosition && b3.graveyardPosition && a9.graveyardPosition.isEqual(b3.graveyardPosition)) {
+  if (a9.graveyardPosition && b4.graveyardPosition && a9.graveyardPosition.isEqual(b4.graveyardPosition)) {
     const aInGraveyard = a9.splitPosition.root.rootName == "$graveyard";
-    const bInGraveyard = b3.splitPosition.root.rootName == "$graveyard";
+    const bInGraveyard = b4.splitPosition.root.rootName == "$graveyard";
     const aIsWeak = aInGraveyard && !bInGraveyard;
     const bIsWeak = bInGraveyard && !aInGraveyard;
     const forceMove = bIsWeak || !aIsWeak && context.aIsStrong;
     if (forceMove) {
       const result = [];
-      if (b3.howMany) {
-        result.push(new MoveOperation(b3.moveTargetPosition, b3.howMany, b3.splitPosition, 0));
+      if (b4.howMany) {
+        result.push(new MoveOperation(b4.moveTargetPosition, b4.howMany, b4.splitPosition, 0));
       }
       if (a9.howMany) {
         result.push(new MoveOperation(a9.splitPosition, a9.howMany, a9.moveTargetPosition, 0));
@@ -30023,44 +30023,44 @@ setTransformation(SplitOperation, SplitOperation, (a9, b3, context) => {
     }
   }
   if (a9.graveyardPosition) {
-    a9.graveyardPosition = a9.graveyardPosition._getTransformedBySplitOperation(b3);
+    a9.graveyardPosition = a9.graveyardPosition._getTransformedBySplitOperation(b4);
   }
-  if (a9.splitPosition.isEqual(b3.insertionPosition) && context.abRelation == "splitBefore") {
+  if (a9.splitPosition.isEqual(b4.insertionPosition) && context.abRelation == "splitBefore") {
     a9.howMany++;
     return [
       a9
     ];
   }
-  if (b3.splitPosition.isEqual(a9.insertionPosition) && context.baRelation == "splitBefore") {
-    const newPositionPath = b3.insertionPosition.path.slice();
+  if (b4.splitPosition.isEqual(a9.insertionPosition) && context.baRelation == "splitBefore") {
+    const newPositionPath = b4.insertionPosition.path.slice();
     newPositionPath.push(0);
-    const newPosition = new Position(b3.insertionPosition.root, newPositionPath);
+    const newPosition = new Position(b4.insertionPosition.root, newPositionPath);
     const moveOp = new MoveOperation(a9.insertionPosition, 1, newPosition, 0);
     return [
       a9,
       moveOp
     ];
   }
-  if (a9.splitPosition.hasSameParentAs(b3.splitPosition) && a9.splitPosition.offset < b3.splitPosition.offset) {
-    a9.howMany -= b3.howMany;
+  if (a9.splitPosition.hasSameParentAs(b4.splitPosition) && a9.splitPosition.offset < b4.splitPosition.offset) {
+    a9.howMany -= b4.howMany;
   }
-  a9.splitPosition = a9.splitPosition._getTransformedBySplitOperation(b3);
+  a9.splitPosition = a9.splitPosition._getTransformedBySplitOperation(b4);
   a9.insertionPosition = SplitOperation.getInsertionPosition(a9.splitPosition);
   return [
     a9
   ];
 });
-function _moveTargetIntoMovedRange(a9, b3) {
-  return a9.targetPosition._getTransformedByDeletion(b3.sourcePosition, b3.howMany) === null;
+function _moveTargetIntoMovedRange(a9, b4) {
+  return a9.targetPosition._getTransformedByDeletion(b4.sourcePosition, b4.howMany) === null;
 }
 function _makeMoveOperationsFromRanges(ranges, targetPosition) {
   const operations2 = [];
-  for (let i13 = 0; i13 < ranges.length; i13++) {
-    const range = ranges[i13];
+  for (let i14 = 0; i14 < ranges.length; i14++) {
+    const range = ranges[i14];
     const op = new MoveOperation(range.start, range.end.offset - range.start.offset, targetPosition, 0);
     operations2.push(op);
-    for (let j3 = i13 + 1; j3 < ranges.length; j3++) {
-      ranges[j3] = ranges[j3]._getTransformedByMove(op.sourcePosition, op.targetPosition, op.howMany)[0];
+    for (let j4 = i14 + 1; j4 < ranges.length; j4++) {
+      ranges[j4] = ranges[j4]._getTransformedByMove(op.sourcePosition, op.targetPosition, op.howMany)[0];
     }
     targetPosition = targetPosition._getTransformedByMove(op.sourcePosition, op.targetPosition, op.howMany);
   }
@@ -30575,64 +30575,64 @@ const _Differ = class _Differ {
     }
     let diffSet = [];
     for (const element of this._changesInElement.keys()) {
-      const changes = this._changesInElement.get(element).sort((a9, b3) => {
-        if (a9.offset === b3.offset) {
-          if (a9.type != b3.type) {
+      const changes = this._changesInElement.get(element).sort((a9, b4) => {
+        if (a9.offset === b4.offset) {
+          if (a9.type != b4.type) {
             return a9.type == "remove" ? -1 : 1;
           }
           return 0;
         }
-        return a9.offset < b3.offset ? -1 : 1;
+        return a9.offset < b4.offset ? -1 : 1;
       });
       const childrenBefore = this._elementChildrenSnapshots.get(element);
       const childrenAfter = _getChildrenSnapshots(element.getChildren());
       const diffInstructions = _generateDiffInstructionsFromChanges(childrenBefore.length, changes);
-      let i13 = 0;
-      let j3 = 0;
+      let i14 = 0;
+      let j4 = 0;
       for (const instruction of diffInstructions) {
         if (instruction === "i") {
-          const action = this._getDiffActionForNode(childrenAfter[i13].node, "insert");
-          const childSnapshotBefore = this._elementsSnapshots.get(childrenAfter[i13].node);
-          const diffItem = this._getInsertDiff(element, i13, action, childrenAfter[i13], childSnapshotBefore);
+          const action = this._getDiffActionForNode(childrenAfter[i14].node, "insert");
+          const childSnapshotBefore = this._elementsSnapshots.get(childrenAfter[i14].node);
+          const diffItem = this._getInsertDiff(element, i14, action, childrenAfter[i14], childSnapshotBefore);
           diffSet.push(diffItem);
-          i13++;
+          i14++;
         } else if (instruction === "r") {
-          const action = this._getDiffActionForNode(childrenBefore[j3].node, "remove");
-          const diffItem = this._getRemoveDiff(element, i13, action, childrenBefore[j3]);
+          const action = this._getDiffActionForNode(childrenBefore[j4].node, "remove");
+          const diffItem = this._getRemoveDiff(element, i14, action, childrenBefore[j4]);
           diffSet.push(diffItem);
-          j3++;
+          j4++;
         } else if (instruction === "a") {
-          const beforeAttributes = childrenBefore[j3].attributes;
-          const afterAttributes = childrenAfter[i13].attributes;
+          const beforeAttributes = childrenBefore[j4].attributes;
+          const afterAttributes = childrenAfter[i14].attributes;
           let range;
-          if (childrenAfter[i13].name == "$text") {
-            range = new Range(Position._createAt(element, i13), Position._createAt(element, i13 + 1));
+          if (childrenAfter[i14].name == "$text") {
+            range = new Range(Position._createAt(element, i14), Position._createAt(element, i14 + 1));
           } else {
-            const index2 = element.offsetToIndex(i13);
-            range = new Range(Position._createAt(element, i13), Position._createAt(element.getChild(index2), 0));
+            const index2 = element.offsetToIndex(i14);
+            range = new Range(Position._createAt(element, i14), Position._createAt(element.getChild(index2), 0));
           }
           const diffItems = this._getAttributesDiff(range, beforeAttributes, afterAttributes);
           diffSet.push(...diffItems);
-          i13++;
-          j3++;
+          i14++;
+          j4++;
         } else {
-          i13++;
-          j3++;
+          i14++;
+          j4++;
         }
       }
     }
-    diffSet.sort((a9, b3) => {
-      if (a9.position.root != b3.position.root) {
-        return a9.position.root.rootName < b3.position.root.rootName ? -1 : 1;
+    diffSet.sort((a9, b4) => {
+      if (a9.position.root != b4.position.root) {
+        return a9.position.root.rootName < b4.position.root.rootName ? -1 : 1;
       }
-      if (a9.position.isEqual(b3.position)) {
-        return a9.changeCount - b3.changeCount;
+      if (a9.position.isEqual(b4.position)) {
+        return a9.changeCount - b4.changeCount;
       }
-      return a9.position.isBefore(b3.position) ? -1 : 1;
+      return a9.position.isBefore(b4.position) ? -1 : 1;
     });
-    for (let i13 = 1, prevIndex = 0; i13 < diffSet.length; i13++) {
+    for (let i14 = 1, prevIndex = 0; i14 < diffSet.length; i14++) {
       const prevDiff = diffSet[prevIndex];
-      const thisDiff = diffSet[i13];
+      const thisDiff = diffSet[i14];
       const isConsecutiveTextRemove = prevDiff.type == "remove" && thisDiff.type == "remove" && prevDiff.name == "$text" && thisDiff.name == "$text" && prevDiff.position.isEqual(thisDiff.position);
       const isConsecutiveTextAdd = prevDiff.type == "insert" && thisDiff.type == "insert" && prevDiff.name == "$text" && thisDiff.name == "$text" && prevDiff.position.parent == thisDiff.position.parent && prevDiff.position.offset + prevDiff.length == thisDiff.position.offset;
       const isConsecutiveAttributeChange = prevDiff.type == "attribute" && thisDiff.type == "attribute" && prevDiff.position.parent == thisDiff.position.parent && prevDiff.range.isFlat && thisDiff.range.isFlat && prevDiff.position.offset + prevDiff.length == thisDiff.position.offset && prevDiff.attributeKey == thisDiff.attributeKey && prevDiff.attributeOldValue == thisDiff.attributeOldValue && prevDiff.attributeNewValue == thisDiff.attributeNewValue;
@@ -30641,9 +30641,9 @@ const _Differ = class _Differ {
         if (isConsecutiveAttributeChange) {
           prevDiff.range.end = prevDiff.range.end.getShiftedBy(1);
         }
-        diffSet[i13] = null;
+        diffSet[i14] = null;
       } else {
-        prevIndex = i13;
+        prevIndex = i14;
       }
     }
     diffSet = diffSet.filter((v2) => v2);
@@ -30857,10 +30857,10 @@ const _Differ = class _Differ {
     const changes = this._getChangesForElement(parent);
     this._handleChange(changeItem, changes);
     changes.push(changeItem);
-    for (let i13 = 0; i13 < changes.length; i13++) {
-      if (changes[i13].howMany < 1) {
-        changes.splice(i13, 1);
-        i13--;
+    for (let i14 = 0; i14 < changes.length; i14++) {
+      if (changes[i14].howMany < 1) {
+        changes.splice(i14, 1);
+        i14--;
       }
     }
   }
@@ -31227,7 +31227,7 @@ function _getChildrenSnapshots(children) {
   const snapshots = [];
   for (const child of children) {
     if (child.is("$text")) {
-      for (let i13 = 0; i13 < child.data.length; ++i13) {
+      for (let i14 = 0; i14 < child.data.length; ++i14) {
         snapshots.push(_getSingleNodeSnapshot(child));
       }
     } else {
@@ -31242,25 +31242,25 @@ function _generateDiffInstructionsFromChanges(oldChildrenLength, changes) {
   let oldChildrenHandled = 0;
   for (const change of changes) {
     if (change.offset > offset2) {
-      for (let i13 = 0; i13 < change.offset - offset2; i13++) {
+      for (let i14 = 0; i14 < change.offset - offset2; i14++) {
         diff2.push("e");
       }
       oldChildrenHandled += change.offset - offset2;
     }
     if (change.type == "insert") {
-      for (let i13 = 0; i13 < change.howMany; i13++) {
+      for (let i14 = 0; i14 < change.howMany; i14++) {
         diff2.push("i");
       }
       offset2 = change.offset + change.howMany;
     } else if (change.type == "remove") {
-      for (let i13 = 0; i13 < change.howMany; i13++) {
+      for (let i14 = 0; i14 < change.howMany; i14++) {
         diff2.push("r");
       }
       offset2 = change.offset;
       oldChildrenHandled += change.howMany;
     } else {
       if (change.howMany > 1500) {
-        for (let i13 = 0; i13 < change.howMany; i13++) {
+        for (let i14 = 0; i14 < change.howMany; i14++) {
           diff2.push("a");
         }
       } else {
@@ -31271,7 +31271,7 @@ function _generateDiffInstructionsFromChanges(oldChildrenLength, changes) {
     }
   }
   if (oldChildrenHandled < oldChildrenLength) {
-    for (let i13 = 0; i13 < oldChildrenLength - oldChildrenHandled - offset2; i13++) {
+    for (let i14 = 0; i14 < oldChildrenLength - oldChildrenHandled - offset2; i14++) {
       diff2.push("e");
     }
   }
@@ -33750,13 +33750,13 @@ function checkShouldMerge(schema, startPosition, endPosition) {
 function getAncestorsJustBelowCommonAncestor(positionA, positionB) {
   const ancestorsA = positionA.getAncestors();
   const ancestorsB = positionB.getAncestors();
-  let i13 = 0;
-  while (ancestorsA[i13] && ancestorsA[i13] == ancestorsB[i13]) {
-    i13++;
+  let i14 = 0;
+  while (ancestorsA[i14] && ancestorsA[i14] == ancestorsB[i14]) {
+    i14++;
   }
   return [
-    ancestorsA[i13],
-    ancestorsB[i13]
+    ancestorsA[i14],
+    ancestorsB[i14]
   ];
 }
 function shouldAutoparagraph(schema, position) {
@@ -33919,8 +33919,8 @@ function insertContent(model, content, selectable) {
     if (content.is("documentFragment") && fakeMarkerElements.length) {
       const selectionLiveRange = newRange ? LiveRange.fromRange(newRange) : null;
       const markersData = {};
-      for (let i13 = fakeMarkerElements.length - 1; i13 >= 0; i13--) {
-        const { name, element, collapsed } = fakeMarkerElements[i13];
+      for (let i14 = fakeMarkerElements.length - 1; i14 >= 0; i14--) {
+        const { name, element, collapsed } = fakeMarkerElements[i14];
         const isStartBoundary = !markersData[name];
         if (isStartBoundary) {
           markersData[name] = [];
@@ -36070,7 +36070,7 @@ function getPositionShorthandNormalizer(shorthand) {
 }
 function getShorthandValues(string) {
   const matches = string.trim().slice(0, 1500).matchAll(CSS_SHORTHAND_VALUE_REGEXP);
-  return Array.from(matches).map((i13) => i13[0]);
+  return Array.from(matches).map((i14) => i14[0]);
 }
 function addBackgroundRules(stylesProcessor) {
   stylesProcessor.setNormalizer("background", getBackgroundNormalizer());
@@ -36661,8 +36661,8 @@ function getSubNodes(head, excludedProperties = /* @__PURE__ */ new Set()) {
     subNodes.add(node);
     if (Symbol.iterator in node) {
       try {
-        for (const n10 of node) {
-          nodes.push(n10);
+        for (const n12 of node) {
+          nodes.push(n12);
         }
       } catch (err) {
       }
@@ -40381,8 +40381,8 @@ function generateToken(length2) {
   let result = "";
   const randValues = new Uint8Array(length2);
   window.crypto.getRandomValues(randValues);
-  for (let j3 = 0; j3 < randValues.length; j3++) {
-    const character = tokenCharset.charAt(randValues[j3] % tokenCharset.length);
+  for (let j4 = 0; j4 < randValues.length; j4++) {
+    const character = tokenCharset.charAt(randValues[j4] % tokenCharset.length);
     result += Math.random() > 0.5 ? character.toUpperCase() : character;
   }
   return result;
@@ -40665,8 +40665,8 @@ var unlink = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path 
 var user = '<svg viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M5.5 5C8.538 5 11 7.015 11 9.5c0 .17-.011.336-.034.5H.034A3.732 3.732 0 0 1 0 9.5C0 7.015 2.462 5 5.5 5zm0-5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></svg>';
 var warning = '<svg width="12" height="12" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg">\n<path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C12 9.31371 9.31371 12 6 12C2.68629 12 0 9.31371 0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6ZM5.27988 2.40003H6.71988V6.72003H5.27988V2.40003ZM6.72009 8.16003H5.28009V9.60003H6.72009V8.16003Z" fill="#DB3700"/>\n</svg>\n';
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-function getDefaultExportFromCjs(x4) {
-  return x4 && x4.__esModule && Object.prototype.hasOwnProperty.call(x4, "default") ? x4["default"] : x4;
+function getDefaultExportFromCjs(x5) {
+  return x5 && x5.__esModule && Object.prototype.hasOwnProperty.call(x5, "default") ? x5["default"] : x5;
 }
 var colorName;
 var hasRequiredColorName;
@@ -40836,7 +40836,7 @@ var baseHues = {
   purple: 300
 };
 function parse$2(cstr) {
-  var m9, parts2 = [], alpha = 1, space;
+  var m10, parts2 = [], alpha = 1, space;
   if (typeof cstr === "string") {
     if (names[cstr]) {
       parts2 = names[cstr].slice();
@@ -40873,25 +40873,25 @@ function parse$2(cstr) {
       if (!parts2[1]) parts2[1] = 0;
       if (!parts2[2]) parts2[2] = 0;
       space = "rgb";
-    } else if (m9 = /^((?:rgb|hs[lvb]|hwb|cmyk?|xy[zy]|gray|lab|lchu?v?|[ly]uv|lms)a?)\s*\(([^\)]*)\)/.exec(cstr)) {
-      var name = m9[1];
+    } else if (m10 = /^((?:rgb|hs[lvb]|hwb|cmyk?|xy[zy]|gray|lab|lchu?v?|[ly]uv|lms)a?)\s*\(([^\)]*)\)/.exec(cstr)) {
+      var name = m10[1];
       var isRGB = name === "rgb";
       var base = name.replace(/a$/, "");
       space = base;
       var size = base === "cmyk" ? 4 : base === "gray" ? 1 : 3;
-      parts2 = m9[2].trim().split(/\s*[,\/]\s*|\s+/).map(function(x4, i13) {
-        if (/%$/.test(x4)) {
-          if (i13 === size) return parseFloat(x4) / 100;
-          if (base === "rgb") return parseFloat(x4) * 255 / 100;
-          return parseFloat(x4);
-        } else if (base[i13] === "h") {
-          if (/deg$/.test(x4)) {
-            return parseFloat(x4);
-          } else if (baseHues[x4] !== void 0) {
-            return baseHues[x4];
+      parts2 = m10[2].trim().split(/\s*[,\/]\s*|\s+/).map(function(x5, i14) {
+        if (/%$/.test(x5)) {
+          if (i14 === size) return parseFloat(x5) / 100;
+          if (base === "rgb") return parseFloat(x5) * 255 / 100;
+          return parseFloat(x5);
+        } else if (base[i14] === "h") {
+          if (/deg$/.test(x5)) {
+            return parseFloat(x5);
+          } else if (baseHues[x5] !== void 0) {
+            return baseHues[x5];
           }
         }
-        return parseFloat(x4);
+        return parseFloat(x5);
       });
       if (name === base) parts2.push(1);
       alpha = isRGB ? 1 : parts2[size] === void 0 ? 1 : parts2[size];
@@ -40979,99 +40979,99 @@ function requireConversions() {
     Object.defineProperty(convert2[model], "labels", { value: labels });
   }
   convert2.rgb.hsl = function(rgb) {
-    const r9 = rgb[0] / 255;
-    const g4 = rgb[1] / 255;
-    const b3 = rgb[2] / 255;
-    const min = Math.min(r9, g4, b3);
-    const max = Math.max(r9, g4, b3);
+    const r10 = rgb[0] / 255;
+    const g5 = rgb[1] / 255;
+    const b4 = rgb[2] / 255;
+    const min = Math.min(r10, g5, b4);
+    const max = Math.max(r10, g5, b4);
     const delta = max - min;
-    let h5;
-    let s14;
+    let h7;
+    let s15;
     if (max === min) {
-      h5 = 0;
-    } else if (r9 === max) {
-      h5 = (g4 - b3) / delta;
-    } else if (g4 === max) {
-      h5 = 2 + (b3 - r9) / delta;
-    } else if (b3 === max) {
-      h5 = 4 + (r9 - g4) / delta;
+      h7 = 0;
+    } else if (r10 === max) {
+      h7 = (g5 - b4) / delta;
+    } else if (g5 === max) {
+      h7 = 2 + (b4 - r10) / delta;
+    } else if (b4 === max) {
+      h7 = 4 + (r10 - g5) / delta;
     }
-    h5 = Math.min(h5 * 60, 360);
-    if (h5 < 0) {
-      h5 += 360;
+    h7 = Math.min(h7 * 60, 360);
+    if (h7 < 0) {
+      h7 += 360;
     }
     const l5 = (min + max) / 2;
     if (max === min) {
-      s14 = 0;
+      s15 = 0;
     } else if (l5 <= 0.5) {
-      s14 = delta / (max + min);
+      s15 = delta / (max + min);
     } else {
-      s14 = delta / (2 - max - min);
+      s15 = delta / (2 - max - min);
     }
-    return [h5, s14 * 100, l5 * 100];
+    return [h7, s15 * 100, l5 * 100];
   };
   convert2.rgb.hsv = function(rgb) {
     let rdif;
     let gdif;
     let bdif;
-    let h5;
-    let s14;
-    const r9 = rgb[0] / 255;
-    const g4 = rgb[1] / 255;
-    const b3 = rgb[2] / 255;
-    const v2 = Math.max(r9, g4, b3);
-    const diff2 = v2 - Math.min(r9, g4, b3);
+    let h7;
+    let s15;
+    const r10 = rgb[0] / 255;
+    const g5 = rgb[1] / 255;
+    const b4 = rgb[2] / 255;
+    const v2 = Math.max(r10, g5, b4);
+    const diff2 = v2 - Math.min(r10, g5, b4);
     const diffc = function(c8) {
       return (v2 - c8) / 6 / diff2 + 1 / 2;
     };
     if (diff2 === 0) {
-      h5 = 0;
-      s14 = 0;
+      h7 = 0;
+      s15 = 0;
     } else {
-      s14 = diff2 / v2;
-      rdif = diffc(r9);
-      gdif = diffc(g4);
-      bdif = diffc(b3);
-      if (r9 === v2) {
-        h5 = bdif - gdif;
-      } else if (g4 === v2) {
-        h5 = 1 / 3 + rdif - bdif;
-      } else if (b3 === v2) {
-        h5 = 2 / 3 + gdif - rdif;
+      s15 = diff2 / v2;
+      rdif = diffc(r10);
+      gdif = diffc(g5);
+      bdif = diffc(b4);
+      if (r10 === v2) {
+        h7 = bdif - gdif;
+      } else if (g5 === v2) {
+        h7 = 1 / 3 + rdif - bdif;
+      } else if (b4 === v2) {
+        h7 = 2 / 3 + gdif - rdif;
       }
-      if (h5 < 0) {
-        h5 += 1;
-      } else if (h5 > 1) {
-        h5 -= 1;
+      if (h7 < 0) {
+        h7 += 1;
+      } else if (h7 > 1) {
+        h7 -= 1;
       }
     }
     return [
-      h5 * 360,
-      s14 * 100,
+      h7 * 360,
+      s15 * 100,
       v2 * 100
     ];
   };
   convert2.rgb.hwb = function(rgb) {
-    const r9 = rgb[0];
-    const g4 = rgb[1];
-    let b3 = rgb[2];
-    const h5 = convert2.rgb.hsl(rgb)[0];
-    const w4 = 1 / 255 * Math.min(r9, Math.min(g4, b3));
-    b3 = 1 - 1 / 255 * Math.max(r9, Math.max(g4, b3));
-    return [h5, w4 * 100, b3 * 100];
+    const r10 = rgb[0];
+    const g5 = rgb[1];
+    let b4 = rgb[2];
+    const h7 = convert2.rgb.hsl(rgb)[0];
+    const w4 = 1 / 255 * Math.min(r10, Math.min(g5, b4));
+    b4 = 1 - 1 / 255 * Math.max(r10, Math.max(g5, b4));
+    return [h7, w4 * 100, b4 * 100];
   };
   convert2.rgb.cmyk = function(rgb) {
-    const r9 = rgb[0] / 255;
-    const g4 = rgb[1] / 255;
-    const b3 = rgb[2] / 255;
-    const k5 = Math.min(1 - r9, 1 - g4, 1 - b3);
-    const c8 = (1 - r9 - k5) / (1 - k5) || 0;
-    const m9 = (1 - g4 - k5) / (1 - k5) || 0;
-    const y2 = (1 - b3 - k5) / (1 - k5) || 0;
-    return [c8 * 100, m9 * 100, y2 * 100, k5 * 100];
+    const r10 = rgb[0] / 255;
+    const g5 = rgb[1] / 255;
+    const b4 = rgb[2] / 255;
+    const k5 = Math.min(1 - r10, 1 - g5, 1 - b4);
+    const c8 = (1 - r10 - k5) / (1 - k5) || 0;
+    const m10 = (1 - g5 - k5) / (1 - k5) || 0;
+    const y3 = (1 - b4 - k5) / (1 - k5) || 0;
+    return [c8 * 100, m10 * 100, y3 * 100, k5 * 100];
   };
-  function comparativeDistance(x4, y2) {
-    return (x4[0] - y2[0]) ** 2 + (x4[1] - y2[1]) ** 2 + (x4[2] - y2[2]) ** 2;
+  function comparativeDistance(x5, y3) {
+    return (x5[0] - y3[0]) ** 2 + (x5[1] - y3[1]) ** 2 + (x5[2] - y3[2]) ** 2;
   }
   convert2.rgb.keyword = function(rgb) {
     const reversed = reverseKeywords[rgb];
@@ -41094,53 +41094,53 @@ function requireConversions() {
     return cssKeywords[keyword];
   };
   convert2.rgb.xyz = function(rgb) {
-    let r9 = rgb[0] / 255;
-    let g4 = rgb[1] / 255;
-    let b3 = rgb[2] / 255;
-    r9 = r9 > 0.04045 ? ((r9 + 0.055) / 1.055) ** 2.4 : r9 / 12.92;
-    g4 = g4 > 0.04045 ? ((g4 + 0.055) / 1.055) ** 2.4 : g4 / 12.92;
-    b3 = b3 > 0.04045 ? ((b3 + 0.055) / 1.055) ** 2.4 : b3 / 12.92;
-    const x4 = r9 * 0.4124 + g4 * 0.3576 + b3 * 0.1805;
-    const y2 = r9 * 0.2126 + g4 * 0.7152 + b3 * 0.0722;
-    const z3 = r9 * 0.0193 + g4 * 0.1192 + b3 * 0.9505;
-    return [x4 * 100, y2 * 100, z3 * 100];
+    let r10 = rgb[0] / 255;
+    let g5 = rgb[1] / 255;
+    let b4 = rgb[2] / 255;
+    r10 = r10 > 0.04045 ? ((r10 + 0.055) / 1.055) ** 2.4 : r10 / 12.92;
+    g5 = g5 > 0.04045 ? ((g5 + 0.055) / 1.055) ** 2.4 : g5 / 12.92;
+    b4 = b4 > 0.04045 ? ((b4 + 0.055) / 1.055) ** 2.4 : b4 / 12.92;
+    const x5 = r10 * 0.4124 + g5 * 0.3576 + b4 * 0.1805;
+    const y3 = r10 * 0.2126 + g5 * 0.7152 + b4 * 0.0722;
+    const z3 = r10 * 0.0193 + g5 * 0.1192 + b4 * 0.9505;
+    return [x5 * 100, y3 * 100, z3 * 100];
   };
   convert2.rgb.lab = function(rgb) {
     const xyz = convert2.rgb.xyz(rgb);
-    let x4 = xyz[0];
-    let y2 = xyz[1];
+    let x5 = xyz[0];
+    let y3 = xyz[1];
     let z3 = xyz[2];
-    x4 /= 95.047;
-    y2 /= 100;
+    x5 /= 95.047;
+    y3 /= 100;
     z3 /= 108.883;
-    x4 = x4 > 8856e-6 ? x4 ** (1 / 3) : 7.787 * x4 + 16 / 116;
-    y2 = y2 > 8856e-6 ? y2 ** (1 / 3) : 7.787 * y2 + 16 / 116;
+    x5 = x5 > 8856e-6 ? x5 ** (1 / 3) : 7.787 * x5 + 16 / 116;
+    y3 = y3 > 8856e-6 ? y3 ** (1 / 3) : 7.787 * y3 + 16 / 116;
     z3 = z3 > 8856e-6 ? z3 ** (1 / 3) : 7.787 * z3 + 16 / 116;
-    const l5 = 116 * y2 - 16;
-    const a9 = 500 * (x4 - y2);
-    const b3 = 200 * (y2 - z3);
-    return [l5, a9, b3];
+    const l5 = 116 * y3 - 16;
+    const a9 = 500 * (x5 - y3);
+    const b4 = 200 * (y3 - z3);
+    return [l5, a9, b4];
   };
   convert2.hsl.rgb = function(hsl) {
-    const h5 = hsl[0] / 360;
-    const s14 = hsl[1] / 100;
+    const h7 = hsl[0] / 360;
+    const s15 = hsl[1] / 100;
     const l5 = hsl[2] / 100;
     let t2;
     let t3;
     let val;
-    if (s14 === 0) {
+    if (s15 === 0) {
       val = l5 * 255;
       return [val, val, val];
     }
     if (l5 < 0.5) {
-      t2 = l5 * (1 + s14);
+      t2 = l5 * (1 + s15);
     } else {
-      t2 = l5 + s14 - l5 * s14;
+      t2 = l5 + s15 - l5 * s15;
     }
     const t1 = 2 * l5 - t2;
     const rgb = [0, 0, 0];
-    for (let i13 = 0; i13 < 3; i13++) {
-      t3 = h5 + 1 / 3 * -(i13 - 1);
+    for (let i14 = 0; i14 < 3; i14++) {
+      t3 = h7 + 1 / 3 * -(i14 - 1);
       if (t3 < 0) {
         t3++;
       }
@@ -41156,213 +41156,213 @@ function requireConversions() {
       } else {
         val = t1;
       }
-      rgb[i13] = val * 255;
+      rgb[i14] = val * 255;
     }
     return rgb;
   };
   convert2.hsl.hsv = function(hsl) {
-    const h5 = hsl[0];
-    let s14 = hsl[1] / 100;
+    const h7 = hsl[0];
+    let s15 = hsl[1] / 100;
     let l5 = hsl[2] / 100;
-    let smin = s14;
+    let smin = s15;
     const lmin = Math.max(l5, 0.01);
     l5 *= 2;
-    s14 *= l5 <= 1 ? l5 : 2 - l5;
+    s15 *= l5 <= 1 ? l5 : 2 - l5;
     smin *= lmin <= 1 ? lmin : 2 - lmin;
-    const v2 = (l5 + s14) / 2;
-    const sv = l5 === 0 ? 2 * smin / (lmin + smin) : 2 * s14 / (l5 + s14);
-    return [h5, sv * 100, v2 * 100];
+    const v2 = (l5 + s15) / 2;
+    const sv = l5 === 0 ? 2 * smin / (lmin + smin) : 2 * s15 / (l5 + s15);
+    return [h7, sv * 100, v2 * 100];
   };
   convert2.hsv.rgb = function(hsv) {
-    const h5 = hsv[0] / 60;
-    const s14 = hsv[1] / 100;
+    const h7 = hsv[0] / 60;
+    const s15 = hsv[1] / 100;
     let v2 = hsv[2] / 100;
-    const hi = Math.floor(h5) % 6;
-    const f6 = h5 - Math.floor(h5);
-    const p6 = 255 * v2 * (1 - s14);
-    const q3 = 255 * v2 * (1 - s14 * f6);
-    const t2 = 255 * v2 * (1 - s14 * (1 - f6));
+    const hi = Math.floor(h7) % 6;
+    const f7 = h7 - Math.floor(h7);
+    const p7 = 255 * v2 * (1 - s15);
+    const q3 = 255 * v2 * (1 - s15 * f7);
+    const t2 = 255 * v2 * (1 - s15 * (1 - f7));
     v2 *= 255;
     switch (hi) {
       case 0:
-        return [v2, t2, p6];
+        return [v2, t2, p7];
       case 1:
-        return [q3, v2, p6];
+        return [q3, v2, p7];
       case 2:
-        return [p6, v2, t2];
+        return [p7, v2, t2];
       case 3:
-        return [p6, q3, v2];
+        return [p7, q3, v2];
       case 4:
-        return [t2, p6, v2];
+        return [t2, p7, v2];
       case 5:
-        return [v2, p6, q3];
+        return [v2, p7, q3];
     }
   };
   convert2.hsv.hsl = function(hsv) {
-    const h5 = hsv[0];
-    const s14 = hsv[1] / 100;
+    const h7 = hsv[0];
+    const s15 = hsv[1] / 100;
     const v2 = hsv[2] / 100;
     const vmin = Math.max(v2, 0.01);
     let sl;
     let l5;
-    l5 = (2 - s14) * v2;
-    const lmin = (2 - s14) * vmin;
-    sl = s14 * vmin;
+    l5 = (2 - s15) * v2;
+    const lmin = (2 - s15) * vmin;
+    sl = s15 * vmin;
     sl /= lmin <= 1 ? lmin : 2 - lmin;
     sl = sl || 0;
     l5 /= 2;
-    return [h5, sl * 100, l5 * 100];
+    return [h7, sl * 100, l5 * 100];
   };
   convert2.hwb.rgb = function(hwb) {
-    const h5 = hwb[0] / 360;
+    const h7 = hwb[0] / 360;
     let wh = hwb[1] / 100;
     let bl = hwb[2] / 100;
     const ratio = wh + bl;
-    let f6;
+    let f7;
     if (ratio > 1) {
       wh /= ratio;
       bl /= ratio;
     }
-    const i13 = Math.floor(6 * h5);
+    const i14 = Math.floor(6 * h7);
     const v2 = 1 - bl;
-    f6 = 6 * h5 - i13;
-    if ((i13 & 1) !== 0) {
-      f6 = 1 - f6;
+    f7 = 6 * h7 - i14;
+    if ((i14 & 1) !== 0) {
+      f7 = 1 - f7;
     }
-    const n10 = wh + f6 * (v2 - wh);
-    let r9;
-    let g4;
-    let b3;
-    switch (i13) {
+    const n12 = wh + f7 * (v2 - wh);
+    let r10;
+    let g5;
+    let b4;
+    switch (i14) {
       default:
       case 6:
       case 0:
-        r9 = v2;
-        g4 = n10;
-        b3 = wh;
+        r10 = v2;
+        g5 = n12;
+        b4 = wh;
         break;
       case 1:
-        r9 = n10;
-        g4 = v2;
-        b3 = wh;
+        r10 = n12;
+        g5 = v2;
+        b4 = wh;
         break;
       case 2:
-        r9 = wh;
-        g4 = v2;
-        b3 = n10;
+        r10 = wh;
+        g5 = v2;
+        b4 = n12;
         break;
       case 3:
-        r9 = wh;
-        g4 = n10;
-        b3 = v2;
+        r10 = wh;
+        g5 = n12;
+        b4 = v2;
         break;
       case 4:
-        r9 = n10;
-        g4 = wh;
-        b3 = v2;
+        r10 = n12;
+        g5 = wh;
+        b4 = v2;
         break;
       case 5:
-        r9 = v2;
-        g4 = wh;
-        b3 = n10;
+        r10 = v2;
+        g5 = wh;
+        b4 = n12;
         break;
     }
-    return [r9 * 255, g4 * 255, b3 * 255];
+    return [r10 * 255, g5 * 255, b4 * 255];
   };
   convert2.cmyk.rgb = function(cmyk) {
     const c8 = cmyk[0] / 100;
-    const m9 = cmyk[1] / 100;
-    const y2 = cmyk[2] / 100;
+    const m10 = cmyk[1] / 100;
+    const y3 = cmyk[2] / 100;
     const k5 = cmyk[3] / 100;
-    const r9 = 1 - Math.min(1, c8 * (1 - k5) + k5);
-    const g4 = 1 - Math.min(1, m9 * (1 - k5) + k5);
-    const b3 = 1 - Math.min(1, y2 * (1 - k5) + k5);
-    return [r9 * 255, g4 * 255, b3 * 255];
+    const r10 = 1 - Math.min(1, c8 * (1 - k5) + k5);
+    const g5 = 1 - Math.min(1, m10 * (1 - k5) + k5);
+    const b4 = 1 - Math.min(1, y3 * (1 - k5) + k5);
+    return [r10 * 255, g5 * 255, b4 * 255];
   };
   convert2.xyz.rgb = function(xyz) {
-    const x4 = xyz[0] / 100;
-    const y2 = xyz[1] / 100;
+    const x5 = xyz[0] / 100;
+    const y3 = xyz[1] / 100;
     const z3 = xyz[2] / 100;
-    let r9;
-    let g4;
-    let b3;
-    r9 = x4 * 3.2406 + y2 * -1.5372 + z3 * -0.4986;
-    g4 = x4 * -0.9689 + y2 * 1.8758 + z3 * 0.0415;
-    b3 = x4 * 0.0557 + y2 * -0.204 + z3 * 1.057;
-    r9 = r9 > 31308e-7 ? 1.055 * r9 ** (1 / 2.4) - 0.055 : r9 * 12.92;
-    g4 = g4 > 31308e-7 ? 1.055 * g4 ** (1 / 2.4) - 0.055 : g4 * 12.92;
-    b3 = b3 > 31308e-7 ? 1.055 * b3 ** (1 / 2.4) - 0.055 : b3 * 12.92;
-    r9 = Math.min(Math.max(0, r9), 1);
-    g4 = Math.min(Math.max(0, g4), 1);
-    b3 = Math.min(Math.max(0, b3), 1);
-    return [r9 * 255, g4 * 255, b3 * 255];
+    let r10;
+    let g5;
+    let b4;
+    r10 = x5 * 3.2406 + y3 * -1.5372 + z3 * -0.4986;
+    g5 = x5 * -0.9689 + y3 * 1.8758 + z3 * 0.0415;
+    b4 = x5 * 0.0557 + y3 * -0.204 + z3 * 1.057;
+    r10 = r10 > 31308e-7 ? 1.055 * r10 ** (1 / 2.4) - 0.055 : r10 * 12.92;
+    g5 = g5 > 31308e-7 ? 1.055 * g5 ** (1 / 2.4) - 0.055 : g5 * 12.92;
+    b4 = b4 > 31308e-7 ? 1.055 * b4 ** (1 / 2.4) - 0.055 : b4 * 12.92;
+    r10 = Math.min(Math.max(0, r10), 1);
+    g5 = Math.min(Math.max(0, g5), 1);
+    b4 = Math.min(Math.max(0, b4), 1);
+    return [r10 * 255, g5 * 255, b4 * 255];
   };
   convert2.xyz.lab = function(xyz) {
-    let x4 = xyz[0];
-    let y2 = xyz[1];
+    let x5 = xyz[0];
+    let y3 = xyz[1];
     let z3 = xyz[2];
-    x4 /= 95.047;
-    y2 /= 100;
+    x5 /= 95.047;
+    y3 /= 100;
     z3 /= 108.883;
-    x4 = x4 > 8856e-6 ? x4 ** (1 / 3) : 7.787 * x4 + 16 / 116;
-    y2 = y2 > 8856e-6 ? y2 ** (1 / 3) : 7.787 * y2 + 16 / 116;
+    x5 = x5 > 8856e-6 ? x5 ** (1 / 3) : 7.787 * x5 + 16 / 116;
+    y3 = y3 > 8856e-6 ? y3 ** (1 / 3) : 7.787 * y3 + 16 / 116;
     z3 = z3 > 8856e-6 ? z3 ** (1 / 3) : 7.787 * z3 + 16 / 116;
-    const l5 = 116 * y2 - 16;
-    const a9 = 500 * (x4 - y2);
-    const b3 = 200 * (y2 - z3);
-    return [l5, a9, b3];
+    const l5 = 116 * y3 - 16;
+    const a9 = 500 * (x5 - y3);
+    const b4 = 200 * (y3 - z3);
+    return [l5, a9, b4];
   };
   convert2.lab.xyz = function(lab) {
     const l5 = lab[0];
     const a9 = lab[1];
-    const b3 = lab[2];
-    let x4;
-    let y2;
+    const b4 = lab[2];
+    let x5;
+    let y3;
     let z3;
-    y2 = (l5 + 16) / 116;
-    x4 = a9 / 500 + y2;
-    z3 = y2 - b3 / 200;
-    const y22 = y2 ** 3;
-    const x22 = x4 ** 3;
+    y3 = (l5 + 16) / 116;
+    x5 = a9 / 500 + y3;
+    z3 = y3 - b4 / 200;
+    const y22 = y3 ** 3;
+    const x22 = x5 ** 3;
     const z22 = z3 ** 3;
-    y2 = y22 > 8856e-6 ? y22 : (y2 - 16 / 116) / 7.787;
-    x4 = x22 > 8856e-6 ? x22 : (x4 - 16 / 116) / 7.787;
+    y3 = y22 > 8856e-6 ? y22 : (y3 - 16 / 116) / 7.787;
+    x5 = x22 > 8856e-6 ? x22 : (x5 - 16 / 116) / 7.787;
     z3 = z22 > 8856e-6 ? z22 : (z3 - 16 / 116) / 7.787;
-    x4 *= 95.047;
-    y2 *= 100;
+    x5 *= 95.047;
+    y3 *= 100;
     z3 *= 108.883;
-    return [x4, y2, z3];
+    return [x5, y3, z3];
   };
   convert2.lab.lch = function(lab) {
     const l5 = lab[0];
     const a9 = lab[1];
-    const b3 = lab[2];
-    let h5;
-    const hr = Math.atan2(b3, a9);
-    h5 = hr * 360 / 2 / Math.PI;
-    if (h5 < 0) {
-      h5 += 360;
+    const b4 = lab[2];
+    let h7;
+    const hr = Math.atan2(b4, a9);
+    h7 = hr * 360 / 2 / Math.PI;
+    if (h7 < 0) {
+      h7 += 360;
     }
-    const c8 = Math.sqrt(a9 * a9 + b3 * b3);
-    return [l5, c8, h5];
+    const c8 = Math.sqrt(a9 * a9 + b4 * b4);
+    return [l5, c8, h7];
   };
   convert2.lch.lab = function(lch) {
     const l5 = lch[0];
     const c8 = lch[1];
-    const h5 = lch[2];
-    const hr = h5 / 360 * 2 * Math.PI;
+    const h7 = lch[2];
+    const hr = h7 / 360 * 2 * Math.PI;
     const a9 = c8 * Math.cos(hr);
-    const b3 = c8 * Math.sin(hr);
-    return [l5, a9, b3];
+    const b4 = c8 * Math.sin(hr);
+    return [l5, a9, b4];
   };
   convert2.rgb.ansi16 = function(args, saturation = null) {
-    const [r9, g4, b3] = args;
+    const [r10, g5, b4] = args;
     let value2 = saturation === null ? convert2.rgb.hsv(args)[2] : saturation;
     value2 = Math.round(value2 / 50);
     if (value2 === 0) {
       return 30;
     }
-    let ansi = 30 + (Math.round(b3 / 255) << 2 | Math.round(g4 / 255) << 1 | Math.round(r9 / 255));
+    let ansi = 30 + (Math.round(b4 / 255) << 2 | Math.round(g5 / 255) << 1 | Math.round(r10 / 255));
     if (value2 === 2) {
       ansi += 60;
     }
@@ -41372,19 +41372,19 @@ function requireConversions() {
     return convert2.rgb.ansi16(convert2.hsv.rgb(args), args[2]);
   };
   convert2.rgb.ansi256 = function(args) {
-    const r9 = args[0];
-    const g4 = args[1];
-    const b3 = args[2];
-    if (r9 === g4 && g4 === b3) {
-      if (r9 < 8) {
+    const r10 = args[0];
+    const g5 = args[1];
+    const b4 = args[2];
+    if (r10 === g5 && g5 === b4) {
+      if (r10 < 8) {
         return 16;
       }
-      if (r9 > 248) {
+      if (r10 > 248) {
         return 231;
       }
-      return Math.round((r9 - 8) / 247 * 24) + 232;
+      return Math.round((r10 - 8) / 247 * 24) + 232;
     }
-    const ansi = 16 + 36 * Math.round(r9 / 255 * 5) + 6 * Math.round(g4 / 255 * 5) + Math.round(b3 / 255 * 5);
+    const ansi = 16 + 36 * Math.round(r10 / 255 * 5) + 6 * Math.round(g5 / 255 * 5) + Math.round(b4 / 255 * 5);
     return ansi;
   };
   convert2.ansi16.rgb = function(args) {
@@ -41397,10 +41397,10 @@ function requireConversions() {
       return [color, color, color];
     }
     const mult = (~~(args > 50) + 1) * 0.5;
-    const r9 = (color & 1) * mult * 255;
-    const g4 = (color >> 1 & 1) * mult * 255;
-    const b3 = (color >> 2 & 1) * mult * 255;
-    return [r9, g4, b3];
+    const r10 = (color & 1) * mult * 255;
+    const g5 = (color >> 1 & 1) * mult * 255;
+    const b4 = (color >> 2 & 1) * mult * 255;
+    return [r10, g5, b4];
   };
   convert2.ansi256.rgb = function(args) {
     if (args >= 232) {
@@ -41409,10 +41409,10 @@ function requireConversions() {
     }
     args -= 16;
     let rem;
-    const r9 = Math.floor(args / 36) / 5 * 255;
-    const g4 = Math.floor((rem = args % 36) / 6) / 5 * 255;
-    const b3 = rem % 6 / 5 * 255;
-    return [r9, g4, b3];
+    const r10 = Math.floor(args / 36) / 5 * 255;
+    const g5 = Math.floor((rem = args % 36) / 6) / 5 * 255;
+    const b4 = rem % 6 / 5 * 255;
+    return [r10, g5, b4];
   };
   convert2.rgb.hex = function(args) {
     const integer = ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
@@ -41431,17 +41431,17 @@ function requireConversions() {
       }).join("");
     }
     const integer = parseInt(colorString, 16);
-    const r9 = integer >> 16 & 255;
-    const g4 = integer >> 8 & 255;
-    const b3 = integer & 255;
-    return [r9, g4, b3];
+    const r10 = integer >> 16 & 255;
+    const g5 = integer >> 8 & 255;
+    const b4 = integer & 255;
+    return [r10, g5, b4];
   };
   convert2.rgb.hcg = function(rgb) {
-    const r9 = rgb[0] / 255;
-    const g4 = rgb[1] / 255;
-    const b3 = rgb[2] / 255;
-    const max = Math.max(Math.max(r9, g4), b3);
-    const min = Math.min(Math.min(r9, g4), b3);
+    const r10 = rgb[0] / 255;
+    const g5 = rgb[1] / 255;
+    const b4 = rgb[2] / 255;
+    const max = Math.max(Math.max(r10, g5), b4);
+    const min = Math.min(Math.min(r10, g5), b4);
     const chroma = max - min;
     let grayscale;
     let hue;
@@ -41452,46 +41452,46 @@ function requireConversions() {
     }
     if (chroma <= 0) {
       hue = 0;
-    } else if (max === r9) {
-      hue = (g4 - b3) / chroma % 6;
-    } else if (max === g4) {
-      hue = 2 + (b3 - r9) / chroma;
+    } else if (max === r10) {
+      hue = (g5 - b4) / chroma % 6;
+    } else if (max === g5) {
+      hue = 2 + (b4 - r10) / chroma;
     } else {
-      hue = 4 + (r9 - g4) / chroma;
+      hue = 4 + (r10 - g5) / chroma;
     }
     hue /= 6;
     hue %= 1;
     return [hue * 360, chroma * 100, grayscale * 100];
   };
   convert2.hsl.hcg = function(hsl) {
-    const s14 = hsl[1] / 100;
+    const s15 = hsl[1] / 100;
     const l5 = hsl[2] / 100;
-    const c8 = l5 < 0.5 ? 2 * s14 * l5 : 2 * s14 * (1 - l5);
-    let f6 = 0;
+    const c8 = l5 < 0.5 ? 2 * s15 * l5 : 2 * s15 * (1 - l5);
+    let f7 = 0;
     if (c8 < 1) {
-      f6 = (l5 - 0.5 * c8) / (1 - c8);
+      f7 = (l5 - 0.5 * c8) / (1 - c8);
     }
-    return [hsl[0], c8 * 100, f6 * 100];
+    return [hsl[0], c8 * 100, f7 * 100];
   };
   convert2.hsv.hcg = function(hsv) {
-    const s14 = hsv[1] / 100;
+    const s15 = hsv[1] / 100;
     const v2 = hsv[2] / 100;
-    const c8 = s14 * v2;
-    let f6 = 0;
+    const c8 = s15 * v2;
+    let f7 = 0;
     if (c8 < 1) {
-      f6 = (v2 - c8) / (1 - c8);
+      f7 = (v2 - c8) / (1 - c8);
     }
-    return [hsv[0], c8 * 100, f6 * 100];
+    return [hsv[0], c8 * 100, f7 * 100];
   };
   convert2.hcg.rgb = function(hcg) {
-    const h5 = hcg[0] / 360;
+    const h7 = hcg[0] / 360;
     const c8 = hcg[1] / 100;
-    const g4 = hcg[2] / 100;
+    const g5 = hcg[2] / 100;
     if (c8 === 0) {
-      return [g4 * 255, g4 * 255, g4 * 255];
+      return [g5 * 255, g5 * 255, g5 * 255];
     }
     const pure = [0, 0, 0];
-    const hi = h5 % 1 * 6;
+    const hi = h7 % 1 * 6;
     const v2 = hi % 1;
     const w4 = 1 - v2;
     let mg = 0;
@@ -41526,7 +41526,7 @@ function requireConversions() {
         pure[1] = 0;
         pure[2] = w4;
     }
-    mg = (1 - c8) * g4;
+    mg = (1 - c8) * g5;
     return [
       (c8 * pure[0] + mg) * 255,
       (c8 * pure[1] + mg) * 255,
@@ -41535,42 +41535,42 @@ function requireConversions() {
   };
   convert2.hcg.hsv = function(hcg) {
     const c8 = hcg[1] / 100;
-    const g4 = hcg[2] / 100;
-    const v2 = c8 + g4 * (1 - c8);
-    let f6 = 0;
+    const g5 = hcg[2] / 100;
+    const v2 = c8 + g5 * (1 - c8);
+    let f7 = 0;
     if (v2 > 0) {
-      f6 = c8 / v2;
+      f7 = c8 / v2;
     }
-    return [hcg[0], f6 * 100, v2 * 100];
+    return [hcg[0], f7 * 100, v2 * 100];
   };
   convert2.hcg.hsl = function(hcg) {
     const c8 = hcg[1] / 100;
-    const g4 = hcg[2] / 100;
-    const l5 = g4 * (1 - c8) + 0.5 * c8;
-    let s14 = 0;
+    const g5 = hcg[2] / 100;
+    const l5 = g5 * (1 - c8) + 0.5 * c8;
+    let s15 = 0;
     if (l5 > 0 && l5 < 0.5) {
-      s14 = c8 / (2 * l5);
+      s15 = c8 / (2 * l5);
     } else if (l5 >= 0.5 && l5 < 1) {
-      s14 = c8 / (2 * (1 - l5));
+      s15 = c8 / (2 * (1 - l5));
     }
-    return [hcg[0], s14 * 100, l5 * 100];
+    return [hcg[0], s15 * 100, l5 * 100];
   };
   convert2.hcg.hwb = function(hcg) {
     const c8 = hcg[1] / 100;
-    const g4 = hcg[2] / 100;
-    const v2 = c8 + g4 * (1 - c8);
+    const g5 = hcg[2] / 100;
+    const v2 = c8 + g5 * (1 - c8);
     return [hcg[0], (v2 - c8) * 100, (1 - v2) * 100];
   };
   convert2.hwb.hcg = function(hwb) {
     const w4 = hwb[1] / 100;
-    const b3 = hwb[2] / 100;
-    const v2 = 1 - b3;
+    const b4 = hwb[2] / 100;
+    const v2 = 1 - b4;
     const c8 = v2 - w4;
-    let g4 = 0;
+    let g5 = 0;
     if (c8 < 1) {
-      g4 = (v2 - c8) / (1 - c8);
+      g5 = (v2 - c8) / (1 - c8);
     }
-    return [hwb[0], c8 * 100, g4 * 100];
+    return [hwb[0], c8 * 100, g5 * 100];
   };
   convert2.apple.rgb = function(apple) {
     return [apple[0] / 65535 * 255, apple[1] / 65535 * 255, apple[2] / 65535 * 255];
@@ -41615,8 +41615,8 @@ function requireRoute() {
   function buildGraph() {
     const graph = {};
     const models = Object.keys(conversions2);
-    for (let len = models.length, i13 = 0; i13 < len; i13++) {
-      graph[models[i13]] = {
+    for (let len = models.length, i14 = 0; i14 < len; i14++) {
+      graph[models[i14]] = {
         // http://jsperf.com/1-vs-infinity
         // micro-opt, but this is simple.
         distance: -1,
@@ -41632,8 +41632,8 @@ function requireRoute() {
     while (queue.length) {
       const current = queue.pop();
       const adjacents = Object.keys(conversions2[current]);
-      for (let len = adjacents.length, i13 = 0; i13 < len; i13++) {
-        const adjacent = adjacents[i13];
+      for (let len = adjacents.length, i14 = 0; i14 < len; i14++) {
+        const adjacent = adjacents[i14];
         const node = graph[adjacent];
         if (node.distance === -1) {
           node.distance = graph[current].distance + 1;
@@ -41665,8 +41665,8 @@ function requireRoute() {
     const graph = deriveBFS(fromModel);
     const conversion = {};
     const models = Object.keys(graph);
-    for (let len = models.length, i13 = 0; i13 < len; i13++) {
-      const toModel = models[i13];
+    for (let len = models.length, i14 = 0; i14 < len; i14++) {
+      const toModel = models[i14];
       const node = graph[toModel];
       if (node.parent === null) {
         continue;
@@ -41713,8 +41713,8 @@ function requireColorConvert() {
       }
       const result = fn(args);
       if (typeof result === "object") {
-        for (let len = result.length, i13 = 0; i13 < len; i13++) {
-          result[i13] = Math.round(result[i13]);
+        for (let len = result.length, i14 = 0; i14 < len; i14++) {
+          result[i14] = Math.round(result[i14]);
         }
       }
       return result;
@@ -41771,28 +41771,28 @@ const hexToRgba = (hex) => {
   };
 };
 const hsvaToHex = (hsva) => rgbaToHex(hsvaToRgba(hsva));
-const hsvaToHsla = ({ h: h5, s: s14, v: v2, a: a9 }) => {
-  const hh = (200 - s14) * v2 / 100;
+const hsvaToHsla = ({ h: h7, s: s15, v: v2, a: a9 }) => {
+  const hh = (200 - s15) * v2 / 100;
   return {
-    h: round(h5),
-    s: round(hh > 0 && hh < 200 ? s14 * v2 / 100 / (hh <= 100 ? hh : 200 - hh) * 100 : 0),
+    h: round(h7),
+    s: round(hh > 0 && hh < 200 ? s15 * v2 / 100 / (hh <= 100 ? hh : 200 - hh) * 100 : 0),
     l: round(hh / 2),
     a: round(a9, 2)
   };
 };
 const hsvaToHslString = (hsva) => {
-  const { h: h5, s: s14, l: l5 } = hsvaToHsla(hsva);
-  return `hsl(${h5}, ${s14}%, ${l5}%)`;
+  const { h: h7, s: s15, l: l5 } = hsvaToHsla(hsva);
+  return `hsl(${h7}, ${s15}%, ${l5}%)`;
 };
-const hsvaToRgba = ({ h: h5, s: s14, v: v2, a: a9 }) => {
-  h5 = h5 / 360 * 6;
-  s14 = s14 / 100;
+const hsvaToRgba = ({ h: h7, s: s15, v: v2, a: a9 }) => {
+  h7 = h7 / 360 * 6;
+  s15 = s15 / 100;
   v2 = v2 / 100;
-  const hh = Math.floor(h5), b3 = v2 * (1 - s14), c8 = v2 * (1 - (h5 - hh) * s14), d5 = v2 * (1 - (1 - h5 + hh) * s14), module = hh % 6;
+  const hh = Math.floor(h7), b4 = v2 * (1 - s15), c8 = v2 * (1 - (h7 - hh) * s15), d6 = v2 * (1 - (1 - h7 + hh) * s15), module = hh % 6;
   return {
-    r: round([v2, c8, b3, b3, d5, v2][module] * 255),
-    g: round([d5, v2, v2, c8, b3, b3][module] * 255),
-    b: round([b3, b3, d5, v2, v2, c8][module] * 255),
+    r: round([v2, c8, b4, b4, d6, v2][module] * 255),
+    g: round([d6, v2, v2, c8, b4, b4][module] * 255),
+    b: round([b4, b4, d6, v2, v2, c8][module] * 255),
     a: round(a9, 2)
   };
 };
@@ -41800,14 +41800,14 @@ const format = (number) => {
   const hex = number.toString(16);
   return hex.length < 2 ? "0" + hex : hex;
 };
-const rgbaToHex = ({ r: r9, g: g4, b: b3, a: a9 }) => {
+const rgbaToHex = ({ r: r10, g: g5, b: b4, a: a9 }) => {
   const alphaHex = a9 < 1 ? format(round(a9 * 255)) : "";
-  return "#" + format(r9) + format(g4) + format(b3) + alphaHex;
+  return "#" + format(r10) + format(g5) + format(b4) + alphaHex;
 };
-const rgbaToHsva = ({ r: r9, g: g4, b: b3, a: a9 }) => {
-  const max = Math.max(r9, g4, b3);
-  const delta = max - Math.min(r9, g4, b3);
-  const hh = delta ? max === r9 ? (g4 - b3) / delta : max === g4 ? 2 + (b3 - r9) / delta : 4 + (r9 - g4) / delta : 0;
+const rgbaToHsva = ({ r: r10, g: g5, b: b4, a: a9 }) => {
+  const max = Math.max(r10, g5, b4);
+  const delta = max - Math.min(r10, g5, b4);
+  const hh = delta ? max === r10 ? (g5 - b4) / delta : max === g5 ? 2 + (b4 - r10) / delta : 4 + (r10 - g5) / delta : 0;
   return {
     h: round(60 * (hh < 0 ? hh + 6 : hh)),
     s: round(max ? delta / max * 100 : 0),
@@ -41846,7 +41846,7 @@ const fire = (target, type, detail) => {
   }));
 };
 let hasTouched = false;
-const isTouch = (e6) => "touches" in e6;
+const isTouch = (e7) => "touches" in e7;
 const isValid = (event) => {
   if (hasTouched && !isTouch(event))
     return false;
@@ -41915,9 +41915,9 @@ class Slider {
     }
   }
   style(styles) {
-    styles.forEach((style, i13) => {
-      for (const p6 in style) {
-        this.nodes[i13].style.setProperty(p6, style[p6]);
+    styles.forEach((style, i14) => {
+      for (const p7 in style) {
+        this.nodes[i14].style.setProperty(p7, style[p7]);
       }
     });
   }
@@ -41926,15 +41926,15 @@ class Hue extends Slider {
   constructor(root2) {
     super(root2, "hue", 'aria-label="Hue" aria-valuemin="0" aria-valuemax="360"', false);
   }
-  update({ h: h5 }) {
-    this.h = h5;
+  update({ h: h7 }) {
+    this.h = h7;
     this.style([
       {
-        left: `${h5 / 360 * 100}%`,
-        color: hsvaToHslString({ h: h5, s: 100, v: 100, a: 1 })
+        left: `${h7 / 360 * 100}%`,
+        color: hsvaToHslString({ h: h7, s: 100, v: 100, a: 1 })
       }
     ]);
-    this.el.setAttribute("aria-valuenow", `${round(h5)}`);
+    this.el.setAttribute("aria-valuenow", `${round(h7)}`);
   }
   getMove(offset2, key) {
     return { h: key ? clamp$1(this.h + offset2.x * 360, 0, 360) : 360 * offset2.x };
@@ -42039,7 +42039,7 @@ class ColorPicker extends HTMLElement {
 const colorModel = {
   defaultColor: "#000",
   toHsva: hexToHsva,
-  fromHsva: ({ h: h5, s: s14, v: v2 }) => hsvaToHex({ h: h5, s: s14, v: v2, a: 1 }),
+  fromHsva: ({ h: h7, s: s15, v: v2 }) => hsvaToHex({ h: h7, s: s15, v: v2, a: 1 }),
   equal: equalHex,
   fromAttr: (color) => color
 };
@@ -42766,8 +42766,8 @@ class Template extends (/* @__PURE__ */ EmitterMixin()) {
         element.setAttribute(attrName, attrValue);
       }
     }
-    for (let i13 = 0; i13 < revertData.children.length; ++i13) {
-      this._revertTemplateFromNode(element.childNodes[i13], revertData.children[i13]);
+    for (let i14 = 0; i14 < revertData.children.length; ++i14) {
+      this._revertTemplateFromNode(element.childNodes[i14], revertData.children[i14]);
     }
   }
 }
@@ -44439,18 +44439,18 @@ function DraggableViewMixin(view) {
         return;
       }
       this._attachDragListeners();
-      let x4 = 0;
-      let y2 = 0;
+      let x5 = 0;
+      let y3 = 0;
       if (domEvt instanceof MouseEvent) {
-        x4 = domEvt.clientX;
-        y2 = domEvt.clientY;
+        x5 = domEvt.clientX;
+        y3 = domEvt.clientY;
       } else {
-        x4 = domEvt.touches[0].clientX;
-        y2 = domEvt.touches[0].clientY;
+        x5 = domEvt.touches[0].clientX;
+        y3 = domEvt.touches[0].clientY;
       }
       this._lastDraggingCoordinates = {
-        x: x4,
-        y: y2
+        x: x5,
+        y: y3
       };
       this.isDragging = true;
     }
@@ -45606,7 +45606,7 @@ class AccessibilityHelpContentView extends View {
   * Creates `[<h4>Optional label</h4>]<dl>...</dl>` elements for each group of keystrokes in a category.
   */
   _createGroup(groupDefinition) {
-    const definitionAndDescriptionElements = groupDefinition.keystrokes.sort((a9, b3) => a9.label.localeCompare(b3.label)).map((keystrokeDefinition) => this._createGroupRow(keystrokeDefinition)).flat();
+    const definitionAndDescriptionElements = groupDefinition.keystrokes.sort((a9, b4) => a9.label.localeCompare(b4.label)).map((keystrokeDefinition) => this._createGroupRow(keystrokeDefinition)).flat();
     const elements = [
       createElement(document, "dl", {}, definitionAndDescriptionElements)
     ];
@@ -45977,8 +45977,8 @@ class FileInputView extends View {
         change: bind.to(
           /* istanbul ignore next -- @preserve */
           () => {
-            var _a4, _b2;
-            if ((_b2 = (_a4 = this.element) == null ? void 0 : _a4.files) == null ? void 0 : _b2.length) {
+            var _a3, _b2;
+            if ((_b2 = (_a3 = this.element) == null ? void 0 : _a3.files) == null ? void 0 : _b2.length) {
               this.fire("done", this.element.files);
             }
             this.element.value = "";
@@ -46268,7 +46268,7 @@ class ColorGridView extends View {
   * @inheritDoc
   */
   render() {
-    var _a4;
+    var _a3;
     super.render();
     for (const item of this.items) {
       this.focusTracker.add(item.element);
@@ -46285,7 +46285,7 @@ class ColorGridView extends View {
       focusTracker: this.focusTracker,
       gridItems: this.items,
       numberOfColumns: this.columns,
-      uiLanguageDirection: (_a4 = this.locale) == null ? void 0 : _a4.uiLanguageDirection
+      uiLanguageDirection: (_a3 = this.locale) == null ? void 0 : _a3.uiLanguageDirection
     });
   }
   /**
@@ -51121,11 +51121,11 @@ class ColorGridsFragmentView extends View {
       }
     });
     documentColorsGrid.items.bindTo(this.documentColors).using((colorObj) => {
-      var _a4;
+      var _a3;
       const colorTile = new ColorTileView();
       colorTile.set({
         color: colorObj.color,
-        hasBorder: (_a4 = colorObj.options) == null ? void 0 : _a4.hasBorder
+        hasBorder: (_a3 = colorObj.options) == null ? void 0 : _a3.hasBorder
       });
       if (colorObj.label) {
         colorTile.set({
@@ -53831,7 +53831,7 @@ class EditorUI extends (/* @__PURE__ */ ObservableMixin()) {
       if (!currentFocusedToolbarDefinition || !candidateDefinitions) {
         candidateDefinitions = this._getFocusableCandidateToolbarDefinitions();
       }
-      for (let i13 = 0; i13 < candidateDefinitions.length; i13++) {
+      for (let i14 = 0; i14 < candidateDefinitions.length; i14++) {
         const candidateDefinition = candidateDefinitions.shift();
         candidateDefinitions.push(candidateDefinition);
         if (candidateDefinition !== currentFocusedToolbarDefinition && this._focusFocusableCandidateToolbar(candidateDefinition)) {
@@ -59607,9 +59607,9 @@ class TextTransformation extends Plugin {
       const matchedRange = data.range;
       let changeIndex = matches.index;
       model.enqueueChange((writer2) => {
-        for (let i13 = 1; i13 < matches.length; i13++) {
-          const match2 = matches[i13];
-          const replaceWith = replaces[i13 - 1];
+        for (let i14 = 1; i14 < matches.length; i14++) {
+          const match2 = matches[i14];
+          const replaceWith = replaces[i14 - 1];
           if (replaceWith == null) {
             changeIndex += match2.length;
             continue;
@@ -61585,11 +61585,11 @@ function findQuote(elementOrPosition) {
 }
 function getRangesOfBlockGroups(writer2, blocks) {
   let startPosition;
-  let i13 = 0;
+  let i14 = 0;
   const ranges = [];
-  while (i13 < blocks.length) {
-    const block2 = blocks[i13];
-    const nextBlock = blocks[i13 + 1];
+  while (i14 < blocks.length) {
+    const block2 = blocks[i14];
+    const nextBlock = blocks[i14 + 1];
     if (!startPosition) {
       startPosition = writer2.createPositionBefore(block2);
     }
@@ -61597,7 +61597,7 @@ function getRangesOfBlockGroups(writer2, blocks) {
       ranges.push(writer2.createRange(startPosition, writer2.createPositionAfter(block2)));
       startPosition = null;
     }
-    i13++;
+    i14++;
   }
   return ranges;
 }
@@ -61849,11 +61849,11 @@ class HighlightStack extends (/* @__PURE__ */ EmitterMixin()) {
     if (index2 > -1) {
       stack.splice(index2, 1);
     }
-    let i13 = 0;
-    while (stack[i13] && shouldABeBeforeB(stack[i13], descriptor)) {
-      i13++;
+    let i14 = 0;
+    while (stack[i14] && shouldABeBeforeB(stack[i14], descriptor)) {
+      i14++;
     }
-    stack.splice(i13, 0, descriptor);
+    stack.splice(i14, 0, descriptor);
   }
   /**
   * Removes descriptor with given id from the stack.
@@ -61868,16 +61868,16 @@ class HighlightStack extends (/* @__PURE__ */ EmitterMixin()) {
     }
   }
 }
-function compareDescriptors(a9, b3) {
-  return a9 && b3 && a9.priority == b3.priority && classesToString(a9.classes) == classesToString(b3.classes);
+function compareDescriptors(a9, b4) {
+  return a9 && b4 && a9.priority == b4.priority && classesToString(a9.classes) == classesToString(b4.classes);
 }
-function shouldABeBeforeB(a9, b3) {
-  if (a9.priority > b3.priority) {
+function shouldABeBeforeB(a9, b4) {
+  if (a9.priority > b4.priority) {
     return true;
-  } else if (a9.priority < b3.priority) {
+  } else if (a9.priority < b4.priority) {
     return false;
   }
-  return classesToString(a9.classes) > classesToString(b3.classes);
+  return classesToString(a9.classes) > classesToString(b4.classes);
 }
 function classesToString(classes) {
   return Array.isArray(classes) ? classes.sort().join(",") : classes;
@@ -65062,7 +65062,7 @@ class BookmarkUI extends Plugin {
     const t2 = this.editor.locale.t;
     const linksUI = this.editor.plugins.get("LinkUI");
     const bookmarkEditing = this.editor.plugins.get(BookmarkEditing);
-    const getListItems2 = () => Array.from(bookmarkEditing.getAllBookmarkNames()).sort((a9, b3) => a9.localeCompare(b3)).map((bookmarkId) => ({
+    const getListItems2 = () => Array.from(bookmarkEditing.getAllBookmarkNames()).sort((a9, b4) => a9.localeCompare(b4)).map((bookmarkId) => ({
       id: bookmarkId,
       href: `#${bookmarkId}`,
       label: bookmarkId,
@@ -65465,58 +65465,58 @@ class Bookmark extends Plugin {
     return true;
   }
 }
-var q$5 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "#", "$", "%", "*", "+", ",", "-", ".", ":", ";", "=", "?", "@", "[", "]", "^", "_", "{", "|", "}", "~"], x$6 = (t2) => {
-  let e6 = 0;
-  for (let r9 = 0; r9 < t2.length; r9++) {
-    let n10 = t2[r9], l5 = q$5.indexOf(n10);
-    e6 = e6 * 83 + l5;
+var q$5 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "#", "$", "%", "*", "+", ",", "-", ".", ":", ";", "=", "?", "@", "[", "]", "^", "_", "{", "|", "}", "~"], x$7 = (t2) => {
+  let e7 = 0;
+  for (let r10 = 0; r10 < t2.length; r10++) {
+    let n12 = t2[r10], l5 = q$5.indexOf(n12);
+    e7 = e7 * 83 + l5;
   }
-  return e6;
+  return e7;
 };
-var f$a = (t2) => {
-  let e6 = t2 / 255;
-  return e6 <= 0.04045 ? e6 / 12.92 : Math.pow((e6 + 0.055) / 1.055, 2.4);
-}, h$8 = (t2) => {
-  let e6 = Math.max(0, Math.min(1, t2));
-  return e6 <= 31308e-7 ? Math.trunc(e6 * 12.92 * 255 + 0.5) : Math.trunc((1.055 * Math.pow(e6, 0.4166666666666667) - 0.055) * 255 + 0.5);
-}, F$5 = (t2) => t2 < 0 ? -1 : 1, M$3 = (t2, e6) => F$5(t2) * Math.pow(Math.abs(t2), e6);
-var d$7 = class d2 extends Error {
-  constructor(e6) {
-    super(e6), this.name = "ValidationError", this.message = e6;
+var f$b = (t2) => {
+  let e7 = t2 / 255;
+  return e7 <= 0.04045 ? e7 / 12.92 : Math.pow((e7 + 0.055) / 1.055, 2.4);
+}, h$a = (t2) => {
+  let e7 = Math.max(0, Math.min(1, t2));
+  return e7 <= 31308e-7 ? Math.trunc(e7 * 12.92 * 255 + 0.5) : Math.trunc((1.055 * Math.pow(e7, 0.4166666666666667) - 0.055) * 255 + 0.5);
+}, F$5 = (t2) => t2 < 0 ? -1 : 1, M$4 = (t2, e7) => F$5(t2) * Math.pow(Math.abs(t2), e7);
+var d$9 = class d2 extends Error {
+  constructor(e7) {
+    super(e7), this.name = "ValidationError", this.message = e7;
   }
 };
-var C$5 = (t2) => {
-  if (!t2 || t2.length < 6) throw new d$7("The blurhash string must be at least 6 characters");
-  let e6 = x$6(t2[0]), r9 = Math.floor(e6 / 9) + 1, n10 = e6 % 9 + 1;
-  if (t2.length !== 4 + 2 * n10 * r9) throw new d$7(`blurhash length mismatch: length is ${t2.length} but it should be ${4 + 2 * n10 * r9}`);
+var C$7 = (t2) => {
+  if (!t2 || t2.length < 6) throw new d$9("The blurhash string must be at least 6 characters");
+  let e7 = x$7(t2[0]), r10 = Math.floor(e7 / 9) + 1, n12 = e7 % 9 + 1;
+  if (t2.length !== 4 + 2 * n12 * r10) throw new d$9(`blurhash length mismatch: length is ${t2.length} but it should be ${4 + 2 * n12 * r10}`);
 }, z$5 = (t2) => {
-  let e6 = t2 >> 16, r9 = t2 >> 8 & 255, n10 = t2 & 255;
-  return [f$a(e6), f$a(r9), f$a(n10)];
-}, L$5 = (t2, e6) => {
-  let r9 = Math.floor(t2 / 361), n10 = Math.floor(t2 / 19) % 19, l5 = t2 % 19;
-  return [M$3((r9 - 9) / 9, 2) * e6, M$3((n10 - 9) / 9, 2) * e6, M$3((l5 - 9) / 9, 2) * e6];
-}, U$5 = (t2, e6, r9, n10) => {
-  C$5(t2), n10 = n10 | 1;
-  let l5 = x$6(t2[0]), m9 = Math.floor(l5 / 9) + 1, b3 = l5 % 9 + 1, i13 = (x$6(t2[1]) + 1) / 166, u6 = new Array(b3 * m9);
+  let e7 = t2 >> 16, r10 = t2 >> 8 & 255, n12 = t2 & 255;
+  return [f$b(e7), f$b(r10), f$b(n12)];
+}, L$6 = (t2, e7) => {
+  let r10 = Math.floor(t2 / 361), n12 = Math.floor(t2 / 19) % 19, l5 = t2 % 19;
+  return [M$4((r10 - 9) / 9, 2) * e7, M$4((n12 - 9) / 9, 2) * e7, M$4((l5 - 9) / 9, 2) * e7];
+}, U$5 = (t2, e7, r10, n12) => {
+  C$7(t2), n12 = n12 | 1;
+  let l5 = x$7(t2[0]), m10 = Math.floor(l5 / 9) + 1, b4 = l5 % 9 + 1, i14 = (x$7(t2[1]) + 1) / 166, u6 = new Array(b4 * m10);
   for (let o9 = 0; o9 < u6.length; o9++) if (o9 === 0) {
-    let a9 = x$6(t2.substring(2, 6));
+    let a9 = x$7(t2.substring(2, 6));
     u6[o9] = z$5(a9);
   } else {
-    let a9 = x$6(t2.substring(4 + o9 * 2, 6 + o9 * 2));
-    u6[o9] = L$5(a9, i13 * n10);
+    let a9 = x$7(t2.substring(4 + o9 * 2, 6 + o9 * 2));
+    u6[o9] = L$6(a9, i14 * n12);
   }
-  let c8 = e6 * 4, s14 = new Uint8ClampedArray(c8 * r9);
-  for (let o9 = 0; o9 < r9; o9++) for (let a9 = 0; a9 < e6; a9++) {
-    let y2 = 0, B2 = 0, R4 = 0;
-    for (let w4 = 0; w4 < m9; w4++) for (let P5 = 0; P5 < b3; P5++) {
-      let G2 = Math.cos(Math.PI * a9 * P5 / e6) * Math.cos(Math.PI * o9 * w4 / r9), T2 = u6[P5 + w4 * b3];
-      y2 += T2[0] * G2, B2 += T2[1] * G2, R4 += T2[2] * G2;
+  let c8 = e7 * 4, s15 = new Uint8ClampedArray(c8 * r10);
+  for (let o9 = 0; o9 < r10; o9++) for (let a9 = 0; a9 < e7; a9++) {
+    let y3 = 0, B2 = 0, R4 = 0;
+    for (let w4 = 0; w4 < m10; w4++) for (let P5 = 0; P5 < b4; P5++) {
+      let G2 = Math.cos(Math.PI * a9 * P5 / e7) * Math.cos(Math.PI * o9 * w4 / r10), T2 = u6[P5 + w4 * b4];
+      y3 += T2[0] * G2, B2 += T2[1] * G2, R4 += T2[2] * G2;
     }
-    let V4 = h$8(y2), I4 = h$8(B2), E5 = h$8(R4);
-    s14[4 * a9 + 0 + o9 * c8] = V4, s14[4 * a9 + 1 + o9 * c8] = I4, s14[4 * a9 + 2 + o9 * c8] = E5, s14[4 * a9 + 3 + o9 * c8] = 255;
+    let V4 = h$a(y3), I4 = h$a(B2), E5 = h$a(R4);
+    s15[4 * a9 + 0 + o9 * c8] = V4, s15[4 * a9 + 1 + o9 * c8] = I4, s15[4 * a9 + 2 + o9 * c8] = E5, s15[4 * a9 + 3 + o9 * c8] = 255;
   }
-  return s14;
-}, j$5 = U$5;
+  return s15;
+}, j$6 = U$5;
 /**
  * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
@@ -65662,10 +65662,10 @@ function getImageUrls(imageUrls) {
   };
 }
 function getWorkspaceId(token, defaultWorkspaceId) {
-  var _a4, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const [, binaryTokenPayload] = token.value.split(".");
   const payload = JSON.parse(atob(binaryTokenPayload));
-  const workspaces = ((_b2 = (_a4 = payload.auth) == null ? void 0 : _a4.ckbox) == null ? void 0 : _b2.workspaces) || [
+  const workspaces = ((_b2 = (_a3 = payload.auth) == null ? void 0 : _a3.ckbox) == null ? void 0 : _b2.workspaces) || [
     payload.aud
   ];
   if (!defaultWorkspaceId) {
@@ -65692,11 +65692,11 @@ function blurHashToDataUrl(hash) {
       return;
     }
     const imageData = ctx.createImageData(BLUR_RESOLUTION, BLUR_RESOLUTION);
-    const decoded = j$5(hash, BLUR_RESOLUTION, BLUR_RESOLUTION);
+    const decoded = j$6(hash, BLUR_RESOLUTION, BLUR_RESOLUTION);
     imageData.data.set(decoded);
     ctx.putImageData(imageData, 0, 0);
     return canvas.toDataURL();
-  } catch (e6) {
+  } catch (e7) {
     return void 0;
   }
 }
@@ -66189,7 +66189,7 @@ class CKBoxUtils extends Plugin {
     }
     if (defaultCategories) {
       const userCategory = Object.keys(defaultCategories).find((category2) => {
-        return defaultCategories[category2].find((e6) => e6.toLowerCase() == extension);
+        return defaultCategories[category2].find((e7) => e7.toLowerCase() == extension);
       });
       if (userCategory) {
         const serverCategory = allCategories.find((category2) => category2.id === userCategory || category2.name === userCategory);
@@ -66199,7 +66199,7 @@ class CKBoxUtils extends Plugin {
         return serverCategory.id;
       }
     }
-    const category = allCategories.find((category2) => category2.extensions.find((e6) => e6.toLowerCase() == extension));
+    const category = allCategories.find((category2) => category2.extensions.find((e7) => e7.toLowerCase() == extension));
     if (!category) {
       throw cannotFindCategoryError;
     }
@@ -68514,8 +68514,8 @@ class DragDrop extends Plugin {
     const viewDocument = view.document;
     const dragDropTarget = editor.plugins.get(DragDropTarget);
     this.listenTo(viewDocument, "dragstart", (evt, data) => {
-      var _a4;
-      if ((_a4 = data.target) == null ? void 0 : _a4.is("editableElement")) {
+      var _a3;
+      if ((_a3 = data.target) == null ? void 0 : _a3.is("editableElement")) {
         data.preventDefault();
         return;
       }
@@ -69282,8 +69282,8 @@ function _base64ToBlob(base642, sliceSize = 512) {
     for (let offset2 = 0; offset2 < base64Data.length; offset2 += sliceSize) {
       const slice = base64Data.slice(offset2, offset2 + sliceSize);
       const byteNumbers = new Array(slice.length);
-      for (let i13 = 0; i13 < slice.length; i13++) {
-        byteNumbers[i13] = slice.charCodeAt(i13);
+      for (let i14 = 0; i14 < slice.length; i14++) {
+        byteNumbers[i14] = slice.charCodeAt(i14);
       }
       byteArrays.push(new Uint8Array(byteNumbers));
     }
@@ -69295,11 +69295,11 @@ function _base64ToBlob(base642, sliceSize = 512) {
   }
 }
 function _isBase64(string) {
-  var _a4;
+  var _a3;
   if (typeof string !== "string") {
     return false;
   }
-  return !!((_a4 = string.match(BASE64_HEADER_REG_EXP)) == null ? void 0 : _a4.length);
+  return !!((_a3 = string.match(BASE64_HEADER_REG_EXP)) == null ? void 0 : _a3.length);
 }
 class UploadGateway {
   /**
@@ -69699,8 +69699,8 @@ class CodeBlockCommand extends Command$1 {
       ], writer2);
       Array.from(block2.getChildren()).filter((child) => !schema.checkChild(block2, child)).forEach((child) => writer2.remove(child));
     }
-    allowedBlocks.reverse().forEach((currentBlock, i13) => {
-      const nextBlock = allowedBlocks[i13 + 1];
+    allowedBlocks.reverse().forEach((currentBlock, i14) => {
+      const nextBlock = allowedBlocks[i14 + 1];
       if (currentBlock.previousSibling === nextBlock) {
         writer2.appendElement("softBreak", nextBlock);
         writer2.merge(writer2.createPositionBefore(currentBlock));
@@ -73255,13 +73255,13 @@ class BaseCommand extends Command$1 {
   }
 }
 function normalizeRanges$1(ranges) {
-  ranges.sort((a9, b3) => a9.start.isBefore(b3.start) ? -1 : 1);
-  for (let i13 = 1; i13 < ranges.length; i13++) {
-    const previousRange = ranges[i13 - 1];
-    const joinedRange = previousRange.getJoined(ranges[i13], true);
+  ranges.sort((a9, b4) => a9.start.isBefore(b4.start) ? -1 : 1);
+  for (let i14 = 1; i14 < ranges.length; i14++) {
+    const previousRange = ranges[i14 - 1];
+    const joinedRange = previousRange.getJoined(ranges[i14], true);
     if (joinedRange) {
-      i13--;
-      ranges.splice(i13, 2, joinedRange);
+      i14--;
+      ranges.splice(i14, 2, joinedRange);
     }
   }
 }
@@ -74418,7 +74418,7 @@ function sortSearchResultsByMarkerPositions(model, results) {
     after: 1,
     different: 1
   };
-  return model.document.getRootNames().flatMap((rootName) => results.filter((result) => result.marker.getStart().root.rootName === rootName).sort((a9, b3) => sortMapping[a9.marker.getStart().compareWith(b3.marker.getStart())]));
+  return model.document.getRootNames().flatMap((rootName) => results.filter((result) => result.marker.getStart().root.rootName === rootName).sort((a9, b4) => sortMapping[a9.marker.getStart().compareWith(b4.marker.getStart())]));
 }
 class ReplaceCommandBase extends Command$1 {
   /**
@@ -76547,7 +76547,7 @@ class AbstractEditorHandler {
   * Disables the fullscreen mode by restoring all moved elements and destroying the fullscreen container.
   */
   disable() {
-    var _a4;
+    var _a3;
     if (this._editor.config.get("fullscreen.onLeaveCallback")) {
       this._editor.config.get("fullscreen.onLeaveCallback")(this.getWrapper());
     }
@@ -76584,7 +76584,7 @@ class AbstractEditorHandler {
       paginationRenderer.setupScrollableAncestor();
       paginationRenderer.linesRepository.setViewCollection(this._editor.ui.view.body);
       this._paginationBodyCollection.detachFromDom();
-      (_a4 = this._paginationBodyCollection) == null ? void 0 : _a4.destroy();
+      (_a3 = this._paginationBodyCollection) == null ? void 0 : _a3.destroy();
     }
     if (this._editor.plugins.has("Dialog")) {
       this._unregisterFullscreenDialogPositionAdjustments();
@@ -81066,7 +81066,7 @@ function matchAndConsumeAttributes(viewElement, matcher, consumable) {
     for (const [key, token] of match2.attributes || []) {
       if (key == "style") {
         const style = token;
-        const sortedRelatedStyles = stylesProcessor.getRelatedStyles(style).filter((relatedStyle) => relatedStyle.split("-").length > style.split("-").length).sort((a9, b3) => b3.split("-").length - a9.split("-").length);
+        const sortedRelatedStyles = stylesProcessor.getRelatedStyles(style).filter((relatedStyle) => relatedStyle.split("-").length > style.split("-").length).sort((a9, b4) => b4.split("-").length - a9.split("-").length);
         for (const relatedStyle of sortedRelatedStyles) {
           if (consumable.consume(viewElement, {
             styles: [
@@ -92812,7 +92812,7 @@ function outdentFollowingItems(lastBlock, writer2) {
   return changedBlocks;
 }
 function sortBlocks(blocks) {
-  return Array.from(blocks).filter((block2) => block2.root.rootName !== "$graveyard").sort((a9, b3) => a9.index - b3.index);
+  return Array.from(blocks).filter((block2) => block2.root.rootName !== "$graveyard").sort((a9, b4) => a9.index - b4.index);
 }
 function getSelectedBlockObject(model) {
   const selectedElement = model.document.selection.getSelectedElement();
@@ -94596,7 +94596,7 @@ for (const { listStyle, typeAttribute, listType } of LIST_STYLE_TYPES) {
   }
 }
 function getAllSupportedStyleTypes() {
-  return LIST_STYLE_TYPES.map((x4) => x4.listStyle);
+  return LIST_STYLE_TYPES.map((x5) => x5.listStyle);
 }
 function getListTypeFromListStyleType$1(listStyleType) {
   return LIST_STYLE_TO_LIST_TYPE[listStyleType] || null;
@@ -96313,11 +96313,11 @@ function escape(html2, encode2) {
 }
 const unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
 function unescape$1(html2) {
-  return html2.replace(unescapeTest, (_6, n10) => {
-    n10 = n10.toLowerCase();
-    if (n10 === "colon") return ":";
-    if (n10.charAt(0) === "#") {
-      return n10.charAt(1) === "x" ? String.fromCharCode(parseInt(n10.substring(2), 16)) : String.fromCharCode(+n10.substring(1));
+  return html2.replace(unescapeTest, (_6, n12) => {
+    n12 = n12.toLowerCase();
+    if (n12 === "colon") return ":";
+    if (n12.charAt(0) === "#") {
+      return n12.charAt(1) === "x" ? String.fromCharCode(parseInt(n12.substring(2), 16)) : String.fromCharCode(+n12.substring(1));
     }
     return "";
   });
@@ -96346,7 +96346,7 @@ function cleanUrl(sanitize, base, href) {
     let prot;
     try {
       prot = decodeURIComponent(unescape$1(href)).replace(nonWordAndColonTest, "").toLowerCase();
-    } catch (e6) {
+    } catch (e7) {
       return null;
     }
     if (prot.indexOf("javascript:") === 0 || prot.indexOf("vbscript:") === 0 || prot.indexOf("data:") === 0) {
@@ -96358,7 +96358,7 @@ function cleanUrl(sanitize, base, href) {
   }
   try {
     href = encodeURI(href).replace(/%25/g, "%");
-  } catch (e6) {
+  } catch (e7) {
     return null;
   }
   return href;
@@ -96394,9 +96394,9 @@ function resolveUrl(base, href) {
 const noopTest = { exec: function noopTest2() {
 } };
 function merge(obj) {
-  let i13 = 1, target, key;
-  for (; i13 < arguments.length; i13++) {
-    target = arguments[i13];
+  let i14 = 1, target, key;
+  for (; i14 < arguments.length; i14++) {
+    target = arguments[i14];
     for (key in target) {
       if (Object.prototype.hasOwnProperty.call(target, key)) {
         obj[key] = target[key];
@@ -96415,7 +96415,7 @@ function splitCells(tableRow2, count2) {
       return " |";
     }
   }), cells = row.split(/ \|/);
-  let i13 = 0;
+  let i14 = 0;
   if (!cells[0].trim()) {
     cells.shift();
   }
@@ -96427,8 +96427,8 @@ function splitCells(tableRow2, count2) {
   } else {
     while (cells.length < count2) cells.push("");
   }
-  for (; i13 < cells.length; i13++) {
-    cells[i13] = cells[i13].trim().replace(/\\\|/g, "|");
+  for (; i14 < cells.length; i14++) {
+    cells[i14] = cells[i14].trim().replace(/\\\|/g, "|");
   }
   return cells;
 }
@@ -96450,21 +96450,21 @@ function rtrim(str, c8, invert) {
   }
   return str.substr(0, l5 - suffLen);
 }
-function findClosingBracket(str, b3) {
-  if (str.indexOf(b3[1]) === -1) {
+function findClosingBracket(str, b4) {
+  if (str.indexOf(b4[1]) === -1) {
     return -1;
   }
   const l5 = str.length;
-  let level = 0, i13 = 0;
-  for (; i13 < l5; i13++) {
-    if (str[i13] === "\\") {
-      i13++;
-    } else if (str[i13] === b3[0]) {
+  let level = 0, i14 = 0;
+  for (; i14 < l5; i14++) {
+    if (str[i14] === "\\") {
+      i14++;
+    } else if (str[i14] === b4[0]) {
       level++;
-    } else if (str[i13] === b3[1]) {
+    } else if (str[i14] === b4[1]) {
       level--;
       if (level < 0) {
-        return i13;
+        return i14;
       }
     }
   }
@@ -96618,7 +96618,7 @@ class Tokenizer {
   list(src) {
     let cap = this.rules.block.list.exec(src);
     if (cap) {
-      let raw, istask, ischecked, indent2, i13, blankLine, endsWithBlankLine, line, nextLine, rawLine, itemContents, endEarly;
+      let raw, istask, ischecked, indent2, i14, blankLine, endsWithBlankLine, line, nextLine, rawLine, itemContents, endEarly;
       let bull = cap[1].trim();
       const isordered = bull.length > 1;
       const list = {
@@ -96714,10 +96714,10 @@ class Tokenizer {
       list.items[list.items.length - 1].text = itemContents.trimRight();
       list.raw = list.raw.trimRight();
       const l5 = list.items.length;
-      for (i13 = 0; i13 < l5; i13++) {
+      for (i14 = 0; i14 < l5; i14++) {
         this.lexer.state.top = false;
-        list.items[i13].tokens = this.lexer.blockTokens(list.items[i13].text, []);
-        const spacers = list.items[i13].tokens.filter((t2) => t2.type === "space");
+        list.items[i14].tokens = this.lexer.blockTokens(list.items[i14].text, []);
+        const spacers = list.items[i14].tokens.filter((t2) => t2.type === "space");
         const hasMultipleLineBreaks = spacers.every((t2) => {
           const chars2 = t2.raw.split("");
           let lineBreaks = 0;
@@ -96733,7 +96733,7 @@ class Tokenizer {
         });
         if (!list.loose && spacers.length && hasMultipleLineBreaks) {
           list.loose = true;
-          list.items[i13].loose = true;
+          list.items[i14].loose = true;
         }
       }
       return list;
@@ -96785,32 +96785,32 @@ class Tokenizer {
       if (item.header.length === item.align.length) {
         item.raw = cap[0];
         let l5 = item.align.length;
-        let i13, j3, k5, row;
-        for (i13 = 0; i13 < l5; i13++) {
-          if (/^ *-+: *$/.test(item.align[i13])) {
-            item.align[i13] = "right";
-          } else if (/^ *:-+: *$/.test(item.align[i13])) {
-            item.align[i13] = "center";
-          } else if (/^ *:-+ *$/.test(item.align[i13])) {
-            item.align[i13] = "left";
+        let i14, j4, k5, row;
+        for (i14 = 0; i14 < l5; i14++) {
+          if (/^ *-+: *$/.test(item.align[i14])) {
+            item.align[i14] = "right";
+          } else if (/^ *:-+: *$/.test(item.align[i14])) {
+            item.align[i14] = "center";
+          } else if (/^ *:-+ *$/.test(item.align[i14])) {
+            item.align[i14] = "left";
           } else {
-            item.align[i13] = null;
+            item.align[i14] = null;
           }
         }
         l5 = item.rows.length;
-        for (i13 = 0; i13 < l5; i13++) {
-          item.rows[i13] = splitCells(item.rows[i13], item.header.length).map((c8) => {
+        for (i14 = 0; i14 < l5; i14++) {
+          item.rows[i14] = splitCells(item.rows[i14], item.header.length).map((c8) => {
             return { text: c8 };
           });
         }
         l5 = item.header.length;
-        for (j3 = 0; j3 < l5; j3++) {
-          item.header[j3].tokens = [];
-          this.lexer.inlineTokens(item.header[j3].text, item.header[j3].tokens);
+        for (j4 = 0; j4 < l5; j4++) {
+          item.header[j4].tokens = [];
+          this.lexer.inlineTokens(item.header[j4].text, item.header[j4].tokens);
         }
         l5 = item.rows.length;
-        for (j3 = 0; j3 < l5; j3++) {
-          row = item.rows[j3];
+        for (j4 = 0; j4 < l5; j4++) {
+          row = item.rows[j4];
           for (k5 = 0; k5 < row.length; k5++) {
             row[k5].tokens = [];
             this.lexer.inlineTokens(row[k5].text, row[k5].tokens);
@@ -97240,10 +97240,10 @@ function smartypants(text2) {
   return text2.replace(/---/g, "—").replace(/--/g, "–").replace(/(^|[-\u2014/(\[{"\s])'/g, "$1‘").replace(/'/g, "’").replace(/(^|[-\u2014/(\[{\u2018\s])"/g, "$1“").replace(/"/g, "”").replace(/\.{3}/g, "…");
 }
 function mangle(text2) {
-  let out = "", i13, ch;
+  let out = "", i14, ch;
   const l5 = text2.length;
-  for (i13 = 0; i13 < l5; i13++) {
-    ch = text2.charCodeAt(i13);
+  for (i14 = 0; i14 < l5; i14++) {
+    ch = text2.charCodeAt(i14);
     if (Math.random() > 0.5) {
       ch = "x" + ch.toString(16);
     }
@@ -97811,10 +97811,10 @@ let Parser$1 = class Parser2 {
    * Parse Loop
    */
   parse(tokens, top = true) {
-    let out = "", i13, j3, k5, l22, l32, row, cell2, header, body, token, ordered, start, loose, itemBody, item, checked, task, checkbox, ret;
+    let out = "", i14, j4, k5, l22, l32, row, cell2, header, body, token, ordered, start, loose, itemBody, item, checked, task, checkbox, ret;
     const l5 = tokens.length;
-    for (i13 = 0; i13 < l5; i13++) {
-      token = tokens[i13];
+    for (i14 = 0; i14 < l5; i14++) {
+      token = tokens[i14];
       if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
         ret = this.options.extensions.renderers[token.type].call({ parser: this }, token);
         if (ret !== false || !["space", "hr", "heading", "code", "table", "blockquote", "list", "html", "paragraph", "text"].includes(token.type)) {
@@ -97851,17 +97851,17 @@ let Parser$1 = class Parser2 {
           header = "";
           cell2 = "";
           l22 = token.header.length;
-          for (j3 = 0; j3 < l22; j3++) {
+          for (j4 = 0; j4 < l22; j4++) {
             cell2 += this.renderer.tablecell(
-              this.parseInline(token.header[j3].tokens),
-              { header: true, align: token.align[j3] }
+              this.parseInline(token.header[j4].tokens),
+              { header: true, align: token.align[j4] }
             );
           }
           header += this.renderer.tablerow(cell2);
           body = "";
           l22 = token.rows.length;
-          for (j3 = 0; j3 < l22; j3++) {
-            row = token.rows[j3];
+          for (j4 = 0; j4 < l22; j4++) {
+            row = token.rows[j4];
             cell2 = "";
             l32 = row.length;
             for (k5 = 0; k5 < l32; k5++) {
@@ -97886,8 +97886,8 @@ let Parser$1 = class Parser2 {
           loose = token.loose;
           l22 = token.items.length;
           body = "";
-          for (j3 = 0; j3 < l22; j3++) {
-            item = token.items[j3];
+          for (j4 = 0; j4 < l22; j4++) {
+            item = token.items[j4];
             checked = item.checked;
             task = item.task;
             itemBody = "";
@@ -97925,8 +97925,8 @@ let Parser$1 = class Parser2 {
         }
         case "text": {
           body = token.tokens ? this.parseInline(token.tokens) : token.text;
-          while (i13 + 1 < l5 && tokens[i13 + 1].type === "text") {
-            token = tokens[++i13];
+          while (i14 + 1 < l5 && tokens[i14 + 1].type === "text") {
+            token = tokens[++i14];
             body += "\n" + (token.tokens ? this.parseInline(token.tokens) : token.text);
           }
           out += top ? this.renderer.paragraph(body) : body;
@@ -97950,10 +97950,10 @@ let Parser$1 = class Parser2 {
    */
   parseInline(tokens, renderer) {
     renderer = renderer || this.renderer;
-    let out = "", i13, token, ret;
+    let out = "", i14, token, ret;
     const l5 = tokens.length;
-    for (i13 = 0; i13 < l5; i13++) {
-      token = tokens[i13];
+    for (i14 = 0; i14 < l5; i14++) {
+      token = tokens[i14];
       if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
         ret = this.options.extensions.renderers[token.type].call({ parser: this }, token);
         if (ret !== false || !["escape", "html", "link", "image", "strong", "em", "codespan", "br", "del", "text"].includes(token.type)) {
@@ -98034,8 +98034,8 @@ function marked(src, opt, callback) {
     let tokens;
     try {
       tokens = Lexer.lex(src, opt);
-    } catch (e6) {
-      return callback(e6);
+    } catch (e7) {
+      return callback(e7);
     }
     const done = function(err) {
       let out;
@@ -98045,8 +98045,8 @@ function marked(src, opt, callback) {
             marked.walkTokens(tokens, opt.walkTokens);
           }
           out = Parser$1.parse(tokens, opt);
-        } catch (e6) {
-          err = e6;
+        } catch (e7) {
+          err = e7;
         }
       }
       opt.highlight = highlight;
@@ -98089,12 +98089,12 @@ function marked(src, opt, callback) {
       marked.walkTokens(tokens, opt.walkTokens);
     }
     return Parser$1.parse(tokens, opt);
-  } catch (e6) {
-    e6.message += "\nPlease report this to https://github.com/markedjs/marked.";
+  } catch (e7) {
+    e7.message += "\nPlease report this to https://github.com/markedjs/marked.";
     if (opt.silent) {
-      return "<p>An error occurred:</p><pre>" + escape(e6.message + "", true) + "</pre>";
+      return "<p>An error occurred:</p><pre>" + escape(e7.message + "", true) + "</pre>";
     }
-    throw e6;
+    throw e7;
   }
 }
 marked.options = marked.setOptions = function(opt) {
@@ -98248,12 +98248,12 @@ marked.parseInline = function(src, opt) {
       marked.walkTokens(tokens, opt.walkTokens);
     }
     return Parser$1.parseInline(tokens, opt);
-  } catch (e6) {
-    e6.message += "\nPlease report this to https://github.com/markedjs/marked.";
+  } catch (e7) {
+    e7.message += "\nPlease report this to https://github.com/markedjs/marked.";
     if (opt.silent) {
-      return "<p>An error occurred:</p><pre>" + escape(e6.message + "", true) + "</pre>";
+      return "<p>An error occurred:</p><pre>" + escape(e7.message + "", true) + "</pre>";
     }
-    throw e6;
+    throw e7;
   }
 };
 marked.Parser = Parser$1;
@@ -98273,8 +98273,8 @@ marked.parseInline;
 Parser$1.parse;
 Lexer.lex;
 function extend(destination) {
-  for (var i13 = 1; i13 < arguments.length; i13++) {
-    var source2 = arguments[i13];
+  for (var i14 = 1; i14 < arguments.length; i14++) {
+    var source2 = arguments[i14];
     for (var key in source2) {
       if (source2.hasOwnProperty(key)) destination[key] = source2[key];
     }
@@ -98623,12 +98623,12 @@ Rules.prototype = {
     return this.defaultRule;
   },
   forEach: function(fn) {
-    for (var i13 = 0; i13 < this.array.length; i13++) fn(this.array[i13], i13);
+    for (var i14 = 0; i14 < this.array.length; i14++) fn(this.array[i14], i14);
   }
 };
 function findRule(rules2, node, options) {
-  for (var i13 = 0; i13 < rules2.length; i13++) {
-    var rule = rules2[i13];
+  for (var i14 = 0; i14 < rules2.length; i14++) {
+    var rule = rules2[i14];
     if (filterValue(rule, node, options)) return rule;
   }
   return void 0;
@@ -98716,7 +98716,7 @@ function canParseHTMLNatively() {
     if (new Parser3().parseFromString("", "text/html")) {
       canParse = true;
     }
-  } catch (e6) {
+  } catch (e7) {
   }
   return canParse;
 }
@@ -98749,7 +98749,7 @@ function shouldUseActiveX() {
   var useActiveX = false;
   try {
     document.implementation.createHTMLDocument("").open();
-  } catch (e6) {
+  } catch (e7) {
     if (root.ActiveXObject) useActiveX = true;
   }
   return useActiveX;
@@ -98809,16 +98809,16 @@ function flankingWhitespace(node, options) {
   return { leading: edges.leading, trailing: edges.trailing };
 }
 function edgeWhitespace(string) {
-  var m9 = string.match(/^(([ \t\r\n]*)(\s*))(?:(?=\S)[\s\S]*\S)?((\s*?)([ \t\r\n]*))$/);
+  var m10 = string.match(/^(([ \t\r\n]*)(\s*))(?:(?=\S)[\s\S]*\S)?((\s*?)([ \t\r\n]*))$/);
   return {
-    leading: m9[1],
+    leading: m10[1],
     // whole string for whitespace-only strings
-    leadingAscii: m9[2],
-    leadingNonAscii: m9[3],
-    trailing: m9[4],
+    leadingAscii: m10[2],
+    leadingNonAscii: m10[3],
+    trailing: m10[4],
     // empty for whitespace-only strings
-    trailingNonAscii: m9[5],
-    trailingAscii: m9[6]
+    trailingNonAscii: m10[5],
+    trailingAscii: m10[6]
   };
 }
 function isFlankedByWhitespace(side, node, options) {
@@ -98914,7 +98914,7 @@ TurndownService.prototype = {
    */
   use: function(plugin) {
     if (Array.isArray(plugin)) {
-      for (var i13 = 0; i13 < plugin.length; i13++) this.use(plugin[i13]);
+      for (var i14 = 0; i14 < plugin.length; i14++) this.use(plugin[i14]);
     } else if (typeof plugin === "function") {
       plugin(this);
     } else {
@@ -99045,11 +99045,11 @@ rules.tableRow = {
     var borderCells = "";
     var alignMap = { left: ":--", right: "--:", center: ":-:" };
     if (isHeadingRow(node)) {
-      for (var i13 = 0; i13 < node.childNodes.length; i13++) {
+      for (var i14 = 0; i14 < node.childNodes.length; i14++) {
         var border = "---";
-        var align = (node.childNodes[i13].getAttribute("align") || "").toLowerCase();
+        var align = (node.childNodes[i14].getAttribute("align") || "").toLowerCase();
         if (align) border = alignMap[align] || border;
-        borderCells += cell(border, node.childNodes[i13]);
+        borderCells += cell(border, node.childNodes[i14]);
       }
     }
     return "\n" + content + (borderCells ? "\n" + borderCells : "");
@@ -99074,8 +99074,8 @@ rules.tableSection = {
 };
 function isHeadingRow(tr) {
   var parentNode = tr.parentNode;
-  return parentNode.nodeName === "THEAD" || parentNode.firstChild === tr && (parentNode.nodeName === "TABLE" || isFirstTbody(parentNode)) && every.call(tr.childNodes, function(n10) {
-    return n10.nodeName === "TH";
+  return parentNode.nodeName === "THEAD" || parentNode.firstChild === tr && (parentNode.nodeName === "TABLE" || isFirstTbody(parentNode)) && every.call(tr.childNodes, function(n12) {
+    return n12.nodeName === "TH";
   });
 }
 function isFirstTbody(element) {
@@ -99204,10 +99204,10 @@ class UpdatedTurndown extends TurndownService {
         length2--;
       } else if (char == ")") {
         let openBrackets = 0;
-        for (let i13 = 0; i13 < length2; i13++) {
-          if (string[i13] == "(") {
+        for (let i14 = 0; i14 < length2; i14++) {
+          if (string[i14] == "(") {
             openBrackets++;
-          } else if (string[i13] == ")") {
+          } else if (string[i14] == ")") {
             openBrackets--;
           }
         }
@@ -102627,9 +102627,9 @@ function extractImageDataFromRtf(rtfData) {
 }
 function replaceImagesFileSourceWithInlineRepresentation(imageElements, imagesHexSources, writer2) {
   if (imageElements.length === imagesHexSources.length) {
-    for (let i13 = 0; i13 < imageElements.length; i13++) {
-      const newSrc = `data:${imagesHexSources[i13].type};base64,${_convertHexToBase64(imagesHexSources[i13].hex)}`;
-      writer2.setAttribute("src", newSrc, imageElements[i13]);
+    for (let i14 = 0; i14 < imageElements.length; i14++) {
+      const newSrc = `data:${imagesHexSources[i14].type};base64,${_convertHexToBase64(imagesHexSources[i14].hex)}`;
+      writer2.setAttribute("src", newSrc, imageElements[i14]);
     }
   }
 }
@@ -106822,10 +106822,10 @@ function expandAttributePosition(position, attributeName, lookBack, model) {
   return findAttributeRangeBound(position, attributeName, attributeValue, lookBack, model);
 }
 function normalizeRanges(ranges) {
-  for (let i13 = 1; i13 < ranges.length; i13++) {
-    const joinedRange = ranges[i13 - 1].getJoined(ranges[i13]);
+  for (let i14 = 1; i14 < ranges.length; i14++) {
+    const joinedRange = ranges[i14 - 1].getJoined(ranges[i14]);
     if (joinedRange) {
-      ranges.splice(--i13, 2, joinedRange);
+      ranges.splice(--i14, 2, joinedRange);
     }
   }
   return ranges;
@@ -107226,7 +107226,7 @@ function scanTable(viewTable) {
       // This case is problematic because it's not clear if this row should be a heading row or not, as it may be result
       // of the cell span from the previous row.
       // Issue: https://github.com/ckeditor/ckeditor5/issues/17556
-      (maxPrevColumns === null || trColumns.length === maxPrevColumns) && trColumns.every((e6) => e6.is("element", "th"))) {
+      (maxPrevColumns === null || trColumns.length === maxPrevColumns) && trColumns.every((e7) => e7.is("element", "th"))) {
         headingRows++;
         headRows.push(tr);
       } else {
@@ -107613,10 +107613,10 @@ class TableWalker {
   */
   _jumpToNonSpannedRowClosestToStartRow() {
     const firstRowLength = this._getRowLength(0);
-    for (let i13 = this._startRow; !this._jumpedToStartRow; i13--) {
-      if (firstRowLength === this._getRowLength(i13)) {
-        this._row = i13;
-        this._rowIndex = i13;
+    for (let i14 = this._startRow; !this._jumpedToStartRow; i14--) {
+      if (firstRowLength === this._getRowLength(i14)) {
+        this._row = i14;
+        this._rowIndex = i14;
         this._jumpedToStartRow = true;
       }
     }
@@ -108006,7 +108006,7 @@ function cropTableToDimensions(sourceTable, cropDimensions, writer2) {
     writer2.setAttribute("tableType", sourceTableType, croppedTable);
   }
   const cropHeight = endRow - startRow + 1;
-  for (let i13 = 0; i13 < cropHeight; i13++) {
+  for (let i14 = 0; i14 < cropHeight; i14++) {
     writer2.insertElement("tableRow", croppedTable, "end");
   }
   const tableMap = [
@@ -108738,9 +108738,9 @@ function getDomCellOuterWidth(domCell) {
   }
 }
 function updateColumnElements(columns, tableColumnGroup, normalizedWidths, writer2) {
-  for (let i13 = 0; i13 < Math.max(normalizedWidths.length, columns.length); i13++) {
-    const column = columns[i13];
-    const columnWidth = normalizedWidths[i13];
+  for (let i14 = 0; i14 < Math.max(normalizedWidths.length, columns.length); i14++) {
+    const column = columns[i14];
+    const columnWidth = normalizedWidths[i14];
     if (!columnWidth) {
       writer2.remove(column);
     } else if (!column) {
@@ -108778,7 +108778,7 @@ function translateColSpanAttribute(element, writer2) {
       acc.push(columnWidth);
       return acc;
     }
-    for (let i13 = 0; i13 < colSpan; i13++) {
+    for (let i14 = 0; i14 < colSpan; i14++) {
       acc.push(columnWidth);
     }
     writer2.removeAttribute("colSpan", element2);
@@ -109022,8 +109022,8 @@ class TableUtils extends Plugin {
         if (cellAnchorColumn < insertAt2) {
           writer2.setAttribute("colspan", cellWidth + columnsToInsert, cell2);
           const lastCellRow = cellAnchorRow + cellHeight - 1;
-          for (let i13 = row; i13 <= lastCellRow; i13++) {
-            tableWalker.skipRow(i13);
+          for (let i14 = row; i14 <= lastCellRow; i14++) {
+            tableWalker.skipRow(i14);
           }
         } else {
           createCells(columnsToInsert, writer2, tableSlot.getPositionBefore());
@@ -109081,8 +109081,8 @@ class TableUtils extends Plugin {
         const rowAfterRemovedSection = last + 1;
         moveCellsToRow(table2, rowAfterRemovedSection, cellsToMove, writer2);
       }
-      for (let i13 = last; i13 >= first2; i13--) {
-        writer2.remove(table2.getChild(i13));
+      for (let i14 = last; i14 >= first2; i14--) {
+        writer2.remove(table2.getChild(i14));
       }
       for (const { rowspan, cell: cell2 } of cellsToTrim) {
         updateNumericAttribute("rowspan", rowspan, cell2, writer2);
@@ -109598,14 +109598,14 @@ class TableUtils extends Plugin {
   }
 }
 function createEmptyRows(writer2, table2, insertAt2, rows, tableCellToInsert, attributes = {}) {
-  for (let i13 = 0; i13 < rows; i13++) {
+  for (let i14 = 0; i14 < rows; i14++) {
     const tableRow2 = writer2.createElement("tableRow");
     writer2.insert(tableRow2, table2, insertAt2);
     createCells(tableCellToInsert, writer2, writer2.createPositionAt(tableRow2, "end"), attributes);
   }
 }
 function createCells(cells, writer2, insertPosition, attributes = {}) {
-  for (let i13 = 0; i13 < cells; i13++) {
+  for (let i14 = 0; i14 < cells; i14++) {
     createEmptyTableCell(writer2, insertPosition, attributes);
   }
 }
@@ -109912,7 +109912,7 @@ function fixTableRowsSizes(table2, writer2) {
     for (const [rowIndex, size] of rowsLengths.entries()) {
       const columnsToInsert = maxColumns - size;
       if (columnsToInsert) {
-        for (let i13 = 0; i13 < columnsToInsert; i13++) {
+        for (let i14 = 0; i14 < columnsToInsert; i14++) {
           createEmptyTableCell(writer2, writer2.createPositionAt(table2.getChild(rowIndex), "end"));
         }
         wasFixed = true;
@@ -114549,9 +114549,9 @@ class TableColumnResizeEditing extends Plugin {
     }
     function _insertColgroupElement(viewWriter, columnWidthsInPx2, viewTable2) {
       const colgroup = viewWriter.createContainerElement("colgroup");
-      for (let i13 = 0; i13 < columnWidthsInPx2.length; i13++) {
+      for (let i14 = 0; i14 < columnWidthsInPx2.length; i14++) {
         const viewColElement = viewWriter.createEmptyElement("col");
-        const columnWidthInPc = `${toPrecision(columnWidthsInPx2[i13] / sumArray(columnWidthsInPx2) * 100)}%`;
+        const columnWidthInPc = `${toPrecision(columnWidthsInPx2[i14] / sumArray(columnWidthsInPx2) * 100)}%`;
         viewWriter.setStyle("width", columnWidthInPc, viewColElement);
         viewWriter.insert(viewWriter.createPositionAt(colgroup, "end"), viewColElement);
       }
@@ -116748,7 +116748,7 @@ const getHostHeaderPlugin = (options) => ({
   }
 });
 const loggerMiddleware = () => (next2, context) => async (args) => {
-  var _a4, _b2;
+  var _a3, _b2;
   try {
     const response = await next2(args);
     const { clientName, commandName, logger: logger2, dynamoDbDocumentClientOptions = {} } = context;
@@ -116756,7 +116756,7 @@ const loggerMiddleware = () => (next2, context) => async (args) => {
     const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
     const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
     const { $metadata, ...outputWithoutMetadata } = response.output;
-    (_a4 = logger2 == null ? void 0 : logger2.info) == null ? void 0 : _a4.call(logger2, {
+    (_a3 = logger2 == null ? void 0 : logger2.info) == null ? void 0 : _a3.call(logger2, {
       clientName,
       commandName,
       input: inputFilterSensitiveLog(args.input),
@@ -117022,19 +117022,19 @@ const callFunction = ({ fn, argv }, options) => {
   return endpointFunctions[fn](...evaluatedArgs);
 };
 const evaluateCondition = ({ assign, ...fnArgs }, options) => {
-  var _a4, _b2;
+  var _a3, _b2;
   if (assign && assign in options.referenceRecord) {
     throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
   }
   const value2 = callFunction(fnArgs, options);
-  (_b2 = (_a4 = options.logger) == null ? void 0 : _a4.debug) == null ? void 0 : _b2.call(_a4, `${debugId} evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value2)}`);
+  (_b2 = (_a3 = options.logger) == null ? void 0 : _a3.debug) == null ? void 0 : _b2.call(_a3, `${debugId} evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value2)}`);
   return {
     result: value2 === "" ? true : !!value2,
     ...assign != null && { toAssign: { name: assign, value: value2 } }
   };
 };
 const evaluateConditions = (conditions = [], options) => {
-  var _a4, _b2;
+  var _a3, _b2;
   const conditionsReferenceRecord = {};
   for (const condition of conditions) {
     const { result, toAssign } = evaluateCondition(condition, {
@@ -117049,7 +117049,7 @@ const evaluateConditions = (conditions = [], options) => {
     }
     if (toAssign) {
       conditionsReferenceRecord[toAssign.name] = toAssign.value;
-      (_b2 = (_a4 = options.logger) == null ? void 0 : _a4.debug) == null ? void 0 : _b2.call(_a4, `${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
+      (_b2 = (_a3 = options.logger) == null ? void 0 : _a3.debug) == null ? void 0 : _b2.call(_a3, `${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
     }
   }
   return { result: true, referenceRecord: conditionsReferenceRecord };
@@ -117099,7 +117099,7 @@ const getEndpointUrl = (endpointUrl, options) => {
   throw new EndpointError(`Endpoint URL must be a string, got ${typeof expression}`);
 };
 const evaluateEndpointRule = (endpointRule, options) => {
-  var _a4, _b2;
+  var _a3, _b2;
   const { conditions, endpoint } = endpointRule;
   const { result, referenceRecord } = evaluateConditions(conditions, options);
   if (!result) {
@@ -117110,7 +117110,7 @@ const evaluateEndpointRule = (endpointRule, options) => {
     referenceRecord: { ...options.referenceRecord, ...referenceRecord }
   };
   const { url: url2, properties, headers } = endpoint;
-  (_b2 = (_a4 = options.logger) == null ? void 0 : _a4.debug) == null ? void 0 : _b2.call(_a4, `${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
+  (_b2 = (_a3 = options.logger) == null ? void 0 : _a3.debug) == null ? void 0 : _b2.call(_a3, `${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
   return {
     ...headers != void 0 && {
       headers: getEndpointHeaders(headers, endpointRuleOptions)
@@ -117164,10 +117164,10 @@ const evaluateRules = (rules2, options) => {
   throw new EndpointError(`Rules evaluation failed`);
 };
 const resolveEndpoint = (ruleSetObject, options) => {
-  var _a4, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const { endpointParams, logger: logger2 } = options;
   const { parameters, rules: rules2 } = ruleSetObject;
-  (_b2 = (_a4 = options.logger) == null ? void 0 : _a4.debug) == null ? void 0 : _b2.call(_a4, `${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
+  (_b2 = (_a3 = options.logger) == null ? void 0 : _a3.debug) == null ? void 0 : _b2.call(_a3, `${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
   const paramsWithDefault = Object.entries(parameters).filter(([, v2]) => v2.default != null).map(([k5, v2]) => [k5, v2.default]);
   if (paramsWithDefault.length > 0) {
     for (const [paramKey, paramDefaultValue] of paramsWithDefault) {
@@ -117270,12 +117270,12 @@ const UA_NAME_ESCAPE_REGEX = /[^\!\$\%\&\'\*\+\-\.\^\_\`\|\~\d\w]/g;
 const UA_VALUE_ESCAPE_REGEX = /[^\!\$\%\&\'\*\+\-\.\^\_\`\|\~\d\w\#]/g;
 const UA_ESCAPE_CHAR = "-";
 const userAgentMiddleware = (options) => (next2, context) => async (args) => {
-  var _a4, _b2;
+  var _a3, _b2;
   const { request } = args;
   if (!HttpRequest.isInstance(request))
     return next2(args);
   const { headers } = request;
-  const userAgent2 = ((_a4 = context == null ? void 0 : context.userAgent) == null ? void 0 : _a4.map(escapeUserAgent)) || [];
+  const userAgent2 = ((_a3 = context == null ? void 0 : context.userAgent) == null ? void 0 : _a3.map(escapeUserAgent)) || [];
   const defaultUserAgent2 = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
   const customUserAgent = ((_b2 = options == null ? void 0 : options.customUserAgent) == null ? void 0 : _b2.map(escapeUserAgent)) || [];
   const sdkUserAgentValue = [].concat([...defaultUserAgent2, ...userAgent2, ...customUserAgent]).join(SPACE);
@@ -117297,9 +117297,9 @@ const userAgentMiddleware = (options) => (next2, context) => async (args) => {
   });
 };
 const escapeUserAgent = (userAgentPair) => {
-  var _a4;
+  var _a3;
   const name = userAgentPair[0].split(UA_NAME_SEPARATOR).map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR)).join(UA_NAME_SEPARATOR);
-  const version2 = (_a4 = userAgentPair[1]) == null ? void 0 : _a4.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
+  const version2 = (_a3 = userAgentPair[1]) == null ? void 0 : _a3.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
   const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
   const prefix = name.substring(0, prefixSeparatorIndex);
   let uaName = name.substring(prefixSeparatorIndex + 1);
@@ -117376,7 +117376,7 @@ function convertHttpAuthSchemesToMap(httpAuthSchemes) {
   return map2;
 }
 const httpAuthSchemeMiddleware = (config, mwOptions) => (next2, context) => async (args) => {
-  var _a4;
+  var _a3;
   const options = config.httpAuthSchemeProvider(await mwOptions.httpAuthSchemeParametersProvider(config, context, args.input));
   const authSchemes = convertHttpAuthSchemesToMap(config.httpAuthSchemes);
   const smithyContext = getSmithyContext(context);
@@ -117392,7 +117392,7 @@ const httpAuthSchemeMiddleware = (config, mwOptions) => (next2, context) => asyn
       failureReasons.push(`HttpAuthScheme \`${option.schemeId}\` did not have an IdentityProvider configured.`);
       continue;
     }
-    const { identityProperties = {}, signingProperties = {} } = ((_a4 = option.propertiesExtractor) == null ? void 0 : _a4.call(option, config, context)) || {};
+    const { identityProperties = {}, signingProperties = {} } = ((_a3 = option.propertiesExtractor) == null ? void 0 : _a3.call(option, config, context)) || {};
     option.identityProperties = Object.assign(option.identityProperties || {}, identityProperties);
     option.signingProperties = Object.assign(option.signingProperties || {}, signingProperties);
     smithyContext.selectedHttpAuthScheme = {
@@ -117448,8 +117448,8 @@ const deserializerMiddleware = (options, deserializer) => (next2) => async (args
   }
 };
 const serializerMiddleware = (options, serializer) => (next2, context) => async (args) => {
-  var _a4;
-  const endpoint = ((_a4 = context.endpointV2) == null ? void 0 : _a4.url) && options.urlParser ? async () => options.urlParser(context.endpointV2.url) : options.endpoint;
+  var _a3;
+  const endpoint = ((_a3 = context.endpointV2) == null ? void 0 : _a3.url) && options.urlParser ? async () => options.urlParser(context.endpointV2.url) : options.endpoint;
   if (!endpoint) {
     throw new Error("No valid endpoint provider available.");
   }
@@ -117526,21 +117526,21 @@ const normalizeProvider = (input) => {
 };
 const alphabetByEncoding = {};
 const alphabetByValue = new Array(64);
-for (let i13 = 0, start = "A".charCodeAt(0), limit = "Z".charCodeAt(0); i13 + start <= limit; i13++) {
-  const char = String.fromCharCode(i13 + start);
-  alphabetByEncoding[char] = i13;
-  alphabetByValue[i13] = char;
+for (let i14 = 0, start = "A".charCodeAt(0), limit = "Z".charCodeAt(0); i14 + start <= limit; i14++) {
+  const char = String.fromCharCode(i14 + start);
+  alphabetByEncoding[char] = i14;
+  alphabetByValue[i14] = char;
 }
-for (let i13 = 0, start = "a".charCodeAt(0), limit = "z".charCodeAt(0); i13 + start <= limit; i13++) {
-  const char = String.fromCharCode(i13 + start);
-  const index2 = i13 + 26;
+for (let i14 = 0, start = "a".charCodeAt(0), limit = "z".charCodeAt(0); i14 + start <= limit; i14++) {
+  const char = String.fromCharCode(i14 + start);
+  const index2 = i14 + 26;
   alphabetByEncoding[char] = index2;
   alphabetByValue[index2] = char;
 }
-for (let i13 = 0; i13 < 10; i13++) {
-  alphabetByEncoding[i13.toString(10)] = i13 + 52;
-  const char = i13.toString(10);
-  const index2 = i13 + 52;
+for (let i14 = 0; i14 < 10; i14++) {
+  alphabetByEncoding[i14.toString(10)] = i14 + 52;
+  const char = i14.toString(10);
+  const index2 = i14 + 52;
   alphabetByEncoding[char] = index2;
   alphabetByValue[index2] = char;
 }
@@ -117560,21 +117560,21 @@ const fromBase64 = (input) => {
   }
   const out = new ArrayBuffer(totalByteLength);
   const dataView = new DataView(out);
-  for (let i13 = 0; i13 < input.length; i13 += 4) {
+  for (let i14 = 0; i14 < input.length; i14 += 4) {
     let bits = 0;
     let bitLength = 0;
-    for (let j3 = i13, limit = i13 + 3; j3 <= limit; j3++) {
-      if (input[j3] !== "=") {
-        if (!(input[j3] in alphabetByEncoding)) {
-          throw new TypeError(`Invalid character ${input[j3]} in base64 string.`);
+    for (let j4 = i14, limit = i14 + 3; j4 <= limit; j4++) {
+      if (input[j4] !== "=") {
+        if (!(input[j4] in alphabetByEncoding)) {
+          throw new TypeError(`Invalid character ${input[j4]} in base64 string.`);
         }
-        bits |= alphabetByEncoding[input[j3]] << (limit - j3) * bitsPerLetter;
+        bits |= alphabetByEncoding[input[j4]] << (limit - j4) * bitsPerLetter;
         bitLength += bitsPerLetter;
       } else {
         bits >>= bitsPerLetter;
       }
     }
-    const chunkOffset = i13 / 4 * 3;
+    const chunkOffset = i14 / 4 * 3;
     bits >>= bitLength % bitsPerByte;
     const byteLength2 = Math.floor(bitLength / bitsPerByte);
     for (let k5 = 0; k5 < byteLength2; k5++) {
@@ -117616,11 +117616,11 @@ function toBase64(_input) {
     throw new Error("@smithy/util-base64: toBase64 encoder function only accepts string | Uint8Array.");
   }
   let str = "";
-  for (let i13 = 0; i13 < input.length; i13 += 3) {
+  for (let i14 = 0; i14 < input.length; i14 += 3) {
     let bits = 0;
     let bitLength = 0;
-    for (let j3 = i13, limit = Math.min(i13 + 3, input.length); j3 < limit; j3++) {
-      bits |= input[j3] << (limit - j3 - 1) * bitsPerByte;
+    for (let j4 = i14, limit = Math.min(i14 + 3, input.length); j4 < limit; j4++) {
+      bits |= input[j4] << (limit - j4 - 1) * bitsPerByte;
       bitLength += bitsPerByte;
     }
     const bitClusterCount = Math.ceil(bitLength / bitsPerLetter);
@@ -117670,8 +117670,8 @@ function buildQueryString(query) {
     const value2 = query[key];
     key = escapeUri(key);
     if (Array.isArray(value2)) {
-      for (let i13 = 0, iLen = value2.length; i13 < iLen; i13++) {
-        parts2.push(`${key}=${escapeUri(value2[i13])}`);
+      for (let i14 = 0, iLen = value2.length; i14 < iLen; i14++) {
+        parts2.push(`${key}=${escapeUri(value2[i14])}`);
       }
     } else {
       let qsEntry = key;
@@ -117685,23 +117685,23 @@ function buildQueryString(query) {
 }
 const SHORT_TO_HEX = {};
 const HEX_TO_SHORT = {};
-for (let i13 = 0; i13 < 256; i13++) {
-  let encodedByte = i13.toString(16).toLowerCase();
+for (let i14 = 0; i14 < 256; i14++) {
+  let encodedByte = i14.toString(16).toLowerCase();
   if (encodedByte.length === 1) {
     encodedByte = `0${encodedByte}`;
   }
-  SHORT_TO_HEX[i13] = encodedByte;
-  HEX_TO_SHORT[encodedByte] = i13;
+  SHORT_TO_HEX[i14] = encodedByte;
+  HEX_TO_SHORT[encodedByte] = i14;
 }
 function fromHex(encoded) {
   if (encoded.length % 2 !== 0) {
     throw new Error("Hex encoded strings must have an even number length");
   }
   const out = new Uint8Array(encoded.length / 2);
-  for (let i13 = 0; i13 < encoded.length; i13 += 2) {
-    const encodedByte = encoded.slice(i13, i13 + 2).toLowerCase();
+  for (let i14 = 0; i14 < encoded.length; i14 += 2) {
+    const encodedByte = encoded.slice(i14, i14 + 2).toLowerCase();
     if (encodedByte in HEX_TO_SHORT) {
-      out[i13 / 2] = HEX_TO_SHORT[encodedByte];
+      out[i14 / 2] = HEX_TO_SHORT[encodedByte];
     } else {
       throw new Error(`Cannot decode unrecognized sequence ${encodedByte} as hexadecimal`);
     }
@@ -117710,8 +117710,8 @@ function fromHex(encoded) {
 }
 function toHex(bytes) {
   let out = "";
-  for (let i13 = 0; i13 < bytes.byteLength; i13++) {
-    out += SHORT_TO_HEX[bytes[i13]];
+  for (let i14 = 0; i14 < bytes.byteLength; i14++) {
+    out += SHORT_TO_HEX[bytes[i14]];
   }
   return out;
 }
@@ -118058,9 +118058,9 @@ const getEndpointFromInstructions = async (commandInput, instructionsSupplier, c
   return endpoint;
 };
 const resolveParams = async (commandInput, instructionsSupplier, clientConfig) => {
-  var _a4;
+  var _a3;
   const endpointParams = {};
-  const instructions = ((_a4 = instructionsSupplier == null ? void 0 : instructionsSupplier.getEndpointParameterInstructions) == null ? void 0 : _a4.call(instructionsSupplier)) || {};
+  const instructions = ((_a3 = instructionsSupplier == null ? void 0 : instructionsSupplier.getEndpointParameterInstructions) == null ? void 0 : _a3.call(instructionsSupplier)) || {};
   for (const [name, instruction] of Object.entries(instructions)) {
     switch (instruction.type) {
       case "staticContextParams":
@@ -118090,7 +118090,7 @@ const resolveParams = async (commandInput, instructionsSupplier, clientConfig) =
 };
 const endpointMiddleware = ({ config, instructions }) => {
   return (next2, context) => async (args) => {
-    var _a4, _b2, _c2;
+    var _a3, _b2, _c2;
     if (config.endpoint) {
       setFeature(context, "ENDPOINT_OVERRIDE", "N");
     }
@@ -118100,7 +118100,7 @@ const endpointMiddleware = ({ config, instructions }) => {
       }
     }, { ...config }, context);
     context.endpointV2 = endpoint;
-    context.authSchemes = (_a4 = endpoint.properties) == null ? void 0 : _a4.authSchemes;
+    context.authSchemes = (_a3 = endpoint.properties) == null ? void 0 : _a3.authSchemes;
     const authScheme = (_b2 = context.authSchemes) == null ? void 0 : _b2[0];
     if (authScheme) {
       context["signing_region"] = authScheme.signingRegion;
@@ -118187,20 +118187,20 @@ const TRANSIENT_ERROR_CODES = ["TimeoutError", "RequestTimeout", "RequestTimeout
 const TRANSIENT_ERROR_STATUS_CODES = [500, 502, 503, 504];
 const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT"];
 const isClockSkewCorrectedError = (error2) => {
-  var _a4;
-  return (_a4 = error2.$metadata) == null ? void 0 : _a4.clockSkewCorrected;
+  var _a3;
+  return (_a3 = error2.$metadata) == null ? void 0 : _a3.clockSkewCorrected;
 };
 const isThrottlingError = (error2) => {
-  var _a4, _b2;
-  return ((_a4 = error2.$metadata) == null ? void 0 : _a4.httpStatusCode) === 429 || THROTTLING_ERROR_CODES.includes(error2.name) || ((_b2 = error2.$retryable) == null ? void 0 : _b2.throttling) == true;
+  var _a3, _b2;
+  return ((_a3 = error2.$metadata) == null ? void 0 : _a3.httpStatusCode) === 429 || THROTTLING_ERROR_CODES.includes(error2.name) || ((_b2 = error2.$retryable) == null ? void 0 : _b2.throttling) == true;
 };
 const isTransientError = (error2, depth = 0) => {
-  var _a4;
-  return isClockSkewCorrectedError(error2) || TRANSIENT_ERROR_CODES.includes(error2.name) || NODEJS_TIMEOUT_ERROR_CODES.includes((error2 == null ? void 0 : error2.code) || "") || TRANSIENT_ERROR_STATUS_CODES.includes(((_a4 = error2.$metadata) == null ? void 0 : _a4.httpStatusCode) || 0) || error2.cause !== void 0 && depth <= 10 && isTransientError(error2.cause, depth + 1);
+  var _a3;
+  return isClockSkewCorrectedError(error2) || TRANSIENT_ERROR_CODES.includes(error2.name) || NODEJS_TIMEOUT_ERROR_CODES.includes((error2 == null ? void 0 : error2.code) || "") || TRANSIENT_ERROR_STATUS_CODES.includes(((_a3 = error2.$metadata) == null ? void 0 : _a3.httpStatusCode) || 0) || error2.cause !== void 0 && depth <= 10 && isTransientError(error2.cause, depth + 1);
 };
 const isServerError = (error2) => {
-  var _a4;
-  if (((_a4 = error2.$metadata) == null ? void 0 : _a4.httpStatusCode) !== void 0) {
+  var _a3;
+  if (((_a3 = error2.$metadata) == null ? void 0 : _a3.httpStatusCode) !== void 0) {
     const statusCode = error2.$metadata.httpStatusCode;
     if (500 <= statusCode && statusCode <= 599 && !isTransientError(error2)) {
       return true;
@@ -118428,8 +118428,8 @@ function rng() {
   return getRandomValues(rnds8);
 }
 const byteToHex = [];
-for (let i13 = 0; i13 < 256; ++i13) {
-  byteToHex.push((i13 + 256).toString(16).slice(1));
+for (let i14 = 0; i14 < 256; ++i14) {
+  byteToHex.push((i14 + 256).toString(16).slice(1));
 }
 function unsafeStringify(arr, offset2 = 0) {
   return byteToHex[arr[offset2 + 0]] + byteToHex[arr[offset2 + 1]] + byteToHex[arr[offset2 + 2]] + byteToHex[arr[offset2 + 3]] + "-" + byteToHex[arr[offset2 + 4]] + byteToHex[arr[offset2 + 5]] + "-" + byteToHex[arr[offset2 + 6]] + byteToHex[arr[offset2 + 7]] + "-" + byteToHex[arr[offset2 + 8]] + byteToHex[arr[offset2 + 9]] + "-" + byteToHex[arr[offset2 + 10]] + byteToHex[arr[offset2 + 11]] + byteToHex[arr[offset2 + 12]] + byteToHex[arr[offset2 + 13]] + byteToHex[arr[offset2 + 14]] + byteToHex[arr[offset2 + 15]];
@@ -118495,7 +118495,7 @@ const constructStack = () => {
   let relativeEntries = [];
   let identifyOnResolve = false;
   const entriesNameSet = /* @__PURE__ */ new Set();
-  const sort = (entries) => entries.sort((a9, b3) => stepWeights[b3.step] - stepWeights[a9.step] || priorityWeights[b3.priority || "normal"] - priorityWeights[a9.priority || "normal"]);
+  const sort = (entries) => entries.sort((a9, b4) => stepWeights[b4.step] - stepWeights[a9.step] || priorityWeights[b4.priority || "normal"] - priorityWeights[a9.priority || "normal"]);
   const removeByName = (toRemove) => {
     let isRemoved = false;
     const filterCb = (entry) => {
@@ -118530,14 +118530,14 @@ const constructStack = () => {
     return isRemoved;
   };
   const cloneTo = (toStack) => {
-    var _a4;
+    var _a3;
     absoluteEntries.forEach((entry) => {
       toStack.add(entry.middleware, { ...entry });
     });
     relativeEntries.forEach((entry) => {
       toStack.addRelativeTo(entry.middleware, { ...entry });
     });
-    (_a4 = toStack.identifyOnResolve) == null ? void 0 : _a4.call(toStack, stack.identifyOnResolve());
+    (_a3 = toStack.identifyOnResolve) == null ? void 0 : _a3.call(toStack, stack.identifyOnResolve());
     return toStack;
   };
   const expandRelativeMiddlewareList = (from) => {
@@ -118624,8 +118624,8 @@ const constructStack = () => {
             throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
           for (const alias of aliases) {
             const toOverrideIndex = absoluteEntries.findIndex((entry2) => {
-              var _a4;
-              return entry2.name === alias || ((_a4 = entry2.aliases) == null ? void 0 : _a4.some((a9) => a9 === alias));
+              var _a3;
+              return entry2.name === alias || ((_a3 = entry2.aliases) == null ? void 0 : _a3.some((a9) => a9 === alias));
             });
             if (toOverrideIndex === -1) {
               continue;
@@ -118656,8 +118656,8 @@ const constructStack = () => {
             throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
           for (const alias of aliases) {
             const toOverrideIndex = relativeEntries.findIndex((entry2) => {
-              var _a4;
-              return entry2.name === alias || ((_a4 = entry2.aliases) == null ? void 0 : _a4.some((a9) => a9 === alias));
+              var _a3;
+              return entry2.name === alias || ((_a3 = entry2.aliases) == null ? void 0 : _a3.some((a9) => a9 === alias));
             });
             if (toOverrideIndex === -1) {
               continue;
@@ -118704,10 +118704,10 @@ const constructStack = () => {
       return isRemoved;
     },
     concat: (from) => {
-      var _a4;
+      var _a3;
       const cloned = cloneTo(constructStack());
       cloned.use(from);
-      cloned.identifyOnResolve(identifyOnResolve || cloned.identifyOnResolve() || (((_a4 = from.identifyOnResolve) == null ? void 0 : _a4.call(from)) ?? false));
+      cloned.identifyOnResolve(identifyOnResolve || cloned.identifyOnResolve() || (((_a3 = from.identifyOnResolve) == null ? void 0 : _a3.call(from)) ?? false));
       return cloned;
     },
     applyToStack: cloneTo,
@@ -118779,8 +118779,8 @@ class Client {
     }
   }
   destroy() {
-    var _a4, _b2, _c2;
-    (_c2 = (_b2 = (_a4 = this.config) == null ? void 0 : _a4.requestHandler) == null ? void 0 : _b2.destroy) == null ? void 0 : _c2.call(_b2);
+    var _a3, _b2, _c2;
+    (_c2 = (_b2 = (_a3 = this.config) == null ? void 0 : _a3.requestHandler) == null ? void 0 : _b2.destroy) == null ? void 0 : _c2.call(_b2);
     delete this.handlers;
   }
 }
@@ -118940,7 +118940,7 @@ const expectString = (value2) => {
   throw new TypeError(`Expected string, got ${typeof value2}: ${value2}`);
 };
 const stackTraceWarning = (message) => {
-  return String(new TypeError(message).stack || message).split("\n").slice(0, 5).filter((s14) => !s14.includes("stackTraceWarning")).join("\n");
+  return String(new TypeError(message).stack || message).split("\n").slice(0, 5).filter((s15) => !s15.includes("stackTraceWarning")).join("\n");
 };
 const logger = {
   warn: console.warn
@@ -119168,7 +119168,7 @@ const nonNullish = (_6) => _6 != null;
 const pass = (_6) => _6;
 const isStreamingPayload = (request) => (request == null ? void 0 : request.body) instanceof ReadableStream;
 const retryMiddleware = (options) => (next2, context) => async (args) => {
-  var _a4;
+  var _a3;
   let retryStrategy = await options.retryStrategy();
   const maxAttempts = await options.maxAttempts();
   if (isRetryStrategyV2(retryStrategy)) {
@@ -119192,11 +119192,11 @@ const retryMiddleware = (options) => (next2, context) => async (args) => {
         output.$metadata.attempts = attempts + 1;
         output.$metadata.totalRetryDelay = totalRetryDelay;
         return { response, output };
-      } catch (e6) {
-        const retryErrorInfo = getRetryErrorInfo(e6);
-        lastError = asSdkError(e6);
+      } catch (e7) {
+        const retryErrorInfo = getRetryErrorInfo(e7);
+        lastError = asSdkError(e7);
         if (isRequest && isStreamingPayload(request)) {
-          (_a4 = context.logger instanceof NoOpLogger ? console : context.logger) == null ? void 0 : _a4.warn("An error was encountered in a non-retryable streaming request.");
+          (_a3 = context.logger instanceof NoOpLogger ? console : context.logger) == null ? void 0 : _a3.warn("An error was encountered in a non-retryable streaming request.");
           throw lastError;
         }
         try {
@@ -119269,8 +119269,8 @@ const getRetryAfterHint = (response) => {
   return retryAfterDate;
 };
 const getDateHeader = (response) => {
-  var _a4, _b2;
-  return HttpResponse.isInstance(response) ? ((_a4 = response.headers) == null ? void 0 : _a4.date) ?? ((_b2 = response.headers) == null ? void 0 : _b2.Date) : void 0;
+  var _a3, _b2;
+  return HttpResponse.isInstance(response) ? ((_a3 = response.headers) == null ? void 0 : _a3.date) ?? ((_b2 = response.headers) == null ? void 0 : _b2.Date) : void 0;
 };
 const getSkewCorrectedDate = (systemClockOffset) => new Date(Date.now() + systemClockOffset);
 const isClockSkewed = (clockTime, systemClockOffset) => Math.abs(getSkewCorrectedDate(systemClockOffset).getTime() - clockTime) >= 3e5;
@@ -119288,10 +119288,10 @@ const throwSigningPropertyError = (name, property2) => {
   return property2;
 };
 const validateSigningProperties = async (signingProperties) => {
-  var _a4, _b2, _c2;
+  var _a3, _b2, _c2;
   const context = throwSigningPropertyError("context", signingProperties.context);
   const config = throwSigningPropertyError("config", signingProperties.config);
-  const authScheme = (_c2 = (_b2 = (_a4 = context.endpointV2) == null ? void 0 : _a4.properties) == null ? void 0 : _b2.authSchemes) == null ? void 0 : _c2[0];
+  const authScheme = (_c2 = (_b2 = (_a3 = context.endpointV2) == null ? void 0 : _a3.properties) == null ? void 0 : _b2.authSchemes) == null ? void 0 : _c2[0];
   const signerFunction = throwSigningPropertyError("signer", config.signer);
   const signer = await signerFunction(authScheme);
   const signingRegion = signingProperties == null ? void 0 : signingProperties.signingRegion;
@@ -119545,8 +119545,8 @@ let Int64$1 = class Int642 {
       throw new Error(`${number} is too large (or, if negative, too small) to represent as an Int64`);
     }
     const bytes = new Uint8Array(8);
-    for (let i13 = 7, remaining = Math.abs(Math.round(number)); i13 > -1 && remaining > 0; i13--, remaining /= 256) {
-      bytes[i13] = remaining;
+    for (let i14 = 7, remaining = Math.abs(Math.round(number)); i14 > -1 && remaining > 0; i14--, remaining /= 256) {
+      bytes[i14] = remaining;
     }
     if (number < 0) {
       negate$1(bytes);
@@ -119566,12 +119566,12 @@ let Int64$1 = class Int642 {
   }
 };
 function negate$1(bytes) {
-  for (let i13 = 0; i13 < 8; i13++) {
-    bytes[i13] ^= 255;
+  for (let i14 = 0; i14 < 8; i14++) {
+    bytes[i14] ^= 255;
   }
-  for (let i13 = 7; i13 > -1; i13--) {
-    bytes[i13]++;
-    if (bytes[i13] !== 0)
+  for (let i14 = 7; i14 > -1; i14--) {
+    bytes[i14]++;
+    if (bytes[i14] !== 0)
       break;
   }
 }
@@ -119585,11 +119585,11 @@ const hasHeader = (soughtHeader, headers) => {
   return false;
 };
 const moveHeadersToQuery = (request, options = {}) => {
-  var _a4, _b2;
+  var _a3, _b2;
   const { headers, query = {} } = HttpRequest.clone(request);
   for (const name of Object.keys(headers)) {
     const lname = name.toLowerCase();
-    if (lname.slice(0, 6) === "x-amz-" && !((_a4 = options.unhoistableHeaders) == null ? void 0 : _a4.has(lname)) || ((_b2 = options.hoistableHeaders) == null ? void 0 : _b2.has(lname))) {
+    if (lname.slice(0, 6) === "x-amz-" && !((_a3 = options.unhoistableHeaders) == null ? void 0 : _a3.has(lname)) || ((_b2 = options.hoistableHeaders) == null ? void 0 : _b2.has(lname))) {
       query[name] = headers[name];
       delete headers[name];
     }
@@ -119868,13 +119868,13 @@ const parseJsonBody = (streamBody, context) => collectBodyString(streamBody, con
   if (encoded.length) {
     try {
       return JSON.parse(encoded);
-    } catch (e6) {
-      if ((e6 == null ? void 0 : e6.name) === "SyntaxError") {
-        Object.defineProperty(e6, "$responseBodyText", {
+    } catch (e7) {
+      if ((e7 == null ? void 0 : e7.name) === "SyntaxError") {
+        Object.defineProperty(e7, "$responseBodyText", {
           value: encoded
         });
       }
-      throw e6;
+      throw e7;
     }
   }
   return {};
@@ -120110,15 +120110,15 @@ function __awaiter(thisArg, _arguments, P5, generator) {
     function fulfilled(value2) {
       try {
         step(generator.next(value2));
-      } catch (e6) {
-        reject(e6);
+      } catch (e7) {
+        reject(e7);
       }
     }
     function rejected(value2) {
       try {
         step(generator["throw"](value2));
-      } catch (e6) {
-        reject(e6);
+      } catch (e7) {
+        reject(e7);
       }
     }
     function step(result) {
@@ -120131,20 +120131,20 @@ function __generator(thisArg, body) {
   var _6 = { label: 0, sent: function() {
     if (t2[0] & 1) throw t2[1];
     return t2[1];
-  }, trys: [], ops: [] }, f6, y2, t2, g4 = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-  return g4.next = verb(0), g4["throw"] = verb(1), g4["return"] = verb(2), typeof Symbol === "function" && (g4[Symbol.iterator] = function() {
+  }, trys: [], ops: [] }, f7, y3, t2, g5 = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+  return g5.next = verb(0), g5["throw"] = verb(1), g5["return"] = verb(2), typeof Symbol === "function" && (g5[Symbol.iterator] = function() {
     return this;
-  }), g4;
-  function verb(n10) {
+  }), g5;
+  function verb(n12) {
     return function(v2) {
-      return step([n10, v2]);
+      return step([n12, v2]);
     };
   }
   function step(op) {
-    if (f6) throw new TypeError("Generator is already executing.");
-    while (g4 && (g4 = 0, op[0] && (_6 = 0)), _6) try {
-      if (f6 = 1, y2 && (t2 = op[0] & 2 ? y2["return"] : op[0] ? y2["throw"] || ((t2 = y2["return"]) && t2.call(y2), 0) : y2.next) && !(t2 = t2.call(y2, op[1])).done) return t2;
-      if (y2 = 0, t2) op = [op[0] & 2, t2.value];
+    if (f7) throw new TypeError("Generator is already executing.");
+    while (g5 && (g5 = 0, op[0] && (_6 = 0)), _6) try {
+      if (f7 = 1, y3 && (t2 = op[0] & 2 ? y3["return"] : op[0] ? y3["throw"] || ((t2 = y3["return"]) && t2.call(y3), 0) : y3.next) && !(t2 = t2.call(y3, op[1])).done) return t2;
+      if (y3 = 0, t2) op = [op[0] & 2, t2.value];
       switch (op[0]) {
         case 0:
         case 1:
@@ -120155,7 +120155,7 @@ function __generator(thisArg, body) {
           return { value: op[1], done: false };
         case 5:
           _6.label++;
-          y2 = op[1];
+          y3 = op[1];
           op = [0];
           continue;
         case 7:
@@ -120186,30 +120186,30 @@ function __generator(thisArg, body) {
           continue;
       }
       op = body.call(thisArg, _6);
-    } catch (e6) {
-      op = [6, e6];
-      y2 = 0;
+    } catch (e7) {
+      op = [6, e7];
+      y3 = 0;
     } finally {
-      f6 = t2 = 0;
+      f7 = t2 = 0;
     }
     if (op[0] & 5) throw op[1];
     return { value: op[0] ? op[1] : void 0, done: true };
   }
 }
 function __values(o9) {
-  var s14 = typeof Symbol === "function" && Symbol.iterator, m9 = s14 && o9[s14], i13 = 0;
-  if (m9) return m9.call(o9);
+  var s15 = typeof Symbol === "function" && Symbol.iterator, m10 = s15 && o9[s15], i14 = 0;
+  if (m10) return m10.call(o9);
   if (o9 && typeof o9.length === "number") return {
     next: function() {
-      if (o9 && i13 >= o9.length) o9 = void 0;
-      return { value: o9 && o9[i13++], done: !o9 };
+      if (o9 && i14 >= o9.length) o9 = void 0;
+      return { value: o9 && o9[i14++], done: !o9 };
     }
   };
-  throw new TypeError(s14 ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  throw new TypeError(s15 ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 typeof SuppressedError === "function" ? SuppressedError : function(error2, suppressed, message) {
-  var e6 = new Error(message);
-  return e6.name = "SuppressedError", e6.error = error2, e6.suppressed = suppressed, e6;
+  var e7 = new Error(message);
+  return e7.name = "SuppressedError", e7.error = error2, e7.suppressed = suppressed, e7;
 };
 var BLOCK_SIZE = 64;
 var DIGEST_LENGTH = 32;
@@ -120327,14 +120327,14 @@ var RawSha256 = (
         var undecoratedLength = this.bufferLength;
         bufferView.setUint8(this.bufferLength++, 128);
         if (undecoratedLength % BLOCK_SIZE >= BLOCK_SIZE - 8) {
-          for (var i13 = this.bufferLength; i13 < BLOCK_SIZE; i13++) {
-            bufferView.setUint8(i13, 0);
+          for (var i14 = this.bufferLength; i14 < BLOCK_SIZE; i14++) {
+            bufferView.setUint8(i14, 0);
           }
           this.hashBuffer();
           this.bufferLength = 0;
         }
-        for (var i13 = this.bufferLength; i13 < BLOCK_SIZE - 8; i13++) {
-          bufferView.setUint8(i13, 0);
+        for (var i14 = this.bufferLength; i14 < BLOCK_SIZE - 8; i14++) {
+          bufferView.setUint8(i14, 0);
         }
         bufferView.setUint32(BLOCK_SIZE - 8, Math.floor(bitsHashed / 4294967296), true);
         bufferView.setUint32(BLOCK_SIZE - 4, bitsHashed);
@@ -120342,28 +120342,28 @@ var RawSha256 = (
         this.finished = true;
       }
       var out = new Uint8Array(DIGEST_LENGTH);
-      for (var i13 = 0; i13 < 8; i13++) {
-        out[i13 * 4] = this.state[i13] >>> 24 & 255;
-        out[i13 * 4 + 1] = this.state[i13] >>> 16 & 255;
-        out[i13 * 4 + 2] = this.state[i13] >>> 8 & 255;
-        out[i13 * 4 + 3] = this.state[i13] >>> 0 & 255;
+      for (var i14 = 0; i14 < 8; i14++) {
+        out[i14 * 4] = this.state[i14] >>> 24 & 255;
+        out[i14 * 4 + 1] = this.state[i14] >>> 16 & 255;
+        out[i14 * 4 + 2] = this.state[i14] >>> 8 & 255;
+        out[i14 * 4 + 3] = this.state[i14] >>> 0 & 255;
       }
       return out;
     };
     RawSha2562.prototype.hashBuffer = function() {
-      var _a4 = this, buffer = _a4.buffer, state = _a4.state;
+      var _a3 = this, buffer = _a3.buffer, state = _a3.state;
       var state0 = state[0], state1 = state[1], state2 = state[2], state3 = state[3], state4 = state[4], state5 = state[5], state6 = state[6], state7 = state[7];
-      for (var i13 = 0; i13 < BLOCK_SIZE; i13++) {
-        if (i13 < 16) {
-          this.temp[i13] = (buffer[i13 * 4] & 255) << 24 | (buffer[i13 * 4 + 1] & 255) << 16 | (buffer[i13 * 4 + 2] & 255) << 8 | buffer[i13 * 4 + 3] & 255;
+      for (var i14 = 0; i14 < BLOCK_SIZE; i14++) {
+        if (i14 < 16) {
+          this.temp[i14] = (buffer[i14 * 4] & 255) << 24 | (buffer[i14 * 4 + 1] & 255) << 16 | (buffer[i14 * 4 + 2] & 255) << 8 | buffer[i14 * 4 + 3] & 255;
         } else {
-          var u6 = this.temp[i13 - 2];
+          var u6 = this.temp[i14 - 2];
           var t1_1 = (u6 >>> 17 | u6 << 15) ^ (u6 >>> 19 | u6 << 13) ^ u6 >>> 10;
-          u6 = this.temp[i13 - 15];
+          u6 = this.temp[i14 - 15];
           var t2_1 = (u6 >>> 7 | u6 << 25) ^ (u6 >>> 18 | u6 << 14) ^ u6 >>> 3;
-          this.temp[i13] = (t1_1 + this.temp[i13 - 7] | 0) + (t2_1 + this.temp[i13 - 16] | 0);
+          this.temp[i14] = (t1_1 + this.temp[i14 - 7] | 0) + (t2_1 + this.temp[i14 - 16] | 0);
         }
-        var t1 = (((state4 >>> 6 | state4 << 26) ^ (state4 >>> 11 | state4 << 21) ^ (state4 >>> 25 | state4 << 7)) + (state4 & state5 ^ ~state4 & state6) | 0) + (state7 + (KEY[i13] + this.temp[i13] | 0) | 0) | 0;
+        var t1 = (((state4 >>> 6 | state4 << 26) ^ (state4 >>> 11 | state4 << 21) ^ (state4 >>> 25 | state4 << 7)) + (state4 & state5 ^ ~state4 & state6) | 0) + (state7 + (KEY[i14] + this.temp[i14] | 0) | 0) | 0;
         var t2 = ((state0 >>> 2 | state0 << 30) ^ (state0 >>> 13 | state0 << 19) ^ (state0 >>> 22 | state0 << 10)) + (state0 & state1 ^ state0 & state2 ^ state1 & state2) | 0;
         state7 = state6;
         state6 = state5;
@@ -120400,8 +120400,8 @@ var Sha256$1 = (
       }
       try {
         this.hash.update(convertToBuffer(toHash));
-      } catch (e6) {
-        this.error = e6;
+      } catch (e7) {
+        this.error = e7;
       }
     };
     Sha2562.prototype.digestSync = function() {
@@ -120418,7 +120418,7 @@ var Sha256$1 = (
     };
     Sha2562.prototype.digest = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a4) {
+        return __generator(this, function(_a3) {
           return [2, this.digestSync()];
         });
       });
@@ -120430,14 +120430,14 @@ var Sha256$1 = (
         var inner = bufferFromSecret(this.secret);
         var outer = new Uint8Array(BLOCK_SIZE);
         outer.set(inner);
-        for (var i13 = 0; i13 < BLOCK_SIZE; i13++) {
-          inner[i13] ^= 54;
-          outer[i13] ^= 92;
+        for (var i14 = 0; i14 < BLOCK_SIZE; i14++) {
+          inner[i14] ^= 54;
+          outer[i14] ^= 92;
         }
         this.hash.update(inner);
         this.outer.update(outer);
-        for (var i13 = 0; i13 < inner.byteLength; i13++) {
-          inner[i13] = 0;
+        for (var i14 = 0; i14 < inner.byteLength; i14++) {
+          inner[i14] = 0;
         }
       }
     };
@@ -120697,7 +120697,7 @@ class Utils {
    * @return {string} versionName
    */
   static getMacOSVersionName(version2) {
-    const v2 = version2.split(".").splice(0, 2).map((s14) => parseInt(s14, 10) || 0);
+    const v2 = version2.split(".").splice(0, 2).map((s15) => parseInt(s15, 10) || 0);
     v2.push(0);
     if (v2[0] !== 10) return void 0;
     switch (v2[1]) {
@@ -120752,7 +120752,7 @@ class Utils {
    * @return {string} versionName
    */
   static getAndroidVersionName(version2) {
-    const v2 = version2.split(".").splice(0, 2).map((s14) => parseInt(s14, 10) || 0);
+    const v2 = version2.split(".").splice(0, 2).map((s15) => parseInt(s15, 10) || 0);
     v2.push(0);
     if (v2[0] === 1 && v2[1] < 5) return void 0;
     if (v2[0] === 1 && v2[1] < 6) return "Cupcake";
@@ -120838,12 +120838,12 @@ class Utils {
    */
   static map(arr, iterator) {
     const result = [];
-    let i13;
+    let i14;
     if (Array.prototype.map) {
       return Array.prototype.map.call(arr, iterator);
     }
-    for (i13 = 0; i13 < arr.length; i13 += 1) {
-      result.push(iterator(arr[i13]));
+    for (i14 = 0; i14 < arr.length; i14 += 1) {
+      result.push(iterator(arr[i14]));
     }
     return result;
   }
@@ -120855,14 +120855,14 @@ class Utils {
    * @return {Array}
    */
   static find(arr, predicate) {
-    let i13;
+    let i14;
     let l5;
     if (Array.prototype.find) {
       return Array.prototype.find.call(arr, predicate);
     }
-    for (i13 = 0, l5 = arr.length; i13 < l5; i13 += 1) {
-      const value2 = arr[i13];
-      if (predicate(value2, i13)) {
+    for (i14 = 0, l5 = arr.length; i14 < l5; i14 += 1) {
+      const value2 = arr[i14];
+      if (predicate(value2, i14)) {
         return value2;
       }
     }
@@ -120877,13 +120877,13 @@ class Utils {
    */
   static assign(obj, ...assigners) {
     const result = obj;
-    let i13;
+    let i14;
     let l5;
     if (Object.assign) {
       return Object.assign(obj, ...assigners);
     }
-    for (i13 = 0, l5 = assigners.length; i13 < l5; i13 += 1) {
-      const assigner = assigners[i13];
+    for (i14 = 0, l5 = assigners.length; i14 < l5; i14 += 1) {
+      const assigner = assigners[i14];
       if (typeof assigner === "object" && assigner !== null) {
         const keys = Object.keys(assigner);
         keys.forEach((key) => {
@@ -122435,8 +122435,8 @@ class Bowser {
   }
 }
 const defaultUserAgent = ({ serviceId, clientVersion }) => async () => {
-  var _a4, _b2, _c2, _d2, _e3;
-  const parsedUA = typeof window !== "undefined" && ((_a4 = window == null ? void 0 : window.navigator) == null ? void 0 : _a4.userAgent) ? Bowser.parse(window.navigator.userAgent) : void 0;
+  var _a3, _b2, _c2, _d2, _e3;
+  const parsedUA = typeof window !== "undefined" && ((_a3 = window == null ? void 0 : window.navigator) == null ? void 0 : _a3.userAgent) ? Bowser.parse(window.navigator.userAgent) : void 0;
   const sections = [
     ["aws-sdk-js", clientVersion],
     ["ua", "2.0"],
@@ -122456,7 +122456,7 @@ var Crc32 = (
       this.checksum = 4294967295;
     }
     Crc322.prototype.update = function(data) {
-      var e_1, _a4;
+      var e_1, _a3;
       try {
         for (var data_1 = __values(data), data_1_1 = data_1.next(); !data_1_1.done; data_1_1 = data_1.next()) {
           var byte = data_1_1.value;
@@ -122466,7 +122466,7 @@ var Crc32 = (
         e_1 = { error: e_1_1 };
       } finally {
         try {
-          if (data_1_1 && !data_1_1.done && (_a4 = data_1.return)) _a4.call(data_1);
+          if (data_1_1 && !data_1_1.done && (_a3 = data_1.return)) _a3.call(data_1);
         } finally {
           if (e_1) throw e_1.error;
         }
@@ -122750,8 +122750,8 @@ class Int64 {
       throw new Error(`${number} is too large (or, if negative, too small) to represent as an Int64`);
     }
     const bytes = new Uint8Array(8);
-    for (let i13 = 7, remaining = Math.abs(Math.round(number)); i13 > -1 && remaining > 0; i13--, remaining /= 256) {
-      bytes[i13] = remaining;
+    for (let i14 = 7, remaining = Math.abs(Math.round(number)); i14 > -1 && remaining > 0; i14--, remaining /= 256) {
+      bytes[i14] = remaining;
     }
     if (number < 0) {
       negate(bytes);
@@ -122771,12 +122771,12 @@ class Int64 {
   }
 }
 function negate(bytes) {
-  for (let i13 = 0; i13 < 8; i13++) {
-    bytes[i13] ^= 255;
+  for (let i14 = 0; i14 < 8; i14++) {
+    bytes[i14] ^= 255;
   }
-  for (let i13 = 7; i13 > -1; i13--) {
-    bytes[i13]++;
-    if (bytes[i13] !== 0)
+  for (let i14 = 7; i14 > -1; i14--) {
+    bytes[i14]++;
+    if (bytes[i14] !== 0)
       break;
   }
 }
@@ -123303,7 +123303,7 @@ class FetchHttpHandler {
   destroy() {
   }
   async handle(request, { abortSignal } = {}) {
-    var _a4;
+    var _a3;
     if (!this.config) {
       this.config = await this.configProvider;
     }
@@ -123338,7 +123338,7 @@ class FetchHttpHandler {
       method,
       credentials
     };
-    if ((_a4 = this.config) == null ? void 0 : _a4.cache) {
+    if ((_a3 = this.config) == null ? void 0 : _a3.cache) {
       requestOptions.cache = this.config.cache;
     }
     if (body) {
@@ -123471,14 +123471,14 @@ const calculateBodyLength = (body) => {
       return TEXT_ENCODER$1.encode(body).byteLength;
     }
     let len = body.length;
-    for (let i13 = len - 1; i13 >= 0; i13--) {
-      const code2 = body.charCodeAt(i13);
+    for (let i14 = len - 1; i14 >= 0; i14--) {
+      const code2 = body.charCodeAt(i14);
       if (code2 > 127 && code2 <= 2047)
         len++;
       else if (code2 > 2047 && code2 <= 65535)
         len += 2;
       if (code2 >= 56320 && code2 <= 57343)
-        i13--;
+        i14--;
     }
     return len;
   } else if (typeof body.byteLength === "number") {
@@ -123488,9 +123488,9 @@ const calculateBodyLength = (body) => {
   }
   throw new Error(`Body Length computation failed for ${body}`);
 };
-const s$e = "required", t = "fn", u$8 = "argv", v$2 = "ref";
-const a$9 = true, b$5 = "isSet", c$a = "booleanEquals", d$6 = "error", e$6 = "endpoint", f$9 = "tree", g$7 = "PartitionResult", h$7 = { [s$e]: false, "type": "String" }, i$e = { [s$e]: true, "default": false, "type": "Boolean" }, j$4 = { [v$2]: "Endpoint" }, k$6 = { [t]: c$a, [u$8]: [{ [v$2]: "UseFIPS" }, true] }, l$5 = { [t]: c$a, [u$8]: [{ [v$2]: "UseDualStack" }, true] }, m$c = {}, n$a = { [t]: "getAttr", [u$8]: [{ [v$2]: g$7 }, "supportsFIPS"] }, o$a = { [t]: c$a, [u$8]: [true, { [t]: "getAttr", [u$8]: [{ [v$2]: g$7 }, "supportsDualStack"] }] }, p$a = [k$6], q$4 = [l$5], r$8 = [{ [v$2]: "Region" }];
-const _data = { parameters: { Region: h$7, UseDualStack: i$e, UseFIPS: i$e, Endpoint: h$7 }, rules: [{ conditions: [{ [t]: b$5, [u$8]: [j$4] }], rules: [{ conditions: p$a, error: "Invalid Configuration: FIPS and custom endpoint are not supported", type: d$6 }, { rules: [{ conditions: q$4, error: "Invalid Configuration: Dualstack and custom endpoint are not supported", type: d$6 }, { endpoint: { url: j$4, properties: m$c, headers: m$c }, type: e$6 }], type: f$9 }], type: f$9 }, { rules: [{ conditions: [{ [t]: b$5, [u$8]: r$8 }], rules: [{ conditions: [{ [t]: "aws.partition", [u$8]: r$8, assign: g$7 }], rules: [{ conditions: [k$6, l$5], rules: [{ conditions: [{ [t]: c$a, [u$8]: [a$9, n$a] }, o$a], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: m$c, headers: m$c }, type: e$6 }], type: f$9 }], type: f$9 }, { error: "FIPS and DualStack are enabled, but this partition does not support one or both", type: d$6 }], type: f$9 }, { conditions: p$a, rules: [{ conditions: [{ [t]: c$a, [u$8]: [n$a, a$9] }], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime-fips.{Region}.{PartitionResult#dnsSuffix}", properties: m$c, headers: m$c }, type: e$6 }], type: f$9 }], type: f$9 }, { error: "FIPS is enabled but this partition does not support FIPS", type: d$6 }], type: f$9 }, { conditions: q$4, rules: [{ conditions: [o$a], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: m$c, headers: m$c }, type: e$6 }], type: f$9 }], type: f$9 }, { error: "DualStack is enabled but this partition does not support DualStack", type: d$6 }], type: f$9 }, { rules: [{ endpoint: { url: "https://bedrock-runtime.{Region}.{PartitionResult#dnsSuffix}", properties: m$c, headers: m$c }, type: e$6 }], type: f$9 }], type: f$9 }], type: f$9 }, { error: "Invalid Configuration: Missing Region", type: d$6 }], type: f$9 }] };
+const s$f = "required", t = "fn", u$9 = "argv", v$2 = "ref";
+const a$b = true, b$7 = "isSet", c$b = "booleanEquals", d$8 = "error", e$7 = "endpoint", f$a = "tree", g$8 = "PartitionResult", h$9 = { [s$f]: false, "type": "String" }, i$f = { [s$f]: true, "default": false, "type": "Boolean" }, j$5 = { [v$2]: "Endpoint" }, k$6 = { [t]: c$b, [u$9]: [{ [v$2]: "UseFIPS" }, true] }, l$6 = { [t]: c$b, [u$9]: [{ [v$2]: "UseDualStack" }, true] }, m$e = {}, n$c = { [t]: "getAttr", [u$9]: [{ [v$2]: g$8 }, "supportsFIPS"] }, o$a = { [t]: c$b, [u$9]: [true, { [t]: "getAttr", [u$9]: [{ [v$2]: g$8 }, "supportsDualStack"] }] }, p$b = [k$6], q$4 = [l$6], r$a = [{ [v$2]: "Region" }];
+const _data = { parameters: { Region: h$9, UseDualStack: i$f, UseFIPS: i$f, Endpoint: h$9 }, rules: [{ conditions: [{ [t]: b$7, [u$9]: [j$5] }], rules: [{ conditions: p$b, error: "Invalid Configuration: FIPS and custom endpoint are not supported", type: d$8 }, { rules: [{ conditions: q$4, error: "Invalid Configuration: Dualstack and custom endpoint are not supported", type: d$8 }, { endpoint: { url: j$5, properties: m$e, headers: m$e }, type: e$7 }], type: f$a }], type: f$a }, { rules: [{ conditions: [{ [t]: b$7, [u$9]: r$a }], rules: [{ conditions: [{ [t]: "aws.partition", [u$9]: r$a, assign: g$8 }], rules: [{ conditions: [k$6, l$6], rules: [{ conditions: [{ [t]: c$b, [u$9]: [a$b, n$c] }, o$a], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: m$e, headers: m$e }, type: e$7 }], type: f$a }], type: f$a }, { error: "FIPS and DualStack are enabled, but this partition does not support one or both", type: d$8 }], type: f$a }, { conditions: p$b, rules: [{ conditions: [{ [t]: c$b, [u$9]: [n$c, a$b] }], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime-fips.{Region}.{PartitionResult#dnsSuffix}", properties: m$e, headers: m$e }, type: e$7 }], type: f$a }], type: f$a }, { error: "FIPS is enabled but this partition does not support FIPS", type: d$8 }], type: f$a }, { conditions: q$4, rules: [{ conditions: [o$a], rules: [{ rules: [{ endpoint: { url: "https://bedrock-runtime.{Region}.{PartitionResult#dualStackDnsSuffix}", properties: m$e, headers: m$e }, type: e$7 }], type: f$a }], type: f$a }, { error: "DualStack is enabled but this partition does not support DualStack", type: d$8 }], type: f$a }, { rules: [{ endpoint: { url: "https://bedrock-runtime.{Region}.{PartitionResult#dnsSuffix}", properties: m$e, headers: m$e }, type: e$7 }], type: f$a }], type: f$a }], type: f$a }, { error: "Invalid Configuration: Missing Region", type: d$8 }], type: f$a }] };
 const ruleSet = _data;
 const defaultEndpointResolver = (endpointParams, context = {}) => {
   return resolveEndpoint(ruleSet, {
@@ -123568,8 +123568,8 @@ const resolveDefaultsModeConfig = ({ defaultsMode } = {}) => memoize(async () =>
   }
 });
 const isMobileBrowser = () => {
-  var _a4, _b2;
-  const parsedUA = typeof window !== "undefined" && ((_a4 = window == null ? void 0 : window.navigator) == null ? void 0 : _a4.userAgent) ? Bowser.parse(window.navigator.userAgent) : void 0;
+  var _a3, _b2;
+  const parsedUA = typeof window !== "undefined" && ((_a3 = window == null ? void 0 : window.navigator) == null ? void 0 : _a3.userAgent) ? Bowser.parse(window.navigator.userAgent) : void 0;
   const platform = (_b2 = parsedUA == null ? void 0 : parsedUA.platform) == null ? void 0 : _b2.type;
   return platform === "tablet" || platform === "mobile";
 };
@@ -124048,7 +124048,7 @@ const InvokeModelWithResponseStreamResponseFilterSensitiveLog = (obj) => ({
   ...obj.body && { body: "STREAMING_CONTENT" }
 });
 const se_InvokeModelCommand = async (input, context) => {
-  const b3 = requestBuilder(input, context);
+  const b4 = requestBuilder(input, context);
   const headers = map$1({}, isSerializableHeaderValue, {
     [_ct]: input[_cT] || "application/octet-stream",
     [_a]: input[_a],
@@ -124056,17 +124056,17 @@ const se_InvokeModelCommand = async (input, context) => {
     [_xabg]: input[_gI],
     [_xabg_]: input[_gV]
   });
-  b3.bp("/model/{modelId}/invoke");
-  b3.p("modelId", () => input.modelId, "{modelId}", false);
+  b4.bp("/model/{modelId}/invoke");
+  b4.p("modelId", () => input.modelId, "{modelId}", false);
   let body;
   if (input.body !== void 0) {
     body = input.body;
   }
-  b3.m("POST").h(headers).b(body);
-  return b3.build();
+  b4.m("POST").h(headers).b(body);
+  return b4.build();
 };
 const se_InvokeModelWithResponseStreamCommand = async (input, context) => {
-  const b3 = requestBuilder(input, context);
+  const b4 = requestBuilder(input, context);
   const headers = map$1({}, isSerializableHeaderValue, {
     [_ct]: input[_cT] || "application/octet-stream",
     [_xaba]: input[_a],
@@ -124074,14 +124074,14 @@ const se_InvokeModelWithResponseStreamCommand = async (input, context) => {
     [_xabg]: input[_gI],
     [_xabg_]: input[_gV]
   });
-  b3.bp("/model/{modelId}/invoke-with-response-stream");
-  b3.p("modelId", () => input.modelId, "{modelId}", false);
+  b4.bp("/model/{modelId}/invoke-with-response-stream");
+  b4.p("modelId", () => input.modelId, "{modelId}", false);
   let body;
   if (input.body !== void 0) {
     body = input.body;
   }
-  b3.m("POST").h(headers).b(body);
-  return b3.build();
+  b4.m("POST").h(headers).b(body);
+  return b4.build();
 };
 const de_InvokeModelCommand = async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
@@ -124437,13 +124437,13 @@ class InvokeModelWithResponseStreamCommand extends Command.classBuilder().ep({
   }
 }).n("BedrockRuntimeClient", "InvokeModelWithResponseStreamCommand").f(InvokeModelWithResponseStreamRequestFilterSensitiveLog, InvokeModelWithResponseStreamResponseFilterSensitiveLog).ser(se_InvokeModelWithResponseStreamCommand).de(de_InvokeModelWithResponseStreamCommand).build() {
 }
-const x$5 = "_ungrouppedCommands";
+const x$6 = "_ungrouppedCommands";
 function o$9(_0x2df034, _0x1b8f24) {
   const _0x47bdc8 = (0, _0x1b8f24["t"])("Other");
-  return _0x2df034["length"] ? "groupId" in _0x2df034[0] ? _0x2df034 : [{ "groupId": x$5, "groupLabel": _0x47bdc8, "order": 1 / 0, "commands": _0x2df034 }] : [{ "groupId": x$5, "groupLabel": _0x47bdc8, "order": 1 / 0, "commands": [] }];
+  return _0x2df034["length"] ? "groupId" in _0x2df034[0] ? _0x2df034 : [{ "groupId": x$6, "groupLabel": _0x47bdc8, "order": 1 / 0, "commands": _0x2df034 }] : [{ "groupId": x$6, "groupLabel": _0x47bdc8, "order": 1 / 0, "commands": [] }];
 }
-const gt$2 = globalThis["DataTransfer"], f$8 = "ai-ui";
-let a$8 = class a2 extends Plugin {
+const gt$2 = globalThis["DataTransfer"], f$9 = "ai-ui";
+let a$a = class a2 extends Plugin {
   static get ["pluginName"]() {
     return "AIAssistantEditing";
   }
@@ -124455,7 +124455,7 @@ let a$8 = class a2 extends Plugin {
   }
   ["init"]() {
     const { editor: _0x586921 } = this, _0x30bce3 = ["ck-fake-ai-selection"];
-    _0x586921["config"]["get"]("ai.useTheme") && _0x30bce3["push"]("ck-ai-assistant-ui_theme"), _0x586921["conversion"]["for"]("editingDowncast")["markerToHighlight"]({ "model": f$8, "view": { "classes": _0x30bce3, "priority": 12 } }), _0x586921["conversion"]["for"]("editingDowncast")["markerToElement"]({ "model": f$8, "view": (_0x445210, { writer: _0x3a1bbf }) => {
+    _0x586921["config"]["get"]("ai.useTheme") && _0x30bce3["push"]("ck-ai-assistant-ui_theme"), _0x586921["conversion"]["for"]("editingDowncast")["markerToHighlight"]({ "model": f$9, "view": { "classes": _0x30bce3, "priority": 12 } }), _0x586921["conversion"]["for"]("editingDowncast")["markerToElement"]({ "model": f$9, "view": (_0x445210, { writer: _0x3a1bbf }) => {
       if (!_0x445210["markerRange"]["isCollapsed"]) return null;
       const _0x1639e9 = _0x3a1bbf["createUIElement"]("span");
       return _0x3a1bbf["addClass"](["ck-fake-ai-selection", "ck-fake-ai-selection_collapsed"], _0x1639e9), _0x1639e9;
@@ -124647,7 +124647,7 @@ let a$8 = class a2 extends Plugin {
       const _0x5a4337 = _0x1957c4["document"]["selection"]["getRanges"]();
       let _0x4060a9 = 0;
       for (const _0x337a6b of _0x5a4337) {
-        const _0x20a6ef = f$8 + ":" + _0x4060a9;
+        const _0x20a6ef = f$9 + ":" + _0x4060a9;
         if (_0x1957c4["markers"]["has"](_0x20a6ef)) _0x2fbe2f["updateMarker"](_0x20a6ef, { "range": _0x337a6b });
         else {
           if (_0x337a6b["start"]["isAtEnd"]) {
@@ -124660,7 +124660,7 @@ let a$8 = class a2 extends Plugin {
     });
   }
   ["hideFakeVisualSelection"]() {
-    const _0x8e12eb = this["editor"]["model"], _0x264bde = Array["from"](this["editor"]["model"]["markers"]["getMarkersGroup"](f$8));
+    const _0x8e12eb = this["editor"]["model"], _0x264bde = Array["from"](this["editor"]["model"]["markers"]["getMarkersGroup"](f$9));
     _0x264bde["length"] && _0x8e12eb["change"]((_0xbbe1b0) => {
       _0x264bde["forEach"]((_0x42691d) => {
         _0xbbe1b0["removeMarker"](_0x42691d);
@@ -124681,7 +124681,7 @@ let a$8 = class a2 extends Plugin {
     });
   }
   ["_getAISelection"]() {
-    const _0x289453 = this["editor"]["model"], _0x2a6404 = Array["from"](_0x289453["markers"]["getMarkersGroup"](f$8))["map"]((_0x55801b) => _0x55801b["getRange"]());
+    const _0x289453 = this["editor"]["model"], _0x2a6404 = Array["from"](_0x289453["markers"]["getMarkersGroup"](f$9))["map"]((_0x55801b) => _0x55801b["getRange"]());
     return _0x289453["createSelection"](_0x2a6404);
   }
   ["_pasteHTMLUsingClipboard"]({ writer: _0x1cee90, html: _0x4b046d, insertAt: _0xfba17a }) {
@@ -124746,7 +124746,7 @@ let R$7 = class R2 extends Error {
     super(_0x51fb6f), this["name"] = "AIRequestError";
   }
 };
-function i$d(_0x58dfc7, _0x1dd32c, _0x574cd5) {
+function i$e(_0x58dfc7, _0x1dd32c, _0x574cd5) {
   const t2 = _0x58dfc7["t"];
   switch (_0x1dd32c) {
     case "Edit or review":
@@ -124861,7 +124861,7 @@ function i$d(_0x58dfc7, _0x1dd32c, _0x574cd5) {
       return _0x1dd32c;
   }
 }
-let j$3 = class j2 extends Command$1 {
+let j$4 = class j2 extends Command$1 {
   constructor(_0x519181, _0xdd1459) {
     super(_0x519181);
     __publicField(this, "_commandDefinitions");
@@ -124882,7 +124882,7 @@ let j$3 = class j2 extends Command$1 {
     this["isEnabled"] = true;
   }
   ["execute"](_0x315e84 = "", _0x52bf92 = "", _0x2e55ba = "custom") {
-    this["editor"]["plugins"]["get"](n$9)["showUI"](_0x315e84, _0x52bf92, _0x2e55ba);
+    this["editor"]["plugins"]["get"](n$b)["showUI"](_0x315e84, _0x52bf92, _0x2e55ba);
   }
 };
 function G$3(_0x11d5c0, _0x14b81b) {
@@ -124975,10 +124975,10 @@ let k$5 = class k2 extends (/* @__PURE__ */ ObservableMixin()) {
     return _0x3a0a72["startsWith"]("```html") ? _0x3a0a72["endsWith"]("```") ? _0x3a0a72["substring"](7, _0x3a0a72["length"] - 3) : _0x3a0a72["substring"](7) : _0x111ed2;
   }
 };
-const M$2 = { "REPLACE": "replace", "INSERT": "insert" };
+const M$3 = { "REPLACE": "replace", "INSERT": "insert" };
 let lt$2 = class lt2 extends ToolbarView {
   constructor(_0x11ca67) {
-    super(_0x11ca67), this["set"]("isVisible", false), this["set"]("mainAction", M$2["REPLACE"]), this["replaceButton"] = this["_createButton"]("", "ck-button-action"), this["replaceButton"]["bind"]("label")["to"](this, "mainAction", (_0x4a347f) => i$d(_0x11ca67, "AI_" + _0x4a347f["toUpperCase"]() + "_CONTENT")), this["insertButton"] = this["_createButton"](i$d(_0x11ca67, "Insert below")), this["tryAgainButton"] = this["_createButton"](i$d(_0x11ca67, "Try again")), this["stopButton"] = this["_createButton"](i$d(_0x11ca67, "Stop"));
+    super(_0x11ca67), this["set"]("isVisible", false), this["set"]("mainAction", M$3["REPLACE"]), this["replaceButton"] = this["_createButton"]("", "ck-button-action"), this["replaceButton"]["bind"]("label")["to"](this, "mainAction", (_0x4a347f) => i$e(_0x11ca67, "AI_" + _0x4a347f["toUpperCase"]() + "_CONTENT")), this["insertButton"] = this["_createButton"](i$e(_0x11ca67, "Insert below")), this["tryAgainButton"] = this["_createButton"](i$e(_0x11ca67, "Try again")), this["stopButton"] = this["_createButton"](i$e(_0x11ca67, "Stop"));
     const _0xb3f184 = this["bindTemplate"];
     this["extendTemplate"]({ "attributes": { "class": ["ck-ai-form__toolbar", _0xb3f184["if"]("isVisible", "ck-hidden", (_0x7c607b) => !_0x7c607b)] } }), this["items"]["addMany"]([this["replaceButton"], this["insertButton"], this["tryAgainButton"], this["stopButton"]]);
   }
@@ -125015,7 +125015,7 @@ let Y$3 = class Y2 extends View {
   }
   ["_createCopyButton"]() {
     const _0x440691 = this["locale"], _0x224583 = new ButtonView(this["locale"]), _0x2a518e = "ck-ai-form__copy-button";
-    return _0x224583["set"]({ "label": i$d(_0x440691, "Copy"), "icon": copy, "class": _0x2a518e, "tooltip": true }), _0x224583["bind"]("isVisible")["to"](this, "value", (_0x54524d) => !!_0x54524d), _0x224583["bind"]("isEnabled")["to"](this, "isProcessing", (_0x563d99) => !_0x563d99), _0x224583["on"]("execute", () => {
+    return _0x224583["set"]({ "label": i$e(_0x440691, "Copy"), "icon": copy, "class": _0x2a518e, "tooltip": true }), _0x224583["bind"]("isVisible")["to"](this, "value", (_0x54524d) => !!_0x54524d), _0x224583["bind"]("isEnabled")["to"](this, "isProcessing", (_0x563d99) => !_0x563d99), _0x224583["on"]("execute", () => {
       this["_copyHTMLToClipboard"](this["contentFieldView"]["element"]), _0x224583["icon"] = check, _0x224583["class"] = _0x2a518e + " ck-ai-form__copy-button--copied", this["focus"](), setTimeout(() => {
         _0x224583["icon"] = copy, _0x224583["class"] = _0x2a518e;
       }, 1e3);
@@ -125048,7 +125048,7 @@ let At$1 = class At2 extends View {
   }
   ["_createLoader"]() {
     const _0x2ab29d = new View(), _0x40652b = this["locale"], _0x39bb28 = new SpinnerView();
-    return _0x39bb28["isVisible"] = true, _0x2ab29d["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-ai-form__loader"] }, "children": [_0x39bb28, { "text": i$d(_0x40652b, "AI is writing...") }] }), _0x2ab29d["render"](), _0x2ab29d;
+    return _0x39bb28["isVisible"] = true, _0x2ab29d["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-ai-form__loader"] }, "children": [_0x39bb28, { "text": i$e(_0x40652b, "AI is writing...") }] }), _0x2ab29d["render"](), _0x2ab29d;
   }
 };
 let st$3 = class st2 extends View {
@@ -125072,13 +125072,13 @@ let ct$2 = class ct2 extends AutocompleteView {
   }
   ["_createSubmitButton"]() {
     const _0x537172 = new ButtonView(this["locale"]), _0x2a1f0b = this["locale"];
-    return _0x537172["set"]({ "icon": submit, "label": i$d(_0x2a1f0b, "Submit"), "isVisible": true, "tooltip": true, "class": "ck-ai-form__submit" }), _0x537172["on"]("execute", () => {
+    return _0x537172["set"]({ "icon": submit, "label": i$e(_0x2a1f0b, "Submit"), "isVisible": true, "tooltip": true, "class": "ck-ai-form__submit" }), _0x537172["on"]("execute", () => {
       this["submit"]();
     }), _0x537172["bind"]("isEnabled")["to"](this["queryView"]["fieldView"], "isEmpty", this, "isEnabled", (_0x352dc4, _0xc04e8b) => !_0x352dc4 && _0xc04e8b), _0x537172;
   }
   ["_createShowHistoryButton"]() {
     const _0x588a01 = new ButtonView(this["locale"]), _0x2b9246 = this["resultsView"], _0x141af9 = this["locale"];
-    _0x588a01["set"]({ "label": i$d(_0x141af9, "History"), "withText": false, "icon": history, "tooltip": true, "tooltipPosition": "sw", "class": "ck-ai-form__toggle-history" }), _0x588a01["bind"]("isOn")["to"](_0x2b9246, "isVisible"), _0x588a01["bind"]("isEnabled")["to"](this, "isEnabled"), _0x588a01["on"]("execute", () => {
+    _0x588a01["set"]({ "label": i$e(_0x141af9, "History"), "withText": false, "icon": history, "tooltip": true, "tooltipPosition": "sw", "class": "ck-ai-form__toggle-history" }), _0x588a01["bind"]("isOn")["to"](_0x2b9246, "isVisible"), _0x588a01["bind"]("isEnabled")["to"](this, "isEnabled"), _0x588a01["on"]("execute", () => {
       _0x2b9246["isVisible"] = !_0x2b9246["isVisible"], _0x2b9246["isVisible"] ? this["filteredView"]["focus"]() : this["focus"]();
     });
     const _0x55bdd4 = () => {
@@ -125104,7 +125104,7 @@ let ft$3 = class ft2 extends ListView {
     super(_0x4f3807);
     __publicField(this, "historyGroupView");
     __publicField(this, "clearHistoryButton");
-    this["clearHistoryButton"] = this["_createClearHistoryButton"](), this["historyGroupView"] = new ListItemGroupView(), this["historyGroupView"]["children"]["add"](this["clearHistoryButton"], 1), this["historyGroupView"]["label"] = i$d(_0x4f3807, "Prompt history"), this["historyGroupView"]["items"]["delegate"]("execute")["to"](this), this["items"]["add"](this["historyGroupView"]);
+    this["clearHistoryButton"] = this["_createClearHistoryButton"](), this["historyGroupView"] = new ListItemGroupView(), this["historyGroupView"]["children"]["add"](this["clearHistoryButton"], 1), this["historyGroupView"]["label"] = i$e(_0x4f3807, "Prompt history"), this["historyGroupView"]["items"]["delegate"]("execute")["to"](this), this["items"]["add"](this["historyGroupView"]);
   }
   ["filter"]() {
     let _0x2f7cdb = 0;
@@ -125113,7 +125113,7 @@ let ft$3 = class ft2 extends ListView {
   }
   ["_createClearHistoryButton"]() {
     const _0x42a886 = this["locale"], _0x47b106 = new ButtonView(this["locale"]);
-    return _0x47b106["set"]({ "label": "(" + i$d(_0x42a886, "Clear") + ")", "withText": true }), _0x47b106["on"]("execute", () => this["fire"]("clearHistory")), _0x47b106;
+    return _0x47b106["set"]({ "label": "(" + i$e(_0x42a886, "Clear") + ")", "withText": true }), _0x47b106["on"]("execute", () => this["fire"]("clearHistory")), _0x47b106;
   }
 };
 let bt$2 = class bt2 extends ListItemView {
@@ -125162,7 +125162,7 @@ let _$6 = class _2 extends View {
     __publicField(this, "_focusables");
     __publicField(this, "focusCycler");
     __publicField(this, "_promptHistory");
-    this["set"]("isEnabled", true), this["set"]("isProcessing", false), this["set"]("prompt", ""), this["set"]("value", ""), this["set"]("isError", false), this["set"]("mainAction", M$2["REPLACE"]), this["_promptHistory"] = new wt$2(), this["errorView"] = new st$3(_0x36ca65), this["contentArea"] = new Y$3(_0x36ca65, _0x2eeb9b), this["contentArea"]["bind"]("isProcessing")["to"](this), this["contentArea"]["bind"]("value")["to"](this), this["toolbar"] = this["_createToolbar"](), this["toolbar"]["bind"]("mainAction")["to"](this), this["promptView"] = this["_createPromptView"](), this["focusTracker"] = new FocusTracker(), this["keystrokes"] = new KeystrokeHandler(), this["_focusables"] = this["createCollection"]([this["contentArea"], this["contentArea"]["copyButtonView"], this["toolbar"], this["promptView"]]), this["focusCycler"] = new FocusCycler({ "focusables": this["_focusables"], "focusTracker": this["focusTracker"], "keystrokeHandler": this["keystrokes"], "actions": { "focusPrevious": "shift + tab", "focusNext": "tab" } }), this["focusCycler"]["chain"](this["promptView"]["focusCycler"]), this["promptView"]["queryView"]["fieldView"]["bind"]("value")["to"](this, "prompt");
+    this["set"]("isEnabled", true), this["set"]("isProcessing", false), this["set"]("prompt", ""), this["set"]("value", ""), this["set"]("isError", false), this["set"]("mainAction", M$3["REPLACE"]), this["_promptHistory"] = new wt$2(), this["errorView"] = new st$3(_0x36ca65), this["contentArea"] = new Y$3(_0x36ca65, _0x2eeb9b), this["contentArea"]["bind"]("isProcessing")["to"](this), this["contentArea"]["bind"]("value")["to"](this), this["toolbar"] = this["_createToolbar"](), this["toolbar"]["bind"]("mainAction")["to"](this), this["promptView"] = this["_createPromptView"](), this["focusTracker"] = new FocusTracker(), this["keystrokes"] = new KeystrokeHandler(), this["_focusables"] = this["createCollection"]([this["contentArea"], this["contentArea"]["copyButtonView"], this["toolbar"], this["promptView"]]), this["focusCycler"] = new FocusCycler({ "focusables": this["_focusables"], "focusTracker": this["focusTracker"], "keystrokeHandler": this["keystrokes"], "actions": { "focusPrevious": "shift + tab", "focusNext": "tab" } }), this["focusCycler"]["chain"](this["promptView"]["focusCycler"]), this["promptView"]["queryView"]["fieldView"]["bind"]("value")["to"](this, "prompt");
     const _0x4ecbdd = this["bindTemplate"];
     this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-ai-form", _0x3f0368], "tabindex": "-1" }, "children": [{ "tag": "div", "attributes": { "class": ["ck", "ck-ai-form-content"] }, "children": [{ "tag": "div", "attributes": { "class": [_0x4ecbdd["if"]("isError", "ck-hidden", (_0x44a35c) => !_0x44a35c)] }, "children": [this["errorView"]] }, this["contentArea"], this["toolbar"], this["promptView"]] }] });
   }
@@ -125176,7 +125176,7 @@ let _$6 = class _2 extends View {
     this["prompt"] = "", this["value"] = "", this["isError"] = false, this["promptView"]["reset"](), this["contentArea"]["isVisible"] = false, this["toolbar"]["isVisible"] = false;
   }
   ["_createPromptView"]() {
-    const _0x34e814 = this["locale"], _0x38bc2c = new ct$2(_0x34e814, { "queryView": { "label": i$d(_0x34e814, "Ask AI to edit or generate"), "creator": createLabeledTextarea, "showIcon": false, "showResetButton": false }, "infoView": { "text": { "noSearchableItems": { "primary": i$d(_0x34e814, "Empty history"), "secondary": i$d(_0x34e814, "Ask AI and your prompts will be listed here for you to use later.") } } }, "filteredView": this["_createHistoryView"](), "queryMinChars": 1 / 0, "resetOnBlur": false });
+    const _0x34e814 = this["locale"], _0x38bc2c = new ct$2(_0x34e814, { "queryView": { "label": i$e(_0x34e814, "Ask AI to edit or generate"), "creator": createLabeledTextarea, "showIcon": false, "showResetButton": false }, "infoView": { "text": { "noSearchableItems": { "primary": i$e(_0x34e814, "Empty history"), "secondary": i$e(_0x34e814, "Ask AI and your prompts will be listed here for you to use later.") } } }, "filteredView": this["_createHistoryView"](), "queryMinChars": 1 / 0, "resetOnBlur": false });
     return _0x38bc2c["bind"]("isEnabled")["to"](this, "isEnabled", this, "isProcessing", (_0x329991, _0x4e0943) => _0x329991 && !_0x4e0943), this["listenTo"](_0x38bc2c, "submit", (_0x2e65cc, _0xb4d25f) => {
       this["prompt"] = _0xb4d25f;
       const _0x13a5b5 = escape$1(_0xb4d25f);
@@ -125198,15 +125198,15 @@ let _$6 = class _2 extends View {
   }
   ["finishProcessing"]() {
     const _0x1604ed = this["locale"];
-    this["isProcessing"] = false, this["prompt"] = "", this["promptView"]["reset"](), this["value"] && (this["promptView"]["queryView"]["label"] = i$d(_0x1604ed, "Ask AI to improve generated text"));
+    this["isProcessing"] = false, this["prompt"] = "", this["promptView"]["reset"](), this["value"] && (this["promptView"]["queryView"]["label"] = i$e(_0x1604ed, "Ask AI to improve generated text"));
   }
   ["handleError"](_0x2f921a) {
     const _0x593df9 = this["locale"];
-    this["finishProcessing"](), this["isError"] = true, this["errorView"]["text"] = _0x2f921a || i$d(_0x593df9, "AI_ERROR_FAILED"), this["value"] || (this["contentArea"]["isVisible"] = false);
+    this["finishProcessing"](), this["isError"] = true, this["errorView"]["text"] = _0x2f921a || i$e(_0x593df9, "AI_ERROR_FAILED"), this["value"] || (this["contentArea"]["isVisible"] = false);
   }
 };
-const w$5 = globalThis["DataTransfer"];
-let n$9 = class n2 extends Plugin {
+const w$6 = globalThis["DataTransfer"];
+let n$b = class n2 extends Plugin {
   constructor(_0x4f3f61) {
     super(_0x4f3f61);
     __publicField(this, "licenseKey");
@@ -125228,29 +125228,29 @@ let n$9 = class n2 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [ClipboardMarkersUtils, a$8, E$6, Dialog];
+    return [ClipboardMarkersUtils, a$a, E$6, Dialog];
   }
   ["init"]() {
     const { editor: _0x4e8a7a } = this;
     this["_aiAdapter"] = _0x4e8a7a["plugins"]["get"](E$6), this["_dialog"] = _0x4e8a7a["plugins"]["get"](Dialog), this["_formView"] = null, this["_commandDefinitions"] = this["_getResolvedCommandsDefinitions"]();
-    const _0x1db4a7 = new j$3(_0x4e8a7a, Array["from"](this["_commandDefinitions"]["values"]()));
+    const _0x1db4a7 = new j$4(_0x4e8a7a, Array["from"](this["_commandDefinitions"]["values"]()));
     _0x4e8a7a["commands"]["add"]("showAIAssistant", _0x1db4a7), _0x4e8a7a["ui"]["componentFactory"]["add"]("aiCommands", (_0x4be9df) => {
       const _0x54d3f1 = createDropdown(_0x4be9df);
-      return _0x54d3f1["set"]({ "class": "ck-ai-commands-dropdown " + this["_uiCssClasses"] }), _0x54d3f1["buttonView"]["set"]({ "label": i$d(_0x4be9df, "AI Commands"), "icon": magicWand, "tooltip": true }), _0x54d3f1["on"]("execute", (_0x581211) => this["_onExecute"](_0x581211["source"]["id"])), addMenuToDropdown(_0x54d3f1, _0x4e8a7a["ui"]["view"]["body"], function(_0x262397) {
+      return _0x54d3f1["set"]({ "class": "ck-ai-commands-dropdown " + this["_uiCssClasses"] }), _0x54d3f1["buttonView"]["set"]({ "label": i$e(_0x4be9df, "AI Commands"), "icon": magicWand, "tooltip": true }), _0x54d3f1["on"]("execute", (_0x581211) => this["_onExecute"](_0x581211["source"]["id"])), addMenuToDropdown(_0x54d3f1, _0x4e8a7a["ui"]["view"]["body"], function(_0x262397) {
         const _0x10395f = o$9(_0x262397["config"]["get"]("ai.aiAssistant.commands"), _0x262397["locale"]), _0x47ea56 = U$4(_0x262397, _0x10395f)["filter"]((_0x34aa41) => _0x34aa41["commands"]["length"]);
         if (1 === _0x47ea56["length"]) return U$4(_0x262397, _0x47ea56[0]["commands"])["map"]((_0xf29a16) => ({ "id": _0xf29a16["id"], "label": _0xf29a16["label"] }));
         return _0x47ea56["map"]((_0x439938) => {
           const { groupId: _0x36b169, groupLabel: _0x50877, commands: _0xb68911 } = _0x439938, _0x5eea8d = U$4(_0x262397, _0xb68911)["map"]((_0x2ddb59) => ({ "id": _0x2ddb59["id"], "label": _0x2ddb59["label"] }));
           return { "id": _0x36b169, "menu": _0x50877 || _0x36b169, "children": _0x5eea8d };
         });
-      }(_0x4e8a7a), { "ariaLabel": i$d(_0x4be9df, "AI Commands") }), _0x54d3f1["menuView"]["menuPanelClass"] = "ck-ai-commands-dropdown " + this["_uiCssClasses"], _0x1db4a7["on"]("change:enabledCommandsIds", _0x4a53fd), _0x54d3f1["menuView"]["once"]("render", _0x4a53fd), _0x54d3f1;
+      }(_0x4e8a7a), { "ariaLabel": i$e(_0x4be9df, "AI Commands") }), _0x54d3f1["menuView"]["menuPanelClass"] = "ck-ai-commands-dropdown " + this["_uiCssClasses"], _0x1db4a7["on"]("change:enabledCommandsIds", _0x4a53fd), _0x54d3f1["menuView"]["once"]("render", _0x4a53fd), _0x54d3f1;
       function _0x4a53fd() {
         _0x54d3f1["isEnabled"] = _0x1db4a7["enabledCommandsIds"]["length"] > 0;
         for (const _0x7f08f9 of _0x54d3f1["menuView"]["buttons"]) _0x7f08f9["isEnabled"] = _0x1db4a7["enabledCommandsIds"]["includes"](_0x7f08f9["id"]);
       }
     }), _0x4e8a7a["ui"]["componentFactory"]["add"]("menuBar:aiCommands", (_0x1edb0b) => {
       const _0x59ae7b = new MenuBarMenuView(_0x1edb0b);
-      _0x59ae7b["buttonView"]["set"]({ "label": i$d(_0x1edb0b, "AI Commands"), "icon": magicWand }), _0x59ae7b["bind"]("isEnabled")["to"](_0x1db4a7, "enabledCommandsIds", (_0x3f226e) => _0x3f226e["length"] > 0);
+      _0x59ae7b["buttonView"]["set"]({ "label": i$e(_0x1edb0b, "AI Commands"), "icon": magicWand }), _0x59ae7b["bind"]("isEnabled")["to"](_0x1db4a7, "enabledCommandsIds", (_0x3f226e) => _0x3f226e["length"] > 0);
       const _0x1622dc = o$9(_0x4e8a7a["config"]["get"]("ai.aiAssistant.commands"), _0x1edb0b);
       return this["_populateMenuBarMenu"](_0x1db4a7, _0x59ae7b, _0x1622dc, (_0x1c6fb8) => this["_onExecute"](_0x1c6fb8)), _0x59ae7b;
     }), _0x4e8a7a["ui"]["componentFactory"]["add"]("aiAssistant", () => {
@@ -125277,15 +125277,15 @@ let n$9 = class n2 extends Plugin {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
   ["showUI"](_0x351bd2 = "", _0x55a50a = "", _0x27edc7 = "custom") {
-    const _0x3b9b27 = this["editor"], _0x26063c = _0x3b9b27["editing"]["view"], _0x1a54a9 = _0x3b9b27["plugins"]["get"](a$8), _0x29d51d = _0x3b9b27["plugins"]["get"](ClipboardMarkersUtils);
+    const _0x3b9b27 = this["editor"], _0x26063c = _0x3b9b27["editing"]["view"], _0x1a54a9 = _0x3b9b27["plugins"]["get"](a$a), _0x29d51d = _0x3b9b27["plugins"]["get"](ClipboardMarkersUtils);
     _0x1a54a9["showFakeVisualSelection"]();
-    const _0x532505 = new w$5(), _0x4a560d = new ClipboardEvent("copy", { "clipboardData": _0x532505 }), _0x476858 = new DataTransfer$1(_0x532505), _0x421927 = new DomEventData(_0x26063c, _0x4a560d, { "dataTransfer": _0x476858 });
+    const _0x532505 = new w$6(), _0x4a560d = new ClipboardEvent("copy", { "clipboardData": _0x532505 }), _0x476858 = new DataTransfer$1(_0x532505), _0x421927 = new DomEventData(_0x26063c, _0x4a560d, { "dataTransfer": _0x476858 });
     _0x29d51d["_forceMarkersCopy"]("comment", () => {
       _0x26063c["document"]["fire"]("copy", _0x421927);
     }), this["_formView"] || (this["_initView"](), this["_aiAssistantController"] = new k$5(_0x3b9b27, this["_aiAdapter"]["textAdapter"], this["_formView"]));
     let _0x5bfb5c = _0x476858["getData"]("text/html");
     const _0x17700a = _0x3b9b27["model"]["document"]["selection"], _0x5a2812 = Array["from"](_0x17700a["getRanges"]());
-    1 === _0x5a2812["length"] && _0x5a2812[0]["isFlat"] && !_0x17700a["getSelectedElement"]() && "" !== _0x5bfb5c["replace"](/&nbsp;/g, "")["trim"]() && (_0x5bfb5c = "<p>" + _0x5bfb5c + "</p>"), this["_aiAssistantController"]["updateView"]({ "actionId": _0x27edc7, "query": _0x351bd2, "htmlContent": _0x5bfb5c, "label": _0x55a50a, "mainActionLabel": M$2[_0x3b9b27["model"]["document"]["selection"]["isCollapsed"] ? "INSERT" : "REPLACE"] }), "aiAssistant" !== this["_dialog"]["id"] ? this["_dialog"]["show"]({ "id": "aiAssistant", "icon": robotPencil, "title": i$d(this["editor"]["locale"], "AI Assistant"), "content": this["_formView"], "position": DialogViewPosition["EDITOR_TOP_SIDE"], "onShow": () => {
+    1 === _0x5a2812["length"] && _0x5a2812[0]["isFlat"] && !_0x17700a["getSelectedElement"]() && "" !== _0x5bfb5c["replace"](/&nbsp;/g, "")["trim"]() && (_0x5bfb5c = "<p>" + _0x5bfb5c + "</p>"), this["_aiAssistantController"]["updateView"]({ "actionId": _0x27edc7, "query": _0x351bd2, "htmlContent": _0x5bfb5c, "label": _0x55a50a, "mainActionLabel": M$3[_0x3b9b27["model"]["document"]["selection"]["isCollapsed"] ? "INSERT" : "REPLACE"] }), "aiAssistant" !== this["_dialog"]["id"] ? this["_dialog"]["show"]({ "id": "aiAssistant", "icon": robotPencil, "title": i$e(this["editor"]["locale"], "AI Assistant"), "content": this["_formView"], "position": DialogViewPosition["EDITOR_TOP_SIDE"], "onShow": () => {
       this["_formView"]["focus"]();
     }, "onHide": () => {
       this["_aiAssistantController"]["reset"](), _0x1a54a9["hideFakeVisualSelection"]();
@@ -125301,12 +125301,12 @@ let n$9 = class n2 extends Plugin {
   }
   ["_createAIAssistantUIButton"](_0x4b0742) {
     const _0x3f30e8 = this["editor"], _0x462724 = _0x3f30e8["commands"]["get"]("showAIAssistant"), _0x4fd68b = new _0x4b0742(_0x3f30e8["locale"]);
-    return _0x4fd68b["set"]({ "label": i$d(_0x3f30e8["locale"], "AI Assistant"), "icon": robotPencil, "isToggleable": true }), _0x4fd68b["bind"]("isEnabled")["to"](_0x462724), _0x4fd68b["bind"]("isOn")["to"](this["_dialog"], "id", (_0x3f3a74) => "aiAssistant" === _0x3f3a74), this["listenTo"](_0x4fd68b, "execute", () => {
+    return _0x4fd68b["set"]({ "label": i$e(_0x3f30e8["locale"], "AI Assistant"), "icon": robotPencil, "isToggleable": true }), _0x4fd68b["bind"]("isEnabled")["to"](_0x462724), _0x4fd68b["bind"]("isOn")["to"](this["_dialog"], "id", (_0x3f3a74) => "aiAssistant" === _0x3f3a74), this["listenTo"](_0x4fd68b, "execute", () => {
       _0x4fd68b["isOn"] ? this["hideUI"]() : _0x462724["execute"]();
     }), _0x4fd68b;
   }
   ["_initView"]() {
-    const _0x49f020 = this["editor"]["plugins"]["get"](a$8);
+    const _0x49f020 = this["editor"]["plugins"]["get"](a$a);
     this["_formView"] = new _$6(this["editor"]["locale"], this["_uiCssClasses"], this["editor"]["config"]["get"]("ai.aiAssistant.contentAreaCssClass")), this["_formView"]["on"]("change:value", () => {
       this["_dialog"]["view"]["wasMoved"] || this["_dialog"]["view"]["updatePosition"]();
     }), this["_formView"]["promptView"]["queryView"]["fieldView"]["on"]("update", () => {
@@ -125321,16 +125321,16 @@ let n$9 = class n2 extends Plugin {
     const { locale: _0x2973be, ui: { ariaLiveAnnouncer: _0x51aee1 } } = this["editor"];
     this["_formView"]["contentArea"]["on"]("change:isProcessing", (_0x9159c9, _0xca03e6, _0x218510) => {
       const _0x280646 = this["_aiAssistantController"]["currentContext"];
-      _0x218510 ? _0x51aee1["announce"](i$d(_0x2973be, "AI is writing")) : _0x280646 && _0x51aee1["announce"](i$d(_0x2973be, "Generated content: %0", _0x280646), { "politeness": "polite", "isUnsafeHTML": true });
+      _0x218510 ? _0x51aee1["announce"](i$e(_0x2973be, "AI is writing")) : _0x280646 && _0x51aee1["announce"](i$e(_0x2973be, "Generated content: %0", _0x280646), { "politeness": "polite", "isUnsafeHTML": true });
     }), this["_formView"]["on"]("change:isError", (_0x3fc821, _0x745f9c, _0x466c3a) => {
       if (_0x466c3a) {
         const _0x2263bc = this["_formView"]["errorView"]["text"];
-        _0x51aee1["announce"](i$d(_0x2973be, "Error during AI content generation: %0", _0x2263bc));
+        _0x51aee1["announce"](i$e(_0x2973be, "Error during AI content generation: %0", _0x2263bc));
       }
     });
   }
   ["_onExecute"](_0x2fb206) {
-    const _0x49c2fc = this["_commandDefinitions"]["get"](_0x2fb206), _0x26fef1 = this["editor"], _0x4d5293 = _0x26fef1["model"]["document"]["selection"], _0x58e605 = _0x26fef1["commands"]["get"]("showAIAssistant"), _0x5b74d6 = _0x26fef1["plugins"]["get"](a$8), _0x2cd3ac = (_0x49c2fc["groupId"] !== x$5 ? _0x49c2fc["groupLabel"] + ": " : "") + _0x49c2fc["label"];
+    const _0x49c2fc = this["_commandDefinitions"]["get"](_0x2fb206), _0x26fef1 = this["editor"], _0x4d5293 = _0x26fef1["model"]["document"]["selection"], _0x58e605 = _0x26fef1["commands"]["get"]("showAIAssistant"), _0x5b74d6 = _0x26fef1["plugins"]["get"](a$a), _0x2cd3ac = (_0x49c2fc["groupId"] !== x$6 ? _0x49c2fc["groupLabel"] + ": " : "") + _0x49c2fc["label"];
     if (false !== _0x49c2fc["requiresContent"] && _0x4d5293["isCollapsed"]) {
       const _0x48d054 = first(_0x4d5293["getSelectedBlocks"]()) || _0x26fef1["model"]["schema"]["getLimitElement"](_0x4d5293);
       _0x26fef1["model"]["change"]((_0x13b14a) => {
@@ -125366,9 +125366,9 @@ function U$4(_0x488f49, _0x5c3edc) {
   } else _0xc6b23b["push"](_0x3fdb02);
   return _0xc6b23b;
 }
-let r$7 = class r2 extends Plugin {
+let r$9 = class r2 extends Plugin {
   static get ["requires"]() {
-    return [n$9, a$8];
+    return [n$b, a$a];
   }
   static get ["pluginName"]() {
     return "AIAssistant";
@@ -125383,7 +125383,7 @@ let r$7 = class r2 extends Plugin {
     super(_0x3a4620);
     const _0x18bc53 = _0x3a4620["config"], _0x2f414e = _0x3a4620["locale"];
     _0x18bc53["define"]("ai.aiAssistant.preserveComments", true), _0x18bc53["define"]("ai.aiAssistant.commands", function(_0x1df5a6) {
-      return [{ "groupId": "editOrReview", "groupLabel": i$d(_0x1df5a6, "Edit or review"), "commands": [{ "id": "improveWriting", "label": i$d(_0x1df5a6, "Improve writing"), "prompt": "Fix spelling mistakes, use proper grammar and apply good writing practices. Do not lose the original meaning." }, { "id": "makeShorter", "label": i$d(_0x1df5a6, "Make shorter"), "prompt": "Remove any repetitive, redundant, or non-essential writing in this content without changing the meaning or losing any key information." }, { "id": "makeLonger", "label": i$d(_0x1df5a6, "Make longer"), "prompt": "Improve this content by using descriptive language and inserting more information and more detailed explanations." }, { "id": "simplifyLanguage", "label": i$d(_0x1df5a6, "Simplify language"), "prompt": "Simplify the writing style of this content and reduce the complexity, so that the content is easy to understand." }] }, { "groupId": "generate", "groupLabel": i$d(_0x1df5a6, "Generate from selection"), "commands": [{ "id": "summarize", "label": i$d(_0x1df5a6, "Summarize"), "prompt": "Summarize this content into one paragraph of text. Include only the key ideas and conclusions. Keep it short. Do not keep original text formatting." }, { "id": "continue", "label": i$d(_0x1df5a6, "Continue"), "prompt": "Start with the provided content and write at the end of it continuing this topic. Keep the added part short." }] }, { "groupId": "changeTone", "groupLabel": i$d(_0x1df5a6, "Change tone"), "commands": [{ "id": "professional", "label": i$d(_0x1df5a6, "Professional"), "prompt": "Improve using polished, formal, and respectful language to convey professional expertise and competence." }, { "id": "casual", "label": i$d(_0x1df5a6, "Casual"), "prompt": "Improve using casual, informal language to convey a casual conversation with a real person." }, { "id": "direct", "label": i$d(_0x1df5a6, "Direct"), "prompt": "Improve using direct language, using only the essential information." }, { "id": "confident", "label": i$d(_0x1df5a6, "Confident"), "prompt": "Improve using compelling, optimistic language to convey confidence in the writing." }, { "id": "friendly", "label": i$d(_0x1df5a6, "Friendly"), "prompt": "Improve using friendly, comforting language, to convey understanding and empathy." }] }, { "groupId": "changeStyle", "groupLabel": i$d(_0x1df5a6, "Change style"), "commands": [{ "id": "business", "label": i$d(_0x1df5a6, "Business"), "prompt": "Rewrite this content as a business professional with formal language." }, { "id": "legal", "label": i$d(_0x1df5a6, "Legal"), "prompt": "Rewrite this content as a legal professional using valid legal terminology." }, { "id": "journalism", "label": i$d(_0x1df5a6, "Journalism"), "prompt": "Rewrite this content as a journalist using engaging language to convey the importance of the information." }, { "id": "poetic", "label": i$d(_0x1df5a6, "Poetic"), "prompt": "Rewrite this content as a poem using poetic techniques without losing the original meaning." }] }, { "groupId": "translate", "groupLabel": i$d(_0x1df5a6, "Translate"), "commands": [{ "id": "translateEnglish", "label": i$d(_0x1df5a6, "English"), "prompt": "Translate the content to English language." }, { "id": "translateSpanish", "label": i$d(_0x1df5a6, "Spanish"), "prompt": "Translate the content to Spanish language." }, { "id": "translatePortuguese", "label": i$d(_0x1df5a6, "Portuguese"), "prompt": "Translate the content to Portuguese language." }, { "id": "translateGerman", "label": i$d(_0x1df5a6, "German"), "prompt": "Translate the content to German language." }, { "id": "translateFrench", "label": i$d(_0x1df5a6, "French"), "prompt": "Translate the content to French language." }, { "id": "translateChinese", "label": i$d(_0x1df5a6, "Simplified Chinese"), "prompt": "Translate the content to Simplified Chinese language." }, { "id": "translateHindi", "label": i$d(_0x1df5a6, "Hindi"), "prompt": "Translate the content to Hindi language." }, { "id": "translateArabic", "label": i$d(_0x1df5a6, "Arabic"), "prompt": "Translate the content to Arabic language." }] }];
+      return [{ "groupId": "editOrReview", "groupLabel": i$e(_0x1df5a6, "Edit or review"), "commands": [{ "id": "improveWriting", "label": i$e(_0x1df5a6, "Improve writing"), "prompt": "Fix spelling mistakes, use proper grammar and apply good writing practices. Do not lose the original meaning." }, { "id": "makeShorter", "label": i$e(_0x1df5a6, "Make shorter"), "prompt": "Remove any repetitive, redundant, or non-essential writing in this content without changing the meaning or losing any key information." }, { "id": "makeLonger", "label": i$e(_0x1df5a6, "Make longer"), "prompt": "Improve this content by using descriptive language and inserting more information and more detailed explanations." }, { "id": "simplifyLanguage", "label": i$e(_0x1df5a6, "Simplify language"), "prompt": "Simplify the writing style of this content and reduce the complexity, so that the content is easy to understand." }] }, { "groupId": "generate", "groupLabel": i$e(_0x1df5a6, "Generate from selection"), "commands": [{ "id": "summarize", "label": i$e(_0x1df5a6, "Summarize"), "prompt": "Summarize this content into one paragraph of text. Include only the key ideas and conclusions. Keep it short. Do not keep original text formatting." }, { "id": "continue", "label": i$e(_0x1df5a6, "Continue"), "prompt": "Start with the provided content and write at the end of it continuing this topic. Keep the added part short." }] }, { "groupId": "changeTone", "groupLabel": i$e(_0x1df5a6, "Change tone"), "commands": [{ "id": "professional", "label": i$e(_0x1df5a6, "Professional"), "prompt": "Improve using polished, formal, and respectful language to convey professional expertise and competence." }, { "id": "casual", "label": i$e(_0x1df5a6, "Casual"), "prompt": "Improve using casual, informal language to convey a casual conversation with a real person." }, { "id": "direct", "label": i$e(_0x1df5a6, "Direct"), "prompt": "Improve using direct language, using only the essential information." }, { "id": "confident", "label": i$e(_0x1df5a6, "Confident"), "prompt": "Improve using compelling, optimistic language to convey confidence in the writing." }, { "id": "friendly", "label": i$e(_0x1df5a6, "Friendly"), "prompt": "Improve using friendly, comforting language, to convey understanding and empathy." }] }, { "groupId": "changeStyle", "groupLabel": i$e(_0x1df5a6, "Change style"), "commands": [{ "id": "business", "label": i$e(_0x1df5a6, "Business"), "prompt": "Rewrite this content as a business professional with formal language." }, { "id": "legal", "label": i$e(_0x1df5a6, "Legal"), "prompt": "Rewrite this content as a legal professional using valid legal terminology." }, { "id": "journalism", "label": i$e(_0x1df5a6, "Journalism"), "prompt": "Rewrite this content as a journalist using engaging language to convey the importance of the information." }, { "id": "poetic", "label": i$e(_0x1df5a6, "Poetic"), "prompt": "Rewrite this content as a poem using poetic techniques without losing the original meaning." }] }, { "groupId": "translate", "groupLabel": i$e(_0x1df5a6, "Translate"), "commands": [{ "id": "translateEnglish", "label": i$e(_0x1df5a6, "English"), "prompt": "Translate the content to English language." }, { "id": "translateSpanish", "label": i$e(_0x1df5a6, "Spanish"), "prompt": "Translate the content to Spanish language." }, { "id": "translatePortuguese", "label": i$e(_0x1df5a6, "Portuguese"), "prompt": "Translate the content to Portuguese language." }, { "id": "translateGerman", "label": i$e(_0x1df5a6, "German"), "prompt": "Translate the content to German language." }, { "id": "translateFrench", "label": i$e(_0x1df5a6, "French"), "prompt": "Translate the content to French language." }, { "id": "translateChinese", "label": i$e(_0x1df5a6, "Simplified Chinese"), "prompt": "Translate the content to Simplified Chinese language." }, { "id": "translateHindi", "label": i$e(_0x1df5a6, "Hindi"), "prompt": "Translate the content to Hindi language." }, { "id": "translateArabic", "label": i$e(_0x1df5a6, "Arabic"), "prompt": "Translate the content to Arabic language." }] }];
     }(_0x2f414e)), _0x18bc53["define"]("ai.aiAssistant.extraCommandGroups", []), _0x18bc53["define"]("ai.aiAssistant.removeCommands", []);
     let _0x5f36a0 = o$9(_0x18bc53["get"]("ai.aiAssistant.commands"), _0x2f414e);
     const _0x5c8000 = _0x18bc53["get"]("ai.aiAssistant.extraCommandGroups"), _0x343fd = _0x18bc53["get"]("ai.aiAssistant.removeCommands");
@@ -125395,7 +125395,7 @@ let r$7 = class r2 extends Plugin {
     }), _0x18bc53["set"]("ai.aiAssistant.commands", _0x5f36a0);
   }
 };
-let P$6 = class P2 extends Plugin {
+let P$7 = class P2 extends Plugin {
   constructor(_0x4e524e) {
     super(_0x4e524e);
     __publicField(this, "abortController");
@@ -125425,7 +125425,7 @@ let P$6 = class P2 extends Plugin {
         const _0x5c5b2d = await _0x2c6456(_0x137aa5);
         Object["assign"](_0x20b149, _0x5c5b2d);
       } catch (_0xee1a4d) {
-        return Promise["reject"](new R$7(i$d(_0x5960fb, "AI_ERROR_GET_HEADERS")));
+        return Promise["reject"](new R$7(i$e(_0x5960fb, "AI_ERROR_GET_HEADERS")));
       }
     }
     return _0x20b149;
@@ -125436,11 +125436,11 @@ let P$6 = class P2 extends Plugin {
     try {
       return await _0x5296f8(_0x300ef7);
     } catch (_0x1dbb97) {
-      return Promise["reject"](new R$7(i$d(_0x380c11, "AI_ERROR_GET_PARAMETERS")));
+      return Promise["reject"](new R$7(i$e(_0x380c11, "AI_ERROR_GET_PARAMETERS")));
     }
   }
 };
-let O$7 = class O2 extends P$6 {
+let O$7 = class O2 extends P$7 {
   constructor(_0x579318) {
     super(_0x579318);
     __publicField(this, "_apiUrl");
@@ -125456,7 +125456,7 @@ let O$7 = class O2 extends P$6 {
     if (_0x458e41["ok"]) return _0x2c3592["stream"] ? await this["_readStreamableResponse"](_0x458e41, _0x28788c) : await this["_readStaticResponse"](_0x458e41, _0x28788c), Promise["resolve"]();
     {
       const _0x56927b = await _0x458e41["text"]();
-      return _0x56927b["includes"]("context_length_exceeded") ? Promise["reject"](new R$7(i$d(_0x470842, "AI_ERROR_CONTEXT_LENGTH"))) : _0x56927b["includes"]("Moderation") ? Promise["reject"](new R$7(i$d(_0x470842, "AI_ERROR_MODERATION"))) : Promise["reject"](new Error(_0x56927b));
+      return _0x56927b["includes"]("context_length_exceeded") ? Promise["reject"](new R$7(i$e(_0x470842, "AI_ERROR_CONTEXT_LENGTH"))) : _0x56927b["includes"]("Moderation") ? Promise["reject"](new R$7(i$e(_0x470842, "AI_ERROR_MODERATION"))) : Promise["reject"](new Error(_0x56927b));
     }
   }
   async ["prepareMessages"](_0x3084fc, _0x226d06, _0x3263fd) {
@@ -125489,13 +125489,13 @@ let O$7 = class O2 extends P$6 {
   }
   ["_cleanUpData"](_0x827747) {
     return _0x827747["split"](/\n(?![^{]*\})/g)["map"]((_0x101958) => _0x101958["replace"]("data: ", ""))["filter"]((_0x6c3379) => _0x6c3379 && _0x6c3379["length"] > 0 && "[DONE]" !== _0x6c3379)["map"]((_0x9bc326) => {
-      var _a4, _b2;
+      var _a3, _b2;
       const { choices: _0x1d7b58 } = JSON["parse"](_0x9bc326);
-      if ((_b2 = (_a4 = _0x1d7b58[0]) == null ? void 0 : _a4["delta"]) == null ? void 0 : _b2["content"]) return _0x1d7b58[0]["delta"]["content"];
+      if ((_b2 = (_a3 = _0x1d7b58[0]) == null ? void 0 : _a3["delta"]) == null ? void 0 : _b2["content"]) return _0x1d7b58[0]["delta"]["content"];
     })["filter"]((_0x45c1ba) => _0x45c1ba)["join"]("");
   }
 };
-let D$3 = class D2 extends P$6 {
+let D$3 = class D2 extends P$7 {
   constructor(_0x9f520d) {
     super(_0x9f520d);
     __publicField(this, "_apiUrl");
@@ -125520,7 +125520,7 @@ let D$3 = class D2 extends P$6 {
     if (/^ai21\.j2/["test"](_0x4e1ac0)) return "ai21.j2";
     if (/^cohere\.command/["test"](_0x4e1ac0)) return "cohere.command";
     if (/^meta\.llama/["test"](_0x4e1ac0)) return "meta.llama";
-    throw new R$7(i$d(this["editor"]["locale"], "AI_ERROR_UNSUPPORTED_MODEL", _0x4e1ac0));
+    throw new R$7(i$e(this["editor"]["locale"], "AI_ERROR_UNSUPPORTED_MODEL", _0x4e1ac0));
   }
   async ["_processProxyRequest"](_0x5b9771, _0x4f72c0, _0x4724f7, _0x41d7a2, _0x2a33ab) {
     const _0x36ac70 = { "method": "POST", "headers": await this["_prepareRequestHeaders"](this["_requestHeaders"], _0x2a33ab), "body": JSON["stringify"]({ ..._0x5b9771, "model": _0x4f72c0, "stream": _0x4724f7 }), "signal": this["abortController"]["signal"] }, _0x17789c = await fetch(this["_apiUrl"], _0x36ac70);
@@ -125580,7 +125580,7 @@ let D$3 = class D2 extends P$6 {
     }
   }
 };
-let n$8 = class n3 extends Command$1 {
+let n$a = class n3 extends Command$1 {
   constructor(_0x768224, _0x123de7) {
     super(_0x768224);
     __publicField(this, "_transformCallback");
@@ -125640,7 +125640,7 @@ let n$8 = class n3 extends Command$1 {
     this["editor"]["model"]["insertContent"](_0x47233a["createText"](_0x54e0eb, _0x1cdead), _0x47233a["createSelection"](_0x47233a["createRangeOn"](_0x330b76)));
   }
 };
-function u$7(_0xb87e55, _0x298bd5, ..._0x3518ae) {
+function u$8(_0xb87e55, _0x298bd5, ..._0x3518ae) {
   const t2 = _0xb87e55["t"];
   switch (_0x298bd5) {
     case "Case change":
@@ -125659,7 +125659,7 @@ function u$7(_0xb87e55, _0x298bd5, ..._0x3518ae) {
       return _0x298bd5;
   }
 }
-let r$6 = class r3 extends Plugin {
+let r$8 = class r3 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "_currentCommandIndex", 0);
@@ -125676,7 +125676,7 @@ let r$6 = class r3 extends Plugin {
   ["init"]() {
     const _0x47c37b = this["editor"], _0x5ef061 = _0x47c37b["locale"]["contentLanguage"], _0x10ec19 = /* @__PURE__ */ function(_0x1afa9a = []) {
       return "function" == typeof _0x1afa9a ? _0x1afa9a : (_0x2c8af7, { wordIndex: _0x76c118 }) => _0x76c118 > 0 && _0x1afa9a["includes"](_0x2c8af7);
-    }(_0x47c37b["config"]["get"]("caseChange.titleCase.excludeWords")), _0x131f42 = { "changeCaseUpper": new n$8(_0x47c37b, (_0x424ad2) => _0x424ad2["toLocaleUpperCase"](_0x5ef061)), "changeCaseLower": new n$8(_0x47c37b, (_0x3b317a) => _0x3b317a["toLocaleLowerCase"](_0x5ef061)), "changeCaseTitle": new n$8(_0x47c37b, (_0x1422ea) => function(_0x383b34, _0xa4cfed, _0x2b48d2) {
+    }(_0x47c37b["config"]["get"]("caseChange.titleCase.excludeWords")), _0x131f42 = { "changeCaseUpper": new n$a(_0x47c37b, (_0x424ad2) => _0x424ad2["toLocaleUpperCase"](_0x5ef061)), "changeCaseLower": new n$a(_0x47c37b, (_0x3b317a) => _0x3b317a["toLocaleLowerCase"](_0x5ef061)), "changeCaseTitle": new n$a(_0x47c37b, (_0x1422ea) => function(_0x383b34, _0xa4cfed, _0x2b48d2) {
       return function(_0x10d0cd, _0x15aa58) {
         let _0x2663f9 = "", _0x14ed7c = 0, _0x466ce2 = 0;
         for (const _0xbf3ebb of _0x10d0cd["matchAll"](/ +/g)) {
@@ -125696,7 +125696,7 @@ let r$6 = class r3 extends Plugin {
     this["listenTo"](_0x47c37b["editing"]["view"]["document"], "selectionChange", () => {
       this["_currentCommandIndex"] = 0;
     }), _0x47c37b["keystrokes"]["set"]("shift+f3", (_0x3b2f2d, _0x292e13) => {
-      const _0x290a46 = f$7(this["editor"]["locale"]), _0x4c9e1d = _0x290a46[this["_currentCommandIndex"] % _0x290a46["length"]]["commandName"];
+      const _0x290a46 = f$8(this["editor"]["locale"]), _0x4c9e1d = _0x290a46[this["_currentCommandIndex"] % _0x290a46["length"]]["commandName"];
       _0x47c37b["execute"](_0x4c9e1d), this["_currentCommandIndex"]++, _0x292e13();
     });
   }
@@ -125881,14 +125881,14 @@ let r$6 = class r3 extends Plugin {
     }(this);
   }
   ["_announceCaseChangeOperation"](_0x5ca6c6) {
-    const { ui: _0xafc3f5, locale: _0x10ca44 } = this["editor"], _0x1b5aa6 = f$7(_0x10ca44)["find"]((_0x435751) => _0x435751["commandName"] === _0x5ca6c6)["label"]["toLowerCase"]();
-    _0xafc3f5["ariaLiveAnnouncer"]["announce"](u$7(_0x10ca44, "Changed case to %0", _0x1b5aa6));
+    const { ui: _0xafc3f5, locale: _0x10ca44 } = this["editor"], _0x1b5aa6 = f$8(_0x10ca44)["find"]((_0x435751) => _0x435751["commandName"] === _0x5ca6c6)["label"]["toLowerCase"]();
+    _0xafc3f5["ariaLiveAnnouncer"]["announce"](u$8(_0x10ca44, "Changed case to %0", _0x1b5aa6));
   }
 };
-function f$7(_0xcbf7a9) {
-  return [{ "label": u$7(_0xcbf7a9, "UPPERCASE"), "commandName": "changeCaseUpper" }, { "label": u$7(_0xcbf7a9, "lowercase"), "commandName": "changeCaseLower" }, { "label": u$7(_0xcbf7a9, "Title Case"), "commandName": "changeCaseTitle" }];
+function f$8(_0xcbf7a9) {
+  return [{ "label": u$8(_0xcbf7a9, "UPPERCASE"), "commandName": "changeCaseUpper" }, { "label": u$8(_0xcbf7a9, "lowercase"), "commandName": "changeCaseLower" }, { "label": u$8(_0xcbf7a9, "Title Case"), "commandName": "changeCaseTitle" }];
 }
-let i$c = class i2 extends Plugin {
+let i$d = class i2 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -125905,7 +125905,7 @@ let i$c = class i2 extends Plugin {
   }
   ["init"]() {
     const _0x305795 = this["editor"];
-    this["_registerComponents"](), _0x305795["accessibility"]["addKeystrokeInfos"]({ "keystrokes": [{ "label": u$7(_0x305795["locale"], "Change text case"), "keystroke": "Shift+f3", "mayRequireFn": true }] }), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
+    this["_registerComponents"](), _0x305795["accessibility"]["addKeystrokeInfos"]({ "keystrokes": [{ "label": u$8(_0x305795["locale"], "Change text case"), "keystroke": "Shift+f3", "mayRequireFn": true }] }), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
     const _0xc34f17 = this["editor"];
     this["_licenseKeyCheckInterval"] = setInterval(() => {
       let _0xd060eb;
@@ -125928,7 +125928,7 @@ let i$c = class i2 extends Plugin {
   }
   ["_createMenuBarMenuView"](_0x16022e, _0x3d0dc0) {
     const _0x41c0c9 = this["editor"], _0x39c3fe = _0x41c0c9["locale"], _0x267396 = new MenuBarMenuView(_0x39c3fe), _0x2eb13c = new MenuBarMenuListView(_0x39c3fe);
-    _0x2eb13c["set"]({ "ariaLabel": u$7(_0x39c3fe, "Case change"), "role": "menu" }), this["_setButtonProperties"](_0x267396["buttonView"]), _0x267396["bind"]("isEnabled")["toMany"](_0x3d0dc0, "isEnabled", (..._0x2488e5) => _0x2488e5["some"]((_0x549ae6) => _0x549ae6));
+    _0x2eb13c["set"]({ "ariaLabel": u$8(_0x39c3fe, "Case change"), "role": "menu" }), this["_setButtonProperties"](_0x267396["buttonView"]), _0x267396["bind"]("isEnabled")["toMany"](_0x3d0dc0, "isEnabled", (..._0x2488e5) => _0x2488e5["some"]((_0x549ae6) => _0x549ae6));
     for (const _0x3b2c88 of _0x16022e) {
       const _0x23f189 = new MenuBarMenuListItemView(_0x39c3fe, _0x267396), _0x225143 = new MenuBarMenuListItemButtonView(_0x39c3fe);
       _0x225143["delegate"]("execute")["to"](_0x267396), _0x225143["bind"](...Object["keys"](_0x3b2c88["model"]))["to"](_0x3b2c88["model"]), _0x225143["on"]("execute", () => {
@@ -125939,26 +125939,26 @@ let i$c = class i2 extends Plugin {
   }
   ["_createDropdownView"](_0x536deb, _0x4a196f) {
     const _0xd9415d = this["editor"], _0xb678c0 = createDropdown(_0xd9415d["locale"]);
-    return this["_setButtonProperties"](_0xb678c0["buttonView"]), _0xb678c0["buttonView"]["set"]({ "tooltip": true }), _0xb678c0["extendTemplate"]({ "attributes": { "class": ["ck-case-change-dropdown"] } }), addListToDropdown(_0xb678c0, _0x536deb, { "ariaLabel": u$7(_0xd9415d["locale"], "Case change"), "role": "menu" }), _0xb678c0["bind"]("isEnabled")["toMany"](_0x4a196f, "isEnabled", (..._0xaf2399) => _0xaf2399["some"]((_0x109ace) => _0x109ace)), this["listenTo"](_0xb678c0, "execute", (_0x44f9b1) => {
+    return this["_setButtonProperties"](_0xb678c0["buttonView"]), _0xb678c0["buttonView"]["set"]({ "tooltip": true }), _0xb678c0["extendTemplate"]({ "attributes": { "class": ["ck-case-change-dropdown"] } }), addListToDropdown(_0xb678c0, _0x536deb, { "ariaLabel": u$8(_0xd9415d["locale"], "Case change"), "role": "menu" }), _0xb678c0["bind"]("isEnabled")["toMany"](_0x4a196f, "isEnabled", (..._0xaf2399) => _0xaf2399["some"]((_0x109ace) => _0x109ace)), this["listenTo"](_0xb678c0, "execute", (_0x44f9b1) => {
       _0xd9415d["execute"](_0x44f9b1["source"]["commandName"]), _0xd9415d["editing"]["view"]["focus"]();
     }), _0xb678c0;
   }
   ["_setButtonProperties"](_0x29cb64) {
     const _0x35b33a = this["editor"];
-    _0x29cb64["set"]({ "label": u$7(_0x35b33a["locale"], "Case change"), "icon": caseChange, "keystroke": "Shift+F3" });
+    _0x29cb64["set"]({ "label": u$8(_0x35b33a["locale"], "Case change"), "icon": caseChange, "keystroke": "Shift+F3" });
   }
   ["_getListItemDefinitionsAndCommands"]() {
     const _0x3f9639 = new Collection(), _0x20f194 = [];
-    for (const _0x4f62c3 of f$7(this["editor"]["locale"])) {
+    for (const _0x4f62c3 of f$8(this["editor"]["locale"])) {
       const _0x1164f3 = this["editor"]["commands"]["get"](_0x4f62c3["commandName"]), _0x1d250c = new Model({ "commandName": _0x4f62c3["commandName"], "label": _0x4f62c3["label"], "role": "menuitemradio", "withText": true });
       _0x1d250c["bind"]("isEnabled")["to"](_0x1164f3, "isEnabled"), _0x3f9639["add"]({ "type": "button", "model": _0x1d250c }), _0x20f194["push"](_0x1164f3);
     }
     return { "itemDefinitions": _0x3f9639, "commands": _0x20f194 };
   }
 };
-let s$d = class s2 extends Plugin {
+let s$e = class s2 extends Plugin {
   static get ["requires"]() {
-    return [r$6, i$c];
+    return [r$8, i$d];
   }
   static get ["pluginName"]() {
     return "CaseChange";
@@ -126001,153 +126001,153 @@ class ZoneIsAbstractError extends LuxonError {
     super("Zone is an abstract class");
   }
 }
-const n$7 = "numeric", s$c = "short", l$4 = "long";
+const n$9 = "numeric", s$d = "short", l$5 = "long";
 const DATE_SHORT = {
-  year: n$7,
-  month: n$7,
-  day: n$7
+  year: n$9,
+  month: n$9,
+  day: n$9
 };
 const DATE_MED = {
-  year: n$7,
-  month: s$c,
-  day: n$7
+  year: n$9,
+  month: s$d,
+  day: n$9
 };
 const DATE_MED_WITH_WEEKDAY = {
-  year: n$7,
-  month: s$c,
-  day: n$7,
-  weekday: s$c
+  year: n$9,
+  month: s$d,
+  day: n$9,
+  weekday: s$d
 };
 const DATE_FULL = {
-  year: n$7,
-  month: l$4,
-  day: n$7
+  year: n$9,
+  month: l$5,
+  day: n$9
 };
 const DATE_HUGE = {
-  year: n$7,
-  month: l$4,
-  day: n$7,
-  weekday: l$4
+  year: n$9,
+  month: l$5,
+  day: n$9,
+  weekday: l$5
 };
 const TIME_SIMPLE = {
-  hour: n$7,
-  minute: n$7
+  hour: n$9,
+  minute: n$9
 };
 const TIME_WITH_SECONDS = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7
+  hour: n$9,
+  minute: n$9,
+  second: n$9
 };
 const TIME_WITH_SHORT_OFFSET = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
-  timeZoneName: s$c
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
+  timeZoneName: s$d
 };
 const TIME_WITH_LONG_OFFSET = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
-  timeZoneName: l$4
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
+  timeZoneName: l$5
 };
 const TIME_24_SIMPLE = {
-  hour: n$7,
-  minute: n$7,
+  hour: n$9,
+  minute: n$9,
   hourCycle: "h23"
 };
 const TIME_24_WITH_SECONDS = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
   hourCycle: "h23"
 };
 const TIME_24_WITH_SHORT_OFFSET = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
   hourCycle: "h23",
-  timeZoneName: s$c
+  timeZoneName: s$d
 };
 const TIME_24_WITH_LONG_OFFSET = {
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
   hourCycle: "h23",
-  timeZoneName: l$4
+  timeZoneName: l$5
 };
 const DATETIME_SHORT = {
-  year: n$7,
-  month: n$7,
-  day: n$7,
-  hour: n$7,
-  minute: n$7
+  year: n$9,
+  month: n$9,
+  day: n$9,
+  hour: n$9,
+  minute: n$9
 };
 const DATETIME_SHORT_WITH_SECONDS = {
-  year: n$7,
-  month: n$7,
-  day: n$7,
-  hour: n$7,
-  minute: n$7,
-  second: n$7
+  year: n$9,
+  month: n$9,
+  day: n$9,
+  hour: n$9,
+  minute: n$9,
+  second: n$9
 };
 const DATETIME_MED = {
-  year: n$7,
-  month: s$c,
-  day: n$7,
-  hour: n$7,
-  minute: n$7
+  year: n$9,
+  month: s$d,
+  day: n$9,
+  hour: n$9,
+  minute: n$9
 };
 const DATETIME_MED_WITH_SECONDS = {
-  year: n$7,
-  month: s$c,
-  day: n$7,
-  hour: n$7,
-  minute: n$7,
-  second: n$7
+  year: n$9,
+  month: s$d,
+  day: n$9,
+  hour: n$9,
+  minute: n$9,
+  second: n$9
 };
 const DATETIME_MED_WITH_WEEKDAY = {
-  year: n$7,
-  month: s$c,
-  day: n$7,
-  weekday: s$c,
-  hour: n$7,
-  minute: n$7
+  year: n$9,
+  month: s$d,
+  day: n$9,
+  weekday: s$d,
+  hour: n$9,
+  minute: n$9
 };
 const DATETIME_FULL = {
-  year: n$7,
-  month: l$4,
-  day: n$7,
-  hour: n$7,
-  minute: n$7,
-  timeZoneName: s$c
+  year: n$9,
+  month: l$5,
+  day: n$9,
+  hour: n$9,
+  minute: n$9,
+  timeZoneName: s$d
 };
 const DATETIME_FULL_WITH_SECONDS = {
-  year: n$7,
-  month: l$4,
-  day: n$7,
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
-  timeZoneName: s$c
+  year: n$9,
+  month: l$5,
+  day: n$9,
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
+  timeZoneName: s$d
 };
 const DATETIME_HUGE = {
-  year: n$7,
-  month: l$4,
-  day: n$7,
-  weekday: l$4,
-  hour: n$7,
-  minute: n$7,
-  timeZoneName: l$4
+  year: n$9,
+  month: l$5,
+  day: n$9,
+  weekday: l$5,
+  hour: n$9,
+  minute: n$9,
+  timeZoneName: l$5
 };
 const DATETIME_HUGE_WITH_SECONDS = {
-  year: n$7,
-  month: l$4,
-  day: n$7,
-  weekday: l$4,
-  hour: n$7,
-  minute: n$7,
-  second: n$7,
-  timeZoneName: l$4
+  year: n$9,
+  month: l$5,
+  day: n$9,
+  weekday: l$5,
+  hour: n$9,
+  minute: n$9,
+  second: n$9,
+  timeZoneName: l$5
 };
 class Zone {
   /**
@@ -126311,8 +126311,8 @@ function hackyOffset(dtf, date) {
 function partsOffset(dtf, date) {
   const formatted = dtf.formatToParts(date);
   const filled = [];
-  for (let i13 = 0; i13 < formatted.length; i13++) {
-    const { type, value: value2 } = formatted[i13];
+  for (let i14 = 0; i14 < formatted.length; i14++) {
+    const { type, value: value2 } = formatted[i14];
     const pos = typeToPos[type];
     if (type === "era") {
       filled[pos] = value2;
@@ -126350,8 +126350,8 @@ class IANAZone extends Zone {
    * @deprecated For backward compatibility, this forwards to isValidZone, better use `isValidZone()` directly instead.
    * @return {boolean}
    */
-  static isValidSpecifier(s14) {
-    return this.isValidZone(s14);
+  static isValidSpecifier(s15) {
+    return this.isValidZone(s15);
   }
   /**
    * Returns whether the provided string identifies a real zone
@@ -126368,7 +126368,7 @@ class IANAZone extends Zone {
     try {
       new Intl.DateTimeFormat("en-US", { timeZone: zone }).format();
       return true;
-    } catch (e6) {
+    } catch (e7) {
       return false;
     }
   }
@@ -126546,7 +126546,7 @@ function parseLocaleString(localeStr) {
     try {
       options = getCachedDTF(localeStr).resolvedOptions();
       selectedStr = localeStr;
-    } catch (e6) {
+    } catch (e7) {
       const smaller = localeStr.substring(0, uIndex);
       options = getCachedDTF(smaller).resolvedOptions();
       selectedStr = smaller;
@@ -126571,19 +126571,19 @@ function intlConfigString(localeStr, numberingSystem, outputCalendar) {
     return localeStr;
   }
 }
-function mapMonths(f6) {
+function mapMonths(f7) {
   const ms = [];
-  for (let i13 = 1; i13 <= 12; i13++) {
-    const dt2 = DateTime.utc(2009, i13, 1);
-    ms.push(f6(dt2));
+  for (let i14 = 1; i14 <= 12; i14++) {
+    const dt2 = DateTime.utc(2009, i14, 1);
+    ms.push(f7(dt2));
   }
   return ms;
 }
-function mapWeekdays(f6) {
+function mapWeekdays(f7) {
   const ms = [];
-  for (let i13 = 1; i13 <= 7; i13++) {
-    const dt2 = DateTime.utc(2016, 11, 13 + i13);
-    ms.push(f6(dt2));
+  for (let i14 = 1; i14 <= 7; i14++) {
+    const dt2 = DateTime.utc(2016, 11, 13 + i14);
+    ms.push(f7(dt2));
   }
   return ms;
 }
@@ -126615,12 +126615,12 @@ class PolyNumberFormatter {
       this.inf = getCachedINF(intl, intlOpts);
     }
   }
-  format(i13) {
+  format(i14) {
     if (this.inf) {
-      const fixed = this.floor ? Math.floor(i13) : i13;
+      const fixed = this.floor ? Math.floor(i14) : i14;
       return this.inf.format(fixed);
     } else {
-      const fixed = this.floor ? Math.floor(i13) : roundTo(i13, 3);
+      const fixed = this.floor ? Math.floor(i14) : roundTo(i14, 3);
       return padStart(fixed, this.padTo);
     }
   }
@@ -126833,7 +126833,7 @@ class Locale {
     });
   }
   extract(dt2, intlOpts, field) {
-    const df = this.dtFormatter(dt2, intlOpts), results = df.formatToParts(), matching = results.find((m9) => m9.type.toLowerCase() === field);
+    const df = this.dtFormatter(dt2, intlOpts), results = df.formatToParts(), matching = results.find((m10) => m10.type.toLowerCase() === field);
     return matching ? matching.value : null;
   }
   numberFormatter(opts = {}) {
@@ -126904,11 +126904,11 @@ class FixedOffsetZone extends Zone {
    * @example FixedOffsetZone.parseSpecifier("UTC-6:00")
    * @return {FixedOffsetZone}
    */
-  static parseSpecifier(s14) {
-    if (s14) {
-      const r9 = s14.match(/^utc(?:([+-]\d{1,2})(?::(\d{2}))?)?$/i);
-      if (r9) {
-        return new FixedOffsetZone(signedOffset(r9[1], r9[2]));
+  static parseSpecifier(s15) {
+    if (s15) {
+      const r10 = s15.match(/^utc(?:([+-]\d{1,2})(?::(\d{2}))?)?$/i);
+      if (r10) {
+        return new FixedOffsetZone(signedOffset(r10[1], r10[2]));
       }
     }
     return null;
@@ -127111,10 +127111,10 @@ function parseDigits(str) {
   let value2 = parseInt(str, 10);
   if (isNaN(value2)) {
     value2 = "";
-    for (let i13 = 0; i13 < str.length; i13++) {
-      const code2 = str.charCodeAt(i13);
-      if (str[i13].search(numberingSystems.hanidec) !== -1) {
-        value2 += hanidecChars.indexOf(str[i13]);
+    for (let i14 = 0; i14 < str.length; i14++) {
+      const code2 = str.charCodeAt(i14);
+      if (str[i14].search(numberingSystems.hanidec) !== -1) {
+        value2 += hanidecChars.indexOf(str[i14]);
       } else {
         for (const key in numberingSystemsUTF16) {
           const [min, max] = numberingSystemsUTF16[key];
@@ -127159,8 +127159,8 @@ class Settings {
    * @example Settings.now = () => Date.now() + 3000 // pretend it is 3 seconds in the future
    * @example Settings.now = () => 0 // always pretend it's Jan 1, 1970 at midnight in UTC time
    */
-  static set now(n10) {
-    now = n10;
+  static set now(n12) {
+    now = n12;
   }
   /**
    * Set the default time zone to create DateTimes in. Does not affect existing instances.
@@ -127307,18 +127307,18 @@ function unitOutOfRange(unit, value2) {
   );
 }
 function dayOfWeek(year, month, day) {
-  const d5 = new Date(Date.UTC(year, month - 1, day));
+  const d6 = new Date(Date.UTC(year, month - 1, day));
   if (year < 100 && year >= 0) {
-    d5.setUTCFullYear(d5.getUTCFullYear() - 1900);
+    d6.setUTCFullYear(d6.getUTCFullYear() - 1900);
   }
-  const js = d5.getUTCDay();
+  const js = d6.getUTCDay();
   return js === 0 ? 7 : js;
 }
 function computeOrdinal(year, month, day) {
   return day + (isLeapYear(year) ? leapLadder : nonLeapLadder)[month - 1];
 }
 function uncomputeOrdinal(year, ordinal) {
-  const table2 = isLeapYear(year) ? leapLadder : nonLeapLadder, month0 = table2.findIndex((i13) => i13 < ordinal), day = ordinal - table2[month0];
+  const table2 = isLeapYear(year) ? leapLadder : nonLeapLadder, month0 = table2.findIndex((i14) => i14 < ordinal), day = ordinal - table2[month0];
   return { month: month0 + 1, day };
 }
 function isoWeekdayToLocal(isoWeekday, startOfWeek) {
@@ -127449,21 +127449,21 @@ function isDate(o9) {
 function hasRelative() {
   try {
     return typeof Intl !== "undefined" && !!Intl.RelativeTimeFormat;
-  } catch (e6) {
+  } catch (e7) {
     return false;
   }
 }
 function hasLocaleWeekInfo() {
   try {
     return typeof Intl !== "undefined" && !!Intl.Locale && ("weekInfo" in Intl.Locale.prototype || "getWeekInfo" in Intl.Locale.prototype);
-  } catch (e6) {
+  } catch (e7) {
     return false;
   }
 }
 function maybeArray(thing) {
   return Array.isArray(thing) ? thing : [thing];
 }
-function bestBy(arr, by, compare) {
+function bestBy(arr, by, compare2) {
   if (arr.length === 0) {
     return void 0;
   }
@@ -127471,7 +127471,7 @@ function bestBy(arr, by, compare) {
     const pair = [by(next2), next2];
     if (!best) {
       return pair;
-    } else if (compare(best[0], pair[0]) === best[0]) {
+    } else if (compare2(best[0], pair[0]) === best[0]) {
       return best;
     } else {
       return pair;
@@ -127506,16 +127506,16 @@ function validateWeekSettings(settings2) {
 function integerBetween(thing, bottom, top) {
   return isInteger(thing) && thing >= bottom && thing <= top;
 }
-function floorMod(x4, n10) {
-  return x4 - n10 * Math.floor(x4 / n10);
+function floorMod(x5, n12) {
+  return x5 - n12 * Math.floor(x5 / n12);
 }
-function padStart(input, n10 = 2) {
+function padStart(input, n12 = 2) {
   const isNeg = input < 0;
   let padded;
   if (isNeg) {
-    padded = "-" + ("" + -input).padStart(n10, "0");
+    padded = "-" + ("" + -input).padStart(n12, "0");
   } else {
-    padded = ("" + input).padStart(n10, "0");
+    padded = ("" + input).padStart(n12, "0");
   }
   return padded;
 }
@@ -127537,8 +127537,8 @@ function parseMillis(fraction) {
   if (isUndefined(fraction) || fraction === null || fraction === "") {
     return void 0;
   } else {
-    const f6 = parseFloat("0." + fraction) * 1e3;
-    return Math.floor(f6);
+    const f7 = parseFloat("0." + fraction) * 1e3;
+    return Math.floor(f7);
   }
 }
 function roundTo(number, digits, towardZero = false) {
@@ -127560,7 +127560,7 @@ function daysInMonth(year, month) {
   }
 }
 function objToLocalTS(obj) {
-  let d5 = Date.UTC(
+  let d6 = Date.UTC(
     obj.year,
     obj.month - 1,
     obj.day,
@@ -127570,10 +127570,10 @@ function objToLocalTS(obj) {
     obj.millisecond
   );
   if (obj.year < 100 && obj.year >= 0) {
-    d5 = new Date(d5);
-    d5.setUTCFullYear(obj.year, obj.month - 1, obj.day);
+    d6 = new Date(d6);
+    d6.setUTCFullYear(obj.year, obj.month - 1, obj.day);
   }
-  return +d5;
+  return +d6;
 }
 function firstWeekOffset(year, minDaysInFirstWeek, startOfWeek) {
   const fwdlw = isoWeekdayToLocal(dayOfWeek(year, 1, minDaysInFirstWeek), startOfWeek);
@@ -127602,7 +127602,7 @@ function parseZoneInfo(ts4, offsetFormat, locale, timeZone = null) {
     intlOpts.timeZone = timeZone;
   }
   const modified = { timeZoneName: offsetFormat, ...intlOpts };
-  const parsed = new Intl.DateTimeFormat(locale, modified).formatToParts(date).find((m9) => m9.type.toLowerCase() === "timezonename");
+  const parsed = new Intl.DateTimeFormat(locale, modified).formatToParts(date).find((m10) => m10.type.toLowerCase() === "timezonename");
   return parsed ? parsed.value : null;
 }
 function signedOffset(offHourStr, offMinuteStr) {
@@ -127771,15 +127771,15 @@ function formatRelativeTime(unit, count2, numeric = "always", narrow = false) {
   return isInPast ? `${fmtValue} ${fmtUnit} ago` : `in ${fmtValue} ${fmtUnit}`;
 }
 function stringifyTokens(splits, tokenToString) {
-  let s14 = "";
+  let s15 = "";
   for (const token of splits) {
     if (token.literal) {
-      s14 += token.val;
+      s15 += token.val;
     } else {
-      s14 += tokenToString(token.val);
+      s15 += tokenToString(token.val);
     }
   }
-  return s14;
+  return s15;
 }
 const macroTokenToFormatOpts = {
   D: DATE_SHORT,
@@ -127810,8 +127810,8 @@ class Formatter {
   static parseFormat(fmt) {
     let current = null, currentFull = "", bracketed = false;
     const splits = [];
-    for (let i13 = 0; i13 < fmt.length; i13++) {
-      const c8 = fmt.charAt(i13);
+    for (let i14 = 0; i14 < fmt.length; i14++) {
+      const c8 = fmt.charAt(i14);
       if (c8 === "'") {
         if (currentFull.length > 0) {
           splits.push({ literal: bracketed || /^\s+$/.test(currentFull), val: currentFull });
@@ -127867,15 +127867,15 @@ class Formatter {
   resolvedOptions(dt2, opts) {
     return this.dtFormatter(dt2, opts).resolvedOptions();
   }
-  num(n10, p6 = 0) {
+  num(n12, p7 = 0) {
     if (this.opts.forceSimple) {
-      return padStart(n10, p6);
+      return padStart(n12, p7);
     }
     const opts = { ...this.opts };
-    if (p6 > 0) {
-      opts.padTo = p6;
+    if (p7 > 0) {
+      opts.padTo = p7;
     }
-    return this.loc.numberFormatter(opts).format(n10);
+    return this.loc.numberFormatter(opts).format(n12);
   }
   formatDateTimeFromString(dt2, fmt) {
     const knownEnglish = this.loc.listingMode() === "en", useDateTimeFormatter = this.loc.outputCalendar && this.loc.outputCalendar !== "gregory", string = (opts, extract) => this.loc.extract(dt2, opts, extract), formatOffset2 = (opts) => {
@@ -128076,26 +128076,26 @@ class Formatter {
 }
 const ianaRegex = /[A-Za-z_+-]{1,256}(?::?\/[A-Za-z0-9_+-]{1,256}(?:\/[A-Za-z0-9_+-]{1,256})?)?/;
 function combineRegexes(...regexes) {
-  const full = regexes.reduce((f6, r9) => f6 + r9.source, "");
+  const full = regexes.reduce((f7, r10) => f7 + r10.source, "");
   return RegExp(`^${full}$`);
 }
 function combineExtractors(...extractors) {
-  return (m9) => extractors.reduce(
+  return (m10) => extractors.reduce(
     ([mergedVals, mergedZone, cursor], ex) => {
-      const [val, zone, next2] = ex(m9, cursor);
+      const [val, zone, next2] = ex(m10, cursor);
       return [{ ...mergedVals, ...val }, zone || mergedZone, next2];
     },
     [{}, null, 1]
   ).slice(0, 2);
 }
-function parse$1(s14, ...patterns) {
-  if (s14 == null) {
+function parse$1(s15, ...patterns) {
+  if (s15 == null) {
     return [null, null];
   }
   for (const [regex, extractor] of patterns) {
-    const m9 = regex.exec(s14);
-    if (m9) {
-      return extractor(m9);
+    const m10 = regex.exec(s15);
+    if (m10) {
+      return extractor(m10);
     }
   }
   return [null, null];
@@ -128103,11 +128103,11 @@ function parse$1(s14, ...patterns) {
 function simpleParse(...keys) {
   return (match2, cursor) => {
     const ret = {};
-    let i13;
-    for (i13 = 0; i13 < keys.length; i13++) {
-      ret[keys[i13]] = parseInteger(match2[cursor + i13]);
+    let i14;
+    for (i14 = 0; i14 < keys.length; i14++) {
+      ret[keys[i14]] = parseInteger(match2[cursor + i14]);
     }
-    return [ret, null, cursor + i13];
+    return [ret, null, cursor + i14];
   };
 }
 const offsetRegex = /(?:(Z)|([+-]\d\d)(?::?(\d\d))?)/;
@@ -128126,8 +128126,8 @@ const sqlTimeRegex = RegExp(
 );
 const sqlTimeExtensionRegex = RegExp(`(?: ${sqlTimeRegex.source})?`);
 function int(match2, pos, fallback) {
-  const m9 = match2[pos];
-  return isUndefined(m9) ? fallback : parseInteger(m9);
+  const m10 = match2[pos];
+  return isUndefined(m10) ? fallback : parseInteger(m10);
 }
 function extractISOYmd(match2, cursor) {
   const item = {
@@ -128157,8 +128157,8 @@ function extractIANAZone(match2, cursor) {
 const isoTimeOnly = RegExp(`^T?${isoTimeBaseRegex.source}$`);
 const isoDuration = /^-?P(?:(?:(-?\d{1,20}(?:\.\d{1,20})?)Y)?(?:(-?\d{1,20}(?:\.\d{1,20})?)M)?(?:(-?\d{1,20}(?:\.\d{1,20})?)W)?(?:(-?\d{1,20}(?:\.\d{1,20})?)D)?(?:T(?:(-?\d{1,20}(?:\.\d{1,20})?)H)?(?:(-?\d{1,20}(?:\.\d{1,20})?)M)?(?:(-?\d{1,20})(?:[.,](-?\d{1,20}))?S)?)?)$/;
 function extractISODuration(match2) {
-  const [s14, yearStr, monthStr, weekStr, dayStr, hourStr, minuteStr, secondStr, millisecondsStr] = match2;
-  const hasNegativePrefix = s14[0] === "-";
+  const [s15, yearStr, monthStr, weekStr, dayStr, hourStr, minuteStr, secondStr, millisecondsStr] = match2;
+  const hasNegativePrefix = s15[0] === "-";
   const negativeSeconds = secondStr && secondStr[0] === "-";
   const maybeNegate = (num, force = false) => num !== void 0 && (force || num && hasNegativePrefix) ? -num : num;
   return [
@@ -128225,8 +128225,8 @@ function extractRFC2822(match2) {
   }
   return [result, new FixedOffsetZone(offset2)];
 }
-function preprocessRFC2822(s14) {
-  return s14.replace(/\([^()]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").trim();
+function preprocessRFC2822(s15) {
+  return s15.replace(/\([^()]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").trim();
 }
 const rfc1123 = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d\d) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d\d):(\d\d):(\d\d) GMT$/, rfc850 = /^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d\d)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d\d) (\d\d):(\d\d):(\d\d) GMT$/, ascii = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( \d|\d\d) (\d\d):(\d\d):(\d\d) (\d{4})$/;
 function extractRFC1123Or850(match2) {
@@ -128264,32 +128264,32 @@ const extractISOTimeAndOffset = combineExtractors(
   extractISOOffset,
   extractIANAZone
 );
-function parseISODate(s14) {
+function parseISODate(s15) {
   return parse$1(
-    s14,
+    s15,
     [isoYmdWithTimeExtensionRegex, extractISOYmdTimeAndOffset],
     [isoWeekWithTimeExtensionRegex, extractISOWeekTimeAndOffset],
     [isoOrdinalWithTimeExtensionRegex, extractISOOrdinalDateAndTime],
     [isoTimeCombinedRegex, extractISOTimeAndOffset]
   );
 }
-function parseRFC2822Date(s14) {
-  return parse$1(preprocessRFC2822(s14), [rfc2822, extractRFC2822]);
+function parseRFC2822Date(s15) {
+  return parse$1(preprocessRFC2822(s15), [rfc2822, extractRFC2822]);
 }
-function parseHTTPDate(s14) {
+function parseHTTPDate(s15) {
   return parse$1(
-    s14,
+    s15,
     [rfc1123, extractRFC1123Or850],
     [rfc850, extractRFC1123Or850],
     [ascii, extractASCII]
   );
 }
-function parseISODuration(s14) {
-  return parse$1(s14, [isoDuration, extractISODuration]);
+function parseISODuration(s15) {
+  return parse$1(s15, [isoDuration, extractISODuration]);
 }
 const extractISOTimeOnly = combineExtractors(extractISOTime);
-function parseISOTimeOnly(s14) {
-  return parse$1(s14, [isoTimeOnly, extractISOTimeOnly]);
+function parseISOTimeOnly(s15) {
+  return parse$1(s15, [isoTimeOnly, extractISOTimeOnly]);
 }
 const sqlYmdWithTimeExtensionRegex = combineRegexes(sqlYmdRegex, sqlTimeExtensionRegex);
 const sqlTimeCombinedRegex = combineRegexes(sqlTimeRegex);
@@ -128298,9 +128298,9 @@ const extractISOTimeOffsetAndIANAZone = combineExtractors(
   extractISOOffset,
   extractIANAZone
 );
-function parseSQL(s14) {
+function parseSQL(s15) {
   return parse$1(
-    s14,
+    s15,
     [sqlYmdWithTimeExtensionRegex, extractISOYmdTimeAndOffset],
     [sqlTimeCombinedRegex, extractISOTimeOffsetAndIANAZone]
   );
@@ -128699,7 +128699,7 @@ class Duration {
         return null;
       }
       return this.loc.numberFormatter({ style: "unit", unitDisplay: "long", ...opts, unit: unit.slice(0, -1) }).format(val);
-    }).filter((n10) => n10);
+    }).filter((n12) => n12);
     return this.loc.listFormatter({ type: "conjunction", style: opts.listStyle || "narrow", ...opts }).format(l5);
   }
   /**
@@ -128723,19 +128723,19 @@ class Duration {
    */
   toISO() {
     if (!this.isValid) return null;
-    let s14 = "P";
-    if (this.years !== 0) s14 += this.years + "Y";
-    if (this.months !== 0 || this.quarters !== 0) s14 += this.months + this.quarters * 3 + "M";
-    if (this.weeks !== 0) s14 += this.weeks + "W";
-    if (this.days !== 0) s14 += this.days + "D";
+    let s15 = "P";
+    if (this.years !== 0) s15 += this.years + "Y";
+    if (this.months !== 0 || this.quarters !== 0) s15 += this.months + this.quarters * 3 + "M";
+    if (this.weeks !== 0) s15 += this.weeks + "W";
+    if (this.days !== 0) s15 += this.days + "D";
     if (this.hours !== 0 || this.minutes !== 0 || this.seconds !== 0 || this.milliseconds !== 0)
-      s14 += "T";
-    if (this.hours !== 0) s14 += this.hours + "H";
-    if (this.minutes !== 0) s14 += this.minutes + "M";
+      s15 += "T";
+    if (this.hours !== 0) s15 += this.hours + "H";
+    if (this.minutes !== 0) s15 += this.minutes + "M";
     if (this.seconds !== 0 || this.milliseconds !== 0)
-      s14 += roundTo(this.seconds + this.milliseconds / 1e3, 3) + "S";
-    if (s14 === "P") s14 += "T0S";
-    return s14;
+      s15 += roundTo(this.seconds + this.milliseconds / 1e3, 3) + "S";
+    if (s15 === "P") s15 += "T0S";
+    return s15;
   }
   /**
    * Returns an ISO 8601-compliant string representation of this Duration, formatted as a time of day.
@@ -128947,9 +128947,9 @@ class Duration {
         if (isNumber(vals[k5])) {
           own += vals[k5];
         }
-        const i13 = Math.trunc(own);
-        built[k5] = i13;
-        accumulated[k5] = (own * 1e3 - i13 * 1e3) / 1e3;
+        const i14 = Math.trunc(own);
+        built[k5] = i14;
+        accumulated[k5] = (own * 1e3 - i14 * 1e3) / 1e3;
       } else if (isNumber(vals[k5])) {
         accumulated[k5] = vals[k5];
       }
@@ -129192,32 +129192,32 @@ class Interval {
    * @return {Interval}
    */
   static fromISO(text2, opts) {
-    const [s14, e6] = (text2 || "").split("/", 2);
-    if (s14 && e6) {
+    const [s15, e7] = (text2 || "").split("/", 2);
+    if (s15 && e7) {
       let start, startIsValid;
       try {
-        start = DateTime.fromISO(s14, opts);
+        start = DateTime.fromISO(s15, opts);
         startIsValid = start.isValid;
-      } catch (e7) {
+      } catch (e8) {
         startIsValid = false;
       }
       let end, endIsValid;
       try {
-        end = DateTime.fromISO(e6, opts);
+        end = DateTime.fromISO(e7, opts);
         endIsValid = end.isValid;
-      } catch (e7) {
+      } catch (e8) {
         endIsValid = false;
       }
       if (startIsValid && endIsValid) {
         return Interval.fromDateTimes(start, end);
       }
       if (startIsValid) {
-        const dur = Duration.fromISO(e6, opts);
+        const dur = Duration.fromISO(e7, opts);
         if (dur.isValid) {
           return Interval.after(start, dur);
         }
       } else if (endIsValid) {
-        const dur = Duration.fromISO(s14, opts);
+        const dur = Duration.fromISO(s15, opts);
         if (dur.isValid) {
           return Interval.before(end, dur);
         }
@@ -129357,13 +129357,13 @@ class Interval {
    */
   splitAt(...dateTimes) {
     if (!this.isValid) return [];
-    const sorted = dateTimes.map(friendlyDateTime).filter((d5) => this.contains(d5)).sort((a9, b3) => a9.toMillis() - b3.toMillis()), results = [];
-    let { s: s14 } = this, i13 = 0;
-    while (s14 < this.e) {
-      const added = sorted[i13] || this.e, next2 = +added > +this.e ? this.e : added;
-      results.push(Interval.fromDateTimes(s14, next2));
-      s14 = next2;
-      i13 += 1;
+    const sorted = dateTimes.map(friendlyDateTime).filter((d6) => this.contains(d6)).sort((a9, b4) => a9.toMillis() - b4.toMillis()), results = [];
+    let { s: s15 } = this, i14 = 0;
+    while (s15 < this.e) {
+      const added = sorted[i14] || this.e, next2 = +added > +this.e ? this.e : added;
+      results.push(Interval.fromDateTimes(s15, next2));
+      s15 = next2;
+      i14 += 1;
     }
     return results;
   }
@@ -129378,13 +129378,13 @@ class Interval {
     if (!this.isValid || !dur.isValid || dur.as("milliseconds") === 0) {
       return [];
     }
-    let { s: s14 } = this, idx = 1, next2;
+    let { s: s15 } = this, idx = 1, next2;
     const results = [];
-    while (s14 < this.e) {
-      const added = this.start.plus(dur.mapUnits((x4) => x4 * idx));
+    while (s15 < this.e) {
+      const added = this.start.plus(dur.mapUnits((x5) => x5 * idx));
       next2 = +added > +this.e ? this.e : added;
-      results.push(Interval.fromDateTimes(s14, next2));
-      s14 = next2;
+      results.push(Interval.fromDateTimes(s15, next2));
+      s15 = next2;
       idx += 1;
     }
     return results;
@@ -129453,11 +129453,11 @@ class Interval {
    */
   intersection(other) {
     if (!this.isValid) return this;
-    const s14 = this.s > other.s ? this.s : other.s, e6 = this.e < other.e ? this.e : other.e;
-    if (s14 >= e6) {
+    const s15 = this.s > other.s ? this.s : other.s, e7 = this.e < other.e ? this.e : other.e;
+    if (s15 >= e7) {
       return null;
     } else {
-      return Interval.fromDateTimes(s14, e6);
+      return Interval.fromDateTimes(s15, e7);
     }
   }
   /**
@@ -129468,8 +129468,8 @@ class Interval {
    */
   union(other) {
     if (!this.isValid) return this;
-    const s14 = this.s < other.s ? this.s : other.s, e6 = this.e > other.e ? this.e : other.e;
-    return Interval.fromDateTimes(s14, e6);
+    const s15 = this.s < other.s ? this.s : other.s, e7 = this.e > other.e ? this.e : other.e;
+    return Interval.fromDateTimes(s15, e7);
   }
   /**
    * Merge an array of Intervals into a equivalent minimal set of Intervals.
@@ -129478,7 +129478,7 @@ class Interval {
    * @return {Array}
    */
   static merge(intervals) {
-    const [found, final] = intervals.sort((a9, b3) => a9.s - b3.s).reduce(
+    const [found, final] = intervals.sort((a9, b4) => a9.s - b4.s).reduce(
       ([sofar, current], item) => {
         if (!current) {
           return [sofar, item];
@@ -129502,17 +129502,17 @@ class Interval {
    */
   static xor(intervals) {
     let start = null, currentCount = 0;
-    const results = [], ends = intervals.map((i13) => [
-      { time: i13.s, type: "s" },
-      { time: i13.e, type: "e" }
-    ]), flattened = Array.prototype.concat(...ends), arr = flattened.sort((a9, b3) => a9.time - b3.time);
-    for (const i13 of arr) {
-      currentCount += i13.type === "s" ? 1 : -1;
+    const results = [], ends = intervals.map((i14) => [
+      { time: i14.s, type: "s" },
+      { time: i14.e, type: "e" }
+    ]), flattened = Array.prototype.concat(...ends), arr = flattened.sort((a9, b4) => a9.time - b4.time);
+    for (const i14 of arr) {
+      currentCount += i14.type === "s" ? 1 : -1;
       if (currentCount === 1) {
-        start = i13.time;
+        start = i14.time;
       } else {
-        if (start && +start !== +i13.time) {
-          results.push(Interval.fromDateTimes(start, i13.time));
+        if (start && +start !== +i14.time) {
+          results.push(Interval.fromDateTimes(start, i14.time));
         }
         start = null;
       }
@@ -129525,7 +129525,7 @@ class Interval {
    * @return {Array}
    */
   difference(...intervals) {
-    return Interval.xor([this].concat(intervals)).map((i13) => this.intersection(i13)).filter((i13) => i13 && !i13.isEmpty());
+    return Interval.xor([this].concat(intervals)).map((i14) => this.intersection(i14)).filter((i14) => i14 && !i14.isEmpty());
   }
   /**
    * Returns a string representation of this Interval appropriate for debugging.
@@ -129819,13 +129819,13 @@ function dayDiff(earlier, later) {
 }
 function highOrderDiffs(cursor, later, units) {
   const differs = [
-    ["years", (a9, b3) => b3.year - a9.year],
-    ["quarters", (a9, b3) => b3.quarter - a9.quarter + (b3.year - a9.year) * 4],
-    ["months", (a9, b3) => b3.month - a9.month + (b3.year - a9.year) * 12],
+    ["years", (a9, b4) => b4.year - a9.year],
+    ["quarters", (a9, b4) => b4.quarter - a9.quarter + (b4.year - a9.year) * 4],
+    ["months", (a9, b4) => b4.month - a9.month + (b4.year - a9.year) * 12],
     [
       "weeks",
-      (a9, b3) => {
-        const days = dayDiff(a9, b3);
+      (a9, b4) => {
+        const days = dayDiff(a9, b4);
         return (days - days % 7) / 7;
       }
     ],
@@ -129876,17 +129876,17 @@ function diff(earlier, later, units, opts) {
   }
 }
 const MISSING_FTP = "missing Intl.DateTimeFormat.formatToParts support";
-function intUnit(regex, post = (i13) => i13) {
-  return { regex, deser: ([s14]) => post(parseDigits(s14)) };
+function intUnit(regex, post = (i14) => i14) {
+  return { regex, deser: ([s15]) => post(parseDigits(s15)) };
 }
 const NBSP = String.fromCharCode(160);
 const spaceOrNBSP = `[ ${NBSP}]`;
 const spaceOrNBSPRegExp = new RegExp(spaceOrNBSP, "g");
-function fixListRegex(s14) {
-  return s14.replace(/\./g, "\\.?").replace(spaceOrNBSPRegExp, spaceOrNBSP);
+function fixListRegex(s15) {
+  return s15.replace(/\./g, "\\.?").replace(spaceOrNBSPRegExp, spaceOrNBSP);
 }
-function stripInsensitivities(s14) {
-  return s14.replace(/\./g, "").replace(spaceOrNBSPRegExp, " ").toLowerCase();
+function stripInsensitivities(s15) {
+  return s15.replace(/\./g, "").replace(spaceOrNBSPRegExp, " ").toLowerCase();
 }
 function oneOf(strings, startIndex) {
   if (strings === null) {
@@ -129894,21 +129894,21 @@ function oneOf(strings, startIndex) {
   } else {
     return {
       regex: RegExp(strings.map(fixListRegex).join("|")),
-      deser: ([s14]) => strings.findIndex((i13) => stripInsensitivities(s14) === stripInsensitivities(i13)) + startIndex
+      deser: ([s15]) => strings.findIndex((i14) => stripInsensitivities(s15) === stripInsensitivities(i14)) + startIndex
     };
   }
 }
 function offset(regex, groups) {
-  return { regex, deser: ([, h5, m9]) => signedOffset(h5, m9), groups };
+  return { regex, deser: ([, h7, m10]) => signedOffset(h7, m10), groups };
 }
 function simple(regex) {
-  return { regex, deser: ([s14]) => s14 };
+  return { regex, deser: ([s15]) => s15 };
 }
 function escapeToken(value2) {
   return value2.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
 }
 function unitForToken(token, loc) {
-  const one = digitRegex(loc), two = digitRegex(loc, "{2}"), three = digitRegex(loc, "{3}"), four = digitRegex(loc, "{4}"), six = digitRegex(loc, "{6}"), oneOrTwo = digitRegex(loc, "{1,2}"), oneToThree = digitRegex(loc, "{1,3}"), oneToSix = digitRegex(loc, "{1,6}"), oneToNine = digitRegex(loc, "{1,9}"), twoToFour = digitRegex(loc, "{2,4}"), fourToSix = digitRegex(loc, "{4,6}"), literal = (t2) => ({ regex: RegExp(escapeToken(t2.val)), deser: ([s14]) => s14, literal: true }), unitate = (t2) => {
+  const one = digitRegex(loc), two = digitRegex(loc, "{2}"), three = digitRegex(loc, "{3}"), four = digitRegex(loc, "{4}"), six = digitRegex(loc, "{6}"), oneOrTwo = digitRegex(loc, "{1,2}"), oneToThree = digitRegex(loc, "{1,3}"), oneToSix = digitRegex(loc, "{1,6}"), oneToNine = digitRegex(loc, "{1,9}"), twoToFour = digitRegex(loc, "{2,4}"), fourToSix = digitRegex(loc, "{4,6}"), literal = (t2) => ({ regex: RegExp(escapeToken(t2.val)), deser: ([s15]) => s15, literal: true }), unitate = (t2) => {
     if (token.literal) {
       return literal(t2);
     }
@@ -130115,7 +130115,7 @@ function tokenForPart(part, formatOpts, resolvedOpts) {
   return void 0;
 }
 function buildRegex(units) {
-  const re2 = units.map((u6) => u6.regex).reduce((f6, r9) => `${f6}(${r9.source})`, "");
+  const re2 = units.map((u6) => u6.regex).reduce((f7, r10) => `${f7}(${r10.source})`, "");
   return [`^${re2}$`, units];
 }
 function match(input, regex, handlers) {
@@ -130123,11 +130123,11 @@ function match(input, regex, handlers) {
   if (matches) {
     const all = {};
     let matchIndex = 1;
-    for (const i13 in handlers) {
-      if (hasOwnProperty(handlers, i13)) {
-        const h5 = handlers[i13], groups = h5.groups ? h5.groups + 1 : 1;
-        if (!h5.literal && h5.token) {
-          all[h5.token.val[0]] = h5.deser(matches.slice(matchIndex, matchIndex + groups));
+    for (const i14 in handlers) {
+      if (hasOwnProperty(handlers, i14)) {
+        const h7 = handlers[i14], groups = h7.groups ? h7.groups + 1 : 1;
+        if (!h7.literal && h7.token) {
+          all[h7.token.val[0]] = h7.deser(matches.slice(matchIndex, matchIndex + groups));
         }
         matchIndex += groups;
       }
@@ -130198,12 +130198,12 @@ function dateTimeFromMatches(matches) {
   if (!isUndefined(matches.u)) {
     matches.S = parseMillis(matches.u);
   }
-  const vals = Object.keys(matches).reduce((r9, k5) => {
-    const f6 = toField(k5);
-    if (f6) {
-      r9[f6] = matches[k5];
+  const vals = Object.keys(matches).reduce((r10, k5) => {
+    const f7 = toField(k5);
+    if (f7) {
+      r10[f7] = matches[k5];
     }
-    return r9;
+    return r10;
   }, {});
   return [vals, zone, specificOffset];
 }
@@ -130286,7 +130286,7 @@ function formatOptsToTokens(formatOpts, locale) {
   const df = formatter.dtFormatter(getDummyDateTime());
   const parts2 = df.formatToParts();
   const resolvedOpts = df.resolvedOptions();
-  return parts2.map((p6) => tokenForPart(p6, formatOpts, resolvedOpts));
+  return parts2.map((p7) => tokenForPart(p7, formatOpts, resolvedOpts));
 }
 const INVALID = "Invalid DateTime";
 const MAX_DATE = 864e13;
@@ -130335,15 +130335,15 @@ function fixOffset(localTS, o9, tz) {
 }
 function tsToObj(ts4, offset2) {
   ts4 += offset2 * 60 * 1e3;
-  const d5 = new Date(ts4);
+  const d6 = new Date(ts4);
   return {
-    year: d5.getUTCFullYear(),
-    month: d5.getUTCMonth() + 1,
-    day: d5.getUTCDate(),
-    hour: d5.getUTCHours(),
-    minute: d5.getUTCMinutes(),
-    second: d5.getUTCSeconds(),
-    millisecond: d5.getUTCMilliseconds()
+    year: d6.getUTCFullYear(),
+    month: d6.getUTCMonth() + 1,
+    day: d6.getUTCDate(),
+    hour: d6.getUTCHours(),
+    minute: d6.getUTCMinutes(),
+    second: d6.getUTCSeconds(),
+    millisecond: d6.getUTCMilliseconds()
   };
 }
 function objToTS(obj, offset2, zone) {
@@ -132061,7 +132061,7 @@ class DateTime {
     if (!dateTimes.every(DateTime.isDateTime)) {
       throw new InvalidArgumentError("min requires all arguments be DateTimes");
     }
-    return bestBy(dateTimes, (i13) => i13.valueOf(), Math.min);
+    return bestBy(dateTimes, (i14) => i14.valueOf(), Math.min);
   }
   /**
    * Return the max of several date times
@@ -132072,7 +132072,7 @@ class DateTime {
     if (!dateTimes.every(DateTime.isDateTime)) {
       throw new InvalidArgumentError("max requires all arguments be DateTimes");
     }
-    return bestBy(dateTimes, (i13) => i13.valueOf(), Math.max);
+    return bestBy(dateTimes, (i14) => i14.valueOf(), Math.max);
   }
   // MISC
   /**
@@ -132325,7 +132325,7 @@ function friendlyDateTime(dateTimeish) {
     );
   }
 }
-let n$6 = class n4 extends ContextPlugin {
+let n$8 = class n4 extends ContextPlugin {
   static get ["pluginName"]() {
     return "Permissions";
   }
@@ -132382,7 +132382,7 @@ function o$8(_0x1a4939, _0x54bb42) {
       return "";
   }
 }
-let u$6 = class u2 extends ContextPlugin {
+let u$7 = class u2 extends ContextPlugin {
   constructor(_0x1da428) {
     super(_0x1da428);
     __publicField(this, "users");
@@ -132401,7 +132401,7 @@ let u$6 = class u2 extends ContextPlugin {
     return true;
   }
   static get ["requires"]() {
-    return [n$6];
+    return [n$8];
   }
   ["init"]() {
     this["_addAnonymousUser"]();
@@ -132412,9 +132412,9 @@ let u$6 = class u2 extends ContextPlugin {
   ["addUser"]({ id: _0x17859d, name: _0x58e327, ..._0x393300 }) {
     if (!_0x17859d || "string" != typeof _0x17859d) throw new CKEditorError("users-add-invalid-id");
     if (this["users"]["has"](_0x17859d)) throw new CKEditorError("users-add-duplicated-id", null, { "id": _0x17859d });
-    const _0x36d6c8 = this["context"]["config"]["get"]("users.getInitialsCallback"), _0x36a755 = { ..._0x393300, "id": _0x17859d, "name": h$6(this["_locale"], _0x58e327), "color": this["_getNextColor"]() };
-    _0x36a755["name"] = h$6(this["_locale"], _0x36a755["name"]);
-    const _0x830ce = new P$5(_0x36a755, _0x36d6c8);
+    const _0x36d6c8 = this["context"]["config"]["get"]("users.getInitialsCallback"), _0x36a755 = { ..._0x393300, "id": _0x17859d, "name": h$8(this["_locale"], _0x58e327), "color": this["_getNextColor"]() };
+    _0x36a755["name"] = h$8(this["_locale"], _0x36a755["name"]);
+    const _0x830ce = new P$6(_0x36a755, _0x36d6c8);
     return this["users"]["add"](_0x830ce), _0x830ce;
   }
   ["getUser"](_0x10f5fd) {
@@ -132435,14 +132435,14 @@ let u$6 = class u2 extends ContextPlugin {
   }
   ["_getNextColor"]() {
     const _0x1401b9 = this["context"]["config"]["get"]("users.colorsCount");
-    return this["_lastColor"] >= _0x1401b9 && (this["_lastColor"] = 0), new l$3(this["_lastColor"]++);
+    return this["_lastColor"] >= _0x1401b9 && (this["_lastColor"] = 0), new l$4(this["_lastColor"]++);
   }
   ["_addAnonymousUser"]() {
     const _0x420a50 = this["context"]["config"]["get"]("users.anonymousUserId");
     this["addUser"]({ "id": _0x420a50, "name": o$8(this["_locale"], "Anonymous") })["_isAnonymous"] = true;
   }
 };
-let P$5 = class P3 {
+let P$6 = class P3 {
   constructor(_0x294e9d, _0x13ca80) {
     __publicField(this, "id");
     __publicField(this, "color");
@@ -132467,10 +132467,10 @@ let P$5 = class P3 {
     return String["fromCodePoint"](_0x15126a["codePointAt"](0))["toUpperCase"]();
   }
 };
-function h$6(_0x2de661, _0x2b5b33 = "") {
+function h$8(_0x2de661, _0x2b5b33 = "") {
   return "" == (_0x2b5b33 = _0x2b5b33["trim"]()) ? o$8(_0x2de661, "Anonymous") : _0x2b5b33;
 }
-let l$3 = class l2 {
+let l$4 = class l2 {
   constructor(_0x582455) {
     __publicField(this, "_id");
     this["_id"] = _0x582455;
@@ -132560,7 +132560,7 @@ function Z$1(_0x21264b, { limit: _0x5985f7, suffix: _0x516a9b = "..." }) {
   const _0x142bc0 = _0x21264b["replace"](/</g, "\n<")["replace"](/>/g, ">\n")["replace"](/^\n/g, "")["replace"](/\n$/g, "")["split"]("\n");
   for (let _0x1ee98e = 0; _0x1ee98e < _0x142bc0["length"]; _0x1ee98e++) {
     let _0x263023 = _0x142bc0[_0x1ee98e];
-    const _0x7b670 = $$2(_0x263023);
+    const _0x7b670 = $$3(_0x263023);
     if (_0x263023["startsWith"]("<")) {
       if (_0x1428f8 >= _0x5985f7) {
         const _0x5f2a4b = _0x263023["match"](/[a-zA-Z]+/);
@@ -132589,7 +132589,7 @@ function Z$1(_0x21264b, { limit: _0x5985f7, suffix: _0x516a9b = "..." }) {
   }
   return _0x142bc0["join"]("\n")["replace"](/\n/g, "");
 }
-function $$2(_0x3b516d) {
+function $$3(_0x3b516d) {
   const _0x1b7c35 = [];
   for (let _0x1eb91c = 0; _0x1eb91c < _0x3b516d["length"]; _0x1eb91c++) {
     const _0x3d14ff = _0x3b516d["substring"](_0x1eb91c)["match"](/^&[a-z0-9#]+;/);
@@ -132600,7 +132600,7 @@ function $$2(_0x3b516d) {
   }
   return _0x1b7c35;
 }
-let m$b = class m2 extends View {
+let m$d = class m2 extends View {
   constructor(_0x4f0e52) {
     super(_0x4f0e52);
     __publicField(this, "submitView");
@@ -132630,10 +132630,10 @@ let m$b = class m2 extends View {
     });
   }
 };
-function c$9(_0x2ebd3b) {
+function c$a(_0x2ebd3b) {
   return class extends _0x2ebd3b {
     ["showConfirm"](_0x2bd25f, _0x191807) {
-      return this["confirmView"] = new m$b(this["locale"]), this["confirmView"]["render"](), this["confirmView"]["message"] = _0x2bd25f, this["confirmView"]["once"]("cancel", () => {
+      return this["confirmView"] = new m$d(this["locale"]), this["confirmView"]["render"](), this["confirmView"]["message"] = _0x2bd25f, this["confirmView"]["once"]("cancel", () => {
         this["_removeConfirm"]();
       }), this["confirmView"]["once"]("submit", () => {
         this["_removeConfirm"]();
@@ -132647,23 +132647,23 @@ function c$9(_0x2ebd3b) {
     }
   };
 }
-function j$2(_0x43a759) {
+function j$3(_0x43a759) {
   let _0x464c2b = 0, _0x70c8af = 0;
-  for (const _0x6307e1 of M$1(_0x43a759)) _0x464c2b = (_0x464c2b << 5) - _0x464c2b + _0x6307e1, _0x464c2b |= 0, [_0x464c2b, _0x70c8af] = [_0x70c8af, _0x464c2b];
-  return w$4(_0x464c2b) + w$4(_0x70c8af);
+  for (const _0x6307e1 of M$2(_0x43a759)) _0x464c2b = (_0x464c2b << 5) - _0x464c2b + _0x6307e1, _0x464c2b |= 0, [_0x464c2b, _0x70c8af] = [_0x70c8af, _0x464c2b];
+  return w$5(_0x464c2b) + w$5(_0x70c8af);
 }
-function* g$6(_0x1f6a5f) {
+function* g$7(_0x1f6a5f) {
   null == _0x1f6a5f || null == _0x1f6a5f ? yield 314159265 : 0 === _0x1f6a5f || false === _0x1f6a5f ? yield 0 : 1 === _0x1f6a5f || 1 == _0x1f6a5f ? yield 1 : Array["isArray"](_0x1f6a5f) ? yield* function* (_0x5ba997) {
-    for (const _0x3f62df of _0x5ba997) yield* g$6(_0x3f62df);
-  }(_0x1f6a5f) : "object" == typeof _0x1f6a5f ? yield* M$1(_0x1f6a5f) : "string" == typeof _0x1f6a5f ? yield* O$6(_0x1f6a5f) : "number" == typeof _0x1f6a5f && (yield _0x1f6a5f);
+    for (const _0x3f62df of _0x5ba997) yield* g$7(_0x3f62df);
+  }(_0x1f6a5f) : "object" == typeof _0x1f6a5f ? yield* M$2(_0x1f6a5f) : "string" == typeof _0x1f6a5f ? yield* O$6(_0x1f6a5f) : "number" == typeof _0x1f6a5f && (yield _0x1f6a5f);
 }
-function* M$1(_0x13436d) {
+function* M$2(_0x13436d) {
   if (yield q$3("{"), _0x13436d) {
     const _0x4ccace = Object["keys"](_0x13436d)["sort"]();
     for (const _0xddc31d of _0x4ccace) {
       yield* O$6(_0xddc31d), yield q$3(":");
       const _0x5c7f70 = _0x13436d[_0xddc31d];
-      yield* g$6(_0x5c7f70);
+      yield* g$7(_0x5c7f70);
     }
   }
   yield q$3("}");
@@ -132676,7 +132676,7 @@ function* O$6(_0x289d4f) {
 function q$3(_0x40aa99) {
   return _0x40aa99["charCodeAt"](0);
 }
-function w$4(_0x522f5c) {
+function w$5(_0x522f5c) {
   return (_0x522f5c *= Math["sign"](_0x522f5c))["toString"](36);
 }
 const W$1 = ["initialData", "context", "toolbar", "rootsAttributes"], D$2 = ["WebSocketGateway", "RevisionTracker", "Autosave", "WordCount", "DocumentOutline", "WProofreader"];
@@ -132692,7 +132692,7 @@ function S$4(_0x504056, _0x522405, _0x238653, _0x2478c1 = []) {
   const _0x36d16f = _0x59366a["requires"]["every"]((_0x4acbf6) => S$4(_0x4acbf6, _0x522405, _0x238653, _0x2478c1));
   return _0x522405["set"](_0x59366a, _0x36d16f), _0x36d16f;
 }
-function C$4(_0x5c3c94, _0x3a1fb8) {
+function C$6(_0x5c3c94, _0x3a1fb8) {
   const _0x90c384 = {};
   for (const _0x5b5984 of _0x5c3c94["config"]["names"]()) W$1["includes"](_0x5b5984) || (_0x90c384[_0x5b5984] = _0x5c3c94["config"]["get"](_0x5b5984));
   const _0x1208e7 = _0x90c384["plugins"] || [], _0x1658c8 = _0x5c3c94["constructor"]["builtinPlugins"] || [], _0x384d00 = _0x1208e7["length"] ? _0x1208e7 : _0x1658c8, _0x503d76 = _0x90c384["extraPlugins"] || [];
@@ -132722,10 +132722,10 @@ const J$4 = "Ctrl+Shift+E";
 function T$2(_0x30a567, _0xe951c1) {
   const _0x1b6a53 = _0x30a567["element"];
   _0x30a567["keystrokes"]["listenTo"](_0x1b6a53);
-  for (const _0x2960b7 of _0xe951c1) K$4(_0x30a567, _0x2960b7);
+  for (const _0x2960b7 of _0xe951c1) K$5(_0x30a567, _0x2960b7);
   _0xe951c1["on"]("change", (_0x525941, _0x42ca39) => {
     for (const _0x30ccc4 of _0x42ca39["removed"]) _$5(_0x30a567, _0x30ccc4);
-    for (const _0x2ae90d of Array["from"](_0x42ca39["added"])["reverse"]()) K$4(_0x30a567, _0x2ae90d);
+    for (const _0x2ae90d of Array["from"](_0x42ca39["added"])["reverse"]()) K$5(_0x30a567, _0x2ae90d);
   }), _0x30a567["keystrokes"]["set"]("enter", (_0x4033b3, _0x4cd9df) => {
     _0x1b6a53 === _0x4033b3["target"] && (_0x30a567["focusCycler"]["focusFirst"](), _0x4cd9df());
   }, { "filter": (_0x38b22f) => _0x38b22f["target"] === _0x1b6a53 }), _0x30a567["keystrokes"]["set"]("esc", (_0x3c4ae1, _0x5f069a) => {
@@ -132736,7 +132736,7 @@ function T$2(_0x30a567, _0xe951c1) {
     _0x1b6a53 === _0x2fcc21["target"] && (_0x30a567["fire"]("arrowup"), _0x56b6ce());
   });
 }
-function K$4(_0x3bfa39, _0x4347ac) {
+function K$5(_0x3bfa39, _0x4347ac) {
   _0x4347ac["isRendered"] && (_0x3bfa39["focusTracker"]["add"](_0x4347ac["element"]), _0x3bfa39["keystrokes"]["listenTo"](_0x4347ac["element"]), isViewWithFocusCycler(_0x4347ac) && function(_0x175445, _0x2da20a) {
     const _0x3cee6a = _0x175445["actions"], _0x463f72 = _0x2da20a["actions"];
     for (const _0x32d781 of Object["keys"](_0x3cee6a)) if (_0x32d781 in _0x463f72 && _0x3cee6a[_0x32d781] !== _0x463f72[_0x32d781]) return false;
@@ -133213,7 +133213,7 @@ let ts$2 = class ts2 extends View {
     }), _0x296b82;
   }
 };
-let vt$1 = class vt2 extends (/* @__PURE__ */ c$9(ts$2)) {
+let vt$1 = class vt2 extends (/* @__PURE__ */ c$a(ts$2)) {
   constructor(_0x12c778, _0x4b07b5, _0x26b905, _0x58f0e5) {
     super(_0x12c778, _0x4b07b5, _0x26b905, _0x58f0e5);
     __publicField(this, "commentThreadChildren");
@@ -133340,7 +133340,7 @@ class hs extends View {
     });
   }
 }
-let gt$1 = class gt2 extends (/* @__PURE__ */ c$9(hs)) {
+let gt$1 = class gt2 extends (/* @__PURE__ */ c$a(hs)) {
   constructor(_0x255761, _0xd50d10, _0x6a26ab) {
     super(_0x255761, _0xd50d10, _0x6a26ab);
     __publicField(this, "actionBar");
@@ -133431,7 +133431,7 @@ let S$3 = class S2 extends View {
     _0x46d725 && (this["height"] = _0x46d725);
   }
 };
-let d$5 = class d3 extends (/* @__PURE__ */ ObservableMixin()) {
+let d$7 = class d3 extends (/* @__PURE__ */ ObservableMixin()) {
   constructor({ view: _0x1696cb, target: _0x286ee2, type: _0x3d4208, isVisible: _0x178915 = true }) {
     super();
     __publicField(this, "view");
@@ -133612,7 +133612,7 @@ let O$5 = class O3 extends ContextPlugin {
     this["fire"]("_activateAnnotation", _0x2bfa3b);
   }
   ["createAnnotation"](_0x548c68) {
-    return new d$5(_0x548c68);
+    return new d$7(_0x548c68);
   }
   ["createAnnotationView"](_0x5170be, _0x5201dc) {
     return new S$3(_0x5170be, _0x5201dc);
@@ -133679,7 +133679,7 @@ let o$7 = class o2 extends ContextPlugin {
     _0x4a5a35["define"]("comments.maxCommentsWhenCollapsed", 2), _0x4a5a35["define"]("comments.maxThreadTotalWeight", 500), _0x4a5a35["define"]("comments.maxCommentCharsWhenCollapsed", 140), _0x4a5a35["define"]("comments.CommentThreadView", vt$1), _0x4a5a35["define"]("comments.CommentView", gt$1), _0x4a5a35["get"]("comments.editorConfig") || console["warn"]("Missing comments editor configuration (`comments.editorConfig`). Default configuration will be used instead.");
   }
   static get ["requires"]() {
-    return [O$5, PendingActions, u$6];
+    return [O$5, PendingActions, u$7];
   }
   static get ["pluginName"]() {
     return "CommentsRepository";
@@ -133771,7 +133771,7 @@ let o$7 = class o2 extends ContextPlugin {
   ["_addCommentThread"]({ channelId: _0x22c7cb, threadId: _0x277e54, comments: _0x547c0c, unlinkedAt: _0x215542, resolvedAt: _0x5cda9c, resolvedBy: _0x53e07e, target: _0x310771, context: _0x4bdd0a, attributes: _0x304aec, isFromAdapter: _0xc6e493, isResolvable: _0x132947, isSubmitted: _0x5daab1 }) {
     if ("string" != typeof _0x277e54) throw new CKEditorError("commentsrepository-invalid-comment-thread-id", null, { "threadId": _0x277e54 });
     if (this["hasCommentThread"](_0x277e54)) throw new CKEditorError("commentsrepository-duplicated-comment-thread-id", null, { "threadId": _0x277e54 });
-    const _0x216fbd = new ui(this, { "channelId": _0x22c7cb, "id": _0x277e54, "context": _0x4bdd0a, "attributes": _0x304aec, "unlinkedAt": _0x215542, "resolvedAt": _0x5cda9c, "resolvedBy": _0x53e07e ? this["context"]["plugins"]["get"](u$6)["getUser"](_0x53e07e) : null, "isResolvable": _0x132947, "isSubmitted": _0x5daab1 || _0xc6e493 });
+    const _0x216fbd = new ui(this, { "channelId": _0x22c7cb, "id": _0x277e54, "context": _0x4bdd0a, "attributes": _0x304aec, "unlinkedAt": _0x215542, "resolvedAt": _0x5cda9c, "resolvedBy": _0x53e07e ? this["context"]["plugins"]["get"](u$7)["getUser"](_0x53e07e) : null, "isResolvable": _0x132947, "isSubmitted": _0x5daab1 || _0xc6e493 });
     this["_threads"]["set"](_0x277e54, _0x216fbd);
     for (const _0x2b5a5a of _0x547c0c) _0x216fbd["_add"](this["_createNewComment"]({ "threadId": _0x277e54, ..._0x2b5a5a }));
     return _0x310771 && _0x216fbd["attachTo"](_0x310771), _0xc6e493 || !_0x216fbd["length"] ? Promise["resolve"]() : this["_submitCommentThread"]({ "channelId": _0x22c7cb, "threadId": _0x277e54 });
@@ -133798,7 +133798,7 @@ let o$7 = class o2 extends ContextPlugin {
     }), this["_threadToController"]["set"](_0x42de80, _0x3381c0), this["_viewToController"]["set"](_0x422254, _0x3381c0);
     const _0x4090e5 = new S$3(this["context"]["locale"], _0x422254);
     _0x4090e5["bind"]("length")["to"](_0x422254), _0x4090e5["bind"]("isDirty")["to"](_0x422254, "isDirty", _0x422254, "length", (_0x1012ca, _0xa03ac1) => _0x1012ca || !_0xa03ac1), _0x4090e5["bind"]("isActive")["to"](_0x422254), _0x4090e5["type"] = "comment";
-    const _0x380dcc = new d$5({ "view": _0x4090e5, "target": _0xa997fa, "type": "comment", "isVisible": !_0x42de80["archivedAt"] });
+    const _0x380dcc = new d$7({ "view": _0x4090e5, "target": _0xa997fa, "type": "comment", "isVisible": !_0x42de80["archivedAt"] });
     return _0x422254["on"]("escape", () => {
       _0x380dcc["fire"]("escape");
     }), this["_bindAnnotationToEditors"](_0x422254, _0x380dcc), _0xdbf69a["add"](_0x380dcc), _0x380dcc;
@@ -133816,14 +133816,14 @@ let o$7 = class o2 extends ContextPlugin {
     this["stopListening"](_0x10e394, "editorReady"), this["stopListening"](_0x10e394, "editorDestroyed");
   }
   ["_createCommentThreadView"](_0xc48545) {
-    const _0x198fa0 = this["context"]["plugins"]["get"](u$6), { config: _0x24ac3a, locale: _0x54bda7 } = this["context"], _0x123057 = E$5(_0x24ac3a["get"]("locale"), _0x54bda7);
+    const _0x198fa0 = this["context"]["plugins"]["get"](u$7), { config: _0x24ac3a, locale: _0x54bda7 } = this["context"], _0x123057 = E$5(_0x24ac3a["get"]("locale"), _0x54bda7);
     return new (_0x24ac3a["get"]("comments"))["CommentThreadView"](_0x54bda7, _0xc48545, _0x198fa0["me"], { "editorConfig": { ..._0x24ac3a["get"]("comments.editorConfig"), "licenseKey": this["context"]["config"]["get"]("licenseKey") }, "copyMarkers": _0x24ac3a["get"]("comments.copyMarkers"), "maxCommentsWhenCollapsed": _0x24ac3a["get"]("comments.maxCommentsWhenCollapsed"), "maxThreadTotalWeight": _0x24ac3a["get"]("comments.maxThreadTotalWeight"), "maxCommentCharsWhenCollapsed": _0x24ac3a["get"]("comments.maxCommentCharsWhenCollapsed"), "formatDateTime": _0x123057, "CommentView": _0x24ac3a["get"]("comments")["CommentView"] });
   }
   ["_resolveCommentThread"]({ threadId: _0x5c0633, channelId: _0x4683d6, resolvedAt: _0x397283, resolvedBy: _0x6e15c3, isFromAdapter: _0xdd2629 }) {
     if (!this["hasCommentThread"](_0x5c0633)) throw new CKEditorError("commentsrepository-missing-comment-thread", null, { "threadId": _0x5c0633 });
     const _0x28a2cd = this["getCommentThread"](_0x5c0633);
     if (_0x28a2cd["isResolved"]) throw new CKEditorError("commentsrepository-resolved-comment-thread", null, { "threadId": _0x5c0633 });
-    const _0x30b7df = this["context"]["plugins"]["get"](u$6);
+    const _0x30b7df = this["context"]["plugins"]["get"](u$7);
     if (_0x28a2cd["resolvedBy"] = _0x30b7df["getUser"](_0x6e15c3), _0x28a2cd["resolvedAt"] = _0x397283, _0xdd2629 || !this["adapter"] || "function" != typeof this["adapter"]["resolveCommentThread"]) return Promise["resolve"]();
     const _0x4b7b8b = this["context"]["plugins"]["get"]("PendingActions"), _0x520a5a = _0x4b7b8b["add"](E$4(this["context"]["locale"], "PENDING_ACTION_COMMENT_THREAD"));
     return this["adapter"]["resolveCommentThread"]({ "channelId": _0x4683d6, "threadId": _0x5c0633 })["then"](({ resolvedAt: _0x16e59f, resolvedBy: _0x32984c }) => {
@@ -133880,14 +133880,14 @@ let o$7 = class o2 extends ContextPlugin {
     }
   }
   ["_getExternalAuthor"](_0x3c6218) {
-    const _0x489558 = this["context"]["plugins"]["get"](u$6), _0xdde18e = j$2("external:" + _0x3c6218), _0x3fa8d3 = _0x489558["getUser"](_0xdde18e);
+    const _0x489558 = this["context"]["plugins"]["get"](u$7), _0xdde18e = j$3("external:" + _0x3c6218), _0x3fa8d3 = _0x489558["getUser"](_0xdde18e);
     return _0x3fa8d3 || _0x489558["addUser"]({ "id": _0xdde18e, "name": _0x3c6218 });
   }
   ["_createNewComment"]({ threadId: _0x19f2c5, commentId: _0x4e8db3 = uid(), content: _0x15d830, authorId: _0x2c011e, createdAt: _0x1a882b, attributes: _0x451f44 }) {
     if ("string" != typeof _0x4e8db3) throw new CKEditorError("commentsrepository-invalid-commentid");
     if ("string" != typeof _0x2c011e) throw new CKEditorError("commentsrepository-invalid-comment-authorid");
     if ("string" != typeof _0x15d830 || !_0x15d830["trim"]()) throw new CKEditorError("commentsrepository-invalid-comment-content");
-    const _0x7891b4 = this["context"]["plugins"]["get"](u$6)["getUser"](_0x2c011e);
+    const _0x7891b4 = this["context"]["plugins"]["get"](u$7)["getUser"](_0x2c011e);
     if (!_0x7891b4) throw new CKEditorError("commentsrepository-add-comment-user-not-exists", null, { "authorId": _0x2c011e });
     let _0x5e1f04 = null, _0x324e81 = _0x1a882b;
     return (_0x451f44 == null ? void 0 : _0x451f44["@external"]) && (_0x5e1f04 = this["_getExternalAuthor"](_0x451f44["@external"]["authorName"]), _0x324e81 = new Date(_0x451f44["@external"]["createdAt"])), new fi(this, { "threadId": _0x19f2c5, "id": _0x4e8db3, "author": _0x5e1f04 || _0x7891b4, "creator": _0x7891b4, "content": _0x15d830, "createdAt": _0x1a882b, "authoredAt": _0x324e81, "attributes": _0x451f44 });
@@ -133962,7 +133962,7 @@ class ui extends (/* @__PURE__ */ ObservableMixin()) {
     this["_update"]({ "unlinkedAt": _0xbf4eda });
   }
   ["resolve"]({ resolvedAt: _0x43a007 = /* @__PURE__ */ new Date(), resolvedBy: _0x3db1e7 = null, isFromAdapter: _0x2f08f9 = false } = {}) {
-    const _0x40b398 = this["_repository"]["context"]["plugins"]["get"](u$6)["me"], { channelId: _0xbc3d50, id: _0x41afa7 } = this;
+    const _0x40b398 = this["_repository"]["context"]["plugins"]["get"](u$7)["me"], { channelId: _0xbc3d50, id: _0x41afa7 } = this;
     this["_repository"]["fire"](bt$1("resolveCommentThread", _0xbc3d50), { "channelId": _0xbc3d50, "threadId": _0x41afa7, "resolvedAt": _0x43a007, "resolvedBy": _0x3db1e7 || _0x40b398["id"], "isFromAdapter": _0x2f08f9 });
   }
   ["reopen"]({ isFromAdapter: _0xeeccc6 = false } = {}) {
@@ -134026,7 +134026,7 @@ class fi extends (/* @__PURE__ */ ObservableMixin()) {
     __publicField(this, "isExternal");
     __publicField(this, "createdAt");
     __publicField(this, "_repository");
-    const _0x2b4d5f = _0x1a97a2["context"]["plugins"]["get"](u$6)["me"], _0x528848 = _0x1a97a2["getCommentThread"](_0x4e90f5["threadId"]), _0x51752f = 0 === _0x528848["comments"]["length"], _0x2f8c7c = _0x2b4d5f === _0x4e90f5["author"];
+    const _0x2b4d5f = _0x1a97a2["context"]["plugins"]["get"](u$7)["me"], _0x528848 = _0x1a97a2["getCommentThread"](_0x4e90f5["threadId"]), _0x51752f = 0 === _0x528848["comments"]["length"], _0x2f8c7c = _0x2b4d5f === _0x4e90f5["author"];
     this["id"] = _0x4e90f5["id"], this["threadId"] = _0x4e90f5["threadId"], this["author"] = _0x4e90f5["author"], this["creator"] = _0x4e90f5["creator"], this["isExternal"] = Boolean(_0x4e90f5["attributes"] && _0x4e90f5["attributes"]["@external"]), this["set"]("content", _0x4e90f5["content"]), this["createdAt"] = _0x4e90f5["createdAt"] || /* @__PURE__ */ new Date(), this["set"]("authoredAt", _0x4e90f5["authoredAt"] || /* @__PURE__ */ new Date()), this["bind"]("resolvedAt")["to"](_0x528848, "resolvedAt"), this["set"]("attributes", _0x4e90f5["attributes"] || {}), this["bind"]("isEditable")["to"](_0x1a97a2, "_permissions", () => {
       const _0x37ef0e = _0x1a97a2["getPermissions"](_0x528848["channelId"])["write"], _0x5686ab = _0x1a97a2["getPermissions"](_0x528848["channelId"])["modifyAll"];
       return _0x2f8c7c && _0x37ef0e || !_0x2f8c7c && _0x5686ab;
@@ -134101,7 +134101,7 @@ let J$3 = class J2 extends Command$1 {
     return this["editor"]["model"]["createRange"](_0x2eef04, _0x43c847);
   }
 };
-let P$4 = class P4 extends Plugin {
+let P$5 = class P4 extends Plugin {
   constructor(_0x4c9e1c) {
     super(_0x4c9e1c);
     __publicField(this, "_dataCollectors");
@@ -134185,7 +134185,7 @@ let ct$1 = class ct3 extends Plugin {
     super(_0x86fe82), this["editor"]["config"]["define"]("importWord.formatting.comments", "basic");
   }
   ["afterInit"]() {
-    const _0x577b5a = this["editor"], _0x52499a = _0x577b5a["commands"]["get"]("importWord"), _0x168fe0 = _0x577b5a["plugins"]["get"](u$6);
+    const _0x577b5a = this["editor"], _0x52499a = _0x577b5a["commands"]["get"]("importWord"), _0x168fe0 = _0x577b5a["plugins"]["get"](u$7);
     _0x52499a && (_0x52499a["on"]("execute", (_0xcaf70d, [, _0xfe4fd0]) => {
       _0xfe4fd0["collaboration_features"] = { "comments": true, "user_id": _0x168fe0["me"]["id"] };
     }, { "priority": priorities["high"] + 10 }), this["listenTo"](_0x52499a, "dataInsert", this["_handleImportedData"]));
@@ -134193,7 +134193,7 @@ let ct$1 = class ct3 extends Plugin {
   ["_handleImportedData"](_0x3a68f6, _0x5c0aa6) {
     const { comment_threads: _0x1b2a35 } = _0x5c0aa6;
     _0x1b2a35 && _0x1b2a35["forEach"](({ thread_id: _0x165717, comments: _0x4bf99f, is_resolved: _0xb35c12 }) => {
-      const _0x749357 = /* @__PURE__ */ new Date(), _0x435f44 = _0x4bf99f["map"](({ author: _0x50b3a0, content: _0x1eb950, created_at: _0x1e9f99 }) => ({ "content": _0x1eb950, "authorId": this["editor"]["plugins"]["get"](u$6)["me"]["id"], "createdAt": _0x749357, "attributes": { "@external": { "authorName": _0x50b3a0, "createdAt": _0x1e9f99 ? new Date(_0x1e9f99) : /* @__PURE__ */ new Date(), "source": "importWord" } } })), _0x1072a9 = this["editor"]["config"]["get"]("collaboration.channelId");
+      const _0x749357 = /* @__PURE__ */ new Date(), _0x435f44 = _0x4bf99f["map"](({ author: _0x50b3a0, content: _0x1eb950, created_at: _0x1e9f99 }) => ({ "content": _0x1eb950, "authorId": this["editor"]["plugins"]["get"](u$7)["me"]["id"], "createdAt": _0x749357, "attributes": { "@external": { "authorName": _0x50b3a0, "createdAt": _0x1e9f99 ? new Date(_0x1e9f99) : /* @__PURE__ */ new Date(), "source": "importWord" } } })), _0x1072a9 = this["editor"]["config"]["get"]("collaboration.channelId");
       this["editor"]["plugins"]["get"](o$7)["addCommentThread"]({ "channelId": _0x1072a9, "threadId": _0x165717, "comments": _0x435f44, "resolvedAt": _0xb35c12 ? _0x749357 : null });
     });
   }
@@ -134239,11 +134239,11 @@ let ut$2 = class ut2 extends Plugin {
   }
   ["overrideMarkerConverters"]() {
     this["editor"]["conversion"]["for"]("dataDowncast")["markerToHighlight"]({ "model": "comment", "view": (_0x161e12, _0x2012b1) => {
-      var _a4;
+      var _a3;
       if (!_0x2012b1["options"]["showCommentHighlights"]) return null;
       if (_0x2012b1["options"]["ignoreResolvedComments"]) {
         const { id: _0x96bb61 } = er(_0x161e12["markerName"]), _0x4941ec = this["editor"]["plugins"]["get"](o$7);
-        if (((_a4 = _0x4941ec["getCommentThread"](_0x96bb61)) == null ? void 0 : _a4["isResolved"]) && _0x161e12["item"]) return _0x2012b1["consumable"]["consume"](_0x161e12["item"], "addMarker:" + _0x161e12["markerName"]), _0x2012b1["consumable"]["consume"](_0x161e12["item"], "removeMarker:" + _0x161e12["markerName"]), null;
+        if (((_a3 = _0x4941ec["getCommentThread"](_0x96bb61)) == null ? void 0 : _a3["isResolved"]) && _0x161e12["item"]) return _0x2012b1["consumable"]["consume"](_0x161e12["item"], "addMarker:" + _0x161e12["markerName"]), _0x2012b1["consumable"]["consume"](_0x161e12["item"], "removeMarker:" + _0x161e12["markerName"]), null;
       }
       return { "classes": ["ck-comment-marker"] };
     } }), this["editor"]["conversion"]["for"]("dataDowncast")["add"]((_0x4caa8d) => {
@@ -134278,9 +134278,9 @@ let ut$2 = class ut2 extends Plugin {
     }, { "priority": "high" });
   }
 };
-let r$5 = class r4 extends Plugin {
+let r$7 = class r4 extends Plugin {
   static get ["requires"]() {
-    return [o$7, P$4, u$6, st$2, ct$1, at$2, ut$2];
+    return [o$7, P$5, u$7, st$2, ct$1, at$2, ut$2];
   }
   static get ["pluginName"]() {
     return "CommentsEditing";
@@ -134560,14 +134560,14 @@ let r$5 = class r4 extends Plugin {
     });
   }
   ["_attachArchivedThread"](_0x7072e7) {
-    const _0x11d7fc = this["editor"]["plugins"]["get"](o$7), _0x5ee770 = this["editor"]["plugins"]["get"](P$4), _0x12b1fa = _0x11d7fc["getCommentThread"](_0x7072e7);
+    const _0x11d7fc = this["editor"]["plugins"]["get"](o$7), _0x5ee770 = this["editor"]["plugins"]["get"](P$5), _0x12b1fa = _0x11d7fc["getCommentThread"](_0x7072e7);
     if (!_0x12b1fa["isAttached"]) {
       const _0x5767ec = _0x12b1fa["attachTo"](() => this["_getTargetForId"](_0x12b1fa["id"]));
       _0x5ee770["registerAnnotation"](_0x5767ec), _0x12b1fa["_hasTargetInContent"] = false;
     }
   }
   ["_initializeMarkerConverters"]() {
-    const _0xaf02b5 = this["editor"], _0x419179 = _0xaf02b5["plugins"]["get"](u$6);
+    const _0xaf02b5 = this["editor"], _0x419179 = _0xaf02b5["plugins"]["get"](u$7);
     _0xaf02b5["conversion"]["for"]("editingDowncast")["markerToHighlight"]({ "model": "comment", "view": (_0x475e63, _0x7638a6) => {
       const { id: _0x3b503 } = er(_0x475e63["markerName"]), _0xd060f6 = _0xaf02b5["plugins"]["get"](o$7)["getCommentThread"](_0x3b503), _0x6d9c31 = this["activeMarker"] && er(this["activeMarker"])["id"] === _0x3b503;
       let _0x2eaa38;
@@ -134575,10 +134575,10 @@ let r$5 = class r4 extends Plugin {
       const _0x4149ad = ["ck-comment-marker"];
       return _0x6d9c31 && _0x4149ad["push"]("ck-comment-marker--active"), _0x2eaa38 = (_0xd060f6 == null ? void 0 : _0xd060f6["length"]) ? _0xd060f6["comments"]["first"]["author"]["id"] : _0x419179["me"]["id"], { "classes": _0x4149ad, "attributes": { "data-comment": _0x3b503, "data-author-id": _0x2eaa38 } };
     } }), _0xaf02b5["conversion"]["for"]("dataDowncast")["markerToData"]({ "model": "comment", "view": (_0x19538a, { options: _0x11f941 }) => {
-      var _a4;
+      var _a3;
       if (_0x11f941["showCommentHighlights"]) return null;
       const _0x43473f = _0xaf02b5["plugins"]["get"](o$7), _0x91232c = _0xaf02b5["model"]["markers"]["get"](_0x19538a), { id: _0x447f0c, part: _0x381c46 } = er(_0x19538a);
-      return _0x91232c && !_0x91232c["affectsData"] || _0x11f941["ignoreResolvedComments"] && ((_a4 = _0x43473f["getCommentThread"](_0x447f0c)) == null ? void 0 : _a4["isResolved"]) ? null : { "group": "comment", "name": _0x381c46 ? _0x447f0c + ":" + _0x381c46 : _0x447f0c };
+      return _0x91232c && !_0x91232c["affectsData"] || _0x11f941["ignoreResolvedComments"] && ((_a3 = _0x43473f["getCommentThread"](_0x447f0c)) == null ? void 0 : _a3["isResolved"]) ? null : { "group": "comment", "name": _0x381c46 ? _0x447f0c + ":" + _0x381c46 : _0x447f0c };
     } }), _0xaf02b5["conversion"]["for"]("upcast")["elementToElement"]({ "view": { "name": "comment", "attributes": { "id": /^\w/ } }, "model": (_0x30f0f8, { writer: _0x4966a7 }) => _0x4966a7["createElement"]("$marker", { "data-name": "comment:" + _0x30f0f8["getAttribute"]("id") }) }), _0xaf02b5["conversion"]["for"]("upcast")["dataToMarker"]({ "view": "comment" });
   }
   ["_handleMarkerAddAndRemove"]() {
@@ -134639,7 +134639,7 @@ let r$5 = class r4 extends Plugin {
   ["_attachMarkerToThread"](_0x46fd01, _0x3665e4) {
     const _0x44ad0c = this["editor"], _0x4c9264 = _0x44ad0c["plugins"]["get"](o$7);
     let _0x2bb090 = _0x4c9264["getCommentThread"](_0x3665e4);
-    const _0x2314e2 = _0x44ad0c["config"]["get"]("collaboration.channelId"), _0x266e2c = _0x44ad0c["plugins"]["get"](P$4);
+    const _0x2314e2 = _0x44ad0c["config"]["get"]("collaboration.channelId"), _0x266e2c = _0x44ad0c["plugins"]["get"](P$5);
     if (_0x2bb090 && (_0x2bb090["unlinkedAt"] && _0x2bb090["setUnlinkedAt"](null), _0x2bb090["isAttached"])) return _0x2bb090;
     return !this["getAllMarkersForId"](_0x3665e4)[0]["managedUsingOperations"] ? _0x44ad0c["editing"]["view"]["once"]("render", () => {
       if (_0x4c9264["getCommentThread"](_0x3665e4)) return;
@@ -134702,7 +134702,7 @@ function dt$1(_0x350f3d, _0x58557d) {
 function mt$1(_0x29d098) {
   return "comment" === er(_0x29d098["name"])["group"];
 }
-let i$b = class i3 extends Plugin {
+let i$c = class i3 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -134718,7 +134718,7 @@ let i$b = class i3 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [o$7, r$5, P$4, O$5];
+    return [o$7, r$7, P$5, O$5];
   }
   get ["CommentsListView"]() {
     return te$1;
@@ -134727,7 +134727,7 @@ let i$b = class i3 extends Plugin {
     return ie;
   }
   ["init"]() {
-    const _0x5938ee = this["editor"], _0x18b15d = _0x5938ee["plugins"]["get"](o$7), _0x3bfb2c = _0x5938ee["plugins"]["get"](r$5), _0x5b854b = _0x5938ee["plugins"]["get"](O$5), _0x327d9c = _0x5938ee["plugins"]["get"](P$4);
+    const _0x5938ee = this["editor"], _0x18b15d = _0x5938ee["plugins"]["get"](o$7), _0x3bfb2c = _0x5938ee["plugins"]["get"](r$7), _0x5b854b = _0x5938ee["plugins"]["get"](O$5), _0x327d9c = _0x5938ee["plugins"]["get"](P$5);
     _0x5938ee["ui"]["componentFactory"]["add"]("comment", () => {
       const _0x3a1e90 = this["_createUIButton"](ButtonView);
       return _0x3a1e90["tooltip"] = true, _0x3a1e90;
@@ -134772,7 +134772,7 @@ let i$b = class i3 extends Plugin {
     }), _0x2a7099;
   }
 };
-let s$b = class s3 extends Plugin {
+let s$c = class s3 extends Plugin {
   static get ["pluginName"]() {
     return "CommentsOnly";
   }
@@ -134783,7 +134783,7 @@ let s$b = class s3 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [r$5];
+    return [r$7];
   }
   constructor(_0x19ff0c) {
     super(_0x19ff0c), this["set"]("isEnabled", false), this["on"]("change:isEnabled", (_0x3d3e6d, _0x3bdd5e, _0x541427) => {
@@ -134794,20 +134794,20 @@ let s$b = class s3 extends Plugin {
     !this["isEnabled"] && this["editor"]["config"]["get"]("commentsOnly") && (this["isEnabled"] = true);
   }
   ["_enableCommentsOnlyMode"]() {
-    var _a4;
+    var _a3;
     for (const [_0x493906, _0x232b64] of this["editor"]["commands"]) _0x232b64["affectsData"] && "addCommentThread" !== _0x493906 && _0x232b64["forceDisabled"]("commentsOnlyMode");
     (this["editor"]["plugins"]["has"]("DragDrop") && this["editor"]["plugins"]["get"]("DragDrop")["forceDisabled"]("commentsOnlyMode"), this["editor"]["plugins"]["has"]("SourceEditing")) && this["editor"]["plugins"]["get"]("SourceEditing")["forceDisabled"]("commentsOnlyMode");
-    (_a4 = this["editor"]["commands"]["get"]("editSource")) == null ? void 0 : _a4["forceDisabled"]("commentsOnlyMode");
+    (_a3 = this["editor"]["commands"]["get"]("editSource")) == null ? void 0 : _a3["forceDisabled"]("commentsOnlyMode");
     const _0xa099f5 = this["editor"]["editing"]["view"]["document"];
     this["listenTo"](_0xa099f5, "cut", (_0xdbf89e) => _0xdbf89e["stop"](), { "priority": "highest" }), this["listenTo"](_0xa099f5, "clipboardInput", (_0x5c9c15) => _0x5c9c15["stop"](), { "priority": "highest" }), this["listenTo"](_0xa099f5, "delete", (_0x39e449) => _0x39e449["stop"](), { "priority": "highest" });
   }
   ["_disableCommentsOnlyMode"]() {
-    var _a4;
+    var _a3;
     for (const [_0x18151b, _0x28fddd] of this["editor"]["commands"]) _0x28fddd["affectsData"] && "addCommentThread" !== _0x18151b && _0x28fddd["clearForceDisabled"]("commentsOnlyMode");
-    this["editor"]["plugins"]["has"]("SourceEditing") && this["editor"]["plugins"]["get"]("SourceEditing")["clearForceDisabled"]("commentsOnlyMode"), (_a4 = this["editor"]["commands"]["get"]("editSource")) == null ? void 0 : _a4["clearForceDisabled"]("commentsOnlyMode"), this["stopListening"](this["editor"]["editing"]["view"]["document"]);
+    this["editor"]["plugins"]["has"]("SourceEditing") && this["editor"]["plugins"]["get"]("SourceEditing")["clearForceDisabled"]("commentsOnlyMode"), (_a3 = this["editor"]["commands"]["get"]("editSource")) == null ? void 0 : _a3["clearForceDisabled"]("commentsOnlyMode"), this["stopListening"](this["editor"]["editing"]["view"]["document"]);
   }
 };
-class M extends ContextPlugin {
+let M$1 = class M2 extends ContextPlugin {
   constructor(_0x382f8d) {
     super(_0x382f8d);
     __publicField(this, "activeUIs");
@@ -134912,7 +134912,7 @@ class M extends ContextPlugin {
     }
     if (_0x4e9f90["length"] > 1) throw new CKEditorError("annotationsuis-annotation-mismatch", null, { "matchedUIs": _0x4e9f90, "annotationType": _0x409e42["type"] });
   }
-}
+};
 const pi = toUnit("px");
 let F$3 = class F3 extends View {
   constructor(_0x25918a) {
@@ -135011,11 +135011,11 @@ let z$3 = class z2 extends ContextPlugin {
     _0x3fcff2 && this["setContainer"](_0x3fcff2);
   }
   ["setContainer"](_0x234a5f) {
-    if (!y$2(_0x234a5f)) throw new CKEditorError("sidebar-setcontainer-invalid-element");
+    if (!y$3(_0x234a5f)) throw new CKEditorError("sidebar-setcontainer-invalid-element");
     this["container"] = _0x234a5f;
   }
   ["_attachToContainer"]({ viewClass: _0x6bf1ad = "", spaceBetweenItems: _0x280f8f = 25 } = {}) {
-    if (!y$2(this["container"])) throw new CKEditorError("sidebar-attachtocontainer-missing-container", this);
+    if (!y$3(this["container"])) throw new CKEditorError("sidebar-attachtocontainer-missing-container", this);
     this["container"]["appendChild"](this["view"]["element"]), this["view"]["class"] = _0x6bf1ad, this["_spaceBetweenItems"] = _0x280f8f;
   }
   ["rearrange"]({ removedAnnotation: _0x375076, previousAnnotation: _0x5d87f1, nextAnnotation: _0x4e2617 }) {
@@ -135092,17 +135092,17 @@ let z$3 = class z2 extends ContextPlugin {
     }), _0x5468b7;
   }
   ["_updateLastItem"]() {
-    var _a4;
-    this["_lastItem"] = ((_a4 = this["_annotations"]) == null ? void 0 : _a4["last"]) ? this["getSidebarItemView"](this["_annotations"]["last"]) : null;
+    var _a3;
+    this["_lastItem"] = ((_a3 = this["_annotations"]) == null ? void 0 : _a3["last"]) ? this["getSidebarItemView"](this["_annotations"]["last"]) : null;
   }
   ["_getItemBefore"](_0x5a82ff) {
-    var _a4;
-    const _0x21847 = this["_sidebarItemViewToAnnotation"]["get"](_0x5a82ff), _0x1aaf54 = _0x21847 && ((_a4 = this["_annotations"]) == null ? void 0 : _a4["get"](this["_annotations"]["getIndex"](_0x21847) - 1));
+    var _a3;
+    const _0x21847 = this["_sidebarItemViewToAnnotation"]["get"](_0x5a82ff), _0x1aaf54 = _0x21847 && ((_a3 = this["_annotations"]) == null ? void 0 : _a3["get"](this["_annotations"]["getIndex"](_0x21847) - 1));
     return _0x1aaf54 && this["getSidebarItemView"](_0x1aaf54) || null;
   }
   ["_getItemAfter"](_0x38bd20) {
-    var _a4;
-    const _0x37e523 = this["_sidebarItemViewToAnnotation"]["get"](_0x38bd20), _0x37a56c = _0x37e523 && ((_a4 = this["_annotations"]) == null ? void 0 : _a4["get"](this["_annotations"]["getIndex"](_0x37e523) + 1));
+    var _a3;
+    const _0x37e523 = this["_sidebarItemViewToAnnotation"]["get"](_0x38bd20), _0x37a56c = _0x37e523 && ((_a3 = this["_annotations"]) == null ? void 0 : _a3["get"](this["_annotations"]["getIndex"](_0x37e523) + 1));
     return _0x37a56c && this["getSidebarItemView"](_0x37a56c) || null;
   }
   ["_alignBeforeItem"](_0x5f1f5a, _0x52e9c2) {
@@ -135141,10 +135141,10 @@ let z$3 = class z2 extends ContextPlugin {
 function R$5(_0x29a413, _0x1e6aa9) {
   return Math["max"](_0x29a413 - _0x1e6aa9, 0);
 }
-function y$2(_0x497511) {
+function y$3(_0x497511) {
   return null !== _0x497511 && "object" == typeof _0x497511 && 1 === _0x497511["nodeType"];
 }
-let e$5 = class e2 extends ContextPlugin {
+let e$6 = class e2 extends ContextPlugin {
   constructor(_0x13d9af) {
     super(_0x13d9af);
     __publicField(this, "isAttached");
@@ -135156,7 +135156,7 @@ let e$5 = class e2 extends ContextPlugin {
     }, 250, { "leading": false });
   }
   static get ["requires"]() {
-    return [z$3, M];
+    return [z$3, M$1];
   }
   static get ["pluginName"]() {
     return "WideSidebar";
@@ -135168,7 +135168,7 @@ let e$5 = class e2 extends ContextPlugin {
     return true;
   }
   ["init"]() {
-    const _0x2be763 = this["context"]["plugins"]["get"](M), _0x4a96fa = this["context"]["plugins"]["get"](z$3);
+    const _0x2be763 = this["context"]["plugins"]["get"](M$1), _0x4a96fa = this["context"]["plugins"]["get"](z$3);
     _0x2be763["register"]("wideSidebar", this), _0x4a96fa["container"] && _0x2be763["switchTo"]("wideSidebar");
   }
   ["setActiveAnnotation"](_0x1f7cb1) {
@@ -135239,7 +135239,7 @@ let e$5 = class e2 extends ContextPlugin {
     this["stopListening"](_0xcc28ed), this["_editorAnnotations"]["remove"](_0xcc28ed);
   }
 };
-let C$3 = class C2 extends ButtonView {
+let C$5 = class C2 extends ButtonView {
   constructor(_0x2f0b50) {
     super(_0x2f0b50);
     __publicField(this, "counterView");
@@ -135247,7 +135247,7 @@ let C$3 = class C2 extends ButtonView {
     this["set"]("isDirty", false), this["set"]("number", 0), this["bind"]("_badge")["to"](this, "isDirty", this, "number", (_0x1976e4, _0x24f9fa) => _0x1976e4 ? "..." : _0x24f9fa["toString"]()), this["set"]("annotationType", ""), this["icon"] = addComment, this["extendTemplate"]({ "attributes": { "class": ["ck-annotation-counter"] } }), this["counterView"] = new View(), this["counterView"]["setTemplate"]({ "tag": "span", "attributes": { "class": ["ck-annotation-counter__badge", _0xf87b4a["to"]("annotationType", (_0x5e6f81) => "ck-annotation-counter__badge--" + _0x5e6f81), _0xf87b4a["if"]("isDirty", "ck-annotation-counter__badge--edit-mode")] }, "children": [{ "text": _0xf87b4a["to"]("_badge") }] }), this["children"]["add"](this["counterView"]);
   }
 };
-let n$5 = class n5 extends ContextPlugin {
+let n$7 = class n5 extends ContextPlugin {
   constructor(_0x44057a) {
     super(_0x44057a);
     __publicField(this, "isAttached");
@@ -135263,7 +135263,7 @@ let n$5 = class n5 extends ContextPlugin {
     }, 250, { "leading": false });
   }
   static get ["requires"]() {
-    return [z$3, M];
+    return [z$3, M$1];
   }
   static get ["pluginName"]() {
     return "NarrowSidebar";
@@ -135275,7 +135275,7 @@ let n$5 = class n5 extends ContextPlugin {
     return true;
   }
   ["init"]() {
-    this["context"]["plugins"]["get"](M)["register"]("narrowSidebar", this), this["bodyCollection"] = new BodyCollection(this["context"]["locale"]), this["balloonPanelView"] = new BalloonPanelView(this["context"]["locale"]), this["bodyCollection"]["attachToDom"](), this["bodyCollection"]["add"](this["balloonPanelView"]);
+    this["context"]["plugins"]["get"](M$1)["register"]("narrowSidebar", this), this["bodyCollection"] = new BodyCollection(this["context"]["locale"]), this["balloonPanelView"] = new BalloonPanelView(this["context"]["locale"]), this["bodyCollection"]["attachToDom"](), this["bodyCollection"]["add"](this["balloonPanelView"]);
   }
   ["attach"](_0x1300b9) {
     this["annotations"] = _0x1300b9;
@@ -135287,7 +135287,7 @@ let n$5 = class n5 extends ContextPlugin {
       });
     }), _0x1c0eb8["_attachToContainer"]({ "viewClass": "ck-sidebar--narrow", "spaceBetweenItems": 5 });
     const _0x508843 = (_0x515953) => {
-      const _0x1889cd = new C$3(this["context"]["locale"]);
+      const _0x1889cd = new C$5(this["context"]["locale"]);
       _0x1c0eb8["addAnnotation"](_0x515953, _0x1889cd), this["_annotationToNarrowView"]["set"](_0x515953, _0x1889cd), _0x1889cd["bind"]("isDirty", "annotationType", "number")["to"](_0x515953["view"], "isDirty", "type", "length"), _0x1889cd["on"]("execute", () => {
         this["_manuallyClosedAnnotationViews"]["clear"](), _0x366b2e["content"]["first"] !== _0x515953["view"] ? (this["_showBalloon"](_0x515953), _0x515953["view"]["element"]["focus"](), this["setActiveAnnotation"](_0x515953)) : this["setActiveAnnotation"](null);
       });
@@ -135390,7 +135390,7 @@ let n$5 = class n5 extends ContextPlugin {
     this["stopListening"](_0x5e656f);
   }
 };
-let c$8 = class c2 extends Plugin {
+let c$9 = class c2 extends Plugin {
   constructor(_0x1342e2) {
     super(_0x1342e2);
     __publicField(this, "isAttached");
@@ -135403,7 +135403,7 @@ let c$8 = class c2 extends Plugin {
     _0x1342e2["editing"]["view"]["addObserver"](MouseObserver), this["isAttached"] = false, this["set"]("activeAnnotation", null), this["annotations"] = null, this["_manuallyClosed"] = /* @__PURE__ */ new Set(), this["_balloon"] = _0x1342e2["plugins"]["get"](ContextualBalloon), this["_addedAnnotations"] = /* @__PURE__ */ new Set(), this["_selectedAnnotations"] = [], this["_forceRefresh"] = false;
   }
   static get ["requires"]() {
-    return [P$4, ContextualBalloon, M];
+    return [P$5, ContextualBalloon, M$1];
   }
   static get ["pluginName"]() {
     return "InlineAnnotations";
@@ -135415,7 +135415,7 @@ let c$8 = class c2 extends Plugin {
     return true;
   }
   ["init"]() {
-    const _0x1b4400 = this["editor"]["plugins"]["get"](M);
+    const _0x1b4400 = this["editor"]["plugins"]["get"](M$1);
     _0x1b4400["context"] === this["editor"] && (_0x1b4400["register"]("inline", this), this["editor"]["keystrokes"]["set"]("Esc", (_0x4f9dc3, _0x30bdd3) => {
       const _0x5bd419 = this["_balloon"];
       if (this["isAttached"] && _0x5bd419["visibleView"]) {
@@ -135425,7 +135425,7 @@ let c$8 = class c2 extends Plugin {
     }));
   }
   ["afterInit"]() {
-    const _0x4cf18b = this["editor"]["plugins"]["get"](M);
+    const _0x4cf18b = this["editor"]["plugins"]["get"](M$1);
     _0x4cf18b["context"] === this["editor"] && (_0x4cf18b["hasActive"]() || _0x4cf18b["switchTo"]("inline"));
   }
   ["setActiveAnnotation"](_0x2a3c8c) {
@@ -135433,10 +135433,10 @@ let c$8 = class c2 extends Plugin {
   }
   ["attach"](_0x4e2275) {
     this["annotations"] = _0x4e2275;
-    const _0x1a371f = this["editor"]["plugins"]["get"](M), _0x580131 = this["_balloon"];
+    const _0x1a371f = this["editor"]["plugins"]["get"](M$1), _0x580131 = this["_balloon"];
     if (this["isAttached"]) throw new CKEditorError("inlineannotations-attach-already-attached", this);
     if (_0x1a371f["context"] !== this["editor"]) throw new CKEditorError("inlineannotations-not-allowed-with-context", this);
-    const _0x353e95 = this["editor"]["plugins"]["get"](P$4);
+    const _0x353e95 = this["editor"]["plugins"]["get"](P$5);
     this["listenTo"](_0x353e95, "refresh", () => {
       const _0x26b995 = _0x353e95["getOrderedSelectedAnnotations"]({ "annotations": this["annotations"], "activeAnnotation": this["activeAnnotation"] });
       var _0x552693, _0xd074da;
@@ -135544,7 +135544,7 @@ let tt$2 = class tt2 extends View {
     });
   }
 };
-let f$6 = class f2 extends ContextPlugin {
+let f$7 = class f2 extends ContextPlugin {
   static get ["pluginName"]() {
     return "CommentsArchive";
   }
@@ -135579,7 +135579,7 @@ let f$6 = class f2 extends ContextPlugin {
     return _0x5a3c28 > -1 ? _0x5a3c28 : this["archivedThreads"]["length"];
   }
 };
-let a$7 = class a3 extends Plugin {
+let a$9 = class a3 extends Plugin {
   constructor(_0x42ac14) {
     super(_0x42ac14);
     __publicField(this, "commentsArchiveView");
@@ -135603,7 +135603,7 @@ let a$7 = class a3 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [f$6, Dialog];
+    return [f$7, Dialog];
   }
   ["init"]() {
     const _0x5a590c = this["editor"], _0x215047 = this["_hideDialogOnAnnotationEscape"]["bind"](this);
@@ -135611,7 +135611,7 @@ let a$7 = class a3 extends Plugin {
       const _0x4add7c = this["_createCommentsArchiveButton"](MenuBarMenuListItemButtonView);
       return _0x4add7c["set"]({ "role": "menuitemcheckbox" }), _0x4add7c;
     });
-    const _0x333b84 = _0x5a590c["plugins"]["get"](f$6), _0x97600c = _0x5a590c["plugins"]["get"]("Annotations"), _0x1cb958 = _0x5a590c["plugins"]["get"]("CommentsRepository");
+    const _0x333b84 = _0x5a590c["plugins"]["get"](f$7), _0x97600c = _0x5a590c["plugins"]["get"]("Annotations"), _0x1cb958 = _0x5a590c["plugins"]["get"]("CommentsRepository");
     _0x333b84["archivedThreads"]["forEach"]((_0x3181) => {
       this["_handleNewThread"](_0x3181);
     }), this["listenTo"](_0x333b84["archivedThreads"], "add", (_0xb79b8a, _0x3c486b) => {
@@ -135647,7 +135647,7 @@ let a$7 = class a3 extends Plugin {
     }
   }
   ["_calculatePosition"](_0x208b1f) {
-    const _0xa2b954 = this["editor"]["config"]["get"]("collaboration.channelId"), _0x3f6218 = [...this["editor"]["plugins"]["get"](f$6)["archivedThreads"]]["filter"]((_0x44ed3c) => _0x44ed3c["channelId"] === _0xa2b954)["findIndex"]((_0x5557a3) => _0x5557a3["archivedAt"] < _0x208b1f);
+    const _0xa2b954 = this["editor"]["config"]["get"]("collaboration.channelId"), _0x3f6218 = [...this["editor"]["plugins"]["get"](f$7)["archivedThreads"]]["filter"]((_0x44ed3c) => _0x44ed3c["channelId"] === _0xa2b954)["findIndex"]((_0x5557a3) => _0x5557a3["archivedAt"] < _0x208b1f);
     return _0x3f6218 < 0 || _0x3f6218 > this["annotationViews"]["length"] ? this["annotationViews"]["length"] : _0x3f6218 - 1;
   }
   ["_toggleDialog"]() {
@@ -135659,9 +135659,9 @@ let a$7 = class a3 extends Plugin {
     return _0x50855f["bind"]("isEnabled")["to"](this, "isEnabled"), _0x50855f["bind"]("isOn")["to"](_0x754fba, "id", (_0x193fea) => "commentsArchive" === _0x193fea), _0x50855f["set"]({ "label": E$4(_0x2f8807, "COMMENTS_ARCHIVE"), "icon": commentsArchive, "isToggleable": true }), _0x5aaf10 && (_0x50855f["tooltip"] = true), this["listenTo"](_0x50855f, "execute", () => this["_toggleDialog"]()), _0x50855f;
   }
 };
-let p$9 = class p2 extends Plugin {
+let p$a = class p2 extends Plugin {
   static get ["requires"]() {
-    return [o$7, r$5, i$b, f$6, a$7, s$b, e$5, n$5, c$8];
+    return [o$7, r$7, i$c, f$7, a$9, s$c, e$6, n$7, c$9];
   }
   static get ["pluginName"]() {
     return "Comments";
@@ -135673,12 +135673,12 @@ let p$9 = class p2 extends Plugin {
     return true;
   }
 };
-function p$8(_0xafe56f) {
+function p$9(_0xafe56f) {
   let _0x12cfae = "";
   for (const _0x38b668 of _0xafe56f["getChildren"]()) _0x38b668 instanceof Text && (_0x12cfae += _0x38b668["data"]);
   return _0x12cfae;
 }
-let i$a = class i4 extends Plugin {
+let i$b = class i4 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "_headingNames", []);
@@ -135710,7 +135710,7 @@ let i$a = class i4 extends Plugin {
     const _0x67d993 = this["editor"], _0x2fcedd = [], _0x95f5d3 = this["_headingNames"];
     for (const _0x1a9e5d of _0x67d993["model"]["document"]["getRootNames"]()) _0x145a43(_0x67d993["model"]["document"]["getRoot"](_0x1a9e5d));
     function _0x145a43(_0x3aa82b) {
-      for (const _0xa6c677 of _0x3aa82b["getChildren"]()) _0xa6c677["is"]("element") && (_0x95f5d3["includes"](_0xa6c677["name"]) && _0x2fcedd["push"]({ "level": _0x95f5d3["indexOf"](_0xa6c677["name"]) + 1, "text": p$8(_0xa6c677), "modelElement": _0xa6c677 }), _0x145a43(_0xa6c677));
+      for (const _0xa6c677 of _0x3aa82b["getChildren"]()) _0xa6c677["is"]("element") && (_0x95f5d3["includes"](_0xa6c677["name"]) && _0x2fcedd["push"]({ "level": _0x95f5d3["indexOf"](_0xa6c677["name"]) + 1, "text": p$9(_0xa6c677), "modelElement": _0xa6c677 }), _0x145a43(_0xa6c677));
     }
     return _0x2fcedd;
   }
@@ -135734,7 +135734,7 @@ let i$a = class i4 extends Plugin {
     this["_headingNames"] = _0x1d9013;
   }
 };
-function j$1(_0x3899c1, _0x1c9530) {
+function j$2(_0x3899c1, _0x1c9530) {
   const t2 = _0x3899c1["t"];
   switch (_0x1c9530) {
     case "Empty heading":
@@ -135749,14 +135749,14 @@ function j$1(_0x3899c1, _0x1c9530) {
       return _0x1c9530;
   }
 }
-let $$1 = class $2 extends View {
+let $$2 = class $2 extends View {
   constructor(_0x2ce63e, _0x17db2e = false) {
     super(_0x2ce63e);
-    const _0x76414c = this["bindTemplate"], _0x84957e = _0x17db2e ? "[" + j$1(_0x2ce63e, "Empty heading") + "]" : "";
+    const _0x76414c = this["bindTemplate"], _0x84957e = _0x17db2e ? "[" + j$2(_0x2ce63e, "Empty heading") + "]" : "";
     this["set"]("text", ""), this["set"]("level", 1), this["set"]("isActive", false), this["bind"]("isEmpty")["to"](this, "text", (_0x265420) => !_0x265420), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-reset", "ck-document-outline__item", _0x76414c["to"]("level", (_0x480156) => "ck-document-outline__item_level-" + _0x480156), _0x76414c["if"]("isActive", "ck-document-outline__item_active"), _0x76414c["if"]("isEmpty", "ck-document-outline__item_empty")], "title": _0x76414c["to"]("text") }, "children": [{ "text": _0x76414c["to"]("text", (_0x458c78) => _0x458c78 || _0x84957e) }], "on": { "click": _0x76414c["to"]("click") } });
   }
 };
-let l$2 = class l3 extends View {
+let l$3 = class l3 extends View {
   constructor(_0x18fa9e, _0x24e914 = false, _0x49fe4c) {
     super(_0x18fa9e);
     __publicField(this, "items");
@@ -135764,7 +135764,7 @@ let l$2 = class l3 extends View {
     __publicField(this, "showEmptyHeadingText");
     this["showEmptyHeadingText"] = _0x24e914, this["set"]("activeItemIndex", -1), this["documentOutlineContainer"] = _0x49fe4c, this["items"] = this["createCollection"](), this["items"]["delegate"]("click")["to"](this), this["on"]("click", this["_handleItemClick"]["bind"](this)), this["on"]("change:activeItemIndex", (_0x4c3da7, _0x45ef4e, _0x331aa5, _0x503958) => {
       this["_setActiveItem"](_0x503958, _0x331aa5);
-    }), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-reset", "ck-document-outline"], "dir": _0x18fa9e["contentLanguageDirection"], "data-document-outline-empty-placeholder": j$1(_0x18fa9e, "Editor headings will appear here as you type."), "tabindex": -1 }, "children": this["items"] });
+    }), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-reset", "ck-document-outline"], "dir": _0x18fa9e["contentLanguageDirection"], "data-document-outline-empty-placeholder": j$2(_0x18fa9e, "Editor headings will appear here as you type."), "tabindex": -1 }, "children": this["items"] });
   }
   ["sync"](_0x2bcb9f) {
     _0x2bcb9f["forEach"]((_0x50cf50) => {
@@ -135780,7 +135780,7 @@ let l$2 = class l3 extends View {
   }
   ["_insertItem"](_0x4915ca, ..._0x54a07b) {
     const _0x35fd23 = _0x54a07b["map"]((_0x553fcc, _0x57d342) => {
-      const _0x4bd842 = new $$1(this["locale"], this["showEmptyHeadingText"]);
+      const _0x4bd842 = new $$2(this["locale"], this["showEmptyHeadingText"]);
       return _0x4bd842["text"] = _0x553fcc["text"], _0x4bd842["level"] = _0x553fcc["level"], _0x4915ca + _0x57d342 === this["activeItemIndex"] && (_0x4bd842["isActive"] = true), _0x4bd842;
     });
     this["items"]["addMany"](_0x35fd23, _0x4915ca);
@@ -135801,13 +135801,13 @@ let l$2 = class l3 extends View {
     super["destroy"](), this["element"]["remove"]();
   }
 };
-let n$4 = class n6 extends Plugin {
+let n$6 = class n6 extends Plugin {
   constructor(_0x56ed79) {
     super(_0x56ed79);
     __publicField(this, "view");
     __publicField(this, "_currentOutlineDefinitions");
     __publicField(this, "_updateActiveDefinitionFromViewportThrottled");
-    this["view"] = new l$2(_0x56ed79["locale"], this["editor"]["config"]["get"]("documentOutline.showEmptyHeadings"), this["editor"]["config"]["get"]("documentOutline.container")), this["_currentOutlineDefinitions"] = [], this["_updateActiveDefinitionFromViewportThrottled"] = throttle(this["_updateActiveDefinitionOnViewportChange"]["bind"](this), 100);
+    this["view"] = new l$3(_0x56ed79["locale"], this["editor"]["config"]["get"]("documentOutline.showEmptyHeadings"), this["editor"]["config"]["get"]("documentOutline.container")), this["_currentOutlineDefinitions"] = [], this["_updateActiveDefinitionFromViewportThrottled"] = throttle(this["_updateActiveDefinitionOnViewportChange"]["bind"](this), 100);
   }
   static get ["pluginName"]() {
     return "DocumentOutlineUI";
@@ -136034,28 +136034,28 @@ let n$4 = class n6 extends Plugin {
       }
     }
     if (void 0 === _0x4149fd) return;
-    const _0x5027a0 = d$4(_0x1a8f04["editing"], this["_currentOutlineDefinitions"], _0x4149fd);
+    const _0x5027a0 = d$6(_0x1a8f04["editing"], this["_currentOutlineDefinitions"], _0x4149fd);
     _0x5027a0 ? this["_setActiveViewItem"](this["_currentOutlineDefinitions"]["indexOf"](_0x5027a0)) : this["_setActiveViewItem"](-1);
   }
 };
-function d$4(_0x3c28d2, _0x523922, _0x514fe9, _0x49bd67 = 0, _0x5285dc = _0x523922["length"] - 1) {
+function d$6(_0x3c28d2, _0x523922, _0x514fe9, _0x49bd67 = 0, _0x5285dc = _0x523922["length"] - 1) {
   const _0x2773cf = Math["floor"](_0x49bd67 + (_0x5285dc - _0x49bd67) / 2);
   if (_0x5285dc >= _0x49bd67) {
     const _0x134bfe = _0x523922[_0x2773cf], _0x2d91c9 = _0x3c28d2["mapper"]["toViewElement"](_0x134bfe["modelElement"]);
     if (!_0x2d91c9) return null;
     const _0x5d0cbe = _0x3c28d2["view"]["domConverter"]["mapViewToDom"](_0x2d91c9);
-    return new Rect(_0x5d0cbe)["bottom"] > _0x514fe9 ? d$4(_0x3c28d2, _0x523922, _0x514fe9, _0x49bd67, _0x2773cf - 1) : d$4(_0x3c28d2, _0x523922, _0x514fe9, _0x2773cf + 1, _0x5285dc);
+    return new Rect(_0x5d0cbe)["bottom"] > _0x514fe9 ? d$6(_0x3c28d2, _0x523922, _0x514fe9, _0x49bd67, _0x2773cf - 1) : d$6(_0x3c28d2, _0x523922, _0x514fe9, _0x2773cf + 1, _0x5285dc);
   }
   return _0x2773cf < 0 ? null : _0x523922[_0x2773cf];
 }
-let u$5 = class u3 extends Plugin {
+let u$6 = class u3 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
     __publicField(this, "_licenseKeyCheckInterval");
   }
   static get ["requires"]() {
-    return [i$a, n$4];
+    return [i$b, n$6];
   }
   static get ["pluginName"]() {
     return "DocumentOutline";
@@ -136096,7 +136096,7 @@ let O$4 = class O4 extends Command$1 {
     this["isEnabled"] = null !== (_0x43facd && _0x25d039["schema"]["findAllowedParent"](_0x43facd, "tableOfContents"));
   }
 };
-let b$4 = class b2 extends Plugin {
+let b$6 = class b2 extends Plugin {
   static get ["pluginName"]() {
     return "HeadingId";
   }
@@ -136161,7 +136161,7 @@ let b$4 = class b2 extends Plugin {
     });
   }
 };
-let s$a = class s4 extends Plugin {
+let s$b = class s4 extends Plugin {
   constructor(_0xd3789d) {
     super(_0xd3789d);
     __publicField(this, "_currentOutlineDefinitions");
@@ -136179,7 +136179,7 @@ let s$a = class s4 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [Widget, i$a, b$4];
+    return [Widget, i$b, b$6];
   }
   ["init"]() {
     const _0x3e07e0 = this["editor"], _0x4615dd = _0x3e07e0["editing"]["view"]["document"];
@@ -136392,13 +136392,13 @@ let s$a = class s4 extends Plugin {
     _0x10faec["for"]("upcast")["elementToElement"]({ "model": "tableOfContents", "view": { "name": "div", "classes": "table-of-contents" } }), _0x10faec["for"]("dataDowncast")["elementToStructure"]({ "model": "tableOfContents", "view": (_0xfcd9eb, { writer: _0x2d23b4 }) => this["_createTableOfContents"](_0x2d23b4, true) }), _0x10faec["for"]("editingDowncast")["elementToStructure"]({ "model": "tableOfContents", "view": (_0x81c6c0, { writer: _0x2f5aba }) => {
       this["_tableOfContentsElements"]["add"](_0x81c6c0);
       const _0x1e41ab = this["_createTableOfContents"](_0x2f5aba);
-      return toWidget(_0x1e41ab, _0x2f5aba, { "label": j$1(this["editor"]["locale"], "Table of contents") });
+      return toWidget(_0x1e41ab, _0x2f5aba, { "label": j$2(this["editor"]["locale"], "Table of contents") });
     } }), this["editor"]["data"]["registerRawContentMatcher"]({ "name": "div", "classes": "table-of-contents" }), this["editor"]["editing"]["mapper"]["on"]("viewToModelPosition", this["_redirectMapper"](), { "priority": "high" });
   }
   ["_createTableOfContents"](_0x464d95, _0x3ddca1 = false) {
-    const { locale: _0x947f12 } = this["editor"], _0x43f791 = _0x464d95["createContainerElement"]("div", { "class": "table-of-contents" + (0 === this["_currentOutlineDefinitions"]["length"] ? " table-of-contents_empty" : ""), ...!_0x3ddca1 && { "data-table-of-contents-label": j$1(_0x947f12, "Table of contents") } });
-    0 === this["_currentOutlineDefinitions"]["length"] && false === _0x3ddca1 && _0x464d95["insert"](_0x464d95["createPositionAt"](_0x43f791, "end"), _0x464d95["createContainerElement"]("p", { "class": "table-of-contents__placeholder" }, [_0x464d95["createText"](j$1(_0x947f12, "No headings were found in the document."))]));
-    const _0x43e103 = _0x3ddca1 ? "" : "[" + j$1(_0x947f12, "Empty heading") + "]";
+    const { locale: _0x947f12 } = this["editor"], _0x43f791 = _0x464d95["createContainerElement"]("div", { "class": "table-of-contents" + (0 === this["_currentOutlineDefinitions"]["length"] ? " table-of-contents_empty" : ""), ...!_0x3ddca1 && { "data-table-of-contents-label": j$2(_0x947f12, "Table of contents") } });
+    0 === this["_currentOutlineDefinitions"]["length"] && false === _0x3ddca1 && _0x464d95["insert"](_0x464d95["createPositionAt"](_0x43f791, "end"), _0x464d95["createContainerElement"]("p", { "class": "table-of-contents__placeholder" }, [_0x464d95["createText"](j$2(_0x947f12, "No headings were found in the document."))]));
+    const _0x43e103 = _0x3ddca1 ? "" : "[" + j$2(_0x947f12, "Empty heading") + "]";
     let _0x2df7f6 = _0x43f791;
     return this["_currentOutlineDefinitions"]["forEach"]((_0x12389d, _0x47433e, _0x153375) => {
       const _0x1ce1b5 = this["editor"]["model"]["hasContent"](_0x12389d["modelElement"], { "ignoreWhitespaces": true }), _0x356949 = _0x1ce1b5 ? _0x12389d["text"] : _0x43e103, _0x27ef78 = _0x12389d["modelElement"]["getAttribute"](this["_headingIdModelAttributeName"]), _0x2f4e14 = _0x464d95["createContainerElement"]("a", { "href": "#" + _0x27ef78, ...!_0x3ddca1 && { "tabindex": "-1" } }, [_0x464d95["createText"](_0x356949)]), _0xe9435b = this["editor"]["config"]["get"]("documentOutline.showEmptyHeadings");
@@ -136468,7 +136468,7 @@ let o$6 = class o3 extends Plugin {
   }
   ["_createButton"](_0x5c92ba) {
     const _0x6a2f35 = this["editor"], _0x2d3044 = _0x6a2f35["locale"], _0x55782a = _0x6a2f35["commands"]["get"]("insertTableOfContents"), _0x3031c3 = new _0x5c92ba(_0x2d3044);
-    return _0x3031c3["set"]({ "label": j$1(_0x2d3044, "Table of contents"), "icon": tableOfContents }), _0x3031c3["bind"]("isEnabled")["to"](_0x55782a, "isEnabled"), this["listenTo"](_0x3031c3, "execute", () => {
+    return _0x3031c3["set"]({ "label": j$2(_0x2d3044, "Table of contents"), "icon": tableOfContents }), _0x3031c3["bind"]("isEnabled")["to"](_0x55782a, "isEnabled"), this["listenTo"](_0x3031c3, "execute", () => {
       _0x6a2f35["execute"]("insertTableOfContents"), _0x6a2f35["editing"]["view"]["focus"]();
     }), _0x3031c3;
   }
@@ -136476,9 +136476,9 @@ let o$6 = class o3 extends Plugin {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
 };
-let a$6 = class a4 extends Plugin {
+let a$8 = class a4 extends Plugin {
   static get ["requires"]() {
-    return [s$a, o$6];
+    return [s$b, o$6];
   }
   static get ["pluginName"]() {
     return "TableOfContents";
@@ -136490,7 +136490,7 @@ let a$6 = class a4 extends Plugin {
     return true;
   }
 };
-function d$3(_0x11bed7, _0x269d59) {
+function d$5(_0x11bed7, _0x269d59) {
   const t2 = _0x11bed7["t"];
   switch (_0x269d59) {
     case "Export to PDF":
@@ -136509,7 +136509,7 @@ function d$3(_0x11bed7, _0x269d59) {
       return _0x269d59;
   }
 }
-let i$9 = class i5 extends Command$1 {
+let i$a = class i5 extends Command$1 {
   constructor(_0x259bb4) {
     super(_0x259bb4), this["set"]("isBusy", false), this["affectsData"] = false;
   }
@@ -136519,7 +136519,7 @@ let i$9 = class i5 extends Command$1 {
   ["execute"](_0x4e4d14 = {}) {
     const _0x179fe6 = this["editor"], _0x4a9a41 = _0x4e4d14["converterUrl"] || "https://pdf-converter.cke-cs.com/v1/convert/", _0x4909fd = _0x4e4d14["dataCallback"] || ((_0x5856ad) => _0x5856ad["data"]["get"]()), _0x4e6918 = _0x179fe6["plugins"]["get"]("ExportPdf"), _0x51d4b4 = _0x4e4d14["token"] || _0x4e6918["_token"];
     return this["isBusy"] = true, this["refresh"](), collectStylesheets(_0x4e4d14["stylesheets"] || ["EDITOR_STYLES"])["then"](async (_0x268eff) => {
-      if (_0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$3(_0x179fe6["locale"], "PDF export started")), _0x179fe6["plugins"]["has"]("MergeFields")) {
+      if (_0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$5(_0x179fe6["locale"], "PDF export started")), _0x179fe6["plugins"]["has"]("MergeFields")) {
         _0x4e4d14["converterOptions"] || (_0x4e4d14["converterOptions"] = {});
         const _0x5c6be4 = _0x179fe6["plugins"]["get"]("MergeFieldsEditing"), _0x2653aa = _0x5c6be4["previewMode"], { prefix: _0x485927, suffix: _0x5e6588 } = _0x179fe6["config"]["get"]("mergeFields"), _0xf88974 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP88B8AAuUB8e2ujYwAAAAASUVORK5CYII=", _0x4dcb2a = { "prefix": _0x485927, "suffix": _0x5e6588, "data": {} };
         if ("$labels" === _0x2653aa) {
@@ -136538,13 +136538,13 @@ let i$9 = class i5 extends Command$1 {
         if (200 !== _0x1a911d["status"]) throw _0x1a911d;
         return _0x1a911d["blob"]();
       })["then"]((_0xbf4d79) => {
-        _0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$3(_0x179fe6["locale"], "PDF export successful"));
+        _0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$5(_0x179fe6["locale"], "PDF export successful"));
         const _0x31fd7f = "function" == typeof _0x4e4d14["fileName"] ? _0x4e4d14["fileName"]() : _0x4e4d14["fileName"];
         this["_downloadFile"](_0xbf4d79, _0x31fd7f || "document.pdf");
       });
     })["catch"]((_0x56dc5f) => {
       const _0x5091c5 = _0x179fe6["plugins"]["get"]("Notification");
-      throw _0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$3(_0x179fe6["locale"], "PDF export failed"), { "politeness": "assertive" }), _0x5091c5["showWarning"](d$3(_0x179fe6["locale"], "An error occurred while generating the PDF.")), _0x56dc5f;
+      throw _0x179fe6["ui"]["ariaLiveAnnouncer"]["announce"](d$5(_0x179fe6["locale"], "PDF export failed"), { "politeness": "assertive" }), _0x5091c5["showWarning"](d$5(_0x179fe6["locale"], "An error occurred while generating the PDF.")), _0x56dc5f;
     })["finally"](() => {
       this["isBusy"] = false, this["refresh"]();
     });
@@ -136554,7 +136554,7 @@ let i$9 = class i5 extends Command$1 {
     _0x6eea13["href"] = window["URL"]["createObjectURL"](_0x4e11c9), _0x6eea13["download"] = _0x5ddf4e, _0x6eea13["click"](), _0x6eea13["remove"]();
   }
 };
-let s$9 = class s5 extends Plugin {
+let s$a = class s5 extends Plugin {
   static get ["pluginName"]() {
     return "ExportPdfUI";
   }
@@ -136573,7 +136573,7 @@ let s$9 = class s5 extends Plugin {
   }
   ["_createButton"](_0x4a7caf) {
     const _0x4c638f = this["editor"], _0x474842 = _0x4c638f["config"]["get"]("exportPdf") || {}, _0x287fec = _0x4c638f["commands"]["get"]("exportPdf"), _0x4cc06d = new _0x4a7caf(_0x4c638f["locale"]), _0x334396 = new SpinnerView();
-    return _0x4cc06d["children"]["add"](_0x334396), _0x334396["bind"]("isVisible")["to"](_0x287fec, "isBusy"), _0x4cc06d["iconView"]["bind"]("isVisible")["to"](_0x287fec, "isBusy", (_0x2041f4) => !_0x2041f4), _0x4cc06d["set"]({ "icon": exportPdf }), _0x4cc06d["bind"]("isEnabled")["to"](_0x287fec, "isEnabled"), _0x4cc06d["bind"]("label")["to"](_0x287fec, "isBusy", (_0x2b5bf0) => d$3(_0x4c638f["locale"], _0x2b5bf0 ? "Exporting PDF document" : "Export to PDF")), this["listenTo"](_0x4cc06d, "execute", () => {
+    return _0x4cc06d["children"]["add"](_0x334396), _0x334396["bind"]("isVisible")["to"](_0x287fec, "isBusy"), _0x4cc06d["iconView"]["bind"]("isVisible")["to"](_0x287fec, "isBusy", (_0x2041f4) => !_0x2041f4), _0x4cc06d["set"]({ "icon": exportPdf }), _0x4cc06d["bind"]("isEnabled")["to"](_0x287fec, "isEnabled"), _0x4cc06d["bind"]("label")["to"](_0x287fec, "isBusy", (_0x2b5bf0) => d$5(_0x4c638f["locale"], _0x2b5bf0 ? "Exporting PDF document" : "Export to PDF")), this["listenTo"](_0x4cc06d, "execute", () => {
       _0x4c638f["execute"]("exportPdf", _0x474842), _0x4c638f["editing"]["view"]["focus"]();
     }), _0x4cc06d;
   }
@@ -136593,18 +136593,18 @@ let o$5 = class o4 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return ["CloudServices", Notification, s$9];
+    return ["CloudServices", Notification, s$a];
   }
   ["init"]() {
     const _0x4ca0e8 = this["editor"], _0x1a2407 = _0x4ca0e8["config"]["get"]("exportPdf") || {};
-    _0x4ca0e8["commands"]["add"]("exportPdf", new i$9(_0x4ca0e8));
+    _0x4ca0e8["commands"]["add"]("exportPdf", new i$a(_0x4ca0e8));
     const _0x545cd5 = _0x4ca0e8["plugins"]["get"]("CloudServices");
     false === _0x1a2407["tokenUrl"] ? this["_token"] = null : _0x1a2407["tokenUrl"] ? _0x545cd5["registerTokenUrl"](_0x1a2407["tokenUrl"])["then"]((_0x2e0991) => {
       this["_token"] = _0x2e0991;
     }) : this["_token"] = _0x545cd5["token"];
   }
 };
-function a$5(_0x22fcff, _0x33426f = {}) {
+function a$7(_0x22fcff, _0x33426f = {}) {
   const _0x3f647f = _0x22fcff["plugins"]["has"]("Users"), _0x42cdce = _0x22fcff["plugins"]["has"]("CommentsRepository"), _0x31b671 = _0x22fcff["plugins"]["has"]("TrackChanges"), _0x22fdf9 = _0x33426f;
   if (_0x3f647f && _0x42cdce) {
     const _0x345b32 = function(_0x243f16) {
@@ -136631,7 +136631,7 @@ function a$5(_0x22fcff, _0x33426f = {}) {
   }
   return (_0x22fdf9["suggestions"] || _0x22fdf9["comments"]) && (_0x22fdf9["timezone"] = new Intl["DateTimeFormat"]()["resolvedOptions"]()["timeZone"]), _0x22fdf9;
 }
-function m$a(_0x3a19a9, _0x3f8fdc = {}) {
+function m$c(_0x3a19a9, _0x3f8fdc = {}) {
   const _0x3b4847 = _0x3a19a9["plugins"]["has"]("Users"), _0x5f4d6f = _0x3a19a9["plugins"]["has"]("CommentsRepository"), _0x447d11 = _0x3a19a9["plugins"]["has"]("TrackChanges"), _0x45dae0 = _0x3a19a9["plugins"]["has"]("MergeFields"), _0x3ebfe0 = _0x3a19a9["locale"]["contentLanguage"], _0x482bef = _0x3f8fdc, _0x26724d = {};
   if (_0x482bef["document"] = _0x482bef["document"] || {}, _0x482bef["document"]["language"] = _0x482bef["document"]["language"] || _0x3ebfe0, _0x3b4847 && _0x5f4d6f) {
     const _0x3d89ae = function(_0x286f10) {
@@ -136668,7 +136668,7 @@ function m$a(_0x3a19a9, _0x3f8fdc = {}) {
   }
   return (_0x26724d["comment_threads"] || _0x26724d["suggestions"]) && (_0x482bef["timezone"] = new Intl["DateTimeFormat"]()["resolvedOptions"]()["timeZone"], _0x482bef["collaboration_features"] = _0x26724d), _0x482bef;
 }
-function p$7(_0x1c7e91, _0xaaefe8) {
+function p$8(_0x1c7e91, _0xaaefe8) {
   const t2 = _0x1c7e91["t"];
   switch (_0xaaefe8) {
     case "Export to Word":
@@ -136687,8 +136687,8 @@ function p$7(_0x1c7e91, _0xaaefe8) {
       return _0xaaefe8;
   }
 }
-const h$5 = ["orientation", "margin_top", "margin_right", "margin_bottom", "margin_left", "format", "header", "footer", "comments", "suggestions"];
-let i$8 = class i6 extends Command$1 {
+const h$7 = ["orientation", "margin_top", "margin_right", "margin_bottom", "margin_left", "format", "header", "footer", "comments", "suggestions"];
+let i$9 = class i6 extends Command$1 {
   constructor(_0x403903) {
     super(_0x403903), this["set"]("isBusy", false), this["affectsData"] = false;
   }
@@ -136698,22 +136698,22 @@ let i$8 = class i6 extends Command$1 {
   ["execute"](_0x298096 = {}) {
     const _0x4a9a86 = this["editor"], _0x340026 = _0x298096["version"] || 2, _0x3af820 = 1 === _0x340026, _0x4c7acc = _0x298096["converterUrl"] || (_0x3af820 ? "https://docx-converter.cke-cs.com/v1/convert" : "https://docx-converter.cke-cs.com/v2/convert/html-docx"), _0x1ab9b0 = _0x298096["converterOptions"] || {}, _0x139844 = _0x4a9a86["plugins"]["get"]("ExportWord"), _0x58747b = _0x298096["token"] || _0x139844["_token"], _0x131102 = true === _0x1ab9b0["auto_pagination"], _0x5b0cea = _0x298096["dataCallback"] || ((_0x100e08) => _0x100e08["data"]["get"]({ "pagination": _0x131102 }));
     return 2 === _0x340026 && function(_0x585b27) {
-      for (const _0x24ec55 of h$5) if (void 0 !== _0x585b27[_0x24ec55]) return true;
+      for (const _0x24ec55 of h$7) if (void 0 !== _0x585b27[_0x24ec55]) return true;
       return false;
     }(_0x1ab9b0) && logWarning("export-word-v1-api-is-deprecated"), this["isBusy"] = true, this["refresh"](), collectStylesheets(_0x298096["stylesheets"] || ["EDITOR_STYLES"])["then"](async (_0x428806) => {
-      _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$7(_0x4a9a86["locale"], "Word document export started"));
-      const _0x5ad71a = await _0x5b0cea(_0x4a9a86), _0x484963 = { "html": '<div class="ck-content" dir="' + _0x4a9a86["locale"]["contentLanguageDirection"] + '">' + _0x5ad71a + "</div>", "css": _0x428806, [_0x3af820 ? "options" : "config"]: { ..._0x1ab9b0, ..._0x3af820 ? a$5(_0x4a9a86, _0x1ab9b0) : m$a(_0x4a9a86, _0x1ab9b0) } }, _0x4ae5aa = { "method": "POST", "headers": { "Content-Type": "application/json", "Accept": "application/docx", ..._0x58747b ? { "Authorization": _0x58747b["value"] } : null }, "body": JSON["stringify"](_0x484963) };
+      _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$8(_0x4a9a86["locale"], "Word document export started"));
+      const _0x5ad71a = await _0x5b0cea(_0x4a9a86), _0x484963 = { "html": '<div class="ck-content" dir="' + _0x4a9a86["locale"]["contentLanguageDirection"] + '">' + _0x5ad71a + "</div>", "css": _0x428806, [_0x3af820 ? "options" : "config"]: { ..._0x1ab9b0, ..._0x3af820 ? a$7(_0x4a9a86, _0x1ab9b0) : m$c(_0x4a9a86, _0x1ab9b0) } }, _0x4ae5aa = { "method": "POST", "headers": { "Content-Type": "application/json", "Accept": "application/docx", ..._0x58747b ? { "Authorization": _0x58747b["value"] } : null }, "body": JSON["stringify"](_0x484963) };
       return window["fetch"](_0x4c7acc, _0x4ae5aa)["then"]((_0xc6774) => {
         if (200 !== _0xc6774["status"]) throw _0xc6774;
         return _0xc6774["blob"]();
       })["then"]((_0x41454e) => {
-        _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$7(_0x4a9a86["locale"], "Word document export successful"));
+        _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$8(_0x4a9a86["locale"], "Word document export successful"));
         const _0x2d45a0 = "function" == typeof _0x298096["fileName"] ? _0x298096["fileName"]() : _0x298096["fileName"];
         this["_downloadFile"](_0x41454e, _0x2d45a0 || "document.docx");
       });
     })["catch"]((_0x317307) => {
       const _0x3f43b9 = _0x4a9a86["plugins"]["get"]("Notification");
-      throw _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$7(_0x4a9a86["locale"], "Word document export failed"), { "politeness": "assertive" }), _0x3f43b9["showWarning"](p$7(_0x4a9a86["locale"], "An error occurred while generating the Word file.")), _0x317307;
+      throw _0x4a9a86["ui"]["ariaLiveAnnouncer"]["announce"](p$8(_0x4a9a86["locale"], "Word document export failed"), { "politeness": "assertive" }), _0x3f43b9["showWarning"](p$8(_0x4a9a86["locale"], "An error occurred while generating the Word file.")), _0x317307;
     })["finally"](() => {
       this["isBusy"] = false, this["refresh"]();
     });
@@ -136742,12 +136742,12 @@ let o$4 = class o5 extends Plugin {
   }
   ["_createButton"](_0xed9074) {
     const _0x188646 = this["editor"], _0x5e7721 = _0x188646["config"]["get"]("exportWord") || {}, _0x27306e = _0x188646["commands"]["get"]("exportWord"), _0x57e556 = new _0xed9074(_0x188646["locale"]), _0x2843e9 = new SpinnerView();
-    return _0x57e556["children"]["add"](_0x2843e9), _0x2843e9["bind"]("isVisible")["to"](_0x27306e, "isBusy"), _0x57e556["iconView"]["bind"]("isVisible")["to"](_0x27306e, "isBusy", (_0xd810ca) => !_0xd810ca), _0x57e556["set"]({ "icon": exportWord }), _0x57e556["bind"]("isEnabled")["to"](_0x27306e, "isEnabled"), _0x57e556["bind"]("label")["to"](_0x27306e, "isBusy", (_0x1be2ea) => p$7(_0x188646["locale"], _0x1be2ea ? "Exporting Word document" : "Export to Word")), this["listenTo"](_0x57e556, "execute", () => {
+    return _0x57e556["children"]["add"](_0x2843e9), _0x2843e9["bind"]("isVisible")["to"](_0x27306e, "isBusy"), _0x57e556["iconView"]["bind"]("isVisible")["to"](_0x27306e, "isBusy", (_0xd810ca) => !_0xd810ca), _0x57e556["set"]({ "icon": exportWord }), _0x57e556["bind"]("isEnabled")["to"](_0x27306e, "isEnabled"), _0x57e556["bind"]("label")["to"](_0x27306e, "isBusy", (_0x1be2ea) => p$8(_0x188646["locale"], _0x1be2ea ? "Exporting Word document" : "Export to Word")), this["listenTo"](_0x57e556, "execute", () => {
       _0x188646["execute"]("exportWord", _0x5e7721), _0x188646["editing"]["view"]["focus"]();
     }), _0x57e556;
   }
 };
-let s$8 = class s6 extends Plugin {
+let s$9 = class s6 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "_token");
@@ -136766,19 +136766,19 @@ let s$8 = class s6 extends Plugin {
   }
   ["init"]() {
     const _0x4cfcb = this["editor"], _0x3394b6 = _0x4cfcb["config"]["get"]("exportWord") || {};
-    _0x4cfcb["commands"]["add"]("exportWord", new i$8(_0x4cfcb));
+    _0x4cfcb["commands"]["add"]("exportWord", new i$9(_0x4cfcb));
     const _0xe0b202 = _0x4cfcb["plugins"]["get"]("CloudServices");
     false === _0x3394b6["tokenUrl"] ? this["_token"] = null : _0x3394b6["tokenUrl"] ? _0xe0b202["registerTokenUrl"](_0x3394b6["tokenUrl"])["then"]((_0xcba3ed) => {
       this["_token"] = _0xcba3ed;
     }) : this["_token"] = _0xe0b202["token"];
   }
 };
-const c$7 = "copyFormat", e$4 = "pasteFormat", C$2 = "ck-format-painter-active";
-let r$4 = class r5 extends Command$1 {
+const c$8 = "copyFormat", e$5 = "pasteFormat", C$4 = "ck-format-painter-active";
+let r$6 = class r5 extends Command$1 {
   constructor(_0x3ecc3e) {
     super(_0x3ecc3e), this["value"] = void 0, this["on"]("change:isEnabled", (_0x10fc33, _0x228837, _0x25cf69) => {
       _0x25cf69 || this["reset"]();
-    }), this["on"]("change:value", () => _0x3ecc3e["commands"]["get"](e$4)["refresh"]());
+    }), this["on"]("change:value", () => _0x3ecc3e["commands"]["get"](e$5)["refresh"]());
   }
   ["execute"]() {
     this["value"] = this["_getFormattingAttributes"]();
@@ -136837,7 +136837,7 @@ let _$3 = class _4 extends Command$1 {
     }
   }
 };
-let a$4 = class a5 extends Plugin {
+let a$6 = class a5 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -136854,7 +136854,7 @@ let a$4 = class a5 extends Plugin {
   }
   ["init"]() {
     const _0x72b08b = this["editor"];
-    _0x72b08b["commands"]["add"](c$7, new r$4(_0x72b08b)), _0x72b08b["commands"]["add"](e$4, new o$3(_0x72b08b)), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
+    _0x72b08b["commands"]["add"](c$8, new r$6(_0x72b08b)), _0x72b08b["commands"]["add"](e$5, new o$3(_0x72b08b)), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
     const _0x2fa1b9 = this["editor"];
     this["_licenseKeyCheckInterval"] = setInterval(() => {
       let _0x4de696;
@@ -136872,7 +136872,7 @@ let a$4 = class a5 extends Plugin {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
 };
-function b$3(_0x508caf, _0x236b5b) {
+function b$5(_0x508caf, _0x236b5b) {
   const t2 = _0x508caf["t"];
   switch (_0x236b5b) {
     case "Paint formatting":
@@ -136893,7 +136893,7 @@ function b$3(_0x508caf, _0x236b5b) {
       return _0x236b5b;
   }
 }
-let m$9 = class m3 extends (/* @__PURE__ */ DomEmitterMixin(Plugin)) {
+let m$b = class m3 extends (/* @__PURE__ */ DomEmitterMixin(Plugin)) {
   static get ["pluginName"]() {
     return "FormatPainterUI";
   }
@@ -136905,14 +136905,14 @@ let m$9 = class m3 extends (/* @__PURE__ */ DomEmitterMixin(Plugin)) {
   }
   ["init"]() {
     const _0x56cb02 = this["editor"];
-    _0x56cb02["editing"]["view"]["addObserver"](ClickObserver), _0x56cb02["accessibility"]["addKeystrokeInfos"]({ "keystrokes": [{ "label": b$3(_0x56cb02["locale"], "Copy text formatting"), "keystroke": "Ctrl+Alt+C" }, { "label": b$3(_0x56cb02["locale"], "Paste text formatting"), "keystroke": "Ctrl+Alt+V" }] }), _0x56cb02["ui"]["componentFactory"]["add"]("formatPainter", (_0x2e20d4) => {
-      const _0x256d9b = createDropdown(_0x2e20d4, SplitButtonView), _0x433cc7 = _0x56cb02["commands"]["get"](c$7);
-      _0x256d9b["buttonView"]["set"]({ "label": b$3(_0x56cb02["locale"], "Paint formatting"), "icon": paintRoller, "keystroke": "Ctrl+Alt+C", "tooltip": true }), _0x256d9b["class"] = "ck-format-painter-dropdown", _0x433cc7 && (_0x256d9b["bind"]("isEnabled")["to"](_0x433cc7, "isEnabled"), this["listenTo"](_0x433cc7, "change:isEnabled", (_0x3f27b3, _0x2c37ce, _0x33882b) => {
+    _0x56cb02["editing"]["view"]["addObserver"](ClickObserver), _0x56cb02["accessibility"]["addKeystrokeInfos"]({ "keystrokes": [{ "label": b$5(_0x56cb02["locale"], "Copy text formatting"), "keystroke": "Ctrl+Alt+C" }, { "label": b$5(_0x56cb02["locale"], "Paste text formatting"), "keystroke": "Ctrl+Alt+V" }] }), _0x56cb02["ui"]["componentFactory"]["add"]("formatPainter", (_0x2e20d4) => {
+      const _0x256d9b = createDropdown(_0x2e20d4, SplitButtonView), _0x433cc7 = _0x56cb02["commands"]["get"](c$8);
+      _0x256d9b["buttonView"]["set"]({ "label": b$5(_0x56cb02["locale"], "Paint formatting"), "icon": paintRoller, "keystroke": "Ctrl+Alt+C", "tooltip": true }), _0x256d9b["class"] = "ck-format-painter-dropdown", _0x433cc7 && (_0x256d9b["bind"]("isEnabled")["to"](_0x433cc7, "isEnabled"), this["listenTo"](_0x433cc7, "change:isEnabled", (_0x3f27b3, _0x2c37ce, _0x33882b) => {
         _0x33882b || this["_finishPainting"]();
       }), _0x256d9b["buttonView"]["bind"]("isOn")["to"](_0x433cc7, "value", (_0x3bd60d) => !!_0x3bd60d), this["listenTo"](_0x56cb02, "destroy", () => this["_toggleSpecialCursor"](false)), this["listenTo"](_0x433cc7, "change:value", (_0x5da703, _0x20e01f, _0x20cb09) => {
         this["_toggleSpecialCursor"](!!_0x20cb09);
       }));
-      const _0x184e00 = new Model({ "withText": true, "label": b$3(_0x56cb02["locale"], "Continuous painting"), "tooltip": b$3(_0x56cb02["locale"], "Keeps the painter on after setting the formatting."), "isOn": false, "role": "menuitemcheckbox" });
+      const _0x184e00 = new Model({ "withText": true, "label": b$5(_0x56cb02["locale"], "Continuous painting"), "tooltip": b$5(_0x56cb02["locale"], "Keeps the painter on after setting the formatting."), "isOn": false, "role": "menuitemcheckbox" });
       addListToDropdown(_0x256d9b, new Collection([{ "type": "switchbutton", "model": _0x184e00 }]), { "role": "menu" });
       const _0x1d4bf7 = () => {
         this["_copyFormatting"](), this["listenTo"](global$1["window"]["document"], "mouseup", () => {
@@ -137114,24 +137114,24 @@ let m$9 = class m3 extends (/* @__PURE__ */ DomEmitterMixin(Plugin)) {
   }
   ["_toggleSpecialCursor"](_0x1cde57) {
     this["editor"]["editing"]["view"]["change"]((_0x2775a7) => {
-      for (const _0x4914c5 of this["editor"]["editing"]["view"]["document"]["roots"]) _0x1cde57 ? _0x2775a7["addClass"](C$2, _0x4914c5) : _0x2775a7["removeClass"](C$2, _0x4914c5);
+      for (const _0x4914c5 of this["editor"]["editing"]["view"]["document"]["roots"]) _0x1cde57 ? _0x2775a7["addClass"](C$4, _0x4914c5) : _0x2775a7["removeClass"](C$4, _0x4914c5);
     });
   }
   ["_copyFormatting"]() {
     const { editor: _0x1bf578 } = this;
-    _0x1bf578["execute"](c$7), _0x1bf578["ui"]["ariaLiveAnnouncer"]["announce"](b$3(_0x1bf578["locale"], "Formatting copied."));
+    _0x1bf578["execute"](c$8), _0x1bf578["ui"]["ariaLiveAnnouncer"]["announce"](b$5(_0x1bf578["locale"], "Formatting copied."));
   }
   ["_pasteFormatting"]() {
-    const { editor: _0x42bf77 } = this, _0x891c7a = _0x42bf77["commands"]["get"](c$7)["value"];
-    _0x42bf77["execute"](e$4, _0x891c7a), _0x42bf77["ui"]["ariaLiveAnnouncer"]["announce"](b$3(_0x42bf77["locale"], "Pasted formatting."));
+    const { editor: _0x42bf77 } = this, _0x891c7a = _0x42bf77["commands"]["get"](c$8)["value"];
+    _0x42bf77["execute"](e$5, _0x891c7a), _0x42bf77["ui"]["ariaLiveAnnouncer"]["announce"](b$5(_0x42bf77["locale"], "Pasted formatting."));
   }
   ["_finishPainting"]() {
-    this["editor"]["commands"]["get"](c$7)["reset"](), this["stopListening"](global$1["window"]["document"], "mouseup");
+    this["editor"]["commands"]["get"](c$8)["reset"](), this["stopListening"](global$1["window"]["document"], "mouseup");
   }
 };
-let n$3 = class n7 extends Plugin {
+let n$5 = class n7 extends Plugin {
   static get ["requires"]() {
-    return [a$4, m$9];
+    return [a$6, m$b];
   }
   static get ["pluginName"]() {
     return "FormatPainter";
@@ -137143,7 +137143,7 @@ let n$3 = class n7 extends Plugin {
     return true;
   }
 };
-function p$6(_0x31e180, _0x3f7dd5) {
+function p$7(_0x31e180, _0x3f7dd5) {
   const t2 = _0x31e180["t"];
   switch (_0x3f7dd5) {
     case "Import from Word":
@@ -137156,7 +137156,7 @@ function p$6(_0x31e180, _0x3f7dd5) {
       return _0x3f7dd5;
   }
 }
-let i$7 = class i7 extends Plugin {
+let i$8 = class i7 extends Plugin {
   static get ["pluginName"]() {
     return "ImportWordUI";
   }
@@ -137175,12 +137175,12 @@ let i$7 = class i7 extends Plugin {
   }
   ["_createButton"](_0x546a79) {
     const _0x4076bd = this["editor"], _0x46cf96 = _0x4076bd["commands"]["get"]("importWord"), _0x47ed4f = new _0x546a79(_0x4076bd["locale"]), _0x219c22 = new SpinnerView();
-    return _0x47ed4f["set"]({ "acceptedType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template" }), _0x47ed4f["set"]({ "icon": importWord }), _0x47ed4f["bind"]("isEnabled")["to"](_0x46cf96), _0x47ed4f["bind"]("label")["to"](_0x46cf96, "isBusy", (_0x1310eb) => p$6(_0x4076bd["locale"], _0x1310eb ? "Importing Word document" : "Import from Word")), _0x219c22["bind"]("isVisible")["to"](_0x46cf96, "isBusy"), _0x47ed4f["iconView"]["bind"]("isVisible")["to"](_0x46cf96, "isBusy", (_0xfafceb) => !_0xfafceb), _0x47ed4f["children"]["add"](_0x219c22), _0x47ed4f["on"]("done", (_0x3639a8, _0x9df815) => {
+    return _0x47ed4f["set"]({ "acceptedType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.wordprocessingml.template" }), _0x47ed4f["set"]({ "icon": importWord }), _0x47ed4f["bind"]("isEnabled")["to"](_0x46cf96), _0x47ed4f["bind"]("label")["to"](_0x46cf96, "isBusy", (_0x1310eb) => p$7(_0x4076bd["locale"], _0x1310eb ? "Importing Word document" : "Import from Word")), _0x219c22["bind"]("isVisible")["to"](_0x46cf96, "isBusy"), _0x47ed4f["iconView"]["bind"]("isVisible")["to"](_0x46cf96, "isBusy", (_0xfafceb) => !_0xfafceb), _0x47ed4f["children"]["add"](_0x219c22), _0x47ed4f["on"]("done", (_0x3639a8, _0x9df815) => {
       _0x4076bd["execute"]("importWord", _0x9df815[0], {}), _0x4076bd["editing"]["view"]["focus"]();
     }), _0x47ed4f;
   }
 };
-let d$2 = class d4 extends Command$1 {
+let d$4 = class d4 extends Command$1 {
   constructor(_0x1f8546) {
     super(_0x1f8546);
     __publicField(this, "_importMarker");
@@ -137244,11 +137244,11 @@ let d$2 = class d4 extends Command$1 {
   }
   ["_handleImportFailure"]() {
     if (this["_abortController"]["signal"]["aborted"]) return void logWarning("import-word-plugin-import-cancelled");
-    const _0x53e82c = this["editor"], _0x2b8d86 = p$6(_0x53e82c["locale"], "An error occurred while importing the Word file.");
+    const _0x53e82c = this["editor"], _0x2b8d86 = p$7(_0x53e82c["locale"], "An error occurred while importing the Word file.");
     _0x53e82c["plugins"]["get"]("Notification")["showWarning"](_0x2b8d86), logError("import-word-plugin-conversion-failed");
   }
 };
-let e$3 = class e3 extends Plugin {
+let e$4 = class e3 extends Plugin {
   constructor(_0x465e88) {
     super(_0x465e88);
     __publicField(this, "_token");
@@ -137268,7 +137268,7 @@ let e$3 = class e3 extends Plugin {
   }
   async ["init"]() {
     const _0x338861 = this["editor"];
-    _0x338861["config"]["define"]("importWord", { "converterUrl": "https://docx-converter.cke-cs.com/v2/convert/docx-html", "tokenUrl": (_0x338861["config"]["get"]("cloudServices") || {})["tokenUrl"], "formatting": { "resets": "none", "defaults": "none", "styles": "inline" } }), _0x338861["commands"]["add"]("importWord", new d$2(_0x338861));
+    _0x338861["config"]["define"]("importWord", { "converterUrl": "https://docx-converter.cke-cs.com/v2/convert/docx-html", "tokenUrl": (_0x338861["config"]["get"]("cloudServices") || {})["tokenUrl"], "formatting": { "resets": "none", "defaults": "none", "styles": "inline" } }), _0x338861["commands"]["add"]("importWord", new d$4(_0x338861));
     const { tokenUrl: _0x31b2bc } = _0x338861["config"]["get"]("importWord");
     if (_0x31b2bc) {
       const { tokenUrl: _0x568104 } = _0x338861["config"]["get"]("cloudServices") || {};
@@ -137290,10 +137290,10 @@ let o$2 = class o7 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [e$3, i$7];
+    return [e$4, i$8];
   }
 };
-let h$4 = class h2 extends Command$1 {
+let h$6 = class h2 extends Command$1 {
   constructor(_0x49a794, _0x2052aa, _0x3635b1) {
     super(_0x49a794);
     __publicField(this, "defaultListMarkerStyle");
@@ -137326,7 +137326,7 @@ let h$4 = class h2 extends Command$1 {
     return _0x43425c ? _0x43425c["listType"] : null;
   }
 };
-let i$6 = class i8 extends Plugin {
+let i$7 = class i8 extends Plugin {
   constructor(_0x5196e7) {
     super(_0x5196e7);
     __publicField(this, "_listDefinitions");
@@ -137347,12 +137347,12 @@ let i$6 = class i8 extends Plugin {
   }
   ["init"]() {
     const _0x385f98 = this["editor"], _0x2836f5 = _0x385f98["model"], _0x3c7400 = _0x385f98["editing"]["view"], _0x35941a = _0x385f98["plugins"]["get"]("ListEditing");
-    _0x385f98["commands"]["add"]("multiLevelList", new h$4(_0x385f98, "legal", this["_listDefinitions"])), _0x2836f5["schema"]["extend"]("$listItem", { "allowAttributes": ["listMarkerStyle", "listMarker"] }), _0x2836f5["schema"]["addAttributeCheck"]((_0x87702d, _0x5a5247) => {
+    _0x385f98["commands"]["add"]("multiLevelList", new h$6(_0x385f98, "legal", this["_listDefinitions"])), _0x2836f5["schema"]["extend"]("$listItem", { "allowAttributes": ["listMarkerStyle", "listMarker"] }), _0x2836f5["schema"]["addAttributeCheck"]((_0x87702d, _0x5a5247) => {
       const _0x2ebb7c = _0x87702d["last"];
       if ("listMarker" == _0x5a5247 || "listMarkerStyle" == _0x5a5247) return !(!_0x2ebb7c["getAttribute"]("listItemId") || !this["_listDefinitions"]["find"]((_0x572d55) => _0x572d55["listType"] == _0x2ebb7c["getAttribute"]("listType"))) && void 0;
     });
     for (const _0x16a9ba of this["_listDefinitions"]) _0x385f98["conversion"]["for"]("upcast")["add"]((_0x1feefc) => {
-      _0x1feefc["on"]("element:" + ("customNumbered" == _0x16a9ba["listType"] ? "ol" : "ul"), m$8(_0x16a9ba, _0x2836f5["schema"]), { "priority": "low" });
+      _0x1feefc["on"]("element:" + ("customNumbered" == _0x16a9ba["listType"] ? "ol" : "ul"), m$a(_0x16a9ba, _0x2836f5["schema"]), { "priority": "low" });
     }), _0x35941a["registerDowncastStrategy"]({ "scope": "list", "attributeName": "listMarkerStyle", "setAttributeOnDowncast"(_0x55299c, _0x133822, _0x578791) {
       _0x133822 == _0x16a9ba["listMarkerStyle"] ? (_0x55299c["addClass"](["multi-level-list", _0x16a9ba["className"]], _0x578791), _0x55299c["setStyle"]("list-style-type", "none", _0x578791)) : (_0x55299c["removeClass"](["multi-level-list", _0x16a9ba["className"]], _0x578791), _0x55299c["removeStyle"]("list-style-type", _0x578791));
     } }), _0x35941a["registerDowncastStrategy"]({ "scope": "itemMarker", "attributeName": "listMarker", "createElement"(_0x19d855, _0x544dad, { dataPipeline: _0x57a52b }) {
@@ -137388,7 +137388,7 @@ let i$6 = class i8 extends Plugin {
         const _0x102552 = _0x42cc7a["getAttribute"]("listIndent");
         if (_0x2d8fc6 && _0x2d8fc6["getAttribute"]("listItemId") == _0x42cc7a["getAttribute"]("listItemId")) continue;
         _0x5e68e9["length"] = _0x102552 + 1, _0x2d8fc6 || _0x5e68e9[_0x102552] ? _0x2d8fc6 && _0x2d8fc6["getAttribute"]("listType") != _0x50c8b1["listType"] ? _0x5e68e9[_0x102552] = 1 : _0x5e68e9[_0x102552]++ : _0x5e68e9[_0x102552] = _0x42cc7a["getAttribute"]("listStart") || 1;
-        const _0x3718de = f$5(_0x102552, _0x50c8b1, _0x5e68e9);
+        const _0x3718de = f$6(_0x102552, _0x50c8b1, _0x5e68e9);
         _0x42cc7a["getAttribute"]("listMarker") != _0x3718de && (_0x1401d7["setAttribute"]("listMarker", _0x3718de, _0x42cc7a), _0x11eefd["return"] = true);
       }
     });
@@ -137580,18 +137580,18 @@ let i$6 = class i8 extends Plugin {
     }(this);
   }
 };
-function f$5(_0x33e982, _0x35973b, _0x2d75bd) {
+function f$6(_0x33e982, _0x35973b, _0x2d75bd) {
   let _0x372d27 = _0x35973b["listMarkers"][_0x33e982 % _0x35973b["listMarkers"]["length"]];
-  if (void 0 === _0x372d27["showMarkerPath"] || _0x372d27["showMarkerPath"]) return _0x2d75bd["slice"](0, _0x33e982 + 1)["map"]((_0x318565, _0x2a022c) => (_0x372d27 = _0x35973b["listMarkers"][_0x2a022c % _0x35973b["listMarkers"]["length"]], w$3(_0x372d27["marker"], _0x318565)))["join"]("");
+  if (void 0 === _0x372d27["showMarkerPath"] || _0x372d27["showMarkerPath"]) return _0x2d75bd["slice"](0, _0x33e982 + 1)["map"]((_0x318565, _0x2a022c) => (_0x372d27 = _0x35973b["listMarkers"][_0x2a022c % _0x35973b["listMarkers"]["length"]], w$4(_0x372d27["marker"], _0x318565)))["join"]("");
   {
     const _0x279b00 = _0x2d75bd[_0x2d75bd["length"] - 1];
-    return w$3(_0x372d27["marker"], _0x279b00);
+    return w$4(_0x372d27["marker"], _0x279b00);
   }
 }
-function w$3(_0x36ebe9, _0x1cfae7) {
+function w$4(_0x36ebe9, _0x1cfae7) {
   return "function" == typeof _0x36ebe9 ? _0x36ebe9(_0x1cfae7) : _0x36ebe9;
 }
-function m$8(_0x36e45b, _0x50ec77) {
+function m$a(_0x36e45b, _0x50ec77) {
   return (_0x1ed7ea, _0x4b8695, _0x35f75c) => {
     const _0x2ea551 = _0x4b8695["viewItem"];
     if (_0x4b8695["modelRange"] || Object["assign"](_0x4b8695, _0x35f75c["convertChildren"](_0x4b8695["viewItem"], _0x4b8695["modelCursor"])), !_0x35f75c["consumable"]["test"](_0x2ea551, { "classes": _0x36e45b["className"] })) return;
@@ -137602,7 +137602,7 @@ function m$8(_0x36e45b, _0x50ec77) {
     for (const _0x5f0e27 of _0x32cbbd) _0x5f0e27["getAttribute"]("listIndent") == _0x564d28 && (_0x35f75c["writer"]["setAttribute"]("listType", _0x36e45b["listType"], _0x5f0e27), _0x35f75c["writer"]["setAttribute"]("listMarkerStyle", _0x36e45b["listMarkerStyle"], _0x5f0e27));
   };
 }
-function K$3(_0x2ead3c, _0x583ffd) {
+function K$4(_0x2ead3c, _0x583ffd) {
   const _0xa2595b = _0x2ead3c["t"], t2 = _0x2ead3c["t"];
   switch (_0x583ffd) {
     case "Start at":
@@ -137665,19 +137665,19 @@ let E$3 = class E3 extends View {
   }
   ["_addListPropertyViews"](_0x1599ca) {
     const _0x5212a7 = [];
-    _0x1599ca["startIndex"] && (this["startIndexFieldView"] = this["_createStartIndexField"](), _0x5212a7["push"](this["startIndexFieldView"])), _0x1599ca["styles"] ? (this["additionalPropertiesCollapsibleView"] = new CollapsibleView(this["locale"], _0x5212a7), this["additionalPropertiesCollapsibleView"]["set"]({ "label": K$3(this["locale"], "List properties"), "isCollapsed": true }), this["additionalPropertiesCollapsibleView"]["buttonView"]["bind"]("isEnabled")["toMany"](_0x5212a7, "isEnabled", (..._0x2b708a) => _0x2b708a["some"]((_0x313df7) => _0x313df7)), this["additionalPropertiesCollapsibleView"]["buttonView"]["on"]("change:isEnabled", (_0x5a1c3e, _0x517b6f, _0x43a92b) => {
+    _0x1599ca["startIndex"] && (this["startIndexFieldView"] = this["_createStartIndexField"](), _0x5212a7["push"](this["startIndexFieldView"])), _0x1599ca["styles"] ? (this["additionalPropertiesCollapsibleView"] = new CollapsibleView(this["locale"], _0x5212a7), this["additionalPropertiesCollapsibleView"]["set"]({ "label": K$4(this["locale"], "List properties"), "isCollapsed": true }), this["additionalPropertiesCollapsibleView"]["buttonView"]["bind"]("isEnabled")["toMany"](_0x5212a7, "isEnabled", (..._0x2b708a) => _0x2b708a["some"]((_0x313df7) => _0x313df7)), this["additionalPropertiesCollapsibleView"]["buttonView"]["on"]("change:isEnabled", (_0x5a1c3e, _0x517b6f, _0x43a92b) => {
       _0x43a92b || (this["additionalPropertiesCollapsibleView"]["isCollapsed"] = true);
     }), this["children"]["add"](this["additionalPropertiesCollapsibleView"])) : this["children"]["addMany"](_0x5212a7);
   }
   ["_createStartIndexField"]() {
     const _0x10bc1c = new LabeledFieldView(this["locale"], createLabeledInputNumber);
-    return _0x10bc1c["set"]({ "label": K$3(this["locale"], "Start at"), "class": "ck-multi-level-list-properties__start-index" }), _0x10bc1c["fieldView"]["set"]({ "min": 0, "step": 1, "value": 1, "inputMode": "numeric" }), _0x10bc1c["fieldView"]["on"]("input", () => {
+    return _0x10bc1c["set"]({ "label": K$4(this["locale"], "Start at"), "class": "ck-multi-level-list-properties__start-index" }), _0x10bc1c["fieldView"]["set"]({ "min": 0, "step": 1, "value": 1, "inputMode": "numeric" }), _0x10bc1c["fieldView"]["on"]("input", () => {
       const _0x2d944c = _0x10bc1c["fieldView"]["element"], _0x57db13 = _0x2d944c["valueAsNumber"];
-      Number["isNaN"](_0x57db13) ? _0x10bc1c["errorText"] = K$3(this["locale"], "Invalid start index value.") : _0x2d944c["checkValidity"]() ? this["fire"]("listStart", { "startIndex": _0x57db13 }) : _0x10bc1c["errorText"] = K$3(this["locale"], "Start index must be greater than 0.");
+      Number["isNaN"](_0x57db13) ? _0x10bc1c["errorText"] = K$4(this["locale"], "Invalid start index value.") : _0x2d944c["checkValidity"]() ? this["fire"]("listStart", { "startIndex": _0x57db13 }) : _0x10bc1c["errorText"] = K$4(this["locale"], "Start index must be greater than 0.");
     }), _0x10bc1c;
   }
 };
-let l$1 = class l4 extends Plugin {
+let l$2 = class l4 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -137722,9 +137722,9 @@ let l$1 = class l4 extends Plugin {
           _0x5ee5f6["editing"]["view"]["focus"]();
         }), _0x2fccf3;
       };
-    }({ "editor": _0x1b2cc0, "parentCommandName": "multiLevelList", "buttonLabel": K$3(_0x1b2cc0["locale"], "Multi-level List"), "buttonIcon": multiLevelList, "styleGridAriaLabel": K$3(_0x1b2cc0["locale"], "Multi-level list styles toolbar"), "styleDefinitions": [] })), _0x1b2cc0["ui"]["componentFactory"]["add"]("menuBar:multiLevelList", () => {
+    }({ "editor": _0x1b2cc0, "parentCommandName": "multiLevelList", "buttonLabel": K$4(_0x1b2cc0["locale"], "Multi-level List"), "buttonIcon": multiLevelList, "styleGridAriaLabel": K$4(_0x1b2cc0["locale"], "Multi-level list styles toolbar"), "styleDefinitions": [] })), _0x1b2cc0["ui"]["componentFactory"]["add"]("menuBar:multiLevelList", () => {
       const _0x42bebd = _0x1b2cc0["commands"]["get"]("multiLevelList"), _0x579ae8 = new MenuBarMenuListItemButtonView(_0x1b2cc0["locale"]);
-      return _0x579ae8["set"]({ "label": K$3(_0x1b2cc0["locale"], "Multi-level List"), "icon": multiLevelList }), _0x579ae8["bind"]("isEnabled")["to"](_0x42bebd), _0x579ae8["bind"]("isOn")["to"](_0x42bebd, "value", (_0x3b2c4e) => !!_0x3b2c4e), _0x579ae8["on"]("execute", () => {
+      return _0x579ae8["set"]({ "label": K$4(_0x1b2cc0["locale"], "Multi-level List"), "icon": multiLevelList }), _0x579ae8["bind"]("isEnabled")["to"](_0x42bebd), _0x579ae8["bind"]("isOn")["to"](_0x42bebd, "value", (_0x3b2c4e) => !!_0x3b2c4e), _0x579ae8["on"]("execute", () => {
         _0x1b2cc0["execute"]("multiLevelList"), _0x1b2cc0["editing"]["view"]["focus"]();
       }), _0x579ae8;
     }), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
@@ -137745,7 +137745,7 @@ let l$1 = class l4 extends Plugin {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
 };
-let s$7 = class s7 extends Plugin {
+let s$8 = class s7 extends Plugin {
   static get ["pluginName"]() {
     return "MultiLevelList";
   }
@@ -137756,10 +137756,10 @@ let s$7 = class s7 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [i$6, l$1];
+    return [i$7, l$2];
   }
 };
-let r$3 = class r6 extends Command$1 {
+let r$5 = class r6 extends Command$1 {
   ["refresh"]() {
     const _0xdb74eb = this["editor"]["model"], _0x4f2e92 = _0xdb74eb["schema"]["checkChild"](_0xdb74eb["document"]["selection"]["focus"], "mergeField");
     this["isEnabled"] = _0x4f2e92;
@@ -137775,7 +137775,7 @@ let r$3 = class r6 extends Command$1 {
     });
   }
 };
-let i$5 = class i9 extends Command$1 {
+let i$6 = class i9 extends Command$1 {
   ["refresh"]() {
     const _0x12aa19 = this["editor"]["model"], _0x58a33a = _0x12aa19["document"]["selection"];
     this["isEnabled"] = function(_0x447e18, _0x4997cd) {
@@ -137793,7 +137793,7 @@ let i$5 = class i9 extends Command$1 {
     });
   }
 };
-let s$6 = class s8 extends Command$1 {
+let s$7 = class s8 extends Command$1 {
   constructor(_0x31a217) {
     super(_0x31a217), this["bind"]("isEnabled")["to"](this["editor"]["commands"]["get"]("insertImage"));
   }
@@ -137803,7 +137803,7 @@ let s$6 = class s8 extends Command$1 {
     this["editor"]["execute"]("insertImage", { "source": { "src": _0x1f8bff["wrapInAffixes"](_0x4f11e9), "width": _0x2d0e36, "height": _0x4f359a }, "breakBlock": _0x122064 && _0x122064["breakBlock"] });
   }
 };
-let p$5 = class p3 extends Command$1 {
+let p$6 = class p3 extends Command$1 {
   constructor(_0x256126) {
     super(_0x256126);
     const _0x4eb8f3 = this["editor"]["plugins"]["get"]("MergeFieldsEditing");
@@ -137817,7 +137817,7 @@ let p$5 = class p3 extends Command$1 {
   }
 };
 const A$1 = /^[a-zA-Z0-9_.-]+$/;
-let m$7 = class m4 extends Plugin {
+let m$9 = class m4 extends Plugin {
   constructor(_0xddd0fc) {
     super(_0xddd0fc);
     __publicField(this, "availablePreviewModes");
@@ -137847,7 +137847,7 @@ let m$7 = class m4 extends Plugin {
   }
   ["init"]() {
     const _0x3a77c4 = this["editor"];
-    _0x3a77c4["commands"]["add"]("insertMergeField", new r$3(_0x3a77c4)), _0x3a77c4["commands"]["add"]("insertMergeFieldBlock", new i$5(_0x3a77c4)), _0x3a77c4["commands"]["add"]("insertMergeFieldImage", new s$6(_0x3a77c4)), _0x3a77c4["commands"]["add"]("previewMergeFields", new p$5(_0x3a77c4)), this["_defineSchema"](), this["_defineConverters"](), this["_registerConversionPostFixer"](), this["listenTo"](this["editor"]["editing"]["view"]["document"], "imageLoaded", this["_setupTooltipsTogglingForImageMergeField"]), this["on"]("change:previewMode", (_0x3b4b78, _0x2a0cb5, _0x50c1ac) => {
+    _0x3a77c4["commands"]["add"]("insertMergeField", new r$5(_0x3a77c4)), _0x3a77c4["commands"]["add"]("insertMergeFieldBlock", new i$6(_0x3a77c4)), _0x3a77c4["commands"]["add"]("insertMergeFieldImage", new s$7(_0x3a77c4)), _0x3a77c4["commands"]["add"]("previewMergeFields", new p$6(_0x3a77c4)), this["_defineSchema"](), this["_defineConverters"](), this["_registerConversionPostFixer"](), this["listenTo"](this["editor"]["editing"]["view"]["document"], "imageLoaded", this["_setupTooltipsTogglingForImageMergeField"]), this["on"]("change:previewMode", (_0x3b4b78, _0x2a0cb5, _0x50c1ac) => {
       this["_validatePreviewMode"](_0x50c1ac), this["refreshMergeFields"]();
     }), this["listenTo"](_0x3a77c4["model"]["document"], "change:data", () => {
       this["_trackAddedMergeFields"]();
@@ -138441,7 +138441,7 @@ function q$2(_0x4fb71b, _0xcd7f5f) {
       return _0xcd7f5f;
   }
 }
-let u$4 = class u4 extends Plugin {
+let u$5 = class u4 extends Plugin {
   constructor(_0x4dd9da) {
     super(_0x4dd9da);
     __publicField(this, "licenseKey");
@@ -138451,7 +138451,7 @@ let u$4 = class u4 extends Plugin {
     this["_removeDefaultValuesPreviewIfUnnecessary"](), this["_removeMenuBarButtonIfUnnecessary"](), this["_setupMentionConfiguration"]();
   }
   static get ["requires"]() {
-    return ["Mention", m$7, ContextualBalloon, Widget];
+    return ["Mention", m$9, ContextualBalloon, Widget];
   }
   static get ["pluginName"]() {
     return "MergeFieldsUI";
@@ -138473,11 +138473,11 @@ let u$4 = class u4 extends Plugin {
         const _0x317366 = { "insertInline": _0x4585d2["commands"]["get"]("insertMergeField"), "insertBlock": _0x4585d2["commands"]["get"]("insertMergeFieldBlock"), "insertImage": _0x4585d2["commands"]["get"]("insertMergeFieldImage") }, _0x5a0ece = function(_0x211ba2, _0x2f5396, _0x304000) {
           const _0x67d4a4 = new D$1(_0x211ba2), _0x4edfec = [], _0x387780 = [];
           for (const _0x38acf6 of _0x2f5396) if ("groupId" in _0x38acf6) {
-            const _0x4cf233 = C$1(_0x211ba2, _0x38acf6["groupLabel"] || _0x38acf6["groupId"], _0x38acf6["definitions"], _0x304000);
+            const _0x4cf233 = C$3(_0x211ba2, _0x38acf6["groupLabel"] || _0x38acf6["groupId"], _0x38acf6["definitions"], _0x304000);
             _0x4cf233["delegate"]("execute")["to"](_0x67d4a4), _0x387780["push"](_0x4cf233);
           } else _0x4edfec["push"](_0x38acf6);
           if (_0x4edfec["length"]) {
-            const _0x16ea49 = C$1(_0x211ba2, "Other", _0x4edfec, _0x304000);
+            const _0x16ea49 = C$3(_0x211ba2, "Other", _0x4edfec, _0x304000);
             _0x16ea49["delegate"]("execute")["to"](_0x67d4a4), _0x387780["push"](_0x16ea49);
           }
           return _0x67d4a4["items"]["addMany"](_0x387780), _0x67d4a4;
@@ -138638,7 +138638,7 @@ let u$4 = class u4 extends Plugin {
     }, { "priority": "high" });
   }
 };
-function C$1(_0x5ef629, _0x3509a3, _0x4597dd, _0x4eb60b) {
+function C$3(_0x5ef629, _0x3509a3, _0x4597dd, _0x4eb60b) {
   const _0x2f633e = new ListItemGroupView(_0x5ef629, new LabelWithHighlightView());
   _0x2f633e["label"] = _0x3509a3;
   for (const _0x5c4eca of _0x4597dd) {
@@ -138671,9 +138671,9 @@ function G$2(_0x1689c9, _0x4d65d1, _0x27ea9b, _0x2786f0) {
     _0x219f18["fire"]("execute", _0x4d65d1["id"]);
   }), _0x219f18;
 }
-let c$6 = class c3 extends Plugin {
+let c$7 = class c3 extends Plugin {
   static get ["requires"]() {
-    return [m$7, u$4];
+    return [m$9, u$5];
   }
   static get ["pluginName"]() {
     return "MergeFields";
@@ -138685,7 +138685,7 @@ let c$6 = class c3 extends Plugin {
     return true;
   }
 };
-let n$2 = class n8 extends Plugin {
+let n$4 = class n8 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "_recalculatePageBreaksDebounced", debounce(() => this["_recalculatePageBreaks"](), 200));
@@ -138914,13 +138914,13 @@ let n$2 = class n8 extends Plugin {
       "attributeStyleMap" in _0x30019f && _0x30019f["attributeStyleMap"]["clear"](), _0x30019f["className"] = "", _0x30019f["removeAttribute"]("id"), _0x30019f["dataset"]["rootName"] = _0x520892, _0x3a4793["element"]["append"](_0x30019f);
     }
     return function(_0x27529a) {
-      return Promise["all"](_0x27529a["map"]((_0x29b346) => Promise["race"]([p$4(_0x29b346), y$1(1e3)])));
+      return Promise["all"](_0x27529a["map"]((_0x29b346) => Promise["race"]([p$5(_0x29b346), y$2(1e3)])));
     }(Array["from"](_0x3a4793["element"]["querySelectorAll"]("img")))["then"](() => this["_updatePageBreaksData"]());
   }
   ["_updatePageBreaksData"]() {
     const _0x534f64 = this["_pagesContainer"]["element"];
     if (!_0x534f64["ownerDocument"]["body"]["contains"](_0x534f64)) return;
-    const _0x3ec414 = new Rect(_0x534f64)["excludeScrollbarsAndBorders"](), _0x579aee = global$1["window"]["getComputedStyle"](_0x534f64), _0x43a966 = parseFloat(_0x579aee["paddingLeft"]) + parseFloat(_0x579aee["paddingRight"]), _0x55622f = Math["floor"](_0x3ec414["width"] + 100 - _0x43a966), _0x3eb513 = x$4(_0x534f64, Math["floor"](_0x3ec414["left"] - _0x534f64["scrollLeft"]), _0x55622f, _0x3ec414["height"])["map"]((_0x3b1872) => this["_mapPageStarterInfoToPageBreakInfo"](_0x3b1872));
+    const _0x3ec414 = new Rect(_0x534f64)["excludeScrollbarsAndBorders"](), _0x579aee = global$1["window"]["getComputedStyle"](_0x534f64), _0x43a966 = parseFloat(_0x579aee["paddingLeft"]) + parseFloat(_0x579aee["paddingRight"]), _0x55622f = Math["floor"](_0x3ec414["width"] + 100 - _0x43a966), _0x3eb513 = x$5(_0x534f64, Math["floor"](_0x3ec414["left"] - _0x534f64["scrollLeft"]), _0x55622f, _0x3ec414["height"])["map"]((_0x3b1872) => this["_mapPageStarterInfoToPageBreakInfo"](_0x3b1872));
     _0x3eb513["every"]((_0xc7c22) => !!_0xc7c22) && (this["pageBreaks"] = _0x3eb513);
   }
   ["_mapPageStarterInfoToPageBreakInfo"](_0x4f9847) {
@@ -138940,13 +138940,13 @@ let n$2 = class n8 extends Plugin {
   }
   ["_mapManualPageStarterInfoToPageBreakInfo"](_0x4a9835, _0x2a5e9c) {
     const _0x3960ec = this["editor"]["model"], _0x513a0d = this["editor"]["editing"]["mapper"]["toModelElement"](_0x4a9835["parent"]), _0xa66229 = _0x3960ec["createRangeOn"](_0x513a0d);
-    return new K$2({ "type": "manual", "modelRange": _0xa66229, "domNode": _0x2a5e9c, "offset": 0 });
+    return new K$3({ "type": "manual", "modelRange": _0xa66229, "domNode": _0x2a5e9c, "offset": 0 });
   }
   ["_mapTextPageStarterInfoToPageBreakInfo"](_0x44bc1a, _0x660fb6, _0x1e2257) {
     const _0x2af2e5 = this["editor"]["model"], _0x1489c9 = this["editor"]["editing"]["mapper"], _0x2d76fc = this["editor"]["editing"]["view"]["domConverter"];
     if (_0x1e2257 >= _0x660fb6["length"]) return null;
     const _0x4912e3 = _0x1489c9["toModelPosition"](_0x44bc1a), _0xabc8f5 = _0x2af2e5["createRange"](_0x4912e3), _0x400d17 = _0x1489c9["findMappedViewAncestor"](_0x44bc1a), _0x375e35 = _0x2d76fc["mapViewToDom"](_0x400d17);
-    return new K$2({ "type": "text", "modelRange": _0xabc8f5, "domNode": _0x660fb6, "offset": m$6(_0x660fb6, _0x1e2257, _0x375e35) });
+    return new K$3({ "type": "text", "modelRange": _0xabc8f5, "domNode": _0x660fb6, "offset": m$8(_0x660fb6, _0x1e2257, _0x375e35) });
   }
   ["_mapElementPageStarterInfoToPageBreakInfo"](_0x89da3c, _0xbd7861, _0x10c585) {
     const _0x59d36a = this["editor"]["model"], _0x250b70 = this["editor"]["editing"], _0x3e73c1 = _0x250b70["mapper"], _0x3b0265 = _0x250b70["view"]["domConverter"], _0xa9a1e8 = _0x3e73c1["findMappedViewAncestor"](_0x89da3c), _0x3672a5 = _0x3e73c1["toModelElement"](_0xa9a1e8), _0x27d64f = function(_0x40b7ec) {
@@ -138965,18 +138965,18 @@ let n$2 = class n8 extends Plugin {
       "left" != _0xb60afa && "right" != _0xb60afa || (_0x5d0613 = _0x59d36a["createRangeOn"](_0x47b8a9));
     }
     for (; _0x2c0c84["parent"] !== _0x2c0c84["root"] && 0 === _0x2c0c84["index"]; ) _0x2c0c84 = _0x2c0c84["parent"];
-    const _0x5a691e = new Rect(S$2(_0xbd7861) ? _0xbd7861 : P$3(_0xbd7861)), _0x1995f2 = _0x10c585 ? _0x5a691e["height"] - _0x10c585 : 0, _0x4d1faf = _0x3b0265["mapViewToDom"](_0x2c0c84), _0x1cdc2b = new Rect(_0x4d1faf);
-    return new K$2({ "type": "element", "modelRange": _0x5d0613, "domNode": _0x4d1faf, "offset": Math["round"](_0x1995f2) ? _0x1995f2 + _0x5a691e["top"] - _0x1cdc2b["top"] : 0 });
+    const _0x5a691e = new Rect(S$2(_0xbd7861) ? _0xbd7861 : P$4(_0xbd7861)), _0x1995f2 = _0x10c585 ? _0x5a691e["height"] - _0x10c585 : 0, _0x4d1faf = _0x3b0265["mapViewToDom"](_0x2c0c84), _0x1cdc2b = new Rect(_0x4d1faf);
+    return new K$3({ "type": "element", "modelRange": _0x5d0613, "domNode": _0x4d1faf, "offset": Math["round"](_0x1995f2) ? _0x1995f2 + _0x5a691e["top"] - _0x1cdc2b["top"] : 0 });
   }
   get ["_configuredPaddings"]() {
     const _0x3e7275 = this["editor"]["config"]["get"]("pagination.pageMargins");
     return Object["assign"]({ "top": "10mm", "bottom": "10mm", "left": "10mm", "right": "10mm" }, _0x3e7275);
   }
   static ["_findPageStarterInfos"](_0x11c9f8, _0xd4fba1, _0x5dd24f, _0x156e66, _0x4138a8) {
-    return x$4(_0x11c9f8, _0xd4fba1, _0x5dd24f, _0x156e66, _0x4138a8);
+    return x$5(_0x11c9f8, _0xd4fba1, _0x5dd24f, _0x156e66, _0x4138a8);
   }
 };
-let K$2 = class K2 {
+let K$3 = class K2 {
   constructor({ type: _0xe5e6b8, modelRange: _0x2f9021, domNode: _0x32bb8a, offset: _0x3ad54e }) {
     __publicField(this, "type");
     __publicField(this, "modelRange");
@@ -138986,21 +138986,21 @@ let K$2 = class K2 {
   }
   get ["offset"]() {
     if (!this["_domNode"]["ownerDocument"]["body"]["contains"](this["_domNode"])) return 0;
-    const _0x139f2f = new Rect(S$2(this["_domNode"]) ? this["_domNode"] : P$3(this["_domNode"]));
+    const _0x139f2f = new Rect(S$2(this["_domNode"]) ? this["_domNode"] : P$4(this["_domNode"]));
     return "manual" == this["type"] ? _0x139f2f["top"] + _0x139f2f["height"] / 2 : _0x139f2f["top"] + this["_offset"];
   }
 };
-function m$6(_0x4eede0, _0x3597fb, _0x46b753) {
-  const _0x357e5f = P$3(_0x4eede0), _0x2702b3 = function(_0x48d0fd) {
+function m$8(_0x4eede0, _0x3597fb, _0x46b753) {
+  const _0x357e5f = P$4(_0x4eede0), _0x2702b3 = function(_0x48d0fd) {
     const _0x5352e2 = global$1["document"]["createRange"]();
     return _0x5352e2["selectNodeContents"](_0x48d0fd), _0x5352e2;
   }(_0x46b753);
   let _0x2c3c4b;
-  _0x2c3c4b = 0 == _0x3597fb ? b$2(_0x2702b3["startContainer"], _0x2702b3["startOffset"], _0x4eede0["parentNode"], Array["from"](_0x4eede0["parentNode"]["childNodes"])["indexOf"](_0x4eede0)) : b$2(_0x2702b3["startContainer"], _0x2702b3["startOffset"], _0x4eede0, _0x3597fb);
-  const _0x57fdc0 = b$2(_0x4eede0, _0x3597fb, _0x2702b3["endContainer"], _0x2702b3["endOffset"]), _0x18dc27 = new Rect(_0x2c3c4b)["bottom"];
+  _0x2c3c4b = 0 == _0x3597fb ? b$4(_0x2702b3["startContainer"], _0x2702b3["startOffset"], _0x4eede0["parentNode"], Array["from"](_0x4eede0["parentNode"]["childNodes"])["indexOf"](_0x4eede0)) : b$4(_0x2702b3["startContainer"], _0x2702b3["startOffset"], _0x4eede0, _0x3597fb);
+  const _0x57fdc0 = b$4(_0x4eede0, _0x3597fb, _0x2702b3["endContainer"], _0x2702b3["endOffset"]), _0x18dc27 = new Rect(_0x2c3c4b)["bottom"];
   return (new Rect(_0x57fdc0)["top"] + _0x18dc27) / 2 - new Rect(_0x357e5f)["top"];
 }
-function p$4(_0x3e6197) {
+function p$5(_0x3e6197) {
   return _0x3e6197["hasAttribute"]("width") && _0x3e6197["hasAttribute"]("height") ? Promise["resolve"]() : new Promise((_0x14089d) => {
     function _0x2ce17a() {
       _0x3e6197["removeEventListener"]("load", _0x2ce17a), _0x3e6197["removeEventListener"]("error", _0x2ce17a), _0x14089d();
@@ -139008,10 +139008,10 @@ function p$4(_0x3e6197) {
     _0x3e6197["complete"] ? _0x14089d() : (_0x3e6197["addEventListener"]("load", _0x2ce17a), _0x3e6197["addEventListener"]("error", _0x2ce17a));
   });
 }
-function y$1(_0x398e36) {
+function y$2(_0x398e36) {
   return new Promise((_0xce4449) => setTimeout(_0xce4449, _0x398e36));
 }
-function P$3(_0x30c15b) {
+function P$4(_0x30c15b) {
   const _0x8fd251 = global$1["document"]["createRange"]();
   return _0x8fd251["selectNode"](_0x30c15b), _0x8fd251;
 }
@@ -139019,11 +139019,11 @@ function k$4(_0x24adb7, _0x3d599c, _0x2a94e5) {
   const _0x4ca9b9 = global$1["document"]["createRange"]();
   return _0x4ca9b9["setStart"](_0x24adb7, _0x3d599c), _0x4ca9b9["setEnd"](_0x24adb7, _0x2a94e5), _0x4ca9b9;
 }
-function b$2(_0xf83815, _0x7ab9ac, _0x4d4239, _0x2fef7a) {
+function b$4(_0xf83815, _0x7ab9ac, _0x4d4239, _0x2fef7a) {
   const _0x175b0e = global$1["document"]["createRange"]();
   return _0x175b0e["setStart"](_0xf83815, _0x7ab9ac), _0x175b0e["setEnd"](_0x4d4239, _0x2fef7a), _0x175b0e;
 }
-function x$4(_0x564822, _0x259ce6, _0x170b37, _0x2e2298, _0x2f98c8) {
+function x$5(_0x564822, _0x259ce6, _0x170b37, _0x2e2298, _0x2f98c8) {
   const _0x85ad99 = [];
   for (const [_0x3aad35, _0x543289] of _0x564822["childNodes"]["entries"]()) {
     let _0x199b8d = [];
@@ -139050,7 +139050,7 @@ function _$2(_0x5000ec, _0x1d923c, _0x5581f6, _0x4e8c96, _0x445d91, _0x166c77) {
     const _0x5bc1d7 = global$1["window"]["getComputedStyle"](_0x27893c)["float"];
     if ("left" == _0x5bc1d7 || "right" == _0x5bc1d7) return _0x1bead4;
   }
-  const _0x592ad4 = x$4(_0x5000ec, _0x5581f6, _0x4e8c96, _0x445d91, _0x166c77);
+  const _0x592ad4 = x$5(_0x5000ec, _0x5581f6, _0x4e8c96, _0x445d91, _0x166c77);
   if (_0x592ad4["length"]) {
     for (const _0x5f031c of _0x592ad4) _0x1bead4["push"]({ "type": _0x5f031c["type"], "offset": _0x5f031c["offset"], "textOffset": _0x5f031c["textOffset"], "path": [_0x1d923c, ..._0x5f031c["path"]] }), _0x5581f6 += _0x4e8c96, _0x166c77 = false;
     return _0x1bead4;
@@ -139068,7 +139068,7 @@ function _$2(_0x5000ec, _0x1d923c, _0x5581f6, _0x4e8c96, _0x445d91, _0x166c77) {
   }(_0x5000ec, _0x1d923c, _0x5581f6, _0x4e8c96, _0x166c77)), _0x1bead4;
 }
 function B$2(_0x31dd02, _0x2f3c56, _0x4cb6a1, _0x51edbb, _0x3ba916) {
-  const _0x1bb0da = P$3(_0x31dd02), _0xfc2e8e = [];
+  const _0x1bb0da = P$4(_0x31dd02), _0xfc2e8e = [];
   let _0x5f50ae = 0;
   for (const _0x4d431f of _0x1bb0da["getClientRects"]()) if (_0x4d431f["left"] >= _0x4cb6a1) {
     const _0x51b659 = I$2(_0x31dd02, _0x5f50ae, _0x4cb6a1, _0x51edbb);
@@ -139125,8 +139125,8 @@ let E$2 = class E4 {
     this["_viewCollection"] = _0x39063c;
   }
 };
-const L$4 = "ck-pagination_enabled";
-let c$5 = class c4 extends Plugin {
+const L$5 = "ck-pagination_enabled";
+let c$6 = class c4 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "linesRepository");
@@ -139144,12 +139144,12 @@ let c$5 = class c4 extends Plugin {
     return true;
   }
   ["init"]() {
-    this["set"]({ "pageNumber": 1 }), this["linesRepository"] = new E$2(this["editor"]), this["_scrollableEditingRootDomAncestor"] = null, this["_resizeObserver"] = null, this["_paginationLookupPlugin"] = this["editor"]["plugins"]["get"]("PaginationLookup"), this["bind"]("isEnabled")["to"](this["editor"]["plugins"]["get"]("PaginationEditing")), this["editor"]["ui"]["once"]("ready", () => this["_onUiReady"]()), this["_toggleEditingRootsClass"](L$4), this["on"]("change:isEnabled", (_0x33010e, _0x40d0ab, _0x3ab068) => {
-      _0x3ab068 || this["linesRepository"]["cleanLines"](), this["_toggleEditingRootsClass"](L$4, _0x3ab068);
+    this["set"]({ "pageNumber": 1 }), this["linesRepository"] = new E$2(this["editor"]), this["_scrollableEditingRootDomAncestor"] = null, this["_resizeObserver"] = null, this["_paginationLookupPlugin"] = this["editor"]["plugins"]["get"]("PaginationLookup"), this["bind"]("isEnabled")["to"](this["editor"]["plugins"]["get"]("PaginationEditing")), this["editor"]["ui"]["once"]("ready", () => this["_onUiReady"]()), this["_toggleEditingRootsClass"](L$5), this["on"]("change:isEnabled", (_0x33010e, _0x40d0ab, _0x3ab068) => {
+      _0x3ab068 || this["linesRepository"]["cleanLines"](), this["_toggleEditingRootsClass"](L$5, _0x3ab068);
     });
   }
   ["destroy"]() {
-    this["_toggleEditingRootsClass"](L$4, false), this["linesRepository"]["destroy"](), this["_scrollableEditingRootDomAncestor"] = null, this["_resizeObserver"] && this["_resizeObserver"]["destroy"]();
+    this["_toggleEditingRootsClass"](L$5, false), this["linesRepository"]["destroy"](), this["_scrollableEditingRootDomAncestor"] = null, this["_resizeObserver"] && this["_resizeObserver"]["destroy"]();
   }
   ["scrollToPage"](_0x54ffde) {
     if (!this["isEnabled"]) return;
@@ -139212,7 +139212,7 @@ let c$5 = class c4 extends Plugin {
     });
   }
 };
-function g$5(_0x3fb689, _0x121a5f, ..._0x2422c0) {
+function g$6(_0x3fb689, _0x121a5f, ..._0x2422c0) {
   const t2 = _0x3fb689["t"];
   switch (_0x121a5f) {
     case "Go to next page":
@@ -139231,7 +139231,7 @@ function g$5(_0x3fb689, _0x121a5f, ..._0x2422c0) {
       return _0x121a5f;
   }
 }
-let s$5 = class s9 extends Plugin {
+let s$6 = class s9 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -139247,11 +139247,11 @@ let s$5 = class s9 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [n$2, c$5];
+    return [n$4, c$6];
   }
   ["init"]() {
     this["set"]({ "pageNumber": 1, "totalPages": 1 });
-    const _0x34a2fe = this["editor"]["plugins"]["get"]("Pagination"), _0x10b13c = this["editor"]["plugins"]["get"](n$2), _0x456971 = this["editor"]["plugins"]["get"](c$5);
+    const _0x34a2fe = this["editor"]["plugins"]["get"]("Pagination"), _0x10b13c = this["editor"]["plugins"]["get"](n$4), _0x456971 = this["editor"]["plugins"]["get"](c$6);
     this["bind"]("isEnabled")["to"](_0x34a2fe), this["_setUpDataDowncastConversion"](), this["bind"]("pageNumber")["to"](_0x456971), this["listenTo"](_0x10b13c, "change:pageBreaks", (_0x60ac8, _0x47a8f3, _0x58dce5, _0x3399e9) => {
       this["totalPages"] = _0x58dce5["length"], this["_updatePageBreakMarkers"](_0x58dce5, _0x3399e9);
     }), this["_setupKeystrokes"](), this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
@@ -139273,11 +139273,11 @@ let s$5 = class s9 extends Plugin {
   }
   ["scrollToPage"](_0x4c747d) {
     if (!this["isEnabled"]) return;
-    this["editor"]["plugins"]["get"](c$5)["scrollToPage"](this["_validatePageNumber"](_0x4c747d));
+    this["editor"]["plugins"]["get"](c$6)["scrollToPage"](this["_validatePageNumber"](_0x4c747d));
   }
   ["moveSelectionToPage"](_0x26b41d) {
     if (!this["isEnabled"]) return;
-    const _0x4eb0a0 = this["editor"], _0x130347 = this["editor"]["plugins"]["get"](n$2)["pageBreaks"][_0x26b41d - 1];
+    const _0x4eb0a0 = this["editor"], _0x130347 = this["editor"]["plugins"]["get"](n$4)["pageBreaks"][_0x26b41d - 1];
     _0x130347 && _0x4eb0a0["model"]["change"]((_0x3d527e) => {
       switch (_0x130347["type"]) {
         case "manual": {
@@ -139352,7 +139352,7 @@ let s$5 = class s9 extends Plugin {
       this["goToPreviousPage"](), _0x413f9e();
     }), _0x5127a0["keystrokes"]["set"]("Shift+Pagedown", (_0x4ed674, _0x3e0cb0) => {
       this["goToNextPage"](), _0x3e0cb0();
-    }), _0x5127a0["accessibility"]["addKeystrokeInfoGroup"]({ "id": "pagination", "label": g$5(_0x5127a0["locale"], "Keystrokes for navigating through documents"), "keystrokes": [{ "label": g$5(_0x5127a0["locale"], "Go to the previous page (also move selection)"), "keystroke": "Shift+Pageup", "mayRequireFn": true }, { "label": g$5(_0x5127a0["locale"], "Go to the next page (also move selection)"), "keystroke": "Shift+Pagedown", "mayRequireFn": true }] });
+    }), _0x5127a0["accessibility"]["addKeystrokeInfoGroup"]({ "id": "pagination", "label": g$6(_0x5127a0["locale"], "Keystrokes for navigating through documents"), "keystrokes": [{ "label": g$6(_0x5127a0["locale"], "Go to the previous page (also move selection)"), "keystroke": "Shift+Pageup", "mayRequireFn": true }, { "label": g$6(_0x5127a0["locale"], "Go to the next page (also move selection)"), "keystroke": "Shift+Pagedown", "mayRequireFn": true }] });
   }
   ["_validatePageNumber"](_0x58c7eb) {
     return _0x58c7eb < 1 && (_0x58c7eb = 1), _0x58c7eb > this["totalPages"] && (_0x58c7eb = this["totalPages"]), _0x58c7eb;
@@ -139363,7 +139363,7 @@ let U$1 = class U4 extends View {
     super(_0x3c82a1);
     __publicField(this, "pageNumberView");
     const _0x5c0b47 = this["bindTemplate"];
-    this["set"]({ "pageNumber": 1, "totalPages": 1, "isEnabled": true }), this["pageNumberView"] = new InputNumberView(_0x3c82a1, { "min": 1, "step": 1 }), this["pageNumberView"]["set"]({ "inputMode": "numeric", "tabIndex": -1 }), this["pageNumberView"]["bind"]("ariaLabel")["to"](this, "totalPages", (_0x540ea5) => g$5(_0x3c82a1, "Current page number (from 1 to %0)", _0x540ea5)), this["pageNumberView"]["bind"]("max")["to"](this, "totalPages"), this["pageNumberView"]["bind"]("isReadOnly")["to"](this, "isEnabled", (_0x4f0859) => !_0x4f0859), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-page-navigator", _0x5c0b47["if"]("isEnabled", "ck-disabled", (_0x49d6ac) => !_0x49d6ac)] }, "children": [this["pageNumberView"], { "tag": "span", "children": [{ "text": _0x5c0b47["to"]("totalPages") }] }] });
+    this["set"]({ "pageNumber": 1, "totalPages": 1, "isEnabled": true }), this["pageNumberView"] = new InputNumberView(_0x3c82a1, { "min": 1, "step": 1 }), this["pageNumberView"]["set"]({ "inputMode": "numeric", "tabIndex": -1 }), this["pageNumberView"]["bind"]("ariaLabel")["to"](this, "totalPages", (_0x540ea5) => g$6(_0x3c82a1, "Current page number (from 1 to %0)", _0x540ea5)), this["pageNumberView"]["bind"]("max")["to"](this, "totalPages"), this["pageNumberView"]["bind"]("isReadOnly")["to"](this, "isEnabled", (_0x4f0859) => !_0x4f0859), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-page-navigator", _0x5c0b47["if"]("isEnabled", "ck-disabled", (_0x49d6ac) => !_0x49d6ac)] }, "children": [this["pageNumberView"], { "tag": "span", "children": [{ "text": _0x5c0b47["to"]("totalPages") }] }] });
   }
   ["render"]() {
     super["render"]();
@@ -139388,7 +139388,7 @@ let U$1 = class U4 extends View {
     this["element"]["firstChild"]["focus"]();
   }
 };
-let e$2 = class e4 extends Plugin {
+let e$3 = class e4 extends Plugin {
   static get ["pluginName"]() {
     return "PaginationUI";
   }
@@ -139407,18 +139407,18 @@ let e$2 = class e4 extends Plugin {
       }), _0x314239;
     }), _0x3cfd06["ui"]["componentFactory"]["add"]("nextPage", (_0x2c320e) => {
       const _0x24a8e5 = new ButtonView(_0x2c320e);
-      return _0x24a8e5["isEnabled"] = true, _0x24a8e5["label"] = g$5(_0x3cfd06["locale"], "Go to next page"), _0x24a8e5["icon"] = arrowDown, _0x24a8e5["tooltip"] = true, _0x24a8e5["keystroke"] = "Shift+PageDown", _0x24a8e5["bind"]("isEnabled")["to"](_0x27587a), this["listenTo"](_0x24a8e5, "execute", () => {
+      return _0x24a8e5["isEnabled"] = true, _0x24a8e5["label"] = g$6(_0x3cfd06["locale"], "Go to next page"), _0x24a8e5["icon"] = arrowDown, _0x24a8e5["tooltip"] = true, _0x24a8e5["keystroke"] = "Shift+PageDown", _0x24a8e5["bind"]("isEnabled")["to"](_0x27587a), this["listenTo"](_0x24a8e5, "execute", () => {
         _0x27587a["goToNextPage"]();
       }), _0x24a8e5;
     }), _0x3cfd06["ui"]["componentFactory"]["add"]("previousPage", (_0x1331d0) => {
       const _0x12cd7f = new ButtonView(_0x1331d0);
-      return _0x12cd7f["isEnabled"] = true, _0x12cd7f["label"] = g$5(_0x3cfd06["locale"], "Go to previous page"), _0x12cd7f["icon"] = arrowUp, _0x12cd7f["tooltip"] = true, _0x12cd7f["keystroke"] = "Shift+PageUp", _0x12cd7f["bind"]("isEnabled")["to"](_0x27587a), this["listenTo"](_0x12cd7f, "execute", () => {
+      return _0x12cd7f["isEnabled"] = true, _0x12cd7f["label"] = g$6(_0x3cfd06["locale"], "Go to previous page"), _0x12cd7f["icon"] = arrowUp, _0x12cd7f["tooltip"] = true, _0x12cd7f["keystroke"] = "Shift+PageUp", _0x12cd7f["bind"]("isEnabled")["to"](_0x27587a), this["listenTo"](_0x12cd7f, "execute", () => {
         _0x27587a["goToPreviousPage"]();
       }), _0x12cd7f;
     });
   }
 };
-let a$3 = class a6 extends Plugin {
+let a$5 = class a6 extends Plugin {
   static get ["pluginName"]() {
     return "Pagination";
   }
@@ -139429,28 +139429,28 @@ let a$3 = class a6 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [s$5, e$2];
+    return [s$6, e$3];
   }
   constructor(_0x1aaab6) {
     super(_0x1aaab6), this["isEnabled"] = false;
   }
   ["init"]() {
     this["set"]({ "pageNumber": 1, "totalPages": 1 });
-    const _0x52d570 = this["editor"]["plugins"]["get"](s$5);
+    const _0x52d570 = this["editor"]["plugins"]["get"](s$6);
     this["bind"]("pageNumber")["to"](_0x52d570), this["bind"]("totalPages")["to"](_0x52d570), env["isBlink"] || this["editor"]["config"]["get"]("pagination.enableOnUnsupportedBrowsers") ? this["editor"]["on"]("ready", () => {
       this["isEnabled"] = true;
     }) : this["forceDisabled"]("browserCheck");
   }
   ["scrollToPage"](_0x18c0cf) {
-    this["editor"]["plugins"]["get"](s$5)["scrollToPage"](_0x18c0cf);
+    this["editor"]["plugins"]["get"](s$6)["scrollToPage"](_0x18c0cf);
   }
 };
-const m$5 = /<meta\s*name="?generator"?\s*content="?microsoft\s*excel\s*\d+"?\/?>/i;
+const m$7 = /<meta\s*name="?generator"?\s*content="?microsoft\s*excel\s*\d+"?\/?>/i;
 function k$3(_0x46a045) {
-  return m$5["test"](_0x46a045);
+  return m$7["test"](_0x46a045);
 }
 const S$1 = /^(?<tagName>(?!\.)[\w-]+)?(\.(?<className>[\w-]+))?$/i;
-function b$1(_0x53b034, _0x451846) {
+function b$3(_0x53b034, _0x451846) {
   const _0x4c76e3 = /* @__PURE__ */ new Map();
   for (const [_0x3d8ea1, _0x840405] of _0x451846) {
     if (!_0x3d8ea1["tagName"] && !_0x3d8ea1["className"]) continue;
@@ -139459,7 +139459,7 @@ function b$1(_0x53b034, _0x451846) {
   }
   return _0x4c76e3;
 }
-function h$3(_0x1b1e6e) {
+function h$5(_0x1b1e6e) {
   const _0xd841d5 = {};
   for (let _0x19ce18 = 0; _0x19ce18 < _0x1b1e6e["length"]; _0x19ce18++) {
     const _0x50df75 = _0x1b1e6e[_0x19ce18], _0x339119 = _0x1b1e6e["getPropertyValue"](_0x50df75);
@@ -139475,17 +139475,17 @@ function O$3(_0x8dbb65) {
   }
   return _0x53143f;
 }
-function g$4(_0x63b059) {
+function g$5(_0x63b059) {
   const _0x52b2c5 = {};
   for (const _0x5aa10d of _0x63b059) Object["assign"](_0x52b2c5, _0x5aa10d);
   return _0x52b2c5;
 }
-let c$4 = class c5 extends MSWordNormalizer {
+let c$5 = class c5 extends MSWordNormalizer {
   ["execute"](_0x371ba0) {
     const { body: _0x39484f, styles: _0xbcb08a } = _0x371ba0["_parsedData"], _0x5edb37 = new UpcastWriter(_0x39484f["document"]), _0x5caa45 = _0x5edb37["createRangeIn"](_0x39484f), _0x4c7e2b = function(_0x548878) {
       const _0x5510d8 = {};
       for (const _0x1df503 of _0x548878) for (const _0x194e7d of _0x1df503["cssRules"]) if (_0x194e7d instanceof CSSStyleRule) {
-        const _0x5b75c9 = h$3(_0x194e7d["style"]);
+        const _0x5b75c9 = h$5(_0x194e7d["style"]);
         _0x5510d8[_0x194e7d["selectorText"]] = Object["assign"]({}, _0x5510d8[_0x194e7d["selectorText"]] || {}, _0x5b75c9);
       }
       return _0x5510d8;
@@ -139499,9 +139499,9 @@ let c$4 = class c5 extends MSWordNormalizer {
     }(_0x4c7e2b);
     for (const _0x37c61d of _0x5caa45) {
       if ("elementStart" !== _0x37c61d["type"]) continue;
-      const _0x2654c0 = b$1(_0x37c61d["item"], _0xed0c93);
+      const _0x2654c0 = b$3(_0x37c61d["item"], _0xed0c93);
       if (_0x2654c0["size"]) {
-        const _0x32bdfd = g$4(Array["from"](_0x2654c0["values"]()));
+        const _0x32bdfd = g$5(Array["from"](_0x2654c0["values"]()));
         for (const _0x203cb7 in _0x32bdfd) {
           const _0x14ca39 = _0x37c61d["item"];
           _0x14ca39["hasStyle"](_0x203cb7) || _0x5edb37["setStyle"](_0x203cb7, _0x32bdfd[_0x203cb7], _0x14ca39);
@@ -139514,7 +139514,7 @@ let c$4 = class c5 extends MSWordNormalizer {
     return super["isActive"](_0x19be1e) || k$3(_0x19be1e);
   }
 };
-let i$4 = class i10 extends Plugin {
+let i$5 = class i10 extends Plugin {
   static get ["pluginName"]() {
     return "PasteFromOfficeEnhancedInliner";
   }
@@ -139528,7 +139528,7 @@ let i$4 = class i10 extends Plugin {
     return ["PasteFromOffice"];
   }
   ["init"]() {
-    const _0x41020a = this["editor"], _0x25dce0 = _0x41020a["plugins"]["get"]("ClipboardPipeline"), _0x195324 = _0x41020a["editing"]["view"]["document"], _0x23da88 = new c$4(_0x195324);
+    const _0x41020a = this["editor"], _0x25dce0 = _0x41020a["plugins"]["get"]("ClipboardPipeline"), _0x195324 = _0x41020a["editing"]["view"]["document"], _0x23da88 = new c$5(_0x195324);
     _0x25dce0["on"]("inputTransformation", (_0x8bcdc0, _0x77386) => {
       const _0x4ae02e = _0x77386["dataTransfer"]["getData"]("text/html");
       _0x23da88["isActive"](_0x4ae02e) && (_0x77386["_parsedData"] || (_0x77386["_parsedData"] = parseHtml(_0x4ae02e, _0x195324["stylesProcessor"])), _0x23da88["execute"](_0x77386));
@@ -139715,11 +139715,11 @@ let i$4 = class i10 extends Plugin {
     }(this);
   }
 };
-const L$3 = ["color", "font-family", "font-size", "text-decoration", "text-decoration-line", "font-weight", "font-style", "vertical-align"], E$1 = ["color", "font-family", "font-size"], F$2 = { "font-style": [["italic", "i"]], "font-weight": [["medium", "strong"], ["bold", "strong"], ["bolder", "strong"], [(_0x1bb160) => Number(_0x1bb160) >= 600, "strong"]], "text-decoration": [["underline", "u"], ["line-through", "s"]], "text-decoration-line": [["underline", "u"], ["line-through", "s"]], "vertical-align": [["sub", "sub"], ["super", "sup"]] };
-function P$2(_0x4ace9f) {
-  return L$3["includes"](_0x4ace9f);
+const L$4 = ["color", "font-family", "font-size", "text-decoration", "text-decoration-line", "font-weight", "font-style", "vertical-align"], E$1 = ["color", "font-family", "font-size"], F$2 = { "font-style": [["italic", "i"]], "font-weight": [["medium", "strong"], ["bold", "strong"], ["bolder", "strong"], [(_0x1bb160) => Number(_0x1bb160) >= 600, "strong"]], "text-decoration": [["underline", "u"], ["line-through", "s"]], "text-decoration-line": [["underline", "u"], ["line-through", "s"]], "vertical-align": [["sub", "sub"], ["super", "sup"]] };
+function P$3(_0x4ace9f) {
+  return L$4["includes"](_0x4ace9f);
 }
-function x$3(_0x458adf, _0x48313d, _0x1db2b0) {
+function x$4(_0x458adf, _0x48313d, _0x1db2b0) {
   const { spanStyles: _0x44c37d, stylesToBeHtmlElements: _0x409989 } = function(_0x3d4bac, _0x4e3903) {
     const _0x18c89 = {}, _0x5b33d6 = {};
     return _0x4e3903["forEach"]((_0x3e638a) => {
@@ -139756,10 +139756,10 @@ function x$3(_0x458adf, _0x48313d, _0x1db2b0) {
     _0x8632c6["setStyle"](_0x958a47, _0x20b278), _0x8632c6["insertChild"](0, _0x20b278, _0x5876bb), _0x8632c6["removeStyle"](Object["keys"](_0x958a47), _0x5876bb);
   }(_0x458adf, _0x48313d, _0x44c37d);
 }
-let f$4 = class f3 extends MSWordNormalizer {
+let f$5 = class f3 extends MSWordNormalizer {
   ["execute"](_0x3e1a6b) {
     const { body: _0x2bf070 } = _0x3e1a6b["_parsedData"], _0x47c373 = new UpcastWriter(_0x2bf070["document"]), _0x190a2d = _0x47c373["createRangeIn"](_0x2bf070), _0x78f702 = new Document$1(_0x47c373["document"]["stylesProcessor"]), _0x63d2f8 = [...new DomConverter(_0x78f702)["blockElements"], "font"], _0x4466cd = _0x190a2d["getItems"]();
-    for (const _0x4ddf80 of _0x4466cd) _0x4ddf80["is"]("element") && _0x63d2f8["includes"](_0x4ddf80["name"]) && x$3(_0x4ddf80, _0x47c373, (_0x2b7046 = _0x4ddf80, Array["from"](_0x2b7046["getStyleNames"]())["filter"](P$2)));
+    for (const _0x4ddf80 of _0x4466cd) _0x4ddf80["is"]("element") && _0x63d2f8["includes"](_0x4ddf80["name"]) && x$4(_0x4ddf80, _0x47c373, (_0x2b7046 = _0x4ddf80, Array["from"](_0x2b7046["getStyleNames"]())["filter"](P$3)));
     var _0x2b7046;
     _0x3e1a6b["content"] = _0x2bf070;
   }
@@ -139767,7 +139767,7 @@ let f$4 = class f3 extends MSWordNormalizer {
     return super["isActive"](_0x5232e3) || k$3(_0x5232e3);
   }
 };
-let s$4 = class s10 extends Plugin {
+let s$5 = class s10 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -139786,7 +139786,7 @@ let s$4 = class s10 extends Plugin {
     return ["PasteFromOffice"];
   }
   ["init"]() {
-    const _0x65c931 = this["editor"], _0x478caf = _0x65c931["plugins"]["get"]("ClipboardPipeline"), _0x5eb537 = _0x65c931["editing"]["view"]["document"], _0x1f7183 = new f$4(_0x5eb537);
+    const _0x65c931 = this["editor"], _0x478caf = _0x65c931["plugins"]["get"]("ClipboardPipeline"), _0x5eb537 = _0x65c931["editing"]["view"]["document"], _0x1f7183 = new f$5(_0x5eb537);
     _0x478caf["on"]("inputTransformation", (_0x529279, _0x829620) => {
       const _0x23b5c0 = _0x829620["dataTransfer"]["getData"]("text/html");
       _0x1f7183["isActive"](_0x23b5c0) && (_0x829620["_parsedData"] || (_0x829620["_parsedData"] = parseHtml(_0x23b5c0, _0x5eb537["stylesProcessor"])), _0x1f7183["execute"](_0x829620));
@@ -139808,7 +139808,7 @@ let s$4 = class s10 extends Plugin {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
 };
-let a$2 = class a7 extends Plugin {
+let a$4 = class a7 extends Plugin {
   static get ["pluginName"]() {
     return "PasteFromOfficeEnhanced";
   }
@@ -139819,7 +139819,7 @@ let a$2 = class a7 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return ["PasteFromOffice", i$4, s$4];
+    return ["PasteFromOffice", i$5, s$5];
   }
 };
 var indexMinimal = {};
@@ -139868,90 +139868,90 @@ function requireBase64() {
   (function(exports) {
     var base642 = exports;
     base642.length = function length2(string) {
-      var p6 = string.length;
-      if (!p6)
+      var p7 = string.length;
+      if (!p7)
         return 0;
-      var n10 = 0;
-      while (--p6 % 4 > 1 && string.charAt(p6) === "=")
-        ++n10;
-      return Math.ceil(string.length * 3) / 4 - n10;
+      var n12 = 0;
+      while (--p7 % 4 > 1 && string.charAt(p7) === "=")
+        ++n12;
+      return Math.ceil(string.length * 3) / 4 - n12;
     };
     var b64 = new Array(64);
     var s64 = new Array(123);
-    for (var i13 = 0; i13 < 64; )
-      s64[b64[i13] = i13 < 26 ? i13 + 65 : i13 < 52 ? i13 + 71 : i13 < 62 ? i13 - 4 : i13 - 59 | 43] = i13++;
+    for (var i14 = 0; i14 < 64; )
+      s64[b64[i14] = i14 < 26 ? i14 + 65 : i14 < 52 ? i14 + 71 : i14 < 62 ? i14 - 4 : i14 - 59 | 43] = i14++;
     base642.encode = function encode2(buffer, start, end) {
       var parts2 = null, chunk = [];
-      var i14 = 0, j3 = 0, t2;
+      var i15 = 0, j4 = 0, t2;
       while (start < end) {
-        var b3 = buffer[start++];
-        switch (j3) {
+        var b4 = buffer[start++];
+        switch (j4) {
           case 0:
-            chunk[i14++] = b64[b3 >> 2];
-            t2 = (b3 & 3) << 4;
-            j3 = 1;
+            chunk[i15++] = b64[b4 >> 2];
+            t2 = (b4 & 3) << 4;
+            j4 = 1;
             break;
           case 1:
-            chunk[i14++] = b64[t2 | b3 >> 4];
-            t2 = (b3 & 15) << 2;
-            j3 = 2;
+            chunk[i15++] = b64[t2 | b4 >> 4];
+            t2 = (b4 & 15) << 2;
+            j4 = 2;
             break;
           case 2:
-            chunk[i14++] = b64[t2 | b3 >> 6];
-            chunk[i14++] = b64[b3 & 63];
-            j3 = 0;
+            chunk[i15++] = b64[t2 | b4 >> 6];
+            chunk[i15++] = b64[b4 & 63];
+            j4 = 0;
             break;
         }
-        if (i14 > 8191) {
+        if (i15 > 8191) {
           (parts2 || (parts2 = [])).push(String.fromCharCode.apply(String, chunk));
-          i14 = 0;
+          i15 = 0;
         }
       }
-      if (j3) {
-        chunk[i14++] = b64[t2];
-        chunk[i14++] = 61;
-        if (j3 === 1)
-          chunk[i14++] = 61;
+      if (j4) {
+        chunk[i15++] = b64[t2];
+        chunk[i15++] = 61;
+        if (j4 === 1)
+          chunk[i15++] = 61;
       }
       if (parts2) {
-        if (i14)
-          parts2.push(String.fromCharCode.apply(String, chunk.slice(0, i14)));
+        if (i15)
+          parts2.push(String.fromCharCode.apply(String, chunk.slice(0, i15)));
         return parts2.join("");
       }
-      return String.fromCharCode.apply(String, chunk.slice(0, i14));
+      return String.fromCharCode.apply(String, chunk.slice(0, i15));
     };
     var invalidEncoding = "invalid encoding";
     base642.decode = function decode2(string, buffer, offset2) {
       var start = offset2;
-      var j3 = 0, t2;
-      for (var i14 = 0; i14 < string.length; ) {
-        var c8 = string.charCodeAt(i14++);
-        if (c8 === 61 && j3 > 1)
+      var j4 = 0, t2;
+      for (var i15 = 0; i15 < string.length; ) {
+        var c8 = string.charCodeAt(i15++);
+        if (c8 === 61 && j4 > 1)
           break;
         if ((c8 = s64[c8]) === void 0)
           throw Error(invalidEncoding);
-        switch (j3) {
+        switch (j4) {
           case 0:
             t2 = c8;
-            j3 = 1;
+            j4 = 1;
             break;
           case 1:
             buffer[offset2++] = t2 << 2 | (c8 & 48) >> 4;
             t2 = c8;
-            j3 = 2;
+            j4 = 2;
             break;
           case 2:
             buffer[offset2++] = (t2 & 15) << 4 | (c8 & 60) >> 2;
             t2 = c8;
-            j3 = 3;
+            j4 = 3;
             break;
           case 3:
             buffer[offset2++] = (t2 & 3) << 6 | c8;
-            j3 = 0;
+            j4 = 0;
             break;
         }
       }
-      if (j3 === 1)
+      if (j4 === 1)
         throw Error(invalidEncoding);
       return offset2 - start;
     };
@@ -139985,11 +139985,11 @@ function requireEventemitter() {
         this._listeners[evt] = [];
       else {
         var listeners = this._listeners[evt];
-        for (var i13 = 0; i13 < listeners.length; )
-          if (listeners[i13].fn === fn)
-            listeners.splice(i13, 1);
+        for (var i14 = 0; i14 < listeners.length; )
+          if (listeners[i14].fn === fn)
+            listeners.splice(i14, 1);
           else
-            ++i13;
+            ++i14;
       }
     }
     return this;
@@ -139997,11 +139997,11 @@ function requireEventemitter() {
   EventEmitter.prototype.emit = function emit(evt) {
     var listeners = this._listeners[evt];
     if (listeners) {
-      var args = [], i13 = 1;
-      for (; i13 < arguments.length; )
-        args.push(arguments[i13++]);
-      for (i13 = 0; i13 < listeners.length; )
-        listeners[i13].fn.apply(listeners[i13++].ctx, args);
+      var args = [], i14 = 1;
+      for (; i14 < arguments.length; )
+        args.push(arguments[i14++]);
+      for (i14 = 0; i14 < listeners.length; )
+        listeners[i14].fn.apply(listeners[i14++].ctx, args);
     }
     return this;
   };
@@ -140212,7 +140212,7 @@ function requireInquire() {
       var mod = eval("quire".replace(/^/, "re"))(moduleName);
       if (mod && (mod.length || Object.keys(mod).length))
         return mod;
-    } catch (e6) {
+    } catch (e7) {
     }
     return null;
   }
@@ -140227,14 +140227,14 @@ function requireUtf8() {
     var utf82 = exports;
     utf82.length = function utf8_length(string) {
       var len = 0, c8 = 0;
-      for (var i13 = 0; i13 < string.length; ++i13) {
-        c8 = string.charCodeAt(i13);
+      for (var i14 = 0; i14 < string.length; ++i14) {
+        c8 = string.charCodeAt(i14);
         if (c8 < 128)
           len += 1;
         else if (c8 < 2048)
           len += 2;
-        else if ((c8 & 64512) === 55296 && (string.charCodeAt(i13 + 1) & 64512) === 56320) {
-          ++i13;
+        else if ((c8 & 64512) === 55296 && (string.charCodeAt(i14 + 1) & 64512) === 56320) {
+          ++i14;
           len += 4;
         } else
           len += 3;
@@ -140245,43 +140245,43 @@ function requireUtf8() {
       var len = end - start;
       if (len < 1)
         return "";
-      var parts2 = null, chunk = [], i13 = 0, t2;
+      var parts2 = null, chunk = [], i14 = 0, t2;
       while (start < end) {
         t2 = buffer[start++];
         if (t2 < 128)
-          chunk[i13++] = t2;
+          chunk[i14++] = t2;
         else if (t2 > 191 && t2 < 224)
-          chunk[i13++] = (t2 & 31) << 6 | buffer[start++] & 63;
+          chunk[i14++] = (t2 & 31) << 6 | buffer[start++] & 63;
         else if (t2 > 239 && t2 < 365) {
           t2 = ((t2 & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 65536;
-          chunk[i13++] = 55296 + (t2 >> 10);
-          chunk[i13++] = 56320 + (t2 & 1023);
+          chunk[i14++] = 55296 + (t2 >> 10);
+          chunk[i14++] = 56320 + (t2 & 1023);
         } else
-          chunk[i13++] = (t2 & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
-        if (i13 > 8191) {
+          chunk[i14++] = (t2 & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
+        if (i14 > 8191) {
           (parts2 || (parts2 = [])).push(String.fromCharCode.apply(String, chunk));
-          i13 = 0;
+          i14 = 0;
         }
       }
       if (parts2) {
-        if (i13)
-          parts2.push(String.fromCharCode.apply(String, chunk.slice(0, i13)));
+        if (i14)
+          parts2.push(String.fromCharCode.apply(String, chunk.slice(0, i14)));
         return parts2.join("");
       }
-      return String.fromCharCode.apply(String, chunk.slice(0, i13));
+      return String.fromCharCode.apply(String, chunk.slice(0, i14));
     };
     utf82.write = function utf8_write(string, buffer, offset2) {
       var start = offset2, c1, c22;
-      for (var i13 = 0; i13 < string.length; ++i13) {
-        c1 = string.charCodeAt(i13);
+      for (var i14 = 0; i14 < string.length; ++i14) {
+        c1 = string.charCodeAt(i14);
         if (c1 < 128) {
           buffer[offset2++] = c1;
         } else if (c1 < 2048) {
           buffer[offset2++] = c1 >> 6 | 192;
           buffer[offset2++] = c1 & 63 | 128;
-        } else if ((c1 & 64512) === 55296 && ((c22 = string.charCodeAt(i13 + 1)) & 64512) === 56320) {
+        } else if ((c1 & 64512) === 55296 && ((c22 = string.charCodeAt(i14 + 1)) & 64512) === 56320) {
           c1 = 65536 + ((c1 & 1023) << 10) + (c22 & 1023);
-          ++i13;
+          ++i14;
           buffer[offset2++] = c1 >> 18 | 240;
           buffer[offset2++] = c1 >> 12 & 63 | 128;
           buffer[offset2++] = c1 >> 6 & 63 | 128;
@@ -140478,7 +140478,7 @@ function requireMinimal$1() {
           /* istanbul ignore next */
           null
         );
-      } catch (e6) {
+      } catch (e7) {
         return null;
       }
     }();
@@ -140505,9 +140505,9 @@ function requireMinimal$1() {
       return bits.toNumber(Boolean(unsigned));
     };
     function merge2(dst, src, ifNotSet) {
-      for (var keys = Object.keys(src), i13 = 0; i13 < keys.length; ++i13)
-        if (dst[keys[i13]] === void 0 || !ifNotSet)
-          dst[keys[i13]] = src[keys[i13]];
+      for (var keys = Object.keys(src), i14 = 0; i14 < keys.length; ++i14)
+        if (dst[keys[i14]] === void 0 || !ifNotSet)
+          dst[keys[i14]] = src[keys[i14]];
       return dst;
     }
     util.merge = merge2;
@@ -140562,19 +140562,19 @@ function requireMinimal$1() {
     util.ProtocolError = newError("ProtocolError");
     util.oneOfGetter = function getOneOf(fieldNames) {
       var fieldMap = {};
-      for (var i13 = 0; i13 < fieldNames.length; ++i13)
-        fieldMap[fieldNames[i13]] = 1;
+      for (var i14 = 0; i14 < fieldNames.length; ++i14)
+        fieldMap[fieldNames[i14]] = 1;
       return function() {
-        for (var keys = Object.keys(this), i14 = keys.length - 1; i14 > -1; --i14)
-          if (fieldMap[keys[i14]] === 1 && this[keys[i14]] !== void 0 && this[keys[i14]] !== null)
-            return keys[i14];
+        for (var keys = Object.keys(this), i15 = keys.length - 1; i15 > -1; --i15)
+          if (fieldMap[keys[i15]] === 1 && this[keys[i15]] !== void 0 && this[keys[i15]] !== null)
+            return keys[i15];
       };
     };
     util.oneOfSetter = function setOneOf(fieldNames) {
       return function(name) {
-        for (var i13 = 0; i13 < fieldNames.length; ++i13)
-          if (fieldNames[i13] !== name)
-            delete this[fieldNames[i13]];
+        for (var i14 = 0; i14 < fieldNames.length; ++i14)
+          if (fieldNames[i14] !== name)
+            delete this[fieldNames[i14]];
       };
     };
     util.toJSONOptions = {
@@ -140728,8 +140728,8 @@ function requireWriter() {
   var writeBytes = util.Array.prototype.set ? function writeBytes_set(val, buf, pos) {
     buf.set(val, pos);
   } : function writeBytes_for(val, buf, pos) {
-    for (var i13 = 0; i13 < val.length; ++i13)
-      buf[pos + i13] = val[i13];
+    for (var i14 = 0; i14 < val.length; ++i14)
+      buf[pos + i14] = val[i14];
   };
   Writer2.prototype.bytes = function write_bytes(value2) {
     var len = value2.length >>> 0;
@@ -140809,8 +140809,8 @@ function requireWriter_buffer() {
     } : function writeBytesBuffer_copy(val, buf, pos) {
       if (val.copy)
         val.copy(buf, pos, 0, val.length);
-      else for (var i13 = 0; i13 < val.length; )
-        buf[pos++] = val[i13++];
+      else for (var i14 = 0; i14 < val.length; )
+        buf[pos++] = val[i14++];
     };
   };
   BufferWriter.prototype.bytes = function write_bytes_buffer(value2) {
@@ -140905,10 +140905,10 @@ function requireReader() {
   };
   function readLongVarint() {
     var bits = new LongBits(0, 0);
-    var i13 = 0;
+    var i14 = 0;
     if (this.len - this.pos > 4) {
-      for (; i13 < 4; ++i13) {
-        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i13 * 7) >>> 0;
+      for (; i14 < 4; ++i14) {
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i14 * 7) >>> 0;
         if (this.buf[this.pos++] < 128)
           return bits;
       }
@@ -140916,29 +140916,29 @@ function requireReader() {
       bits.hi = (bits.hi | (this.buf[this.pos] & 127) >> 4) >>> 0;
       if (this.buf[this.pos++] < 128)
         return bits;
-      i13 = 0;
+      i14 = 0;
     } else {
-      for (; i13 < 3; ++i13) {
+      for (; i14 < 3; ++i14) {
         if (this.pos >= this.len)
           throw indexOutOfRange(this);
-        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i13 * 7) >>> 0;
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i14 * 7) >>> 0;
         if (this.buf[this.pos++] < 128)
           return bits;
       }
-      bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i13 * 7) >>> 0;
+      bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i14 * 7) >>> 0;
       return bits;
     }
     if (this.len - this.pos > 4) {
-      for (; i13 < 5; ++i13) {
-        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i13 * 7 + 3) >>> 0;
+      for (; i14 < 5; ++i14) {
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i14 * 7 + 3) >>> 0;
         if (this.buf[this.pos++] < 128)
           return bits;
       }
     } else {
-      for (; i13 < 5; ++i13) {
+      for (; i14 < 5; ++i14) {
         if (this.pos >= this.len)
           throw indexOutOfRange(this);
-        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i13 * 7 + 3) >>> 0;
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i14 * 7 + 3) >>> 0;
         if (this.buf[this.pos++] < 128)
           return bits;
       }
@@ -141281,11 +141281,11 @@ function encodePacketToBinary(packet, callback) {
 }
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 const lookup$1 = typeof Uint8Array === "undefined" ? [] : new Uint8Array(256);
-for (let i13 = 0; i13 < chars.length; i13++) {
-  lookup$1[chars.charCodeAt(i13)] = i13;
+for (let i14 = 0; i14 < chars.length; i14++) {
+  lookup$1[chars.charCodeAt(i14)] = i14;
 }
 const decode$1 = (base642) => {
-  let bufferLength = base642.length * 0.75, len = base642.length, i13, p6 = 0, encoded1, encoded2, encoded3, encoded4;
+  let bufferLength = base642.length * 0.75, len = base642.length, i14, p7 = 0, encoded1, encoded2, encoded3, encoded4;
   if (base642[base642.length - 1] === "=") {
     bufferLength--;
     if (base642[base642.length - 2] === "=") {
@@ -141293,14 +141293,14 @@ const decode$1 = (base642) => {
     }
   }
   const arraybuffer = new ArrayBuffer(bufferLength), bytes = new Uint8Array(arraybuffer);
-  for (i13 = 0; i13 < len; i13 += 4) {
-    encoded1 = lookup$1[base642.charCodeAt(i13)];
-    encoded2 = lookup$1[base642.charCodeAt(i13 + 1)];
-    encoded3 = lookup$1[base642.charCodeAt(i13 + 2)];
-    encoded4 = lookup$1[base642.charCodeAt(i13 + 3)];
-    bytes[p6++] = encoded1 << 2 | encoded2 >> 4;
-    bytes[p6++] = (encoded2 & 15) << 4 | encoded3 >> 2;
-    bytes[p6++] = (encoded3 & 3) << 6 | encoded4 & 63;
+  for (i14 = 0; i14 < len; i14 += 4) {
+    encoded1 = lookup$1[base642.charCodeAt(i14)];
+    encoded2 = lookup$1[base642.charCodeAt(i14 + 1)];
+    encoded3 = lookup$1[base642.charCodeAt(i14 + 2)];
+    encoded4 = lookup$1[base642.charCodeAt(i14 + 3)];
+    bytes[p7++] = encoded1 << 2 | encoded2 >> 4;
+    bytes[p7++] = (encoded2 & 15) << 4 | encoded3 >> 2;
+    bytes[p7++] = (encoded3 & 3) << 6 | encoded4 & 63;
   }
   return arraybuffer;
 };
@@ -141360,9 +141360,9 @@ const encodePayload = (packets, callback) => {
   const length2 = packets.length;
   const encodedPackets = new Array(length2);
   let count2 = 0;
-  packets.forEach((packet, i13) => {
+  packets.forEach((packet, i14) => {
     encodePacket(packet, false, (encodedPacket) => {
-      encodedPackets[i13] = encodedPacket;
+      encodedPackets[i14] = encodedPacket;
       if (++count2 === length2) {
         callback(encodedPackets.join(SEPARATOR));
       }
@@ -141372,8 +141372,8 @@ const encodePayload = (packets, callback) => {
 const decodePayload = (encodedPayload, binaryType) => {
   const encodedPackets = encodedPayload.split(SEPARATOR);
   const packets = [];
-  for (let i13 = 0; i13 < encodedPackets.length; i13++) {
-    const decodedPacket = decodePacket(encodedPackets[i13], binaryType);
+  for (let i14 = 0; i14 < encodedPackets.length; i14++) {
+    const decodedPacket = decodePacket(encodedPackets[i14], binaryType);
     packets.push(decodedPacket);
     if (decodedPacket.type === "error") {
       break;
@@ -141419,16 +141419,16 @@ function concatChunks(chunks, size) {
     return chunks.shift();
   }
   const buffer = new Uint8Array(size);
-  let j3 = 0;
-  for (let i13 = 0; i13 < size; i13++) {
-    buffer[i13] = chunks[0][j3++];
-    if (j3 === chunks[0].length) {
+  let j4 = 0;
+  for (let i14 = 0; i14 < size; i14++) {
+    buffer[i14] = chunks[0][j4++];
+    if (j4 === chunks[0].length) {
       chunks.shift();
-      j3 = 0;
+      j4 = 0;
     }
   }
-  if (chunks.length && j3 < chunks[0].length) {
-    chunks[0] = chunks[0].slice(j3);
+  if (chunks.length && j4 < chunks[0].length) {
+    chunks[0] = chunks[0].slice(j4);
   }
   return buffer;
 }
@@ -141471,12 +141471,12 @@ function createPacketDecoderStream(maxPayload, binaryType) {
           }
           const headerArray = concatChunks(chunks, 8);
           const view = new DataView(headerArray.buffer, headerArray.byteOffset, headerArray.length);
-          const n10 = view.getUint32(0);
-          if (n10 > Math.pow(2, 53 - 32) - 1) {
+          const n12 = view.getUint32(0);
+          if (n12 > Math.pow(2, 53 - 32) - 1) {
             controller.enqueue(ERROR_PACKET);
             break;
           }
-          expectedLength = n10 * Math.pow(2, 32) + view.getUint32(4);
+          expectedLength = n12 * Math.pow(2, 32) + view.getUint32(4);
           state = 3;
         } else {
           if (totalLength(chunks) < expectedLength) {
@@ -141531,10 +141531,10 @@ Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.rem
     return this;
   }
   var cb;
-  for (var i13 = 0; i13 < callbacks.length; i13++) {
-    cb = callbacks[i13];
+  for (var i14 = 0; i14 < callbacks.length; i14++) {
+    cb = callbacks[i14];
     if (cb === fn || cb.fn === fn) {
-      callbacks.splice(i13, 1);
+      callbacks.splice(i14, 1);
       break;
     }
   }
@@ -141546,13 +141546,13 @@ Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.rem
 Emitter.prototype.emit = function(event) {
   this._callbacks = this._callbacks || {};
   var args = new Array(arguments.length - 1), callbacks = this._callbacks["$" + event];
-  for (var i13 = 1; i13 < arguments.length; i13++) {
-    args[i13 - 1] = arguments[i13];
+  for (var i14 = 1; i14 < arguments.length; i14++) {
+    args[i14 - 1] = arguments[i14];
   }
   if (callbacks) {
     callbacks = callbacks.slice(0);
-    for (var i13 = 0, len = callbacks.length; i13 < len; ++i13) {
-      callbacks[i13].apply(this, args);
+    for (var i14 = 0, len = callbacks.length; i14 < len; ++i14) {
+      callbacks[i14].apply(this, args);
     }
   }
   return this;
@@ -141602,8 +141602,8 @@ function byteLength(obj) {
 }
 function utf8Length(str) {
   let c8 = 0, length2 = 0;
-  for (let i13 = 0, l5 = str.length; i13 < l5; i13++) {
-    c8 = str.charCodeAt(i13);
+  for (let i14 = 0, l5 = str.length; i14 < l5; i14++) {
+    c8 = str.charCodeAt(i14);
     if (c8 < 128) {
       length2 += 1;
     } else if (c8 < 2048) {
@@ -141611,7 +141611,7 @@ function utf8Length(str) {
     } else if (c8 < 55296 || c8 >= 57344) {
       length2 += 3;
     } else {
-      i13++;
+      i14++;
       length2 += 4;
     }
   }
@@ -141619,11 +141619,11 @@ function utf8Length(str) {
 }
 function encode$1(obj) {
   let str = "";
-  for (let i13 in obj) {
-    if (obj.hasOwnProperty(i13)) {
+  for (let i14 in obj) {
+    if (obj.hasOwnProperty(i14)) {
       if (str.length)
         str += "&";
-      str += encodeURIComponent(i13) + "=" + encodeURIComponent(obj[i13]);
+      str += encodeURIComponent(i14) + "=" + encodeURIComponent(obj[i14]);
     }
   }
   return str;
@@ -141631,8 +141631,8 @@ function encode$1(obj) {
 function decode(qs) {
   let qry = {};
   let pairs = qs.split("&");
-  for (let i13 = 0, l5 = pairs.length; i13 < l5; i13++) {
-    let pair = pairs[i13].split("=");
+  for (let i14 = 0, l5 = pairs.length; i14 < l5; i14++) {
+    let pair = pairs[i14].split("=");
     qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
   }
   return qry;
@@ -141765,7 +141765,7 @@ class Transport extends Emitter {
   }
 }
 const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".split(""), length = 64, map = {};
-let seed = 0, i$3 = 0, prev;
+let seed = 0, i$4 = 0, prev;
 function encode(num) {
   let encoded = "";
   do {
@@ -141780,8 +141780,8 @@ function yeast() {
     return seed = 0, prev = now2;
   return now2 + "." + encode(seed++);
 }
-for (; i$3 < length; i$3++)
-  map[alphabet[i$3]] = i$3;
+for (; i$4 < length; i$4++)
+  map[alphabet[i$4]] = i$4;
 let value = false;
 try {
   value = typeof XMLHttpRequest !== "undefined" && "withCredentials" in new XMLHttpRequest();
@@ -141794,12 +141794,12 @@ function XHR(opts) {
     if ("undefined" !== typeof XMLHttpRequest && (!xdomain || hasCORS)) {
       return new XMLHttpRequest();
     }
-  } catch (e6) {
+  } catch (e7) {
   }
   if (!xdomain) {
     try {
       return new globalThisShim[["Active"].concat("Object").join("X")]("Microsoft.XMLHTTP");
-    } catch (e6) {
+    } catch (e7) {
     }
   }
 }
@@ -142023,7 +142023,7 @@ let Request$1 = class Request2 extends Emitter {
    * @private
    */
   create() {
-    var _a4;
+    var _a3;
     const opts = pick(this.opts, "agent", "pfx", "key", "passphrase", "cert", "ca", "ciphers", "rejectUnauthorized", "autoUnref");
     opts.xdomain = !!this.opts.xd;
     const xhr = this.xhr = new XHR(opts);
@@ -142032,25 +142032,25 @@ let Request$1 = class Request2 extends Emitter {
       try {
         if (this.opts.extraHeaders) {
           xhr.setDisableHeaderCheck && xhr.setDisableHeaderCheck(true);
-          for (let i13 in this.opts.extraHeaders) {
-            if (this.opts.extraHeaders.hasOwnProperty(i13)) {
-              xhr.setRequestHeader(i13, this.opts.extraHeaders[i13]);
+          for (let i14 in this.opts.extraHeaders) {
+            if (this.opts.extraHeaders.hasOwnProperty(i14)) {
+              xhr.setRequestHeader(i14, this.opts.extraHeaders[i14]);
             }
           }
         }
-      } catch (e6) {
+      } catch (e7) {
       }
       if ("POST" === this.method) {
         try {
           xhr.setRequestHeader("Content-type", "text/plain;charset=UTF-8");
-        } catch (e6) {
+        } catch (e7) {
         }
       }
       try {
         xhr.setRequestHeader("Accept", "*/*");
-      } catch (e6) {
+      } catch (e7) {
       }
-      (_a4 = this.opts.cookieJar) === null || _a4 === void 0 ? void 0 : _a4.addCookies(xhr);
+      (_a3 = this.opts.cookieJar) === null || _a3 === void 0 ? void 0 : _a3.addCookies(xhr);
       if ("withCredentials" in xhr) {
         xhr.withCredentials = this.opts.withCredentials;
       }
@@ -142058,9 +142058,9 @@ let Request$1 = class Request2 extends Emitter {
         xhr.timeout = this.opts.requestTimeout;
       }
       xhr.onreadystatechange = () => {
-        var _a5;
+        var _a4;
         if (xhr.readyState === 3) {
-          (_a5 = this.opts.cookieJar) === null || _a5 === void 0 ? void 0 : _a5.parseCookies(xhr);
+          (_a4 = this.opts.cookieJar) === null || _a4 === void 0 ? void 0 : _a4.parseCookies(xhr);
         }
         if (4 !== xhr.readyState)
           return;
@@ -142073,9 +142073,9 @@ let Request$1 = class Request2 extends Emitter {
         }
       };
       xhr.send(this.data);
-    } catch (e6) {
+    } catch (e7) {
       this.setTimeoutFn(() => {
-        this.onError(e6);
+        this.onError(e7);
       }, 0);
       return;
     }
@@ -142106,7 +142106,7 @@ let Request$1 = class Request2 extends Emitter {
     if (fromError) {
       try {
         this.xhr.abort();
-      } catch (e6) {
+      } catch (e7) {
       }
     }
     if (typeof document !== "undefined") {
@@ -142147,9 +142147,9 @@ if (typeof document !== "undefined") {
   }
 }
 function unloadHandler() {
-  for (let i13 in Request$1.requests) {
-    if (Request$1.requests.hasOwnProperty(i13)) {
-      Request$1.requests[i13].abort();
+  for (let i14 in Request$1.requests) {
+    if (Request$1.requests.hasOwnProperty(i14)) {
+      Request$1.requests[i14].abort();
     }
   }
 }
@@ -142214,20 +142214,20 @@ class WS extends Transport {
       context: closeEvent
     });
     this.ws.onmessage = (ev) => this.onData(ev.data);
-    this.ws.onerror = (e6) => this.onError("websocket error", e6);
+    this.ws.onerror = (e7) => this.onError("websocket error", e7);
   }
   write(packets) {
     this.writable = false;
-    for (let i13 = 0; i13 < packets.length; i13++) {
-      const packet = packets[i13];
-      const lastPacket = i13 === packets.length - 1;
+    for (let i14 = 0; i14 < packets.length; i14++) {
+      const packet = packets[i14];
+      const lastPacket = i14 === packets.length - 1;
       encodePacket(packet, this.supportsBinary, (data) => {
         const opts = {};
         try {
           if (usingBrowserWebSocket) {
             this.ws.send(data);
           }
-        } catch (e6) {
+        } catch (e7) {
         }
         if (lastPacket) {
           nextTick(() => {
@@ -142312,9 +142312,9 @@ class WT extends Transport {
   }
   write(packets) {
     this.writable = false;
-    for (let i13 = 0; i13 < packets.length; i13++) {
-      const packet = packets[i13];
-      const lastPacket = i13 === packets.length - 1;
+    for (let i14 = 0; i14 < packets.length; i14++) {
+      const packet = packets[i14];
+      const lastPacket = i14 === packets.length - 1;
       this.writer.write(packet).then(() => {
         if (lastPacket) {
           nextTick(() => {
@@ -142326,8 +142326,8 @@ class WT extends Transport {
     }
   }
   doClose() {
-    var _a4;
-    (_a4 = this.transport) === null || _a4 === void 0 ? void 0 : _a4.close();
+    var _a3;
+    (_a3 = this.transport) === null || _a3 === void 0 ? void 0 : _a3.close();
   }
 }
 const transports = {
@@ -142356,15 +142356,15 @@ function parse(str) {
   if (str.length > 2e3) {
     throw "URI too long";
   }
-  const src = str, b3 = str.indexOf("["), e6 = str.indexOf("]");
-  if (b3 != -1 && e6 != -1) {
-    str = str.substring(0, b3) + str.substring(b3, e6).replace(/:/g, ";") + str.substring(e6, str.length);
+  const src = str, b4 = str.indexOf("["), e7 = str.indexOf("]");
+  if (b4 != -1 && e7 != -1) {
+    str = str.substring(0, b4) + str.substring(b4, e7).replace(/:/g, ";") + str.substring(e7, str.length);
   }
-  let m9 = re.exec(str || ""), uri = {}, i13 = 14;
-  while (i13--) {
-    uri[parts[i13]] = m9[i13] || "";
+  let m10 = re.exec(str || ""), uri = {}, i14 = 14;
+  while (i14--) {
+    uri[parts[i14]] = m10[i14] || "";
   }
-  if (b3 != -1 && e6 != -1) {
+  if (b4 != -1 && e7 != -1) {
     uri.source = src;
     uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ":");
     uri.authority = uri.authority.replace("[", "").replace("]", "").replace(/;/g, ":");
@@ -142519,7 +142519,7 @@ let Socket$1 = class Socket2 extends Emitter {
     this.readyState = "opening";
     try {
       transport = this.createTransport(transport);
-    } catch (e6) {
+    } catch (e7) {
       this.transports.shift();
       this.open();
       return;
@@ -142640,10 +142640,10 @@ let Socket$1 = class Socket2 extends Emitter {
     this.emitReserved("open");
     this.flush();
     if ("open" === this.readyState && this.opts.upgrade) {
-      let i13 = 0;
+      let i14 = 0;
       const l5 = this.upgrades.length;
-      for (; i13 < l5; i13++) {
-        this.probe(this.upgrades[i13]);
+      for (; i14 < l5; i14++) {
+        this.probe(this.upgrades[i14]);
       }
     }
   }
@@ -142750,13 +142750,13 @@ let Socket$1 = class Socket2 extends Emitter {
       return this.writeBuffer;
     }
     let payloadSize = 1;
-    for (let i13 = 0; i13 < this.writeBuffer.length; i13++) {
-      const data = this.writeBuffer[i13].data;
+    for (let i14 = 0; i14 < this.writeBuffer.length; i14++) {
+      const data = this.writeBuffer[i14].data;
       if (data) {
         payloadSize += byteLength(data);
       }
-      if (i13 > 0 && payloadSize > this.maxPayload) {
-        return this.writeBuffer.slice(0, i13);
+      if (i14 > 0 && payloadSize > this.maxPayload) {
+        return this.writeBuffer.slice(0, i14);
       }
       payloadSize += 2;
     }
@@ -142887,11 +142887,11 @@ let Socket$1 = class Socket2 extends Emitter {
    */
   filterUpgrades(upgrades) {
     const filteredUpgrades = [];
-    let i13 = 0;
-    const j3 = upgrades.length;
-    for (; i13 < j3; i13++) {
-      if (~this.transports.indexOf(upgrades[i13]))
-        filteredUpgrades.push(upgrades[i13]);
+    let i14 = 0;
+    const j4 = upgrades.length;
+    for (; i14 < j4; i14++) {
+      if (~this.transports.indexOf(upgrades[i14]))
+        filteredUpgrades.push(upgrades[i14]);
     }
     return filteredUpgrades;
   }
@@ -142948,8 +142948,8 @@ function hasBinary(obj, toJSON) {
     return false;
   }
   if (Array.isArray(obj)) {
-    for (let i13 = 0, l5 = obj.length; i13 < l5; i13++) {
-      if (hasBinary(obj[i13])) {
+    for (let i14 = 0, l5 = obj.length; i14 < l5; i14++) {
+      if (hasBinary(obj[i14])) {
         return true;
       }
     }
@@ -142985,8 +142985,8 @@ function _deconstructPacket(data, buffers) {
     return placeholder;
   } else if (Array.isArray(data)) {
     const newData = new Array(data.length);
-    for (let i13 = 0; i13 < data.length; i13++) {
-      newData[i13] = _deconstructPacket(data[i13], buffers);
+    for (let i14 = 0; i14 < data.length; i14++) {
+      newData[i14] = _deconstructPacket(data[i14], buffers);
     }
     return newData;
   } else if (typeof data === "object" && !(data instanceof Date)) {
@@ -143016,8 +143016,8 @@ function _reconstructPacket(data, buffers) {
       throw new Error("illegal attachments");
     }
   } else if (Array.isArray(data)) {
-    for (let i13 = 0; i13 < data.length; i13++) {
-      data[i13] = _reconstructPacket(data[i13], buffers);
+    for (let i14 = 0; i14 < data.length; i14++) {
+      data[i14] = _reconstructPacket(data[i14], buffers);
     }
   } else if (typeof data === "object") {
     for (const key in data) {
@@ -143164,64 +143164,64 @@ let Decoder$1 = class Decoder2 extends Emitter {
    * @return {Object} packet
    */
   decodeString(str) {
-    let i13 = 0;
-    const p6 = {
+    let i14 = 0;
+    const p7 = {
       type: Number(str.charAt(0))
     };
-    if (PacketType[p6.type] === void 0) {
-      throw new Error("unknown packet type " + p6.type);
+    if (PacketType[p7.type] === void 0) {
+      throw new Error("unknown packet type " + p7.type);
     }
-    if (p6.type === PacketType.BINARY_EVENT || p6.type === PacketType.BINARY_ACK) {
-      const start = i13 + 1;
-      while (str.charAt(++i13) !== "-" && i13 != str.length) {
+    if (p7.type === PacketType.BINARY_EVENT || p7.type === PacketType.BINARY_ACK) {
+      const start = i14 + 1;
+      while (str.charAt(++i14) !== "-" && i14 != str.length) {
       }
-      const buf = str.substring(start, i13);
-      if (buf != Number(buf) || str.charAt(i13) !== "-") {
+      const buf = str.substring(start, i14);
+      if (buf != Number(buf) || str.charAt(i14) !== "-") {
         throw new Error("Illegal attachments");
       }
-      p6.attachments = Number(buf);
+      p7.attachments = Number(buf);
     }
-    if ("/" === str.charAt(i13 + 1)) {
-      const start = i13 + 1;
-      while (++i13) {
-        const c8 = str.charAt(i13);
+    if ("/" === str.charAt(i14 + 1)) {
+      const start = i14 + 1;
+      while (++i14) {
+        const c8 = str.charAt(i14);
         if ("," === c8)
           break;
-        if (i13 === str.length)
+        if (i14 === str.length)
           break;
       }
-      p6.nsp = str.substring(start, i13);
+      p7.nsp = str.substring(start, i14);
     } else {
-      p6.nsp = "/";
+      p7.nsp = "/";
     }
-    const next2 = str.charAt(i13 + 1);
+    const next2 = str.charAt(i14 + 1);
     if ("" !== next2 && Number(next2) == next2) {
-      const start = i13 + 1;
-      while (++i13) {
-        const c8 = str.charAt(i13);
+      const start = i14 + 1;
+      while (++i14) {
+        const c8 = str.charAt(i14);
         if (null == c8 || Number(c8) != c8) {
-          --i13;
+          --i14;
           break;
         }
-        if (i13 === str.length)
+        if (i14 === str.length)
           break;
       }
-      p6.id = Number(str.substring(start, i13 + 1));
+      p7.id = Number(str.substring(start, i14 + 1));
     }
-    if (str.charAt(++i13)) {
-      const payload = this.tryParse(str.substr(i13));
-      if (Decoder2.isPayloadValid(p6.type, payload)) {
-        p6.data = payload;
+    if (str.charAt(++i14)) {
+      const payload = this.tryParse(str.substr(i14));
+      if (Decoder2.isPayloadValid(p7.type, payload)) {
+        p7.data = payload;
       } else {
         throw new Error("invalid payload");
       }
     }
-    return p6;
+    return p7;
   }
   tryParse(str) {
     try {
       return JSON.parse(str, this.reviver);
-    } catch (e6) {
+    } catch (e7) {
       return false;
     }
   }
@@ -143483,17 +143483,17 @@ class Socket extends Emitter {
    * @private
    */
   _registerAckCallback(id, ack) {
-    var _a4;
-    const timeout = (_a4 = this.flags.timeout) !== null && _a4 !== void 0 ? _a4 : this._opts.ackTimeout;
+    var _a3;
+    const timeout = (_a3 = this.flags.timeout) !== null && _a3 !== void 0 ? _a3 : this._opts.ackTimeout;
     if (timeout === void 0) {
       this.acks[id] = ack;
       return;
     }
     const timer = this.io.setTimeoutFn(() => {
       delete this.acks[id];
-      for (let i13 = 0; i13 < this.sendBuffer.length; i13++) {
-        if (this.sendBuffer[i13].id === id) {
-          this.sendBuffer.splice(i13, 1);
+      for (let i14 = 0; i14 < this.sendBuffer.length; i14++) {
+        if (this.sendBuffer[i14].id === id) {
+          this.sendBuffer.splice(i14, 1);
         }
       }
       ack.call(this, new Error("operation has timed out"));
@@ -143933,9 +143933,9 @@ class Socket extends Emitter {
     }
     if (listener) {
       const listeners = this._anyListeners;
-      for (let i13 = 0; i13 < listeners.length; i13++) {
-        if (listener === listeners[i13]) {
-          listeners.splice(i13, 1);
+      for (let i14 = 0; i14 < listeners.length; i14++) {
+        if (listener === listeners[i14]) {
+          listeners.splice(i14, 1);
           return this;
         }
       }
@@ -144011,9 +144011,9 @@ class Socket extends Emitter {
     }
     if (listener) {
       const listeners = this._anyOutgoingListeners;
-      for (let i13 = 0; i13 < listeners.length; i13++) {
-        if (listener === listeners[i13]) {
-          listeners.splice(i13, 1);
+      for (let i14 = 0; i14 < listeners.length; i14++) {
+        if (listener === listeners[i14]) {
+          listeners.splice(i14, 1);
           return this;
         }
       }
@@ -144076,7 +144076,7 @@ Backoff.prototype.setJitter = function(jitter) {
 };
 class Manager extends Emitter {
   constructor(uri, opts) {
-    var _a4;
+    var _a3;
     super();
     this.nsps = {};
     this.subs = [];
@@ -144092,7 +144092,7 @@ class Manager extends Emitter {
     this.reconnectionAttempts(opts.reconnectionAttempts || Infinity);
     this.reconnectionDelay(opts.reconnectionDelay || 1e3);
     this.reconnectionDelayMax(opts.reconnectionDelayMax || 5e3);
-    this.randomizationFactor((_a4 = opts.randomizationFactor) !== null && _a4 !== void 0 ? _a4 : 0.5);
+    this.randomizationFactor((_a3 = opts.randomizationFactor) !== null && _a3 !== void 0 ? _a3 : 0.5);
     this.backoff = new Backoff({
       min: this.reconnectionDelay(),
       max: this.reconnectionDelayMax(),
@@ -144121,27 +144121,27 @@ class Manager extends Emitter {
     return this;
   }
   reconnectionDelay(v2) {
-    var _a4;
+    var _a3;
     if (v2 === void 0)
       return this._reconnectionDelay;
     this._reconnectionDelay = v2;
-    (_a4 = this.backoff) === null || _a4 === void 0 ? void 0 : _a4.setMin(v2);
+    (_a3 = this.backoff) === null || _a3 === void 0 ? void 0 : _a3.setMin(v2);
     return this;
   }
   randomizationFactor(v2) {
-    var _a4;
+    var _a3;
     if (v2 === void 0)
       return this._randomizationFactor;
     this._randomizationFactor = v2;
-    (_a4 = this.backoff) === null || _a4 === void 0 ? void 0 : _a4.setJitter(v2);
+    (_a3 = this.backoff) === null || _a3 === void 0 ? void 0 : _a3.setJitter(v2);
     return this;
   }
   reconnectionDelayMax(v2) {
-    var _a4;
+    var _a3;
     if (v2 === void 0)
       return this._reconnectionDelayMax;
     this._reconnectionDelayMax = v2;
-    (_a4 = this.backoff) === null || _a4 === void 0 ? void 0 : _a4.setMax(v2);
+    (_a3 = this.backoff) === null || _a3 === void 0 ? void 0 : _a3.setMax(v2);
     return this;
   }
   timeout(v2) {
@@ -144246,8 +144246,8 @@ class Manager extends Emitter {
   ondata(data) {
     try {
       this.decoder.add(data);
-    } catch (e6) {
-      this.onclose("parse error", e6);
+    } catch (e7) {
+      this.onclose("parse error", e7);
     }
   }
   /**
@@ -144308,8 +144308,8 @@ class Manager extends Emitter {
    */
   _packet(packet) {
     const encodedPackets = this.encoder.encode(packet);
-    for (let i13 = 0; i13 < encodedPackets.length; i13++) {
-      this.engine.write(encodedPackets[i13], packet.options);
+    for (let i14 = 0; i14 < encodedPackets.length; i14++) {
+      this.engine.write(encodedPackets[i14], packet.options);
     }
   }
   /**
@@ -144477,14 +144477,14 @@ function requireQuerystringify() {
   function decode2(input) {
     try {
       return decodeURIComponent(input.replace(/\+/g, " "));
-    } catch (e6) {
+    } catch (e7) {
       return null;
     }
   }
   function encode2(input) {
     try {
       return encodeURIComponent(input);
-    } catch (e6) {
+    } catch (e7) {
       return null;
     }
   }
@@ -144624,16 +144624,16 @@ function requireUrlParse() {
   }
   function resolve(relative, base) {
     if (relative === "") return base;
-    var path = (base || "/").split("/").slice(0, -1).concat(relative.split("/")), i13 = path.length, last = path[i13 - 1], unshift = false, up = 0;
-    while (i13--) {
-      if (path[i13] === ".") {
-        path.splice(i13, 1);
-      } else if (path[i13] === "..") {
-        path.splice(i13, 1);
+    var path = (base || "/").split("/").slice(0, -1).concat(relative.split("/")), i14 = path.length, last = path[i14 - 1], unshift = false, up = 0;
+    while (i14--) {
+      if (path[i14] === ".") {
+        path.splice(i14, 1);
+      } else if (path[i14] === "..") {
+        path.splice(i14, 1);
         up++;
       } else if (up) {
-        if (i13 === 0) unshift = true;
-        path.splice(i13, 1);
+        if (i14 === 0) unshift = true;
+        path.splice(i14, 1);
         up--;
       }
     }
@@ -144647,7 +144647,7 @@ function requireUrlParse() {
     if (!(this instanceof Url)) {
       return new Url(address, location2, parser2);
     }
-    var relative, extracted, parse2, instruction, index2, key, instructions = rules2.slice(), type = typeof location2, url2 = this, i13 = 0;
+    var relative, extracted, parse2, instruction, index2, key, instructions = rules2.slice(), type = typeof location2, url2 = this, i14 = 0;
     if ("object" !== type && "string" !== type) {
       parser2 = location2;
       location2 = null;
@@ -144662,8 +144662,8 @@ function requireUrlParse() {
     if (extracted.protocol === "file:" && (extracted.slashesCount !== 2 || windowsDriveLetter.test(address)) || !extracted.slashes && (extracted.protocol || extracted.slashesCount < 2 || !isSpecial(url2.protocol))) {
       instructions[3] = [/(.*)/, "pathname"];
     }
-    for (; i13 < instructions.length; i13++) {
-      instruction = instructions[i13];
+    for (; i14 < instructions.length; i14++) {
+      instruction = instructions[i14];
       if (typeof instruction === "function") {
         address = instruction(address, url2);
         continue;
@@ -144779,8 +144779,8 @@ function requireUrlParse() {
           url2.username = encodeURIComponent(decodeURIComponent(value2));
         }
     }
-    for (var i13 = 0; i13 < rules2.length; i13++) {
-      var ins = rules2[i13];
+    for (var i14 = 0; i14 < rules2.length; i14++) {
+      var ins = rules2[i14];
       if (ins[4]) url2[ins[1]] = url2[ins[1]].toLowerCase();
     }
     url2.auth = url2.password ? url2.username + ":" + url2.password : url2.username;
@@ -149426,8 +149426,8 @@ const _PacketOptionsMessage = class _PacketOptionsMessage extends Message {
     this["flags"] = _0x17ca4f, this["rooms"] = _0x96cf60, this["except"] = except;
   }
   ["toJSON"]() {
-    var _a4, _b2;
-    return { "flags": this["flags"] ? JSON["stringify"](this["flags"]) : void 0, "rooms": ((_a4 = this["rooms"]) == null ? void 0 : _a4["length"]) ? this["rooms"] : void 0, "except": ((_b2 = this["except"]) == null ? void 0 : _b2["length"]) ? this["except"] : void 0 };
+    var _a3, _b2;
+    return { "flags": this["flags"] ? JSON["stringify"](this["flags"]) : void 0, "rooms": ((_a3 = this["rooms"]) == null ? void 0 : _a3["length"]) ? this["rooms"] : void 0, "except": ((_b2 = this["except"]) == null ? void 0 : _b2["length"]) ? this["except"] : void 0 };
   }
   static ["fromJSON"](data) {
     return new _PacketOptionsMessage(data["flags"] && JSON["parse"](data["flags"]), data["rooms"], data["except"]);
@@ -149438,8 +149438,8 @@ __publicField(_PacketOptionsMessage, "DESCRIPTOR_NAME", "PacketOptionsMessage");
 __publicField(_PacketOptionsMessage, "DESCRIPTOR", /* @__PURE__ */ (() => ({ "fields": { "flags": { "type": "string", "id": 1 }, "rooms": { "type": "string", "id": 2, "rule": "repeated" }, "except": { "type": "string", "id": 3, "rule": "repeated" } } }))());
 let PacketOptionsMessage = _PacketOptionsMessage;
 const IS_NODE = /* @__PURE__ */ (() => {
-  var _a4;
-  return !("undefined" == typeof process || !((_a4 = process["versions"]) == null ? void 0 : _a4["node"]));
+  var _a3;
+  return !("undefined" == typeof process || !((_a3 = process["versions"]) == null ? void 0 : _a3["node"]));
 })(), MessageDataTypes_BUFFER = 1, MessageDataTypes_STRING = 2, MessageDataTypes_NUMBER = 3, MessageDataTypes_OBJECT = 4;
 class ParserUtils {
   static ["getPacketType"](...types) {
@@ -149851,11 +149851,11 @@ const _WebSocketGateway = class _WebSocketGateway extends (/* @__PURE__ */ Obser
     if (this["_token"] = token, this["_options"] = options ?? {}, this["_connectionProvider"] = connectionProvider ?? lookup, this["_userFactory"] = userFactory ?? User["get"], this["_requestsManager"] = new WebSocketGatewayRequestsManager(this), this["_channels"] = /* @__PURE__ */ new Map(), !_0x2d99a4) throw new TypeError("Api address must be provided.");
     if (!this["_token"]) throw new TypeError("Token must be provided.");
     this["_options"]["requestTimeout"] || (this["_options"]["requestTimeout"] = 2e4), this["_url"] = _0xd35f98(_0x2d99a4["replace"](/^(?!(?:\w+:)?\/\/)/, "https://")), this["set"]("state", WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"]), this["set"]("socketId", void 0), this["set"]("me", void 0), this["on"]("change:state", async (event, _0x4398fd, _0x2ee687) => {
-      var _a4;
+      var _a3;
       if (this["_debugEvent"]("ws-gw:change:state", _0x2ee687), _0x2ee687 !== _WebSocketGateway["STATE_CONNECTED"]) {
         if (_0x2ee687 === _WebSocketGateway["STATE_DISCONNECTED"]) return this["_requestsManager"]["errorAll"](new CKEditorCloudServicesError("Not connected.", this));
       } else try {
-        this["me"] = await this["_userFactory"]["call"](User, this, (_a4 = this["_socketAuth"]) == null ? void 0 : _a4["userId"]);
+        this["me"] = await this["_userFactory"]["call"](User, this, (_a3 = this["_socketAuth"]) == null ? void 0 : _a3["userId"]);
       } catch (_0x582e70) {
       }
     }, { "priority": _WebSocketGateway["_CHANGE_STATE_EVENT_PRIORITY"] }), this["on"]("error", (event, _0x155866) => {
@@ -149869,8 +149869,8 @@ const _WebSocketGateway = class _WebSocketGateway extends (/* @__PURE__ */ Obser
     return this["_requestsManager"]["waitForAllRequests"](time);
   }
   ["disconnect"]() {
-    var _a4;
-    this["state"] !== WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"] && ((_a4 = this["_socket"]) == null ? void 0 : _a4["disconnect"](), this["_socket"] = void 0, this["state"] = WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"]);
+    var _a3;
+    this["state"] !== WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"] && ((_a3 = this["_socket"]) == null ? void 0 : _a3["disconnect"](), this["_socket"] = void 0, this["state"] = WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"]);
   }
   async ["reconnect"]() {
     this["_socket"] || this["state"] !== WEB_SOCKET_GATEWAY_STATES["DISCONNECTED"] || (await this["_token"]["refreshToken"](), await this["_connect"]());
@@ -150061,8 +150061,8 @@ class RevisionDescriptor extends Descriptor {
     return { "revisionId": object["id"], "name": object["name"], "creatorId": object["creatorId"], "createdAt": object["createdAt"], "fromVersion": object["fromVersion"], "toVersion": object["toVersion"], "isEmptyCurrent": object["isEmptyCurrent"], "diffData": object["diffData"] ? JSON["stringify"](object["diffData"]) : void 0, "attributes": object["attributes"], "authorsIds": object["authorsIds"] };
   }
   static ["toJSON"](_0x256479) {
-    var _a4;
-    return { "revisionId": _0x256479["revisionId"], "name": _0x256479["name"], "creatorId": _0x256479["creatorId"], "authorsIds": _0x256479["authorsIds"] ? JSON["stringify"](_0x256479["authorsIds"]) : void 0, "diffData": _0x256479["diffData"], "createdAt": (_a4 = _0x256479["createdAt"]) == null ? void 0 : _a4["toISOString"](), "attributes": _0x256479["attributes"] ? JSON["stringify"](_0x256479["attributes"]) : void 0, "toVersion": _0x256479["toVersion"], "fromVersion": _0x256479["fromVersion"], "isEmptyCurrent": _0x256479["isEmptyCurrent"] };
+    var _a3;
+    return { "revisionId": _0x256479["revisionId"], "name": _0x256479["name"], "creatorId": _0x256479["creatorId"], "authorsIds": _0x256479["authorsIds"] ? JSON["stringify"](_0x256479["authorsIds"]) : void 0, "diffData": _0x256479["diffData"], "createdAt": (_a3 = _0x256479["createdAt"]) == null ? void 0 : _a3["toISOString"](), "attributes": _0x256479["attributes"] ? JSON["stringify"](_0x256479["attributes"]) : void 0, "toVersion": _0x256479["toVersion"], "fromVersion": _0x256479["fromVersion"], "isEmptyCurrent": _0x256479["isEmptyCurrent"] };
   }
   static ["fromJSON"](_0x3d7b82) {
     return { "revisionId": (_0x3d7b82 = { ..._0x3d7b82 })["revisionId"], "name": _0x3d7b82["name"], "creatorId": _0x3d7b82["creatorId"], "authorsIds": _0x3d7b82["authorsIds"] ? JSON["parse"](_0x3d7b82["authorsIds"]) : void 0, "diffData": _0x3d7b82["diffData"], "createdAt": _0x3d7b82["createdAt"] ? new Date(_0x3d7b82["createdAt"]) : void 0, "attributes": _0x3d7b82["attributes"] ? JSON["parse"](_0x3d7b82["attributes"]) : void 0, "toVersion": _0x3d7b82["toVersion"], "fromVersion": _0x3d7b82["fromVersion"], "isEmptyCurrent": _0x3d7b82["isEmptyCurrent"] };
@@ -150301,8 +150301,8 @@ const _AddSuggestionResponse = class _AddSuggestionResponse extends Message {
     this["id"] = _0x4961af, this["authorId"] = authorId, this["type"] = type, this["hasComments"] = hasComments, this["state"] = state, this["data"] = data, this["attributes"] = attributes, this["createdAt"] = createdAt ? new Date(createdAt) : void 0;
   }
   ["toJSON"]() {
-    var _a4;
-    return { "id": this["id"], "authorId": this["authorId"], "type": this["type"], "createdAt": (_a4 = this["createdAt"]) == null ? void 0 : _a4["toISOString"](), "data": JSON["stringify"](this["data"]), "hasComments": this["hasComments"], "state": this["state"], "attributes": JSON["stringify"](this["attributes"]) };
+    var _a3;
+    return { "id": this["id"], "authorId": this["authorId"], "type": this["type"], "createdAt": (_a3 = this["createdAt"]) == null ? void 0 : _a3["toISOString"](), "data": JSON["stringify"](this["data"]), "hasComments": this["hasComments"], "state": this["state"], "attributes": JSON["stringify"](this["attributes"]) };
   }
   static ["fromJSON"](data) {
     return new _AddSuggestionResponse(data["id"], data["authorId"], data["type"], data["createdAt"], data["hasComments"], data["state"], JSON["parse"](data["data"]), data["attributes"] ? JSON["parse"](data["attributes"]) : null);
@@ -150373,8 +150373,8 @@ __publicField(_GetAllSuggestionsMessage, "DESCRIPTOR", { "fields": { "documentId
 let GetAllSuggestionsMessage = _GetAllSuggestionsMessage;
 class SuggestionDescriptor extends Descriptor {
   static ["toJSON"](suggestion) {
-    var _a4;
-    return { ...suggestion, "data": suggestion["data"] ? JSON["stringify"](suggestion["data"]) : suggestion["data"], "attributes": suggestion["attributes"] ? JSON["stringify"](suggestion["attributes"]) : suggestion["attributes"], "createdAt": (_a4 = suggestion["createdAt"]) == null ? void 0 : _a4["toISOString"]() };
+    var _a3;
+    return { ...suggestion, "data": suggestion["data"] ? JSON["stringify"](suggestion["data"]) : suggestion["data"], "attributes": suggestion["attributes"] ? JSON["stringify"](suggestion["attributes"]) : suggestion["attributes"], "createdAt": (_a3 = suggestion["createdAt"]) == null ? void 0 : _a3["toISOString"]() };
   }
   static ["fromJSON"](suggestion) {
     return { ...suggestion, "data": suggestion["data"] ? JSON["parse"](suggestion["data"]) : suggestion["data"], "attributes": suggestion["attributes"] ? JSON["parse"](suggestion["attributes"]) : suggestion["attributes"], "createdAt": suggestion["createdAt"] ? new Date(suggestion["createdAt"]) : void 0 };
@@ -150391,12 +150391,12 @@ const _GetAllSuggestionResponse = class _GetAllSuggestionResponse extends Messag
     this["_suggestions"] = _suggestions, this["_suggestionsV2"] = _suggestionsV2, this["suggestions"] = (_suggestionsV2 == null ? void 0 : _suggestionsV2["length"]) ? _suggestionsV2 : _suggestions;
   }
   ["toJSON"]() {
-    var _a4, _b2;
-    return { "suggestions": (_a4 = this["_suggestions"]) == null ? void 0 : _a4["map"]((suggestion) => JSON["stringify"](suggestion)), "suggestionsV2": (_b2 = this["_suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["toJSON"]) };
+    var _a3, _b2;
+    return { "suggestions": (_a3 = this["_suggestions"]) == null ? void 0 : _a3["map"]((suggestion) => JSON["stringify"](suggestion)), "suggestionsV2": (_b2 = this["_suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["toJSON"]) };
   }
   static ["fromJSON"](data) {
-    var _a4, _b2;
-    return new _GetAllSuggestionResponse((_a4 = data["suggestions"]) == null ? void 0 : _a4["map"](_suggestionFromString), (_b2 = data["suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["fromJSON"]));
+    var _a3, _b2;
+    return new _GetAllSuggestionResponse((_a3 = data["suggestions"]) == null ? void 0 : _a3["map"](_suggestionFromString), (_b2 = data["suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["fromJSON"]));
   }
 };
 __publicField(_GetAllSuggestionResponse, "DESCRIPTOR_NAME", "TrackChangesGetAllSuggestionsResponse");
@@ -150451,12 +150451,12 @@ let ConnectMessage$1 = (_b = class extends Message {
     this["channel"] = _0x3c105c, this["_suggestions"] = _suggestions, this["_suggestionsV2"] = _suggestionsV2, this["suggestions"] = (_suggestionsV2 == null ? void 0 : _suggestionsV2["length"]) ? _suggestionsV2 : _suggestions;
   }
   ["toJSON"]() {
-    var _a4, _b2;
-    return { "channel": this["channel"], "suggestions": (_a4 = this["_suggestions"]) == null ? void 0 : _a4["map"]((suggestion) => JSON["stringify"](suggestion)), "suggestionsV2": (_b2 = this["_suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["toJSON"]) };
+    var _a3, _b2;
+    return { "channel": this["channel"], "suggestions": (_a3 = this["_suggestions"]) == null ? void 0 : _a3["map"]((suggestion) => JSON["stringify"](suggestion)), "suggestionsV2": (_b2 = this["_suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["toJSON"]) };
   }
   static ["fromJSON"](object) {
-    var _a4, _b2;
-    return new _c(object["channel"], (_a4 = object["suggestions"]) == null ? void 0 : _a4["map"]((suggestion) => JSON["parse"](suggestion)), (_b2 = object["suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["fromJSON"]));
+    var _a3, _b2;
+    return new _c(object["channel"], (_a3 = object["suggestions"]) == null ? void 0 : _a3["map"]((suggestion) => JSON["parse"](suggestion)), (_b2 = object["suggestionsV2"]) == null ? void 0 : _b2["map"](SuggestionDescriptor["fromJSON"]));
   }
 }, __publicField(_c, "DESCRIPTOR_NAME", "TrackChangesConnectResponse"), __publicField(_c, "DESCRIPTOR", { "fields": { "channel": { "type": "string", "id": 1 }, "suggestions": { "type": "string", "rule": "repeated", "id": 2 }, "suggestionsV2": { "type": "SuggestionDescriptor", "rule": "repeated", "id": 3 } } }), _c);
 const _BatchUpdateSuggestionsStateMessage = class _BatchUpdateSuggestionsStateMessage extends Message {
@@ -150823,8 +150823,8 @@ const _CollaborativeEditingResponse = class _CollaborativeEditingResponse extend
     return { "buffers": this["buffers"], "types": this["types"], "baseVersion": this["version"] - this["types"]["length"], "lastOperationId": this["lastOperationId"], "lastOperationAcceptedAt": this["lastOperationAcceptedAt"] };
   }
   get ["wereChangesApplied"]() {
-    var _a4;
-    return !((_a4 = this["types"]) == null ? void 0 : _a4["length"]);
+    var _a3;
+    return !((_a3 = this["types"]) == null ? void 0 : _a3["length"]);
   }
   ["toJSON"]() {
     return { "version": this["version"], "buffers": this["buffers"], "types": this["types"], "metadata": OperationMetadataHelpers["removeUnnecessaryMetadata"](this["types"], this["metadata"])["map"](OperationMetadataDescriptor["toJSON"]), "lastOperationId": this["lastOperationId"], "lastOperationAcceptedAt": this["lastOperationAcceptedAt"] instanceof Date ? this["lastOperationAcceptedAt"]["toISOString"]() : this["lastOperationAcceptedAt"] };
@@ -150858,8 +150858,8 @@ const _CollaborativeEditingConnectResponse = class _CollaborativeEditingConnectR
     return { "buffers": this["buffers"], "types": this["types"], "baseVersion": this["version"] - this["types"]["length"], "lastOperationId": this["lastOperationId"], "sessionCreatedAt": this["sessionCreatedAt"] };
   }
   get ["wereChangesApplied"]() {
-    var _a4;
-    return !((_a4 = this["types"]) == null ? void 0 : _a4["length"]) && null === this["initData"];
+    var _a3;
+    return !((_a3 = this["types"]) == null ? void 0 : _a3["length"]) && null === this["initData"];
   }
   ["toJSON"]() {
     return { "channel": this["channel"], "version": this["version"], "sessionId": this["sessionId"], "buffers": this["buffers"], "types": this["types"], "offset": this["offset"], "metadata": OperationMetadataHelpers["removeUnnecessaryMetadata"](this["types"], this["metadata"])["map"](OperationMetadataDescriptor["toJSON"]), "initData": this["initData"] ?? "", "isInitialized": "string" == typeof this["initData"], "lastOperationId": this["lastOperationId"], "sessionCreatedAt": this["sessionCreatedAt"] ? this["sessionCreatedAt"]["toISOString"]() : null };
@@ -150883,12 +150883,12 @@ const _GetDocumentDetailsResponse = class _GetDocumentDetailsResponse extends Me
     this["lastDocumentSession"] = lastDocumentSession, this["currentDocumentSession"] = currentDocumentSession;
   }
   get ["data"]() {
-    var _a4, _b2, _c2, _d2, _e3;
-    return { "lastDocumentSessionId": (_a4 = this["lastDocumentSession"]) == null ? void 0 : _a4["id"], "lastDocumentSessionOperationId": (_b2 = this["lastDocumentSession"]) == null ? void 0 : _b2["lastOperationId"], "currentDocumentSessionId": (_c2 = this["currentDocumentSession"]) == null ? void 0 : _c2["id"], "currentDocumentSessionVersion": (_d2 = this["currentDocumentSession"]) == null ? void 0 : _d2["version"], "currentDocumentSessionOperationId": (_e3 = this["currentDocumentSession"]) == null ? void 0 : _e3["lastOperationId"] };
+    var _a3, _b2, _c2, _d2, _e3;
+    return { "lastDocumentSessionId": (_a3 = this["lastDocumentSession"]) == null ? void 0 : _a3["id"], "lastDocumentSessionOperationId": (_b2 = this["lastDocumentSession"]) == null ? void 0 : _b2["lastOperationId"], "currentDocumentSessionId": (_c2 = this["currentDocumentSession"]) == null ? void 0 : _c2["id"], "currentDocumentSessionVersion": (_d2 = this["currentDocumentSession"]) == null ? void 0 : _d2["version"], "currentDocumentSessionOperationId": (_e3 = this["currentDocumentSession"]) == null ? void 0 : _e3["lastOperationId"] };
   }
   ["toJSON"]() {
-    var _a4, _b2, _c2, _d2, _e3;
-    return { "lastDocumentSessionId": (_a4 = this["lastDocumentSession"]) == null ? void 0 : _a4["id"], "lastDocumentSessionOperationId": (_b2 = this["lastDocumentSession"]) == null ? void 0 : _b2["lastOperationId"], "currentDocumentSessionId": (_c2 = this["currentDocumentSession"]) == null ? void 0 : _c2["id"], "currentDocumentSessionVersion": (_d2 = this["currentDocumentSession"]) == null ? void 0 : _d2["version"], "currentDocumentSessionOperationId": (_e3 = this["currentDocumentSession"]) == null ? void 0 : _e3["lastOperationId"] };
+    var _a3, _b2, _c2, _d2, _e3;
+    return { "lastDocumentSessionId": (_a3 = this["lastDocumentSession"]) == null ? void 0 : _a3["id"], "lastDocumentSessionOperationId": (_b2 = this["lastDocumentSession"]) == null ? void 0 : _b2["lastOperationId"], "currentDocumentSessionId": (_c2 = this["currentDocumentSession"]) == null ? void 0 : _c2["id"], "currentDocumentSessionVersion": (_d2 = this["currentDocumentSession"]) == null ? void 0 : _d2["version"], "currentDocumentSessionOperationId": (_e3 = this["currentDocumentSession"]) == null ? void 0 : _e3["lastOperationId"] };
   }
   static ["fromJSON"](data) {
     const lastDocumentSession = data["lastDocumentSessionId"] ? { "id": data["lastDocumentSessionId"], "lastOperationId": data["lastDocumentSessionOperationId"] } : void 0, currentDocumentSession = data["currentDocumentSessionId"] ? { "lastOperationId": data["currentDocumentSessionOperationId"], "version": data["currentDocumentSessionVersion"], "id": data["currentDocumentSessionId"] } : void 0;
@@ -150955,8 +150955,8 @@ class CollaborativeEditingService extends (/* @__PURE__ */ EmitterMixin()) {
     return MessagesCompressor["decode"](_0x249e6c, GetDocumentDetailsResponse);
   }
   async ["sendOperations"](data, _0x4635c0, lastOperationId) {
-    var _a4;
-    if (!((_a4 = data == null ? void 0 : data["types"]) == null ? void 0 : _a4["length"])) throw new CKEditorCloudServicesError("Cannot send empty update.", this["_wsGateway"]);
+    var _a3;
+    if (!((_a3 = data == null ? void 0 : data["types"]) == null ? void 0 : _a3["length"])) throw new CKEditorCloudServicesError("Cannot send empty update.", this["_wsGateway"]);
     const _0x264461 = "number" == typeof _0x4635c0 ? _0x4635c0 : parseInt(_0x4635c0);
     if (!Number["isInteger"](_0x264461) || _0x264461 < 0) throw new CKEditorCloudServicesError("Base version not provided.", this["_wsGateway"]);
     const _0x494b22 = new CollaborativeEditingUpdateMessage(this["getId"](), data["buffers"], data["types"], _0x264461, [], lastOperationId);
@@ -150991,8 +150991,8 @@ class CollaborativeEditingService extends (/* @__PURE__ */ EmitterMixin()) {
 __publicField(CollaborativeEditingService, "_SERVICE", 1);
 class CommentDescriptor extends Descriptor {
   static ["toJSON"](comment) {
-    var _a4;
-    return { ...comment, "createdAt": (_a4 = comment["createdAt"]) == null ? void 0 : _a4["toISOString"](), "attributes": comment["attributes"] ? JSON["stringify"](comment["attributes"]) : null };
+    var _a3;
+    return { ...comment, "createdAt": (_a3 = comment["createdAt"]) == null ? void 0 : _a3["toISOString"](), "attributes": comment["attributes"] ? JSON["stringify"](comment["attributes"]) : null };
   }
   static ["fromJSON"](comment) {
     return { ...comment, "createdAt": new Date(comment["createdAt"]), "attributes": comment["attributes"] ? JSON["parse"](comment["attributes"]) : null };
@@ -151002,12 +151002,12 @@ __publicField(CommentDescriptor, "DESCRIPTOR_NAME", "CommentDescriptor");
 __publicField(CommentDescriptor, "DESCRIPTOR", { "fields": { "commentId": { "id": 1, "type": "string" }, "commentThreadId": { "id": 2, "type": "string" }, "userId": { "id": 3, "type": "string" }, "content": { "id": 4, "type": "string" }, "documentId": { "id": 5, "type": "string" }, "createdAt": { "id": 6, "type": "string" }, "attributes": { "id": 7, "type": "string" } } });
 class CommentsThreadDescriptor extends Descriptor {
   static ["toJSON"](thread) {
-    var _a4, _b2, _c2, _d2, _e3;
-    return { ...thread, "createdAt": (_a4 = thread["createdAt"]) == null ? void 0 : _a4["toISOString"](), "deletedAt": (_b2 = thread["deletedAt"]) == null ? void 0 : _b2["toISOString"](), "resolvedAt": (_c2 = thread["resolvedAt"]) == null ? void 0 : _c2["toISOString"](), "attributes": thread["attributes"] ? JSON["stringify"](thread["attributes"]) : null, "context": thread["context"] ? JSON["stringify"](thread["context"]) : thread["context"], "comments": (_d2 = thread["comments"]) == null ? void 0 : _d2["map"](CommentDescriptor["toJSON"]), "unlinkedAt": (_e3 = thread["unlinkedAt"]) == null ? void 0 : _e3["toISOString"]() };
+    var _a3, _b2, _c2, _d2, _e3;
+    return { ...thread, "createdAt": (_a3 = thread["createdAt"]) == null ? void 0 : _a3["toISOString"](), "deletedAt": (_b2 = thread["deletedAt"]) == null ? void 0 : _b2["toISOString"](), "resolvedAt": (_c2 = thread["resolvedAt"]) == null ? void 0 : _c2["toISOString"](), "attributes": thread["attributes"] ? JSON["stringify"](thread["attributes"]) : null, "context": thread["context"] ? JSON["stringify"](thread["context"]) : thread["context"], "comments": (_d2 = thread["comments"]) == null ? void 0 : _d2["map"](CommentDescriptor["toJSON"]), "unlinkedAt": (_e3 = thread["unlinkedAt"]) == null ? void 0 : _e3["toISOString"]() };
   }
   static ["fromJSON"](thread) {
-    var _a4;
-    return { ...thread, "createdAt": thread["createdAt"] ? new Date(thread["createdAt"]) : void 0, "deletedAt": thread["deletedAt"] ? new Date(thread["deletedAt"]) : void 0, "resolvedAt": thread["resolvedAt"] ? new Date(thread["resolvedAt"]) : void 0, "attributes": thread["attributes"] ? JSON["parse"](thread["attributes"]) : null, "context": thread["context"] ? JSON["parse"](thread["context"]) : void 0, "comments": (_a4 = thread["comments"]) == null ? void 0 : _a4["map"](CommentDescriptor["fromJSON"]), "unlinkedAt": thread["unlinkedAt"] ? new Date(thread["unlinkedAt"]) : void 0 };
+    var _a3;
+    return { ...thread, "createdAt": thread["createdAt"] ? new Date(thread["createdAt"]) : void 0, "deletedAt": thread["deletedAt"] ? new Date(thread["deletedAt"]) : void 0, "resolvedAt": thread["resolvedAt"] ? new Date(thread["resolvedAt"]) : void 0, "attributes": thread["attributes"] ? JSON["parse"](thread["attributes"]) : null, "context": thread["context"] ? JSON["parse"](thread["context"]) : void 0, "comments": (_a3 = thread["comments"]) == null ? void 0 : _a3["map"](CommentDescriptor["fromJSON"]), "unlinkedAt": thread["unlinkedAt"] ? new Date(thread["unlinkedAt"]) : void 0 };
   }
 }
 __publicField(CommentsThreadDescriptor, "DESCRIPTOR_NAME", "CommentsThreadDescriptor");
@@ -151083,12 +151083,12 @@ const _ConnectResponse = class _ConnectResponse extends Message {
     this["channel"] = _0x25f4f0, this["_threads"] = _threads, this["_threadsV2"] = _threadsV2, this["threads"] = (_threadsV2 == null ? void 0 : _threadsV2["length"]) ? _threadsV2 : _threads;
   }
   ["toJSON"]() {
-    var _a4, _b2;
-    return { "channel": this["channel"], "threads": (_a4 = this["_threads"]) == null ? void 0 : _a4["map"]((thread) => JSON["stringify"](thread)), "threadsV2": (_b2 = this["_threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["toJSON"]) };
+    var _a3, _b2;
+    return { "channel": this["channel"], "threads": (_a3 = this["_threads"]) == null ? void 0 : _a3["map"]((thread) => JSON["stringify"](thread)), "threadsV2": (_b2 = this["_threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["toJSON"]) };
   }
   static ["fromJSON"](object) {
-    var _a4, _b2;
-    return new _ConnectResponse(object["channel"], (_a4 = object["threads"]) == null ? void 0 : _a4["map"]((thread) => JSON["parse"](thread)), (_b2 = object["threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["fromJSON"]));
+    var _a3, _b2;
+    return new _ConnectResponse(object["channel"], (_a3 = object["threads"]) == null ? void 0 : _a3["map"]((thread) => JSON["parse"](thread)), (_b2 = object["threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["fromJSON"]));
   }
 };
 __publicField(_ConnectResponse, "DESCRIPTOR_NAME", "CommentsV2ConnectResponse");
@@ -151193,12 +151193,12 @@ const _GetCommentThreadResponse = class _GetCommentThreadResponse extends Messag
     this["commentThreadId"] = commentThreadId, this["_comments"] = _comments, this["_commentsV2"] = _commentsV2, this["resolvedBy"] = _0x18e528, this["comments"] = (_commentsV2 == null ? void 0 : _commentsV2["length"]) ? _commentsV2 : _comments, this["createdAt"] = createdAt ? new Date(createdAt) : void 0, this["deletedAt"] = "string" == typeof deletedAt ? new Date(deletedAt) : deletedAt, this["resolvedAt"] = "string" == typeof resolvedAt ? new Date(resolvedAt) : resolvedAt, this["unlinkedAt"] = "string" == typeof unlinkedAt ? new Date(unlinkedAt) : unlinkedAt, this["attributes"] = "string" == typeof attributes ? JSON["parse"](attributes) : attributes, this["context"] = "string" == typeof context ? JSON["parse"](context) : context;
   }
   ["toJSON"]() {
-    var _a4, _b2, _c2, _d2, _e3, _f2;
-    return { "commentThreadId": this["commentThreadId"], "comments": (_a4 = this["_comments"]) == null ? void 0 : _a4["map"]((comment) => JSON["stringify"](comment)), "commentsV2": (_b2 = this["_commentsV2"]) == null ? void 0 : _b2["map"](CommentDescriptor["toJSON"]), "attributes": this["attributes"] ? JSON["stringify"](this["attributes"]) : this["attributes"], "context": this["context"] ? JSON["stringify"](this["context"]) : this["context"], "resolvedBy": this["resolvedBy"], "createdAt": (_c2 = this["createdAt"]) == null ? void 0 : _c2["toISOString"](), "deletedAt": (_d2 = this["deletedAt"]) == null ? void 0 : _d2["toISOString"](), "resolvedAt": (_e3 = this["resolvedAt"]) == null ? void 0 : _e3["toISOString"](), "unlinkedAt": (_f2 = this["unlinkedAt"]) == null ? void 0 : _f2["toISOString"]() };
+    var _a3, _b2, _c2, _d2, _e3, _f3;
+    return { "commentThreadId": this["commentThreadId"], "comments": (_a3 = this["_comments"]) == null ? void 0 : _a3["map"]((comment) => JSON["stringify"](comment)), "commentsV2": (_b2 = this["_commentsV2"]) == null ? void 0 : _b2["map"](CommentDescriptor["toJSON"]), "attributes": this["attributes"] ? JSON["stringify"](this["attributes"]) : this["attributes"], "context": this["context"] ? JSON["stringify"](this["context"]) : this["context"], "resolvedBy": this["resolvedBy"], "createdAt": (_c2 = this["createdAt"]) == null ? void 0 : _c2["toISOString"](), "deletedAt": (_d2 = this["deletedAt"]) == null ? void 0 : _d2["toISOString"](), "resolvedAt": (_e3 = this["resolvedAt"]) == null ? void 0 : _e3["toISOString"](), "unlinkedAt": (_f3 = this["unlinkedAt"]) == null ? void 0 : _f3["toISOString"]() };
   }
   static ["fromJSON"](object) {
-    var _a4, _b2;
-    return new _GetCommentThreadResponse(object["commentThreadId"], (_a4 = object["comments"]) == null ? void 0 : _a4["map"]((comment) => function(commentString) {
+    var _a3, _b2;
+    return new _GetCommentThreadResponse(object["commentThreadId"], (_a3 = object["comments"]) == null ? void 0 : _a3["map"]((comment) => function(commentString) {
       const comment2 = JSON["parse"](commentString);
       return { ...comment2, "createdAt": new Date(comment2["createdAt"]) };
     }(comment)), (_b2 = object["commentsV2"]) == null ? void 0 : _b2["map"](CommentDescriptor["fromJSON"]), object["attributes"] ? JSON["parse"](object["attributes"]) : object["attributes"], object["resolvedBy"], object["context"] ? JSON["parse"](object["context"]) : object["context"], object["createdAt"], object["deletedAt"], object["resolvedAt"], object["unlinkedAt"]);
@@ -151234,15 +151234,15 @@ const _GetDocumentThreadsResponse = class _GetDocumentThreadsResponse extends Me
     this["_threads"] = _threads, this["_threadsV2"] = _threadsV2, this["threads"] = (_threadsV2 == null ? void 0 : _threadsV2["length"]) ? _threadsV2 : _threads;
   }
   ["toJSON"]() {
-    var _a4, _b2;
-    return { "threads": (_a4 = this["_threads"]) == null ? void 0 : _a4["map"]((thread) => JSON["stringify"](thread)), "threadsV2": (_b2 = this["_threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["toJSON"]) };
+    var _a3, _b2;
+    return { "threads": (_a3 = this["_threads"]) == null ? void 0 : _a3["map"]((thread) => JSON["stringify"](thread)), "threadsV2": (_b2 = this["_threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["toJSON"]) };
   }
   static ["fromJSON"](object) {
-    var _a4, _b2;
-    return new _GetDocumentThreadsResponse((_a4 = object["threads"]) == null ? void 0 : _a4["map"]((thread) => function(threadString) {
-      var _a5;
+    var _a3, _b2;
+    return new _GetDocumentThreadsResponse((_a3 = object["threads"]) == null ? void 0 : _a3["map"]((thread) => function(threadString) {
+      var _a4;
       const threadRaw = JSON["parse"](threadString), thread2 = { ...threadRaw };
-      return threadRaw["comments"] && (thread2["comments"] = (_a5 = threadRaw["comments"]) == null ? void 0 : _a5["map"]((comment) => ({ ...comment, "createdAt": new Date(comment["createdAt"]) }))), thread2;
+      return threadRaw["comments"] && (thread2["comments"] = (_a4 = threadRaw["comments"]) == null ? void 0 : _a4["map"]((comment) => ({ ...comment, "createdAt": new Date(comment["createdAt"]) }))), thread2;
     }(thread)), (_b2 = object["threadsV2"]) == null ? void 0 : _b2["map"](CommentsThreadDescriptor["fromJSON"]));
   }
 };
@@ -151251,8 +151251,8 @@ __publicField(_GetDocumentThreadsResponse, "DESCRIPTOR", { "fields": { "threads"
 let GetDocumentThreadsResponse = _GetDocumentThreadsResponse;
 class CommentThreadAddedCommentDescriptor extends Descriptor {
   static ["toJSON"](comment) {
-    var _a4;
-    return { "commentId": comment["commentId"], "createdAt": (_a4 = comment["createdAt"]) == null ? void 0 : _a4["toISOString"]() };
+    var _a3;
+    return { "commentId": comment["commentId"], "createdAt": (_a3 = comment["createdAt"]) == null ? void 0 : _a3["toISOString"]() };
   }
   static ["fromJSON"](comment) {
     return { "commentId": comment["commentId"], "createdAt": new Date(comment["createdAt"]) };
@@ -151293,12 +151293,12 @@ const _AddCommentThreadMessage = class _AddCommentThreadMessage extends Message 
     this["documentId"] = documentId, this["commentThreadId"] = commentThreadId, this["comments"] = comments, this["context"] = context, this["resolvedBy"] = _0x2c394c, this["attributes"] = attributes, this["createdAt"] = createdAt ? new Date(createdAt) : "", this["resolvedAt"] = resolvedAt ? new Date(resolvedAt) : "", this["deletedAt"] = deletedAt ? new Date(deletedAt) : "";
   }
   ["toJSON"]() {
-    var _a4;
-    return { "commentThreadId": this["commentThreadId"], "context": this["context"] ? JSON["stringify"](this["context"]) : this["context"], "documentId": this["documentId"], "resolvedBy": this["resolvedBy"], "resolvedAt": this["resolvedAt"] instanceof Date ? this["resolvedAt"]["toISOString"]() : this["resolvedAt"], "deletedAt": this["deletedAt"] instanceof Date ? this["deletedAt"]["toISOString"]() : this["deletedAt"], "createdAt": this["createdAt"] instanceof Date ? this["createdAt"]["toISOString"]() : this["createdAt"], "attributes": this["attributes"] ? JSON["stringify"](this["attributes"]) : this["attributes"], "comments": (_a4 = this["comments"]) == null ? void 0 : _a4["map"]((_0x3d4e14) => CommentDescriptor["toJSON"](_0x3d4e14)) };
+    var _a3;
+    return { "commentThreadId": this["commentThreadId"], "context": this["context"] ? JSON["stringify"](this["context"]) : this["context"], "documentId": this["documentId"], "resolvedBy": this["resolvedBy"], "resolvedAt": this["resolvedAt"] instanceof Date ? this["resolvedAt"]["toISOString"]() : this["resolvedAt"], "deletedAt": this["deletedAt"] instanceof Date ? this["deletedAt"]["toISOString"]() : this["deletedAt"], "createdAt": this["createdAt"] instanceof Date ? this["createdAt"]["toISOString"]() : this["createdAt"], "attributes": this["attributes"] ? JSON["stringify"](this["attributes"]) : this["attributes"], "comments": (_a3 = this["comments"]) == null ? void 0 : _a3["map"]((_0x3d4e14) => CommentDescriptor["toJSON"](_0x3d4e14)) };
   }
   static ["fromJSON"](object) {
-    var _a4;
-    return new _AddCommentThreadMessage(object["documentId"], object["commentThreadId"], (_a4 = object["comments"]) == null ? void 0 : _a4["map"]((_0x2affaa) => CommentDescriptor["fromJSON"]({ ..._0x2affaa, "documentId": object["documentId"], "commentThreadId": object["commentThreadId"] })), object["context"] ? JSON["parse"](object["context"]) : object["context"], object["resolvedBy"], object["createdAt"] ? new Date(object["createdAt"]) : void 0, object["resolvedAt"] ? new Date(object["resolvedAt"]) : void 0, object["deletedAt"] ? new Date(object["deletedAt"]) : void 0, object["attributes"] ? JSON["parse"](object["attributes"]) : object["attributes"]);
+    var _a3;
+    return new _AddCommentThreadMessage(object["documentId"], object["commentThreadId"], (_a3 = object["comments"]) == null ? void 0 : _a3["map"]((_0x2affaa) => CommentDescriptor["fromJSON"]({ ..._0x2affaa, "documentId": object["documentId"], "commentThreadId": object["commentThreadId"] })), object["context"] ? JSON["parse"](object["context"]) : object["context"], object["resolvedBy"], object["createdAt"] ? new Date(object["createdAt"]) : void 0, object["resolvedAt"] ? new Date(object["resolvedAt"]) : void 0, object["deletedAt"] ? new Date(object["deletedAt"]) : void 0, object["attributes"] ? JSON["parse"](object["attributes"]) : object["attributes"]);
   }
 };
 __publicField(_AddCommentThreadMessage, "TYPE", "140");
@@ -151316,8 +151316,8 @@ const _ResolveCommentThreadMessage = class _ResolveCommentThreadMessage extends 
     this["commentThreadId"] = commentThreadId, this["documentId"] = documentId, this["resolvedBy"] = _0x1a9ef3, this["resolvedAt"] = resolvedAt ? new Date(resolvedAt) : void 0;
   }
   ["toJSON"]() {
-    var _a4;
-    return { "documentId": this["documentId"], "commentThreadId": this["commentThreadId"], "resolvedBy": this["resolvedBy"], "resolvedAt": (_a4 = this["resolvedAt"]) == null ? void 0 : _a4["toISOString"]() };
+    var _a3;
+    return { "documentId": this["documentId"], "commentThreadId": this["commentThreadId"], "resolvedBy": this["resolvedBy"], "resolvedAt": (_a3 = this["resolvedAt"]) == null ? void 0 : _a3["toISOString"]() };
   }
   static ["fromJSON"](object) {
     return new _ResolveCommentThreadMessage(object["commentThreadId"], object["documentId"], object["resolvedBy"], object["resolvedAt"]);
@@ -151429,8 +151429,8 @@ const _CommentsService = class _CommentsService extends (/* @__PURE__ */ Emitter
     await this["_sendRequest"](RemoveCommentThreadMessage["TYPE"], _0x4c5d7d);
   }
   async ["addCommentThread"](addCommentThreadParams) {
-    var _a4;
-    const _0x2af6f4 = new AddCommentThreadMessage(this["_documentId"], addCommentThreadParams["commentThreadId"], (_a4 = addCommentThreadParams["comments"]) == null ? void 0 : _a4["map"]((comment) => ({ ...comment, "documentId": this["_documentId"], "commentThreadId": addCommentThreadParams["commentThreadId"] })), addCommentThreadParams["context"], addCommentThreadParams["resolvedBy"], addCommentThreadParams["createdAt"], addCommentThreadParams["resolvedAt"], addCommentThreadParams["deletedAt"], addCommentThreadParams["attributes"]), _0x35809b = await this["_sendRequest"](AddCommentThreadMessage["TYPE"], _0x2af6f4);
+    var _a3;
+    const _0x2af6f4 = new AddCommentThreadMessage(this["_documentId"], addCommentThreadParams["commentThreadId"], (_a3 = addCommentThreadParams["comments"]) == null ? void 0 : _a3["map"]((comment) => ({ ...comment, "documentId": this["_documentId"], "commentThreadId": addCommentThreadParams["commentThreadId"] })), addCommentThreadParams["context"], addCommentThreadParams["resolvedBy"], addCommentThreadParams["createdAt"], addCommentThreadParams["resolvedAt"], addCommentThreadParams["deletedAt"], addCommentThreadParams["attributes"]), _0x35809b = await this["_sendRequest"](AddCommentThreadMessage["TYPE"], _0x2af6f4);
     return MessagesCompressor["decode"](_0x35809b, AddCommentThreadResponse);
   }
   async ["resolveCommentThread"](commentThreadId) {
@@ -151504,7 +151504,7 @@ const _CommentsService = class _CommentsService extends (/* @__PURE__ */ Emitter
 };
 __publicField(_CommentsService, "_SERVICE", 9);
 let CommentsService = _CommentsService;
-const u$3 = /* @__PURE__ */ (() => {
+const u$4 = /* @__PURE__ */ (() => {
   var _0x3dce5d = _0x438866["Reader"], _0x54e57a = _0x438866["Writer"], _0x226a06 = _0x438866["util"], _0x696d51 = _0x438866["roots"]["default"] || (_0x438866["roots"]["default"] = {});
   return _0x696d51["AttributeOperation"] = function() {
     function _0x407a32(_0x1b75de) {
@@ -152349,16 +152349,16 @@ const u$3 = /* @__PURE__ */ (() => {
     }, _0x179beb;
   }(), _0x696d51;
 })();
-let r$2 = class r7 {
+let r$4 = class r7 {
   constructor() {
     __publicField(this, "_protobufRoot");
-    this["_protobufRoot"] = u$3;
+    this["_protobufRoot"] = u$4;
   }
   ["getDescriptor"](_0x283d06) {
-    return new w$2(this["_protobufRoot"][_0x283d06]);
+    return new w$3(this["_protobufRoot"][_0x283d06]);
   }
 };
-let w$2 = class w2 {
+let w$3 = class w2 {
   constructor(_0x464899) {
     __publicField(this, "_protobuf");
     this["_protobuf"] = _0x464899;
@@ -152379,20 +152379,20 @@ function v(_0x54d3d5, _0x1b6efc) {
 function O$2(_0x40c657, _0x5b15db) {
   return _0x40c657["root"] === _0x5b15db["root"] && isEqual(_0x40c657["path"], _0x5b15db["path"]);
 }
-function $(_0x365e36) {
-  P$1(_0x365e36, (_0x3df102) => ("main" == _0x3df102["root"] ? (_0x3df102["rootMain"] = true, delete _0x3df102["root"]) : "$graveyard" == _0x3df102["root"] && (_0x3df102["rootGraveyard"] = true, delete _0x3df102["root"]), _0x3df102));
+function $$1(_0x365e36) {
+  P$2(_0x365e36, (_0x3df102) => ("main" == _0x3df102["root"] ? (_0x3df102["rootMain"] = true, delete _0x3df102["root"]) : "$graveyard" == _0x3df102["root"] && (_0x3df102["rootGraveyard"] = true, delete _0x3df102["root"]), _0x3df102));
 }
 function J$2(_0x1815f4) {
-  P$1(_0x1815f4, (_0xcaac16) => (_0xcaac16["rootMain"] ? (_0xcaac16["root"] = "main", delete _0xcaac16["rootMain"]) : _0xcaac16["rootGraveyard"] && (_0xcaac16["root"] = "$graveyard", delete _0xcaac16["rootGraveyard"]), _0xcaac16));
+  P$2(_0x1815f4, (_0xcaac16) => (_0xcaac16["rootMain"] ? (_0xcaac16["root"] = "main", delete _0xcaac16["rootMain"]) : _0xcaac16["rootGraveyard"] && (_0xcaac16["root"] = "$graveyard", delete _0xcaac16["rootGraveyard"]), _0xcaac16));
 }
-function P$1(_0x3be90e, _0x54f1eb) {
+function P$2(_0x3be90e, _0x54f1eb) {
   for (const _0x121d10 in _0x3be90e) {
     const _0x29e922 = _0x3be90e[_0x121d10];
-    "nodes" !== _0x121d10 && isObject$2(_0x29e922) && (_0x29e922["path"] && (_0x29e922["root"] || _0x29e922["rootMain"] || _0x29e922["rootGraveyard"]) ? _0x3be90e[_0x121d10] = _0x54f1eb(_0x29e922) : P$1(_0x29e922, _0x54f1eb));
+    "nodes" !== _0x121d10 && isObject$2(_0x29e922) && (_0x29e922["path"] && (_0x29e922["root"] || _0x29e922["rootMain"] || _0x29e922["rootGraveyard"]) ? _0x3be90e[_0x121d10] = _0x54f1eb(_0x29e922) : P$2(_0x29e922, _0x54f1eb));
   }
   return _0x3be90e;
 }
-let e$1 = class e5 {
+let e$2 = class e5 {
   constructor(_0x2cd29e, _0x5f3e8b, _0x2c960b) {
     __publicField(this, "_id");
     __publicField(this, "_operationName");
@@ -152401,7 +152401,7 @@ let e$1 = class e5 {
   }
   ["compress"](_0x45c059, _0x39e0ab) {
     const _0x2a3fb5 = _0x39e0ab["shift"]();
-    return $(_0x2a3fb5), _0x45c059["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x2a3fb5)), _0x45c059["types"]["push"](this["_id"]), true;
+    return $$1(_0x2a3fb5), _0x45c059["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x2a3fb5)), _0x45c059["types"]["push"](this["_id"]), true;
   }
   ["decompress"](_0xf7d3ff, _0x44bc70) {
     _0x44bc70["types"]["shift"]();
@@ -152409,10 +152409,10 @@ let e$1 = class e5 {
     J$2(_0x1ee47f), _0x1ee47f["__className"] = this["_operationName"], _0xf7d3ff["push"](_0x1ee47f);
   }
 };
-let s$3 = class s11 extends e$1 {
+let s$4 = class s11 extends e$2 {
   ["compress"](_0x1ca559, _0x1b4584) {
     const _0x27a564 = _0x1b4584["shift"]();
-    return this["_serializeOneOf"]("oldValue", _0x27a564), this["_serializeOneOf"]("newValue", _0x27a564), $(_0x27a564), _0x1ca559["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x27a564)), _0x1ca559["types"]["push"](this["_id"]), true;
+    return this["_serializeOneOf"]("oldValue", _0x27a564), this["_serializeOneOf"]("newValue", _0x27a564), $$1(_0x27a564), _0x1ca559["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x27a564)), _0x1ca559["types"]["push"](this["_id"]), true;
   }
   ["decompress"](_0x9e056, _0x4606bd) {
     const { types: _0x176c4f, buffers: _0x48b2be } = _0x4606bd, _0x586050 = this["_protobufDescriptor"]["decompress"](_0x48b2be["shift"]());
@@ -152427,10 +152427,10 @@ let s$3 = class s11 extends e$1 {
     _0x12afc7[_0x108065] ? (_0x12afc7[_0x4fe41c] = JSON["parse"](_0x12afc7[_0x108065]), delete _0x12afc7[_0x108065]) : (_0x12afc7[_0x4fe41c] = _0x12afc7[_0x4fe41c + "Boolean"], delete _0x12afc7[_0x4fe41c + "Boolean"]);
   }
 };
-let i$2 = class i11 extends e$1 {
+let i$3 = class i11 extends e$2 {
   ["compress"](_0x3aee45, _0x4bc589) {
     const _0x3aebb9 = _0x4bc589["shift"]();
-    return this["_serializeNodesAttributes"](_0x3aebb9["nodes"]), $(_0x3aebb9), _0x3aee45["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x3aebb9)), _0x3aee45["types"]["push"](this["_id"]), true;
+    return this["_serializeNodesAttributes"](_0x3aebb9["nodes"]), $$1(_0x3aebb9), _0x3aee45["buffers"]["push"](this["_protobufDescriptor"]["compress"](_0x3aebb9)), _0x3aee45["types"]["push"](this["_id"]), true;
   }
   ["decompress"](_0x32eb35, _0x4bc23f) {
     const { types: _0x3dff8c, buffers: _0xaf9aca } = _0x4bc23f, _0x30bd05 = this["_protobufDescriptor"]["decompress"](_0xaf9aca["shift"]());
@@ -152452,14 +152452,14 @@ let i$2 = class i11 extends e$1 {
     return Object["keys"](_0x38aad2)["every"]((_0x2895fb) => "boolean" == typeof _0x38aad2[_0x2895fb]);
   }
 };
-let n$1 = class n9 extends e$1 {
+let n$3 = class n9 extends e$2 {
   ["decompress"](_0x15d88f, _0x5c0599) {
     super["decompress"](_0x15d88f, _0x5c0599);
     const _0xa1c6ab = _0x15d88f[_0x15d88f["length"] - 1];
     _0xa1c6ab["oldRange"] || (_0xa1c6ab["oldRange"] = null), _0xa1c6ab["newRange"] || (_0xa1c6ab["newRange"] = null);
   }
 };
-let p$3 = class p4 extends e$1 {
+let p$4 = class p4 extends e$2 {
   ["compress"](_0x1b91dc, _0x4ccfec) {
     return _0x4ccfec["shift"](), _0x1b91dc["types"]["push"](this["_id"]), true;
   }
@@ -152467,7 +152467,7 @@ let p$3 = class p4 extends e$1 {
     _0x368a3c["types"]["shift"](), _0x4cb9a0["push"]({ "__className": this["_operationName"] });
   }
 };
-let a$1 = class a8 extends n$1 {
+let a$3 = class a8 extends n$3 {
   constructor(_0x599154, _0x17bddb, _0x249fca, _0x561976) {
     super(_0x599154, _0x17bddb, _0x249fca);
     __publicField(this, "_omittedNamespace");
@@ -152499,7 +152499,7 @@ let _$1 = class _5 {
     _0x3c7340["push"](_0x134c33);
   }
 };
-let m$4 = class m5 extends _$1 {
+let m$6 = class m5 extends _$1 {
   ["_combineNext"](_0x468647, _0x1e740c) {
     return _0x1e740c["nodes"][0]["data"] += _0x468647["nodes"][0]["data"], _0x1e740c;
   }
@@ -152530,7 +152530,7 @@ let m$4 = class m5 extends _$1 {
     return _0x39bc02["length"] === _0x31fc1e["length"] && _0x39bc02["every"]((_0x180741) => _0x87ca38["attributes"][_0x180741] && _0x87ca38["attributes"][_0x180741] === _0xf9f921["attributes"][_0x180741]);
   }
 };
-let c$3 = class c6 extends _$1 {
+let c$4 = class c6 extends _$1 {
   ["_combineNext"](_0x35898e, _0x2f087d) {
     return _0x2f087d["howMany"]++, _0x2f087d["sourcePosition"] = cloneDeep(_0x35898e["sourcePosition"]), _0x2f087d;
   }
@@ -152553,7 +152553,7 @@ let c$3 = class c6 extends _$1 {
     return "MoveOperation" == _0x5d0348["__className"] && "$graveyard" == _0x5d0348["targetPosition"]["root"] && 1 == _0x5d0348["howMany"] && !_0x5d0348["wasUndone"];
   }
 };
-let h$2 = class h3 extends _$1 {
+let h$4 = class h3 extends _$1 {
   ["_combineNext"](_0x3afeef, _0xae7652) {
     return _0xae7652["howMany"]++, _0xae7652;
   }
@@ -152576,7 +152576,7 @@ let h$2 = class h3 extends _$1 {
     return "MoveOperation" == _0x57be50["__className"] && "$graveyard" == _0x57be50["targetPosition"]["root"] && 1 == _0x57be50["howMany"] && !_0x57be50["wasUndone"];
   }
 };
-let f$3 = class f4 extends _$1 {
+let f$4 = class f4 extends _$1 {
   ["compress"](_0x257342, _0x53a103) {
     if (!this["_compareOperations"](_0x53a103[0], _0x53a103[1])) return false;
     const _0x35cf20 = _0x53a103["shift"]();
@@ -152600,14 +152600,14 @@ let f$3 = class f4 extends _$1 {
     return !(!_0x2869dc || !_0x137b5f) && ("MarkerOperation" == _0x2869dc["__className"] && "MarkerOperation" == _0x137b5f["__className"] && !(!_0x2869dc["name"]["startsWith"]("user:") || !_0x137b5f["name"]["startsWith"]("user:") || _0x2869dc["name"] == _0x137b5f["name"]));
   }
 };
-let g$3 = class g2 {
+let g$4 = class g2 {
   constructor() {
     __publicField(this, "_compressorById");
     __publicField(this, "_compressorByName");
     __publicField(this, "_protobufFactory");
-    this["_compressorById"] = /* @__PURE__ */ new Map(), this["_compressorByName"] = /* @__PURE__ */ new Map(), this["_protobufFactory"] = new r$2();
+    this["_compressorById"] = /* @__PURE__ */ new Map(), this["_compressorByName"] = /* @__PURE__ */ new Map(), this["_protobufFactory"] = new r$4();
     const _0xb53c34 = this["_protobufFactory"]["getDescriptor"]("MarkerOperation");
-    this["_registerCompressor"](1, "NoOperation", new p$3(1, "NoOperation", void 0)), this["_registerOperationCompressor"](10, "AttributeOperation", s$3), this["_registerOperationCompressor"](11, "InsertOperation", i$2), this["_registerOperationCompressor"](12, "MarkerOperation", n$1), this["_registerOperationCompressor"](13, "MergeOperation", e$1), this["_registerOperationCompressor"](14, "MoveOperation", e$1), this["_registerOperationCompressor"](15, "RenameOperation", e$1), this["_registerOperationCompressor"](16, "RootAttributeOperation", s$3), this["_registerOperationCompressor"](17, "SplitOperation", e$1), this["_registerCompressor"](18, "CommentMarkerOperation", new a$1(18, "MarkerOperation", _0xb53c34, "comment")), this["_registerCompressor"](19, "SuggestionMarkerOperation", new a$1(19, "MarkerOperation", _0xb53c34, "suggestion")), this["_registerOperationCompressor"](20, "RootOperation", e$1), this["_registerActionCompressor"](100, "TypingAction", m$4), this["_registerActionCompressor"](101, "DeletingAction", c$3), this["_registerActionCompressor"](102, "ForwardDeletingAction", h$2), this["_registerActionCompressor"](103, "UserSelectionAction", f$3);
+    this["_registerCompressor"](1, "NoOperation", new p$4(1, "NoOperation", void 0)), this["_registerOperationCompressor"](10, "AttributeOperation", s$4), this["_registerOperationCompressor"](11, "InsertOperation", i$3), this["_registerOperationCompressor"](12, "MarkerOperation", n$3), this["_registerOperationCompressor"](13, "MergeOperation", e$2), this["_registerOperationCompressor"](14, "MoveOperation", e$2), this["_registerOperationCompressor"](15, "RenameOperation", e$2), this["_registerOperationCompressor"](16, "RootAttributeOperation", s$4), this["_registerOperationCompressor"](17, "SplitOperation", e$2), this["_registerCompressor"](18, "CommentMarkerOperation", new a$3(18, "MarkerOperation", _0xb53c34, "comment")), this["_registerCompressor"](19, "SuggestionMarkerOperation", new a$3(19, "MarkerOperation", _0xb53c34, "suggestion")), this["_registerOperationCompressor"](20, "RootOperation", e$2), this["_registerActionCompressor"](100, "TypingAction", m$6), this["_registerActionCompressor"](101, "DeletingAction", c$4), this["_registerActionCompressor"](102, "ForwardDeletingAction", h$4), this["_registerActionCompressor"](103, "UserSelectionAction", f$4);
   }
   ["compress"](_0xf94bca) {
     if (!_0xf94bca || !_0xf94bca[0]) throw new CKEditorError("no-operations-provided", this);
@@ -152639,7 +152639,7 @@ let g$3 = class g2 {
     this["_compressorById"]["set"](_0x5b5844, _0x2d5523), this["_compressorByName"]["set"](_0x9130a, _0x2d5523);
   }
 };
-let c$2 = (_d = class extends ContextPlugin {
+let c$3 = (_d = class extends ContextPlugin {
   constructor(_0x3d08b5) {
     super(_0x3d08b5);
     __publicField(this, "connection");
@@ -152696,7 +152696,7 @@ let c$2 = (_d = class extends ContextPlugin {
     this["disconnect"](), super["destroy"]();
   }
 }, __publicField(_d, "WebSocketGateway", /* @__PURE__ */ (() => WebSocketGateway)()), __publicField(_d, "initialReconnectionInterval", 1e3), _d);
-let i$1 = class i12 extends ContextPlugin {
+let i$2 = class i12 extends ContextPlugin {
   constructor(_0x4bf06b) {
     super(_0x4bf06b);
     __publicField(this, "channelSessions");
@@ -152705,7 +152705,7 @@ let i$1 = class i12 extends ContextPlugin {
     __publicField(this, "_registeredSessions");
     __publicField(this, "_uniqueUsersCount");
     __publicField(this, "_users");
-    this["channelSessions"] = /* @__PURE__ */ new Map(), this["channelConnectedUsers"] = /* @__PURE__ */ new Map(), this["allConnectedUsers"] = new Collection(), this["_registeredSessions"] = /* @__PURE__ */ new Map(), this["_uniqueUsersCount"] = 0, this["_users"] = this["context"]["plugins"]["get"](u$6);
+    this["channelSessions"] = /* @__PURE__ */ new Map(), this["channelConnectedUsers"] = /* @__PURE__ */ new Map(), this["allConnectedUsers"] = new Collection(), this["_registeredSessions"] = /* @__PURE__ */ new Map(), this["_uniqueUsersCount"] = 0, this["_users"] = this["context"]["plugins"]["get"](u$7);
   }
   static get ["pluginName"]() {
     return "Sessions";
@@ -152717,10 +152717,10 @@ let i$1 = class i12 extends ContextPlugin {
     return true;
   }
   static get ["requires"]() {
-    return [c$2, u$6];
+    return [c$3, u$7];
   }
   ["init"]() {
-    const _0x41721e = this["context"]["plugins"]["get"](c$2);
+    const _0x41721e = this["context"]["plugins"]["get"](c$3);
     this["listenTo"](_0x41721e, "change:state", (_0x3e0cfb, _0x199c3d, _0x143ee2) => {
       if ("connected" !== _0x143ee2) this["channelSessions"]["forEach"]((_0x326d91) => _0x326d91["clear"]()), this["channelConnectedUsers"]["forEach"]((_0xf3ed11) => _0xf3ed11["clear"]()), this["allConnectedUsers"]["clear"]();
       else {
@@ -152737,11 +152737,11 @@ let i$1 = class i12 extends ContextPlugin {
     if (!this["_registeredSessions"]["has"](_0x40719c)) throw new CKEditorError("sessions-unregister-not-exist", null, { "channelId": _0x40719c });
     const _0x33c58d = this["_registeredSessions"]["get"](_0x40719c);
     this["stopListening"](_0x33c58d);
-    for (const _0x1f00b4 of _0x33c58d) "connected" === this["context"]["plugins"]["get"](c$2)["state"] && this["_handleSessionRemove"](_0x40719c, _0x1f00b4);
+    for (const _0x1f00b4 of _0x33c58d) "connected" === this["context"]["plugins"]["get"](c$3)["state"] && this["_handleSessionRemove"](_0x40719c, _0x1f00b4);
     this["_registeredSessions"]["delete"](_0x40719c), this["channelSessions"]["delete"](_0x40719c), this["channelConnectedUsers"]["delete"](_0x40719c);
   }
   get ["mySessionId"]() {
-    return this["context"]["plugins"]["get"](c$2)["connection"]["sessionId"];
+    return this["context"]["plugins"]["get"](c$3)["connection"]["sessionId"];
   }
   ["getUserBySessionId"](_0x387447) {
     for (const _0x40fa93 of this["channelSessions"]["values"]()) for (const _0x57ea22 of _0x40fa93) if (_0x57ea22["id"] === _0x387447) return _0x57ea22["user"];
@@ -152755,14 +152755,14 @@ let i$1 = class i12 extends ContextPlugin {
     for (const _0xa9d6a7 of this["channelSessions"]["values"]()) for (const _0x59f956 of _0xa9d6a7) if (_0x59f956["user"] === _0x19f1fb) return _0x59f956["role"];
   }
   ["_handleSessionAdd"](_0x246af6, _0x474453) {
-    if ("connected" !== this["context"]["plugins"]["get"](c$2)["state"]) return;
+    if ("connected" !== this["context"]["plugins"]["get"](c$3)["state"]) return;
     const _0x8051e4 = _0x474453["user"], _0x212189 = this["_users"]["getUser"](_0x8051e4["id"]) || this["_createUser"](_0x8051e4), _0x4bb1a9 = Object["assign"]({}, _0x474453, { "user": _0x212189 });
     this["channelSessions"]["get"](_0x246af6)["add"](_0x4bb1a9);
     const _0x5c6d6b = this["channelConnectedUsers"]["get"](_0x246af6);
     _0x5c6d6b["has"](_0x212189["id"]) || _0x5c6d6b["add"](_0x212189), this["allConnectedUsers"]["has"](_0x212189["id"]) || this["allConnectedUsers"]["add"](_0x212189, _0x212189["isMe"] ? 0 : void 0), this["fire"]("sessionAdd:" + _0x246af6, { "channelId": _0x246af6, "session": _0x4bb1a9 });
   }
   ["_handleSessionRemove"](_0x2f0913, _0x33ad65) {
-    if ("connected" !== this["context"]["plugins"]["get"](c$2)["state"]) return;
+    if ("connected" !== this["context"]["plugins"]["get"](c$3)["state"]) return;
     const _0x56ef34 = this["channelConnectedUsers"]["get"](_0x2f0913), _0x60405e = _0x33ad65["user"];
     _0x60405e["id"] && (this["channelSessions"]["get"](_0x2f0913)["remove"](_0x33ad65["id"]), _0x56ef34["has"](_0x60405e["id"]) && !this["getUserSessions"](_0x60405e, _0x2f0913)["size"] && _0x56ef34["remove"](_0x60405e["id"]), this["allConnectedUsers"]["get"](_0x60405e["id"]) && !this["getUserSessions"](_0x60405e)["size"] && this["allConnectedUsers"]["remove"](_0x60405e["id"]));
   }
@@ -152777,7 +152777,7 @@ let q$1 = class q2 extends Plugin {
     __publicField(this, "_domEmitter", new (DomEmitterMixin())());
   }
   static get ["requires"]() {
-    return [i$1];
+    return [i$2];
   }
   static get ["pluginName"]() {
     return "UserMarkers";
@@ -152789,7 +152789,7 @@ let q$1 = class q2 extends Plugin {
     return true;
   }
   ["init"]() {
-    const _0x2b7e43 = this["editor"], _0x4a644d = _0x2b7e43["plugins"]["get"](i$1);
+    const _0x2b7e43 = this["editor"], _0x4a644d = _0x2b7e43["plugins"]["get"](i$2);
     _0x2b7e43["conversion"]["for"]("editingDowncast")["markerToElement"]({ "model": "user:position", "view": (_0x1ec39f, { writer: _0x1cedd0 }) => function(_0x5151e2, _0x39ee8f, _0x290938, _0x295fa6) {
       const _0x40bb5d = _0x5151e2["markerName"]["split"](":")[2], _0x30cbba = _0x290938["getUserBySessionId"](_0x40bb5d);
       if (!_0x30cbba || _0x40bb5d === _0x290938["mySessionId"]) return;
@@ -152817,7 +152817,7 @@ let q$1 = class q2 extends Plugin {
       if (!_0x53bf4f) return { "id": _0x3ea34e, "classes": [] };
       return { "id": _0x3ea34e, "classes": ["ck-user__selection", _0x53bf4f["color"]["getSelectionClass"]()], "attributes": { "data-session-id": _0x3ea34e }, "priority": 2e3 + _0x53bf4f["orderNumber"] };
     }(_0x1e4812, _0x4a644d) }), function(_0x381621) {
-      const _0x3589b6 = _0x381621["model"], _0x43d4b7 = /* @__PURE__ */ new Map(), _0x297436 = _0x381621["plugins"]["get"](i$1);
+      const _0x3589b6 = _0x381621["model"], _0x43d4b7 = /* @__PURE__ */ new Map(), _0x297436 = _0x381621["plugins"]["get"](i$2);
       _0x3589b6["markers"]["on"]("update:user:range", (_0x20707d, _0x497946, _0x9a2b1a, _0x25ccfd) => {
         if (!_0x25ccfd && _0x43d4b7["get"](_0x497946["name"])) return _0x43d4b7["get"](_0x497946["name"])["detach"](), void _0x43d4b7["delete"](_0x497946["name"]);
         const _0x5a323c = _0x497946["name"]["split"](":")[2];
@@ -152871,7 +152871,7 @@ let q$1 = class q2 extends Plugin {
     return this["_domEmitter"]["stopListening"](), super["destroy"]();
   }
   ["createUserMarkerOperations"]() {
-    const _0x5875b1 = this["editor"], _0x53f4d9 = _0x5875b1["model"]["document"], _0x886e39 = _0x5875b1["plugins"]["get"](i$1);
+    const _0x5875b1 = this["editor"], _0x53f4d9 = _0x5875b1["model"]["document"], _0x886e39 = _0x5875b1["plugins"]["get"](i$2);
     _0x5875b1["model"]["enqueueChange"]({ "isUndoable": false }, (_0x41e1f1) => {
       const _0x51c7a6 = "user:range:" + _0x886e39["mySessionId"], _0x3bcdc4 = "user:position:" + _0x886e39["mySessionId"], _0x4d8af4 = _0x5875b1["model"]["markers"]["has"](_0x51c7a6);
       _0x5875b1["editing"]["view"]["hasDomSelection"] ? te(_0x886e39["mySessionId"], _0x53f4d9["selection"]["getFirstRange"](), _0x5875b1["model"], _0x41e1f1) : _0x4d8af4 && (_0x41e1f1["removeMarker"](_0x51c7a6), _0x41e1f1["removeMarker"](_0x3bcdc4));
@@ -152917,7 +152917,7 @@ function G$1(_0x17f4f4, _0x4f63cc, _0xde6fd4) {
   }
 }
 let J$1 = 1;
-const _l = class _l extends Plugin {
+let l$1 = (_e2 = class extends Plugin {
   constructor(_0x49a144) {
     super(_0x49a144);
     __publicField(this, "_offset");
@@ -152940,10 +152940,10 @@ const _l = class _l extends Plugin {
     __publicField(this, "_operationIdentifier");
     if (this["_offset"] = 0, this["sessionId"] = null, this["serverHistory"] = new History(), this["editor"]["config"]["define"]("collaboration", {}), this["_channelId"] = this["editor"]["config"]["get"]("collaboration.channelId"), !this["_channelId"]) throw new CKEditorError("collaboration-missing-channelid", this);
     const _0xe7f428 = _0x49a144["config"]["get"]("cloudServices.bundleVersion") || version$1;
-    this["_service"] = new _l["CollaborativeEditingService"](_0xe7f428, this["_channelId"]), this["_document"] = this["editor"]["model"]["document"], this["_compressor"] = new g$3(), this["_bufferedOperations"] = [], this["_knownOperations"] = /* @__PURE__ */ new WeakSet(), this["_knownRootNames"] = /* @__PURE__ */ new Set(), this["set"]("_isPendingUpdate", false), this["set"]("_hasSynchronizationProblem", false), this["_pendingAction"] = null, this["_hasSelectionChanged"] = false, this["_sendBufferedOperationsDelayId"] = null, this["_baseBufferDelay"] = 300, this["_currentBufferDelay"] = this["_baseBufferDelay"], this["_lastSyncedOperationId"] = null, this["_disconnectionOperations"] = /* @__PURE__ */ new WeakSet(), this["_operationIdentifier"] = new Y$1(this["_disconnectionOperations"]);
+    this["_service"] = new _e2["CollaborativeEditingService"](_0xe7f428, this["_channelId"]), this["_document"] = this["editor"]["model"]["document"], this["_compressor"] = new g$4(), this["_bufferedOperations"] = [], this["_knownOperations"] = /* @__PURE__ */ new WeakSet(), this["_knownRootNames"] = /* @__PURE__ */ new Set(), this["set"]("_isPendingUpdate", false), this["set"]("_hasSynchronizationProblem", false), this["_pendingAction"] = null, this["_hasSelectionChanged"] = false, this["_sendBufferedOperationsDelayId"] = null, this["_baseBufferDelay"] = 300, this["_currentBufferDelay"] = this["_baseBufferDelay"], this["_lastSyncedOperationId"] = null, this["_disconnectionOperations"] = /* @__PURE__ */ new WeakSet(), this["_operationIdentifier"] = new Y$1(this["_disconnectionOperations"]);
   }
   static get ["requires"]() {
-    return [c$2, i$1, q$1, PendingActions, u$6, Notification];
+    return [c$3, i$2, q$1, PendingActions, u$7, Notification];
   }
   static get ["pluginName"]() {
     return "RealTimeCollaborationClient";
@@ -152969,7 +152969,7 @@ const _l = class _l extends Plugin {
     return 0;
   }
   ["init"]() {
-    const _0x38b428 = this["editor"], _0x2bf7b4 = _0x38b428["plugins"]["get"](u$6), _0x1fb08a = _0x38b428["plugins"]["get"](c$2);
+    const _0x38b428 = this["editor"], _0x2bf7b4 = _0x38b428["plugins"]["get"](u$7), _0x1fb08a = _0x38b428["plugins"]["get"](c$3);
     this["listenTo"](_0x2bf7b4, "getOperationAuthor", (_0x4468e8, _0x524af1) => {
       const _0x19d014 = _0x524af1[0];
       _0x19d014["_authorId"] && (_0x4468e8["return"] = _0x2bf7b4["getUser"](_0x19d014["_authorId"]), _0x4468e8["stop"]()), null === _0x19d014["_authorId"] && (_0x4468e8["return"] = null, _0x4468e8["stop"]());
@@ -152985,7 +152985,7 @@ const _l = class _l extends Plugin {
     }), this["_isEditingAllowed"] ? _0x38b428["disableReadOnlyMode"]("rtc-offline") : _0x38b428["enableReadOnlyMode"]("rtc-offline"), this["set"]("_isConnected", false);
   }
   async ["reconnect"]() {
-    const _0x29edf1 = this["editor"]["plugins"]["get"](i$1), _0x44c19b = this["editor"]["plugins"]["get"](c$2);
+    const _0x29edf1 = this["editor"]["plugins"]["get"](i$2), _0x44c19b = this["editor"]["plugins"]["get"](c$3);
     try {
       this["_isPendingUpdate"] = true, _0x29edf1["unregister"](this["_channelId"]);
       const _0x1a9a69 = await this["_service"]["reconnect"](_0x44c19b["connection"], this["lastSyncVersion"]);
@@ -153010,7 +153010,7 @@ const _l = class _l extends Plugin {
     }
   }
   ["destroy"]() {
-    const _0x2083c4 = this["editor"]["plugins"]["get"](c$2), _0x5c5f3a = this["editor"]["plugins"]["get"](i$1);
+    const _0x2083c4 = this["editor"]["plugins"]["get"](c$3), _0x5c5f3a = this["editor"]["plugins"]["get"](i$2);
     this["editor"]["enableReadOnlyMode"]("rtc-destroyed"), _0x5c5f3a["channelSessions"]["has"](this["_channelId"]) && _0x5c5f3a["unregister"](this["_channelId"]), _0x2083c4["removeFromReconnectionStack"](this), this["_disconnectService"](), super["destroy"]();
   }
   async ["_handleReconnectionResponse"](_0x38262e) {
@@ -153018,8 +153018,8 @@ const _l = class _l extends Plugin {
     return this["sessionId"] = _0x38262e["sessionId"], this["_handleServerResponse"]([], { ..._0x38262e, "wereChangesApplied": false, "data": _0x38262e["data"] }, "reconnect");
   }
   async ["_connectService"](_0x41d373, _0x11b954 = false) {
-    const { connection: _0x2df5d0 } = this["editor"]["plugins"]["get"](c$2);
-    _l["CollaborativeEditingService"]["getConnectedSessions"](_0x2df5d0, this["_channelId"])["then"]((_0x27e687) => this["_initSessionsHandling"](_0x27e687))["catch"]((_0x18b0ce) => {
+    const { connection: _0x2df5d0 } = this["editor"]["plugins"]["get"](c$3);
+    _e2["CollaborativeEditingService"]["getConnectedSessions"](_0x2df5d0, this["_channelId"])["then"]((_0x27e687) => this["_initSessionsHandling"](_0x27e687))["catch"]((_0x18b0ce) => {
       this["_crash"]("realtimecollaborationclient-init-session-connection-error", _0x18b0ce);
     }), this["listenTo"](this["_service"], "operationsReceived", this["_handleReceivedOperations"]["bind"](this)), this["listenTo"](this["_service"], "error", (_0x2cbad0, _0x1dc475) => {
       this["_crash"]("realtimecollaborationclient-init-service-internal-error", _0x1dc475);
@@ -153036,7 +153036,7 @@ const _l = class _l extends Plugin {
     this["_handleSendingSelectionMarkers"](), this["_isConnected"] = true;
   }
   ["_handleSendingSelectionMarkers"]() {
-    const _0x117628 = this["editor"]["plugins"]["get"](i$1), _0x340bc9 = this["editor"]["plugins"]["get"](q$1), _0x12c1c4 = _0x117628["channelSessions"]["get"](this["_channelId"]);
+    const _0x117628 = this["editor"]["plugins"]["get"](i$2), _0x340bc9 = this["editor"]["plugins"]["get"](q$1), _0x12c1c4 = _0x117628["channelSessions"]["get"](this["_channelId"]);
     _0x12c1c4 && _0x12c1c4["length"] > 1 ? _0x340bc9["createUserMarkerOperations"]() : this["listenTo"](_0x117628, "sessionAdd:" + this["_channelId"], () => {
       2 === _0x117628["channelSessions"]["get"](this["_channelId"])["length"] && _0x340bc9["createUserMarkerOperations"]();
     });
@@ -153068,7 +153068,7 @@ const _l = class _l extends Plugin {
     this["_service"]["disconnect"](), this["_bufferedOperations"] = [], clearTimeout(this["_sendBufferedOperationsDelayId"]), this["stopListening"](this["_service"]);
   }
   ["_initSessionsHandling"](_0x1b4721) {
-    const _0xfc4441 = this["editor"]["plugins"]["get"](i$1);
+    const _0xfc4441 = this["editor"]["plugins"]["get"](i$2);
     this["listenTo"](_0xfc4441, "sessionAdd:" + this["_channelId"], (_0xd52256, { session: _0x5a7840 }) => {
       if (_0x5a7840["id"] === _0xfc4441["mySessionId"]) {
         _0xd52256["off"]();
@@ -153091,7 +153091,7 @@ const _l = class _l extends Plugin {
       _0x3d746a["stop"](), this["_setPendingAction"]();
       const _0x262f3c = this["editor"]["config"]["get"]("rootsAttributes"), _0x3eac0f = this["_getOperationsFromInitData"](_0x312902, _0x262f3c);
       0 == _0x3eac0f["length"] && _0x3eac0f["push"](new NoOperation(0)), _0x3d746a["return"] = this["_connectService"](_0x3eac0f)["then"](() => {
-        this["editor"]["plugins"]["get"](c$2)["addToReconnectionStack"](this), this["editor"]["data"]["fire"]("ready");
+        this["editor"]["plugins"]["get"](c$3)["addToReconnectionStack"](this), this["editor"]["data"]["fire"]("ready");
       })["catch"]((_0x23d435) => this["_crash"]("realtimecollaborationclient-init-connection-failed", _0x23d435))["finally"](() => this["_clearPendingAction"]());
     }, { "priority": "high" }), this["editor"]["on"]("loadRoot", async (_0x2f96a9, [_0x35ce92, _0x5c27cb]) => {
       _0x2f96a9["stop"]();
@@ -153106,7 +153106,7 @@ const _l = class _l extends Plugin {
     }, { "priority": "high" });
   }
   async ["_fetchMissingUsers"](_0x4c66f0) {
-    const _0x5460aa = this["editor"]["plugins"]["get"](u$6), { connection: _0x2b6d66 } = this["editor"]["plugins"]["get"](c$2), _0x5b2d24 = /* @__PURE__ */ new Set();
+    const _0x5460aa = this["editor"]["plugins"]["get"](u$7), { connection: _0x2b6d66 } = this["editor"]["plugins"]["get"](c$3), _0x5b2d24 = /* @__PURE__ */ new Set();
     for (const _0x593479 of _0x4c66f0) {
       const _0x1668e9 = _0x593479["_authorId"];
       _0x1668e9 && !_0x5460aa["getUser"](_0x1668e9) && _0x5b2d24["add"](_0x1668e9);
@@ -153169,7 +153169,7 @@ const _l = class _l extends Plugin {
   ["_crash"](_0x5c9bdf, _0x35b2e3) {
     const _0x478aac = _0x35b2e3 && _0x35b2e3["message"];
     if (_0x478aac && _0x478aac["startsWith"]("realtimecollaborationclient")) throw _0x35b2e3;
-    const _0x500516 = this["editor"]["plugins"]["get"](c$2);
+    const _0x500516 = this["editor"]["plugins"]["get"](c$3);
     throw this["_isPendingUpdate"] = true, _0x500516["disconnect"](), this["editor"]["enableReadOnlyMode"]("realtimecollaborationclient-error"), new CKEditorError(_0x5c9bdf, this["editor"], _0x478aac ? { "originalError": _0x478aac } : void 0);
   }
   ["_saveOperationInBuffer"](_0x49c8a5) {
@@ -153279,7 +153279,7 @@ const _l = class _l extends Plugin {
   }
   ["_handleReconnectionError"](_0x34cad5) {
     const _0x51721e = this["editor"]["plugins"]["get"]("Notification"), _0x248b3f = this["editor"]["locale"];
-    _0x34cad5 || (_0x34cad5 = G$1(_0x248b3f, "The local document and server document differ and merging them can cause unexpected behavior. To not lose your content save it locally and refresh the editor.")), _0x51721e["showWarning"](_0x34cad5, { "title": G$1(_0x248b3f, "Synchronization issue"), "namespace": "real-time-collaboration" }), this["_hasSynchronizationProblem"] = true, clearTimeout(this["_sendBufferedOperationsDelayId"]), this["_bufferedOperations"] = [], this["editor"]["plugins"]["get"](c$2)["disconnect"]();
+    _0x34cad5 || (_0x34cad5 = G$1(_0x248b3f, "The local document and server document differ and merging them can cause unexpected behavior. To not lose your content save it locally and refresh the editor.")), _0x51721e["showWarning"](_0x34cad5, { "title": G$1(_0x248b3f, "Synchronization issue"), "namespace": "real-time-collaboration" }), this["_hasSynchronizationProblem"] = true, clearTimeout(this["_sendBufferedOperationsDelayId"]), this["_bufferedOperations"] = [], this["editor"]["plugins"]["get"](c$3)["disconnect"]();
   }
   ["_setPendingAction"]() {
     this["_pendingAction"] || (this["_pendingAction"] = this["editor"]["plugins"]["get"](PendingActions)["add"](G$1(this["editor"]["locale"], "PENDING_ACTION_SENDING_DATA")));
@@ -153306,15 +153306,13 @@ const _l = class _l extends Plugin {
     this["_hasSelectionChanged"] = true, this["_shouldSendSelectionUpdate"]() ? this["_sendBufferedOperationsDelayed"]() : this["_hasSelectionChanged"] = false;
   }
   ["_shouldSendSelectionUpdate"]() {
-    const _0x597363 = this["editor"]["plugins"]["get"](i$1)["channelSessions"]["get"](this["_channelId"]);
+    const _0x597363 = this["editor"]["plugins"]["get"](i$2)["channelSessions"]["get"](this["_channelId"]);
     return !this["editor"]["isReadOnly"] && !!_0x597363 && _0x597363["length"] > 1 && this["_hasSelectionChanged"];
   }
   ["_shouldSendUpdate"]() {
     return this["_bufferedOperations"]["length"] > 0 || this["_shouldSendSelectionUpdate"]();
   }
-};
-__publicField(_l, "CollaborativeEditingService", /* @__PURE__ */ (() => CollaborativeEditingService)());
-let l = _l;
+}, __publicField(_e2, "CollaborativeEditingService", /* @__PURE__ */ (() => CollaborativeEditingService)()), _e2);
 let Q$2 = class Q2 extends Error {
 };
 function X$2(_0x5f62b6, _0xbf8a18) {
@@ -153348,9 +153346,9 @@ let Y$1 = class Y4 {
     }
   }
 };
-class n extends Plugin {
+let n$2 = class n10 extends Plugin {
   static get ["requires"]() {
-    return [l];
+    return [l$1];
   }
   static get ["pluginName"]() {
     return "RealTimeCollaborativeEditing";
@@ -153361,15 +153359,15 @@ class n extends Plugin {
   static get ["isPremiumPlugin"]() {
     return true;
   }
-}
-const _a3 = class _a3 extends ContextPlugin {
+};
+let a$2 = (_f = class extends ContextPlugin {
   constructor(_0x38c5f3) {
     super(_0x38c5f3);
     __publicField(this, "_services");
     this["_services"] = /* @__PURE__ */ new Map();
   }
   static get ["requires"]() {
-    return [c$2, "CommentsRepository", i$1, u$6];
+    return [c$3, "CommentsRepository", i$2, u$7];
   }
   static get ["pluginName"]() {
     return "CloudServicesCommentsAdapter";
@@ -153382,7 +153380,7 @@ const _a3 = class _a3 extends ContextPlugin {
   }
   async ["init"]() {
     const _0x3270f9 = this["context"], _0x53bd14 = _0x3270f9["plugins"]["get"]("CommentsRepository");
-    if (_0x3270f9["plugins"]["get"](c$2)["addToReconnectionStack"](this), _0x53bd14["adapter"] = { "addCommentThread": async ({ channelId: _0x435bad, threadId: _0xc9ed38, comments: _0x2bc961, resolvedAt: _0x1151bc, resolvedBy: _0x286c83, context: _0x264641, attributes: _0x256e10 }) => {
+    if (_0x3270f9["plugins"]["get"](c$3)["addToReconnectionStack"](this), _0x53bd14["adapter"] = { "addCommentThread": async ({ channelId: _0x435bad, threadId: _0xc9ed38, comments: _0x2bc961, resolvedAt: _0x1151bc, resolvedBy: _0x286c83, context: _0x264641, attributes: _0x256e10 }) => {
       const _0x5b0743 = await this["_getService"](_0x435bad)["addCommentThread"]({ "commentThreadId": _0xc9ed38, "comments": _0x2bc961["map"]((_0x25c81a) => function(_0xb60128, _0x45ee35, _0xb1e16f) {
         return { "commentThreadId": _0xb1e16f, "commentId": _0xb60128["commentId"], "userId": _0xb60128["authorId"], "content": _0xb60128["content"], "documentId": _0x45ee35, "createdAt": _0xb60128["createdAt"], "attributes": _0xb60128["attributes"] || {} };
       }(_0x25c81a, _0x435bad, _0xc9ed38)), "resolvedAt": _0x1151bc, "resolvedBy": _0x286c83, "context": _0x264641, "attributes": _0x256e10 })["catch"](ut$1);
@@ -153394,7 +153392,7 @@ const _a3 = class _a3 extends ContextPlugin {
       const _0x486e8b = await this["_getService"](_0x51b15a)["resolveCommentThread"](_0x43b108)["catch"](S)["catch"](ut$1);
       return { "threadId": _0x486e8b["commentThreadId"], "resolvedAt": _0x486e8b["resolvedAt"], "resolvedBy": _0x486e8b["resolvedBy"] };
     }, "reopenCommentThread": async ({ channelId: _0x2079ae, threadId: _0x481962 }) => this["_getService"](_0x2079ae)["reopenCommentThread"](_0x481962)["catch"](S)["catch"](ut$1), "removeCommentThread": ({ channelId: _0x5a0049, threadId: _0x170aba }) => this["_getService"](_0x5a0049)["removeCommentThread"](_0x170aba)["catch"](S)["catch"](ut$1), "addComment": ({ channelId: _0x23374a, threadId: _0x1610d4, commentId: _0x52645e, content: _0x121a8d, attributes: _0x2abe09 }) => this["_getService"](_0x23374a)["addComment"](_0x1610d4, _0x52645e, _0x121a8d, _0x2abe09)["catch"](ut$1), "updateComment": ({ channelId: _0x4d6cda, threadId: _0x4c1ae8, commentId: _0x107053, content: _0x176e2d, attributes: _0x72faa9 }) => this["_getService"](_0x4d6cda)["updateComment"](_0x4c1ae8, _0x107053, _0x176e2d, _0x72faa9)["catch"](S)["catch"](ut$1), "removeComment": ({ channelId: _0x135420, threadId: _0x4542bc, commentId: _0x5f4b39 }) => this["_getService"](_0x135420)["removeComment"](_0x4542bc, _0x5f4b39)["catch"](S)["catch"](ut$1) }, _0x3270f9 instanceof Context) {
-      const _0x253ce6 = _0x3270f9["config"]["get"]("collaboration.channelId"), _0x473a4f = _0x3270f9["plugins"]["get"](i$1);
+      const _0x253ce6 = _0x3270f9["config"]["get"]("collaboration.channelId"), _0x473a4f = _0x3270f9["plugins"]["get"](i$2);
       await this["_setUpService"](_0x253ce6);
       const _0x70d177 = await this["_services"]["get"](_0x253ce6)["getConnectedSessions"]();
       this["listenTo"](_0x473a4f, "sessionAdd:" + _0x253ce6, (_0x253f18, { session: _0x76c75 }) => {
@@ -153404,7 +153402,7 @@ const _a3 = class _a3 extends ContextPlugin {
   }
   async ["_setUpService"](_0x203eea) {
     if (this["_services"]["has"](_0x203eea)) throw new CKEditorError("cloudservicescommentsadapter-connect-already-connected", null, { "channelId": _0x203eea });
-    const _0x1d384e = this["context"]["plugins"]["get"]("CommentsRepository"), _0x3bd5bb = new _a3["CommentsService"](_0x203eea);
+    const _0x1d384e = this["context"]["plugins"]["get"]("CommentsRepository"), _0x3bd5bb = new _f["CommentsService"](_0x203eea);
     this["_services"]["set"](_0x203eea, _0x3bd5bb), this["listenTo"](_0x3bd5bb, "commentThreadAdded", (_0x39ca22, _0x30a02f) => {
       const { commentThreadId: _0x585d4f, documentId: _0x38988f, context: _0x4b276c, attributes: _0x29955b, resolvedAt: _0x70a1c9, resolvedBy: _0x14b33a, comments: _0x27114c } = _0x30a02f;
       _0x1d384e["getCommentThread"](_0x585d4f) || _0x1d384e["addCommentThread"]({ "threadId": _0x585d4f, "channelId": _0x38988f, "comments": _0x27114c ? _0x27114c["map"](_) : [], "context": _0x4b276c, "attributes": _0x29955b, "resolvedAt": _0x70a1c9, "resolvedBy": _0x14b33a, "isFromAdapter": true });
@@ -153449,14 +153447,14 @@ const _a3 = class _a3 extends ContextPlugin {
   async ["reconnect"]() {
     for (const _0x3bcde9 of this["_services"]["keys"]()) await this["_connectService"](_0x3bcde9);
     if (this["context"] instanceof Context) {
-      const _0x3a80e9 = this["context"]["config"]["get"]("collaboration.channelId"), _0x41efa3 = this["context"]["plugins"]["get"](i$1);
+      const _0x3a80e9 = this["context"]["config"]["get"]("collaboration.channelId"), _0x41efa3 = this["context"]["plugins"]["get"](i$2);
       _0x41efa3["unregister"](_0x3a80e9);
       const _0x363c6f = await this["_services"]["get"](_0x3a80e9)["getConnectedSessions"]();
       _0x41efa3["register"](_0x3a80e9, _0x363c6f);
     }
   }
   async ["_connectService"](_0x3e85c1) {
-    const { connection: _0x21d8eb } = this["context"]["plugins"]["get"](c$2), _0x9cf36e = this["context"]["plugins"]["get"]("CommentsRepository"), _0x5def80 = this["_services"]["get"](_0x3e85c1), _0xf9f1d9 = await _0x5def80["connect"](_0x21d8eb);
+    const { connection: _0x21d8eb } = this["context"]["plugins"]["get"](c$3), _0x9cf36e = this["context"]["plugins"]["get"]("CommentsRepository"), _0x5def80 = this["_services"]["get"](_0x3e85c1), _0xf9f1d9 = await _0x5def80["connect"](_0x21d8eb);
     await this["_fetchMissingUsersForThreads"](_0xf9f1d9);
     const _0x2ba4b7 = new Set(Array["from"](_0x9cf36e["getCommentThreads"]({ "channelId": _0x3e85c1 }), (_0x4d4dc8) => _0x4d4dc8["id"]));
     for (const _0x1b9c68 of _0xf9f1d9) _0x1b9c68["deletedAt"] || _0x2ba4b7["delete"](_0x1b9c68["commentThreadId"]);
@@ -153480,7 +153478,7 @@ const _a3 = class _a3 extends ContextPlugin {
     return this["_services"]["get"](_0x1bed7f);
   }
   async ["_fetchMissingUsersForThreads"](_0x360a5c) {
-    const _0x5dc223 = this["context"]["plugins"]["get"](u$6), { connection: _0x9d6356 } = this["context"]["plugins"]["get"](c$2), _0x5b7519 = /* @__PURE__ */ new Set();
+    const _0x5dc223 = this["context"]["plugins"]["get"](u$7), { connection: _0x9d6356 } = this["context"]["plugins"]["get"](c$3), _0x5b7519 = /* @__PURE__ */ new Set();
     for (const { resolvedBy: _0x426c95, comments: _0x16fd0f } of _0x360a5c) {
       _0x426c95 && !_0x5dc223["getUser"](_0x426c95) && _0x5b7519["add"](_0x426c95);
       for (const { userId: _0x5302ed } of _0x16fd0f) _0x5dc223["getUser"](_0x5302ed) || _0x5b7519["add"](_0x5302ed);
@@ -153489,9 +153487,7 @@ const _a3 = class _a3 extends ContextPlugin {
     const _0x1f93e8 = await User["getMany"](_0x9d6356, Array["from"](_0x5b7519));
     for (const _0x2944cf of _0x1f93e8) _0x5dc223["getUser"](_0x2944cf["id"]) || _0x5dc223["addUser"](_0x2944cf);
   }
-};
-__publicField(_a3, "CommentsService", /* @__PURE__ */ (() => CommentsService)());
-let a = _a3;
+}, __publicField(_f, "CommentsService", /* @__PURE__ */ (() => CommentsService)()), _f);
 async function S(_0x34d618) {
   if ("404" !== _0x34d618["code"]) throw _0x34d618;
 }
@@ -153504,16 +153500,16 @@ function ut$1(_0x2154b9) {
 function _(_0x127890) {
   return { "threadId": _0x127890["commentThreadId"], "commentId": _0x127890["commentId"], "content": _0x127890["content"], "createdAt": _0x127890["createdAt"], "authorId": _0x127890["userId"], "attributes": _0x127890["attributes"] || {} };
 }
-let f$2 = (_e2 = class extends Plugin {
+let f$3 = (_g = class extends Plugin {
   constructor(_0x251de3) {
     super(_0x251de3);
     __publicField(this, "_bufferedRequests");
     __publicField(this, "_trackChangesService");
     const _0x59eb10 = this["editor"]["config"]["get"]("collaboration.channelId");
-    this["_bufferedRequests"] = /* @__PURE__ */ new Map(), this["_trackChangesService"] = new _e2["TrackChangesService"](_0x59eb10);
+    this["_bufferedRequests"] = /* @__PURE__ */ new Map(), this["_trackChangesService"] = new _g["TrackChangesService"](_0x59eb10);
   }
   static get ["requires"]() {
-    return [a, "TrackChangesEditing", c$2];
+    return [a$2, "TrackChangesEditing", c$3];
   }
   static get ["pluginName"]() {
     return "CloudServicesTrackChangesAdapter";
@@ -153525,7 +153521,7 @@ let f$2 = (_e2 = class extends Plugin {
     return true;
   }
   ["init"]() {
-    const _0x1154be = this["editor"]["plugins"]["get"](c$2), _0x285a21 = this["editor"]["plugins"]["get"]("TrackChangesEditing");
+    const _0x1154be = this["editor"]["plugins"]["get"](c$3), _0x285a21 = this["editor"]["plugins"]["get"]("TrackChangesEditing");
     return _0x285a21["adapter"] = { "getSuggestion": async (_0x5ef695) => {
       await this["_waitForServiceReady"]();
       const _0x40836c = await this["_trackChangesService"]["get"](_0x5ef695)["catch"](R$2);
@@ -153550,7 +153546,7 @@ let f$2 = (_e2 = class extends Plugin {
     })));
   }
   async ["reconnect"]() {
-    const _0x25ce6d = this["editor"]["plugins"]["get"]("TrackChangesEditing"), { connection: _0x29845e } = this["editor"]["plugins"]["get"](c$2), _0x2c7b94 = await this["_trackChangesService"]["connect"](_0x29845e);
+    const _0x25ce6d = this["editor"]["plugins"]["get"]("TrackChangesEditing"), { connection: _0x29845e } = this["editor"]["plugins"]["get"](c$3), _0x2c7b94 = await this["_trackChangesService"]["connect"](_0x29845e);
     await this["_fetchMissingUsersForThreads"](_0x2c7b94);
     for (const { suggestionData: _0x244850, resolve: _0x2c1da7 } of this["_bufferedRequests"]["values"]()) {
       let _0x1e0a19 = _0x2c7b94["find"]((_0x2283d4) => _0x2283d4["id"] === _0x244850["id"]);
@@ -153566,13 +153562,13 @@ let f$2 = (_e2 = class extends Plugin {
     });
   }
   async ["_fetchMissingUsersForThreads"](_0x70ad96) {
-    const _0x599edf = this["editor"]["plugins"]["get"](u$6), { connection: _0x5da0ac } = this["editor"]["plugins"]["get"](c$2), _0x560d1a = /* @__PURE__ */ new Set();
+    const _0x599edf = this["editor"]["plugins"]["get"](u$7), { connection: _0x5da0ac } = this["editor"]["plugins"]["get"](c$3), _0x560d1a = /* @__PURE__ */ new Set();
     for (const { authorId: _0x483bcc } of _0x70ad96) _0x599edf["getUser"](_0x483bcc) || _0x560d1a["add"](_0x483bcc);
     if (0 === _0x560d1a["size"]) return;
     const _0x573438 = await User["getMany"](_0x5da0ac, Array["from"](_0x560d1a));
     for (const _0x1fd391 of _0x573438) _0x599edf["getUser"](_0x1fd391["id"]) || _0x599edf["addUser"](_0x1fd391);
   }
-}, __publicField(_e2, "TrackChangesService", /* @__PURE__ */ (() => TrackChangesService)()), _e2);
+}, __publicField(_g, "TrackChangesService", /* @__PURE__ */ (() => TrackChangesService)()), _g);
 function R$2(_0x9fb511) {
   if (ft$1(_0x9fb511)) return new Promise(() => {
   });
@@ -153581,9 +153577,9 @@ function R$2(_0x9fb511) {
 function ft$1(_0x1b3199) {
   return _0x1b3199["message"]["startsWith"]("cloud-services-internal-error: Not connected.") || _0x1b3199["message"]["startsWith"]("cloud-services-internal-error: Request timeout.");
 }
-let m$3 = class m6 extends Plugin {
+let m$5 = class m6 extends Plugin {
   static get ["requires"]() {
-    return ["Comments", a, n, c$2];
+    return ["Comments", a$2, n$2, c$3];
   }
   static get ["pluginName"]() {
     return "RealTimeCollaborativeComments";
@@ -153595,7 +153591,7 @@ let m$3 = class m6 extends Plugin {
     return true;
   }
   ["init"]() {
-    const _0x236850 = this["editor"]["plugins"]["get"](c$2), _0x17f145 = this["editor"]["plugins"]["get"]("CommentsEditing"), _0x4449a3 = this["editor"]["plugins"]["get"](a);
+    const _0x236850 = this["editor"]["plugins"]["get"](c$3), _0x17f145 = this["editor"]["plugins"]["get"]("CommentsEditing"), _0x4449a3 = this["editor"]["plugins"]["get"](a$2);
     return this["editor"]["data"]["once"]("ready", () => {
       this["listenTo"](_0x236850, "change:state", (_0x1e04c9, _0x460c25, _0x1e7078) => {
         _0x17f145["isThreadsLoadingPaused"] = "connected" !== _0x1e7078;
@@ -153605,12 +153601,12 @@ let m$3 = class m6 extends Plugin {
     }), _0x4449a3["_setUpService"](this["editor"]["config"]["get"]("collaboration.channelId"));
   }
   ["destroy"]() {
-    this["editor"]["plugins"]["get"](a)["_terminateService"](this["editor"]["config"]["get"]("collaboration.channelId")), super["destroy"]();
+    this["editor"]["plugins"]["get"](a$2)["_terminateService"](this["editor"]["config"]["get"]("collaboration.channelId")), super["destroy"]();
   }
 };
-let p$2 = class p5 extends Plugin {
+let p$3 = class p5 extends Plugin {
   static get ["requires"]() {
-    return [m$3, f$2, "TrackChanges"];
+    return [m$5, f$3, "TrackChanges"];
   }
   static get ["pluginName"]() {
     return "RealTimeCollaborativeTrackChanges";
@@ -153622,7 +153618,7 @@ let p$2 = class p5 extends Plugin {
     return true;
   }
 };
-let u$2 = (_f = class extends Plugin {
+let u$3 = (_h = class extends Plugin {
   constructor(_0x346fa0) {
     super(_0x346fa0);
     __publicField(this, "_lastRequestId");
@@ -153630,10 +153626,10 @@ let u$2 = (_f = class extends Plugin {
     __publicField(this, "_revisionHistoryService");
     __publicField(this, "_oldOffset");
     const _0x4f99c7 = this["editor"]["config"]["get"]("collaboration.channelId");
-    this["_lastRequestId"] = null, this["_revisionTracker"] = this["editor"]["plugins"]["get"]("RevisionTracker"), this["_revisionHistoryService"] = new _f["RevisionHistoryService"](_0x4f99c7);
+    this["_lastRequestId"] = null, this["_revisionTracker"] = this["editor"]["plugins"]["get"]("RevisionTracker"), this["_revisionHistoryService"] = new _h["RevisionHistoryService"](_0x4f99c7);
   }
   static get ["requires"]() {
-    return [c$2, l, "RevisionHistory", i$1, u$6];
+    return [c$3, l$1, "RevisionHistory", i$2, u$7];
   }
   static get ["pluginName"]() {
     return "CloudServicesRevisionHistoryAdapter";
@@ -153645,7 +153641,7 @@ let u$2 = (_f = class extends Plugin {
     return true;
   }
   async ["init"]() {
-    const _0x2294e4 = this["editor"]["plugins"]["get"](l), _0x40bb63 = _0x2294e4["serverHistory"], _0x3bef76 = this["editor"]["plugins"]["get"](c$2);
+    const _0x2294e4 = this["editor"]["plugins"]["get"](l$1), _0x40bb63 = _0x2294e4["serverHistory"], _0x3bef76 = this["editor"]["plugins"]["get"](c$3);
     this["_revisionTracker"]["setSource"]({ "history": _0x40bb63, "getLatestVersion": () => this["_getLatestVersion"](), "getCurrentRevisionId": () => _0x2294e4["sessionId"] });
     const _0x336d9c = this["editor"]["config"]["get"]("cloudServices.bundleVersion") || version$1, _0x1c78fa = await EditorService["isBundleUploaded"](_0x3bef76["connection"], _0x336d9c);
     this["editor"]["plugins"]["get"]("RevisionHistory")["adapter"] = { "getRevision": async ({ revisionId: _0x16c8f5 }) => (await this["_waitForServiceReady"](), await this["_revisionHistoryService"]["getRevision"](_0x16c8f5)), "updateRevisions": async (_0x50939c) => {
@@ -153676,13 +153672,13 @@ let u$2 = (_f = class extends Plugin {
     }), this["_revisionTracker"]["bind"]("isEnabled")["to"](_0x3bef76, "state", (_0x41fb3d) => _0x41fb3d === WEB_SOCKET_GATEWAY_STATES["CONNECTED"]);
   }
   async ["reconnect"]() {
-    const _0x4aacdd = this["editor"]["plugins"]["get"](c$2), _0x4daef0 = this["editor"]["plugins"]["get"](l), _0x2e1abd = async () => {
+    const _0x4aacdd = this["editor"]["plugins"]["get"](c$3), _0x4daef0 = this["editor"]["plugins"]["get"](l$1), _0x2e1abd = async () => {
       const _0x2ce02b = this["_revisionTracker"]["currentRevision"], _0x52e61d = _0x2ce02b["id"], _0x24c096 = _0x52e61d !== _0x4daef0["sessionId"];
       if (_0x24c096) {
         const _0x14f9e4 = _0x4daef0["_offset"] - this["_oldOffset"], _0x2c4d95 = this["_getLatestVersionFromServerOperations"]();
         this["_revisionTracker"]["_revisionDataBuilder"]["reInit"]();
         if (_0x2ce02b["toVersion"] + _0x14f9e4 !== _0x2c4d95) {
-          const _0x2c4f16 = _0x2ce02b["fromVersion"] + _0x14f9e4, _0x46171a = this["editor"]["plugins"]["get"](u$6), _0x4c089b = this["_revisionTracker"]["buildRevisionData"]({ "revision": _0x2ce02b, "from": _0x2c4f16, "to": _0x2c4d95 });
+          const _0x2c4f16 = _0x2ce02b["fromVersion"] + _0x14f9e4, _0x46171a = this["editor"]["plugins"]["get"](u$7), _0x4c089b = this["_revisionTracker"]["buildRevisionData"]({ "revision": _0x2ce02b, "from": _0x2c4f16, "to": _0x2c4d95 });
           _0x4c089b["id"] = _0x2ce02b["id"];
           const _0x9fef4c = _0x4c089b["authorsIds"]["map"]((_0x3d4af1) => _0x46171a["getUser"](_0x3d4af1));
           _0x2ce02b["_update"]({ ..._0x4c089b, "authors": _0x9fef4c }, true), this["_revisionTracker"]["_bufferUpdate"](_0x2ce02b["id"], _0x4c089b, true);
@@ -153709,11 +153705,11 @@ let u$2 = (_f = class extends Plugin {
     });
   }
   ["_getLatestVersionFromServerOperations"]() {
-    const _0x25ee3e = this["editor"]["plugins"]["get"](l)["serverHistory"]["getOperations"]()["reverse"]();
+    const _0x25ee3e = this["editor"]["plugins"]["get"](l$1)["serverHistory"]["getOperations"]()["reverse"]();
     for (const _0x585c56 of _0x25ee3e) if ("marker" !== _0x585c56["type"] || _0x585c56["affectsData"]) return _0x585c56["baseVersion"] + 1;
   }
   ["_getLatestVersion"]() {
-    const _0x12e2c9 = this["editor"]["plugins"]["get"](l);
+    const _0x12e2c9 = this["editor"]["plugins"]["get"](l$1);
     return new Promise((_0x5002e7) => {
       _0x12e2c9["_isPendingUpdate"] ? _0x12e2c9["once"]("change:_isPendingUpdate", () => {
         _0x5002e7(this["_getLatestVersionFromServerOperations"]());
@@ -153745,7 +153741,7 @@ let u$2 = (_f = class extends Plugin {
     }
   }
   ["_fixRevision"]({ revision: _0x36fd8f, from: _0x325a8f, to: _0x29706a } = {}) {
-    const _0x1768d4 = this["editor"]["plugins"]["get"](u$6), _0x3e96c7 = this["_revisionTracker"]["buildRevisionData"]({ "revision": _0x36fd8f, "from": _0x325a8f, "to": _0x29706a });
+    const _0x1768d4 = this["editor"]["plugins"]["get"](u$7), _0x3e96c7 = this["_revisionTracker"]["buildRevisionData"]({ "revision": _0x36fd8f, "from": _0x325a8f, "to": _0x29706a });
     _0x3e96c7["authors"] = _0x3e96c7["authorsIds"]["map"]((_0x5174b4) => _0x1768d4["getUser"](_0x5174b4)), _0x36fd8f["_update"](_0x3e96c7);
   }
   ["_preventResendingRevisionData"](_0x4a4f0b) {
@@ -153755,7 +153751,7 @@ let u$2 = (_f = class extends Plugin {
     this["_revisionTracker"]["_bufferUpdate"](_0x227324["id"], _0x227324, true);
   }
   async ["_fetchMissingUsers"](_0x45f1eb) {
-    const _0x1a0eea = this["editor"]["plugins"]["get"](u$6), { connection: _0x149aba } = this["editor"]["plugins"]["get"](c$2), _0x51573a = /* @__PURE__ */ new Set();
+    const _0x1a0eea = this["editor"]["plugins"]["get"](u$7), { connection: _0x149aba } = this["editor"]["plugins"]["get"](c$3), _0x51573a = /* @__PURE__ */ new Set();
     for (const _0x2eb096 of _0x45f1eb) {
       for (const _0x17d33a of _0x2eb096["authorsIds"]) _0x544e9f(_0x17d33a);
       _0x2eb096["creatorId"] && _0x544e9f(_0x2eb096["creatorId"]);
@@ -153767,13 +153763,13 @@ let u$2 = (_f = class extends Plugin {
       _0x1a0eea["getUser"](_0x5e4c1e) || _0x51573a["add"](_0x5e4c1e);
     }
   }
-}, __publicField(_f, "RevisionHistoryService", /* @__PURE__ */ (() => RevisionHistoryService)()), _f);
+}, __publicField(_h, "RevisionHistoryService", /* @__PURE__ */ (() => RevisionHistoryService)()), _h);
 function st$1(_0x354098) {
   return _0x354098["message"]["startsWith"]("cloud-services-internal-error: Revision History Service is not connected.") || _0x354098["message"]["startsWith"]("cloud-services-internal-error: Not connected.") || _0x354098["message"]["startsWith"]("cloud-services-internal-error: Request timeout.");
 }
-let g$2 = class g3 extends Plugin {
+let g$3 = class g3 extends Plugin {
   static get ["requires"]() {
-    return ["RevisionHistory", u$2, n];
+    return ["RevisionHistory", u$3, n$2];
   }
   static get ["pluginName"]() {
     return "RealTimeCollaborativeRevisionHistory";
@@ -153813,7 +153809,7 @@ let ts$1 = class ts3 extends View {
     super["render"](), this["keystrokes"]["listenTo"](this["element"]);
   }
 };
-class j extends View {
+let j$1 = class j3 extends View {
   constructor(_0x19485c, _0x2f8337 = 6) {
     super(_0x19485c);
     __publicField(this, "counterView");
@@ -153824,8 +153820,8 @@ class j extends View {
       this["inlineListView"]["items"]["first"] && (this["inlineListView"]["items"]["first"]["tooltipPosition"] = "se");
     }), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-presence-list", "ck-reset", "ck-rounded-corners", _0x1f0c62["if"]("isCollapsed", "ck-presence-list--collapsed")] }, "children": [this["inlineListView"]] });
   }
-}
-let x$2 = class x2 extends View {
+};
+let x$3 = class x2 extends View {
   constructor(_0x1f0e10, _0x27bb01) {
     super(_0x1f0e10);
     __publicField(this, "listWrapperView");
@@ -153863,7 +153859,7 @@ let k$2 = class k3 extends ListItemView {
     this["element"]["focus"]();
   }
 };
-class y extends View {
+let y$1 = class y2 extends View {
   constructor(_0x15b4af, _0x1228bc, _0x124696) {
     super(_0x15b4af);
     __publicField(this, "userView");
@@ -153875,14 +153871,14 @@ class y extends View {
     const _0xff065c = { "tag": "div", "attributes": { "class": ["ck", "ck-presence-list__list-item"], "role": "listitem", "tabindex": _0x147729["to"]("isFocusable", (_0x38773a) => !!_0x38773a && 0), "aria-labelledby": _0x3eee9f["id"], "data-cke-tooltip-text": this["userView"]["name"], "data-cke-tooltip-position": _0x147729["to"]("tooltipPosition"), "data-cke-tooltip-disabled": _0x147729["to"]("hasTooltip", (_0x4c21bf) => !_0x4c21bf), "data-cke-tooltip-class": "ck-presence-list__list-item__tooltip" }, "children": [this["userView"], this["markerView"], _0x3eee9f] };
     _0x124696 && (_0xff065c["tag"] = "button", _0xff065c["on"] = { "click": _0x147729["to"](() => this["fire"]("execute")) }), this["setTemplate"](_0xff065c);
   }
-}
+};
 let at$1 = class at3 extends View {
   constructor(_0x3f5ae5, _0x1ef364) {
     super(_0x3f5ae5), this["setTemplate"]({ "tag": "span", "attributes": { "class": ["ck", "ck-presence-list__marker", _0x1ef364["color"]["getBackgroundColorClass"]()], "aria-hidden": "true" } });
   }
 };
-const C = { "collapseAt": 6, "displayMe": true };
-let r$1 = class r8 extends ContextPlugin {
+const C$2 = { "collapseAt": 6, "displayMe": true };
+let r$3 = class r8 extends ContextPlugin {
   constructor(_0x4817a7) {
     super(_0x4817a7);
     __publicField(this, "currentDisplayedUsers");
@@ -153890,11 +153886,11 @@ let r$1 = class r8 extends ContextPlugin {
     __publicField(this, "view");
     __publicField(this, "presenceDropdownView");
     __publicField(this, "_bodyCollection", null);
-    this["context"]["config"]["define"]("presenceList", C);
+    this["context"]["config"]["define"]("presenceList", C$2);
     const _0x360056 = _0x4817a7["config"]["get"]("presenceList.collapseAt");
     if ("number" != typeof _0x360056) throw new CKEditorError("presencelist-collapseat-invalid-format", this);
     if (_0x360056 < 1) throw new CKEditorError("presencelist-collapseat-invalid-format", this);
-    this["_allConnectedUsers"] = this["context"]["plugins"]["get"](i$1)["allConnectedUsers"], this["set"]("usersCount", 0), this["currentDisplayedUsers"] = new Collection(), this["balloonPanelView"] = new BalloonPanelView(), this["balloonPanelView"]["class"] = "ck ck-presence-list__balloon", this["view"] = this["_createView"](), this["presenceDropdownView"] = void 0;
+    this["_allConnectedUsers"] = this["context"]["plugins"]["get"](i$2)["allConnectedUsers"], this["set"]("usersCount", 0), this["currentDisplayedUsers"] = new Collection(), this["balloonPanelView"] = new BalloonPanelView(), this["balloonPanelView"]["class"] = "ck ck-presence-list__balloon", this["view"] = this["_createView"](), this["presenceDropdownView"] = void 0;
   }
   static get ["pluginName"]() {
     return "PresenceListUI";
@@ -153906,7 +153902,7 @@ let r$1 = class r8 extends ContextPlugin {
     return true;
   }
   static get ["requires"]() {
-    return [i$1];
+    return [i$2];
   }
   ["init"]() {
     for (const _0x15abca of this["_allConnectedUsers"]) this["_handleUserAdd"](_0x15abca);
@@ -153917,7 +153913,7 @@ let r$1 = class r8 extends ContextPlugin {
     });
   }
   ["_createView"]() {
-    const _0x221bc6 = this["context"], _0x7bb993 = new j(this["context"]["locale"], this["context"]["config"]["get"]("presenceList.collapseAt")), _0x47b356 = this["balloonPanelView"];
+    const _0x221bc6 = this["context"], _0x7bb993 = new j$1(this["context"]["locale"], this["context"]["config"]["get"]("presenceList.collapseAt")), _0x47b356 = this["balloonPanelView"];
     if (!isElement$6(_0x221bc6["config"]["get"]("presenceList.container"))) throw new CKEditorError("presencelist-missing-container", this);
     return _0x7bb993["counterView"]["bind"]("usersCount")["to"](this), _0x7bb993["bind"]("isCollapsed")["to"](this, "usersCount", (_0x2662a2) => {
       const { collapseAt: _0x48af08 } = _0x221bc6["config"]["get"]("presenceList"), _0x3e4e3c = _0x2662a2 >= _0x48af08;
@@ -153927,7 +153923,7 @@ let r$1 = class r8 extends ContextPlugin {
       }
       return _0x3e4e3c || this["hideDropdown"](), _0x3e4e3c;
     }), _0x7bb993["inlineListView"]["items"]["bindTo"](this["currentDisplayedUsers"])["using"]((_0x52bf26) => {
-      const _0x12d3c2 = _0x221bc6["config"]["get"]("presenceList"), _0x20deeb = new y(_0x221bc6["locale"], _0x52bf26, !!_0x12d3c2["onClick"]);
+      const _0x12d3c2 = _0x221bc6["config"]["get"]("presenceList"), _0x20deeb = new y$1(_0x221bc6["locale"], _0x52bf26, !!_0x12d3c2["onClick"]);
       return _0x20deeb["bind"]("hasTooltip")["to"](_0x7bb993, "isCollapsed", (_0x3f1796) => !_0x3f1796), _0x20deeb["bind"]("isFocusable")["to"](_0x7bb993, "isCollapsed", (_0xeb2fa7) => !_0xeb2fa7), _0x12d3c2["onClick"] && this["listenTo"](_0x20deeb, "execute", () => {
         this["view"]["isCollapsed"] || _0x12d3c2["onClick"](_0x52bf26, _0x20deeb["element"]);
       }), _0x20deeb;
@@ -153960,7 +153956,7 @@ let r$1 = class r8 extends ContextPlugin {
   ["showDropdown"]() {
     if (this["presenceDropdownView"]) return;
     const _0x46c182 = this["context"]["config"]["get"]("presenceList");
-    this["presenceDropdownView"] = new x$2(this["context"]["locale"], !!_0x46c182["onClick"]), this["view"]["inlineListView"]["isExpanded"] = true, this["listenTo"](this["presenceDropdownView"], "presencelist:hide", () => {
+    this["presenceDropdownView"] = new x$3(this["context"]["locale"], !!_0x46c182["onClick"]), this["view"]["inlineListView"]["isExpanded"] = true, this["listenTo"](this["presenceDropdownView"], "presencelist:hide", () => {
       this["presenceDropdownView"] && this["hideDropdown"]();
     });
     const { listWrapperView: _0x1a95f1 } = this["presenceDropdownView"];
@@ -153990,9 +153986,9 @@ let r$1 = class r8 extends ContextPlugin {
     super["destroy"](), this["view"] && this["view"]["isRendered"] && this["view"]["destroy"](), this["_bodyCollection"] && (this["_bodyCollection"]["detachFromDom"](), this["_bodyCollection"]["destroy"](), this["_bodyCollection"] = null);
   }
 };
-let s$2 = class s12 extends ContextPlugin {
+let s$3 = class s12 extends ContextPlugin {
   static get ["requires"]() {
-    return [i$1, r$1];
+    return [i$2, r$3];
   }
   static get ["pluginName"]() {
     return "PresenceList";
@@ -154004,7 +154000,7 @@ let s$2 = class s12 extends ContextPlugin {
     return true;
   }
 };
-let h$1 = class h4 extends (/* @__PURE__ */ ObservableMixin()) {
+let h$3 = class h4 extends (/* @__PURE__ */ ObservableMixin()) {
   constructor(_0x4e77ab) {
     super();
     __publicField(this, "id");
@@ -154047,7 +154043,7 @@ let I$1 = class I3 extends Plugin {
     this["_revisions"] = new Collection();
   }
   static get ["requires"]() {
-    return [u$6];
+    return [u$7];
   }
   static get ["pluginName"]() {
     return "RevisionsRepository";
@@ -154280,7 +154276,7 @@ let I$1 = class I3 extends Plugin {
   }
   ["createRevision"](_0xfceb14) {
     const _0x1b490c = this["editor"]["plugins"]["get"]("Users");
-    return new h$1({ "id": _0xfceb14["id"], "name": _0xfceb14["name"], "creator": _0xfceb14["creatorId"] ? _0x1b490c["getUser"](_0xfceb14["creatorId"]) : null, "diffData": _0xfceb14["diffData"] || _0xfceb14["data"], "authors": _0xfceb14["authorsIds"]["map"]((_0x3c44bc) => _0x1b490c["getUser"](_0x3c44bc)), "createdAt": new Date(_0xfceb14["createdAt"]), "attributes": _0xfceb14["attributes"], "fromVersion": _0xfceb14["fromVersion"], "toVersion": _0xfceb14["toVersion"] });
+    return new h$3({ "id": _0xfceb14["id"], "name": _0xfceb14["name"], "creator": _0xfceb14["creatorId"] ? _0x1b490c["getUser"](_0xfceb14["creatorId"]) : null, "diffData": _0xfceb14["diffData"] || _0xfceb14["data"], "authors": _0xfceb14["authorsIds"]["map"]((_0x3c44bc) => _0x1b490c["getUser"](_0x3c44bc)), "createdAt": new Date(_0xfceb14["createdAt"]), "attributes": _0xfceb14["attributes"], "fromVersion": _0xfceb14["fromVersion"], "toVersion": _0xfceb14["toVersion"] });
   }
   ["addRevision"](_0x2e5500, _0x21bdf4 = 0) {
     this["_revisions"]["add"](_0x2e5500, _0x21bdf4);
@@ -154404,7 +154400,7 @@ let V$1 = class V3 extends Plugin {
     }), _0x45c485;
   }
 };
-function g$1(_0x53262c, _0x5e0203, _0x5a51cf) {
+function g$2(_0x53262c, _0x5e0203, _0x5a51cf) {
   const t2 = _0x53262c["t"];
   switch (_0x5e0203) {
     case "Revision history":
@@ -154477,7 +154473,7 @@ function g$1(_0x53262c, _0x5e0203, _0x5a51cf) {
       return "";
   }
 }
-let u$1 = class u5 extends Plugin {
+let u$2 = class u5 extends Plugin {
   constructor(_0x31a0d3) {
     super(_0x31a0d3);
     __publicField(this, "licenseKey");
@@ -154494,7 +154490,7 @@ let u$1 = class u5 extends Plugin {
     __publicField(this, "_continueCurrentRevision");
     __publicField(this, "_startingVersion");
     __publicField(this, "_loadedStateData");
-    this["repository"] = this["editor"]["plugins"]["get"]("RevisionsRepository"), this["_utils"] = this["editor"]["plugins"]["get"]("RevisionHistoryUtils"), this["_revisionDataBuilder"] = new x$1(this["editor"]), this["_initialRevisionId"] = this["editor"]["config"]["get"]("collaboration.channelId") || "initial", this["_bufferedUpdates"] = /* @__PURE__ */ new Map(), this["_loadedStateData"] = null;
+    this["repository"] = this["editor"]["plugins"]["get"]("RevisionsRepository"), this["_utils"] = this["editor"]["plugins"]["get"]("RevisionHistoryUtils"), this["_revisionDataBuilder"] = new x$2(this["editor"]), this["_initialRevisionId"] = this["editor"]["config"]["get"]("collaboration.channelId") || "initial", this["_bufferedUpdates"] = /* @__PURE__ */ new Map(), this["_loadedStateData"] = null;
     const _0x1d5311 = uid();
     this["_source"] = { "history": this["editor"]["model"]["document"]["history"], "getLatestVersion": () => Promise["resolve"](this["editor"]["model"]["document"]["version"]), "getCurrentRevisionId": () => _0x1d5311 }, this["set"]("isReady", false), this["set"]("isEnabled", true), this["set"]("_isPendingUpdate", false), this["editor"]["config"]["define"]("revisionHistory.resumeUnsavedRevision", true), this["editor"]["conversion"]["for"]("upcast")["dataToMarker"]({ "view": "revision" });
   }
@@ -154508,7 +154504,7 @@ let u$1 = class u5 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [u$6, I$1, V$1, PendingActions];
+    return [u$7, I$1, V$1, PendingActions];
   }
   ["init"]() {
     this["_setConversion"](), this["editor"]["data"]["on"]("ready", () => {
@@ -154650,7 +154646,7 @@ let u$1 = class u5 extends Plugin {
     const _0x3c87c0 = this["repository"]["getRevision"](this["repository"]["length"] - 1);
     if (_0x3c87c0) this["_initialRevisionId"] = _0x3c87c0["id"];
     else {
-      const _0x2e07d1 = !this["editor"]["model"]["document"]["roots"]["find"]((_0xe3e0fc) => this["editor"]["model"]["hasContent"](_0xe3e0fc)), _0x269b9f = this["editor"]["plugins"]["get"]("Users")["me"]["id"], _0x18c880 = g$1(this["editor"]["locale"], _0x2e07d1 ? "Empty document" : "Initial revision");
+      const _0x2e07d1 = !this["editor"]["model"]["document"]["roots"]["find"]((_0xe3e0fc) => this["editor"]["model"]["hasContent"](_0xe3e0fc)), _0x269b9f = this["editor"]["plugins"]["get"]("Users")["me"]["id"], _0x18c880 = g$2(this["editor"]["locale"], _0x2e07d1 ? "Empty document" : "Initial revision");
       this["_makeRevision"]({ "from": _0x42b468, "to": _0x42b468, "id": this["_initialRevisionId"], "name": _0x18c880, "creatorId": _0x269b9f });
     }
   }
@@ -154688,7 +154684,7 @@ let u$1 = class u5 extends Plugin {
   ["_addPendingAction"]() {
     if (!this["_pendingAction"]) {
       const _0x3f8bf7 = this["editor"]["plugins"]["get"]("PendingActions");
-      this["_pendingAction"] = _0x3f8bf7["add"](g$1(this["editor"]["locale"], "PENDING_ACTION_REVISION_HISTORY"));
+      this["_pendingAction"] = _0x3f8bf7["add"](g$2(this["editor"]["locale"], "PENDING_ACTION_REVISION_HISTORY"));
     }
   }
   ["_removePendingAction"]() {
@@ -154734,7 +154730,7 @@ let u$1 = class u5 extends Plugin {
     this["editor"]["conversion"]["for"]("dataDowncast")["markerToData"]({ "model": "revision" });
   }
 };
-let x$1 = class x3 {
+let x$2 = class x3 {
   constructor(_0x784564) {
     __publicField(this, "editor");
     __publicField(this, "source");
@@ -154766,7 +154762,7 @@ let x$1 = class x3 {
     this["_saveMetaData"](_0x46bde6, _0xc4aac1, _0x14892f, _0x286846), this["_startingRevisionId"] = this["_revisionId"];
     const _0x5e4590 = /* @__PURE__ */ new Map(), _0x5da716 = /* @__PURE__ */ new Map();
     for (const _0x2c044c of _0x21c151) {
-      const _0x3708d4 = P(_0x2c044c);
+      const _0x3708d4 = P$1(_0x2c044c);
       _0x5e4590["set"](_0x2c044c, _0x3708d4), _0x5da716["set"](_0x2c044c, {});
     }
     this["_saveMetaData"](Number["NEGATIVE_INFINITY"], _0x5e4590, [], _0x5da716);
@@ -154822,9 +154818,9 @@ let x$1 = class x3 {
       }
       for (const [_0x2bd5c7, _0x586271] of _0x4a503f["markers"]) _0x2bd5c7["startsWith"]("revision:") || this["_markers"]["set"](_0x2bd5c7, _0x586271);
     }
-    const _0x49b10c = P("$graveyard");
+    const _0x49b10c = P$1("$graveyard");
     this["_baseRoots"]["set"]("$graveyard", _0x49b10c), this["_baseIdsRoots"]["set"]("$graveyard", this["_makeIdsRoot"](_0x49b10c, 1));
-    const _0x5af180 = P("$graveyard");
+    const _0x5af180 = P$1("$graveyard");
     this["_diffRoots"]["set"]("$graveyard", _0x5af180), this["_idsRoots"]["set"]("$graveyard", this["_makeIdsRoot"](_0x5af180, 1));
     const _0x356c9b = Array["from"](this["_diffRoots"])["map"](([_0x381b4f, _0x5f02a5]) => [_0x381b4f, N$1(_0x5f02a5)]);
     this["_saveMetaData"](this["_lastTo"], _0x356c9b, this["_markers"], _0x397145);
@@ -154855,7 +154851,7 @@ let x$1 = class x3 {
       for (let _0x24cc59 = 0; _0x24cc59 < _0x53d3b3["offsetSize"]; _0x24cc59++) _0x38db51["push"](new Element("$text", { "vid": null === _0x1f2139 ? this["_revisionId"]++ : _0x1f2139++ }));
     }
     if (_0x9c592d["is"]("documentFragment")) {
-      const _0x48eab6 = P(_0x9c592d["rootName"]);
+      const _0x48eab6 = P$1(_0x9c592d["rootName"]);
       return _0x48eab6["_insertChild"](0, _0x38db51), _0x48eab6;
     }
     return _0x21bf17["_setAttribute"]("vid_end", null === _0x1f2139 ? this["_revisionId"]++ : _0x1f2139++), _0x21bf17["_insertChild"](0, _0x38db51), _0x21bf17;
@@ -154905,7 +154901,7 @@ let x$1 = class x3 {
     if ("addRoot" != _0x326a8c["type"] && "detachRoot" != _0x326a8c["type"]) {
       if ("insert" == _0x326a8c["type"]) {
         const _0x3fb006 = _0x326a8c["position"]["root"]["rootName"];
-        this["_diffRoots"]["has"](_0x3fb006) || (this["_diffRoots"]["set"](_0x3fb006, P(_0x3fb006, true)), this["_diffRootsAttributes"]["set"](_0x3fb006, {}), _0x33e3f8 && this["_idsRoots"]["set"](_0x3fb006, P(_0x3fb006, true)));
+        this["_diffRoots"]["has"](_0x3fb006) || (this["_diffRoots"]["set"](_0x3fb006, P$1(_0x3fb006, true)), this["_diffRootsAttributes"]["set"](_0x3fb006, {}), _0x33e3f8 && this["_idsRoots"]["set"](_0x3fb006, P$1(_0x3fb006, true)));
       } else {
         if ("addRootAttribute" == _0x326a8c["type"] || "removeRootAttribute" == _0x326a8c["type"] || "changeRootAttribute" == _0x326a8c["type"]) return void this["_handleRootAttributeOperation"](_0x326a8c);
         "marker" == _0x326a8c["type"] && this["_handleMarkerOperation"](_0x326a8c);
@@ -154954,8 +154950,8 @@ let x$1 = class x3 {
     const _0x4d826c = new Map(this["_touched"]), _0x85333a = new Map(_0x4d826c), _0x4eabfb = /* @__PURE__ */ new Map(), _0x3370bd = { "insertions": {}, "deletions": {} }, _0xd7cd4 = { "insertions": {}, "deletions": {} }, _0x1f826f = /* @__PURE__ */ new Map(), _0x5ce40f = /* @__PURE__ */ new Set([...this["_baseRoots"]["keys"](), ...this["_diffRoots"]["keys"]()]);
     _0x5ce40f["delete"]("$graveyard");
     for (const _0x1d3483 of _0x5ce40f) {
-      const _0x30f067 = this["_diffRoots"]["get"](_0x1d3483) || P(_0x1d3483, false), _0x474921 = this["_baseRoots"]["get"](_0x1d3483) || P(_0x1d3483, false);
-      _0x30f067["isAttached"]() || _0x474921["isAttached"]() ? (_0x3370bd["insertions"][_0x1d3483] = N$1(_0x30f067), _0x3370bd["deletions"][_0x1d3483] = N$1(_0x474921), this["_copyMarkers"](_0x3370bd["deletions"][_0x1d3483], _0x474921), this["_copyMarkers"](_0x3370bd["insertions"][_0x1d3483], _0x30f067), _0xd7cd4["insertions"][_0x1d3483] = this["_generateTape"](this["_idsRoots"]["get"](_0x1d3483), []), _0xd7cd4["deletions"][_0x1d3483] = this["_generateTape"](this["_baseIdsRoots"]["get"](_0x1d3483) || P(_0x1d3483, false), [])) : _0x5ce40f["delete"](_0x1d3483);
+      const _0x30f067 = this["_diffRoots"]["get"](_0x1d3483) || P$1(_0x1d3483, false), _0x474921 = this["_baseRoots"]["get"](_0x1d3483) || P$1(_0x1d3483, false);
+      _0x30f067["isAttached"]() || _0x474921["isAttached"]() ? (_0x3370bd["insertions"][_0x1d3483] = N$1(_0x30f067), _0x3370bd["deletions"][_0x1d3483] = N$1(_0x474921), this["_copyMarkers"](_0x3370bd["deletions"][_0x1d3483], _0x474921), this["_copyMarkers"](_0x3370bd["insertions"][_0x1d3483], _0x30f067), _0xd7cd4["insertions"][_0x1d3483] = this["_generateTape"](this["_idsRoots"]["get"](_0x1d3483), []), _0xd7cd4["deletions"][_0x1d3483] = this["_generateTape"](this["_baseIdsRoots"]["get"](_0x1d3483) || P$1(_0x1d3483, false), [])) : _0x5ce40f["delete"](_0x1d3483);
     }
     for (const _0x30502d of _0x5ce40f) {
       const _0x2b9847 = _0xd7cd4["insertions"][_0x30502d];
@@ -155148,7 +155144,7 @@ let x$1 = class x3 {
     null == _0x628ed5 && null == _0x2b55bd || _0x628ed5 && _0x2b55bd && _0x628ed5["isEqual"](_0x2b55bd) ? this["_touchedMarkers"]["delete"](_0x5b1c42["name"]) : _0x4d64a1["userId"] = _0x28efde;
   }
   ["_handleRootOperation"](_0x13e67f, _0xbd98a) {
-    this["_diffRoots"]["has"](_0x13e67f["rootName"]) ? this["_diffRoots"]["get"](_0x13e67f["rootName"])["_isAttached"] = _0x13e67f["isAdd"] : (this["_diffRoots"]["set"](_0x13e67f["rootName"], P(_0x13e67f["rootName"], true)), this["_diffRootsAttributes"]["set"](_0x13e67f["rootName"], {}), _0xbd98a && this["_idsRoots"]["set"](_0x13e67f["rootName"], P(_0x13e67f["rootName"], true)));
+    this["_diffRoots"]["has"](_0x13e67f["rootName"]) ? this["_diffRoots"]["get"](_0x13e67f["rootName"])["_isAttached"] = _0x13e67f["isAdd"] : (this["_diffRoots"]["set"](_0x13e67f["rootName"], P$1(_0x13e67f["rootName"], true)), this["_diffRootsAttributes"]["set"](_0x13e67f["rootName"], {}), _0xbd98a && this["_idsRoots"]["set"](_0x13e67f["rootName"], P$1(_0x13e67f["rootName"], true)));
     const _0xebc18a = null === _0x13e67f["_authorId"] ? null : _0x13e67f["_authorId"] || this["editor"]["plugins"]["get"]("Users")["me"]["id"], _0x37278d = this["_touchedRoots"]["get"](_0x13e67f["rootName"]);
     _0x37278d && _0x37278d["userId"] === _0xebc18a ? this["_touchedRoots"]["delete"](_0x13e67f["rootName"]) : this["_touchedRoots"]["set"](_0x13e67f["rootName"], { "userId": _0xebc18a, "isAttached": _0x13e67f["isAdd"] });
   }
@@ -155158,14 +155154,14 @@ let x$1 = class x3 {
   }
 };
 function N$1(_0x44537b) {
-  const _0x35abe9 = P(_0x44537b["rootName"], _0x44537b["isAttached"]());
+  const _0x35abe9 = P$1(_0x44537b["rootName"], _0x44537b["isAttached"]());
   for (const _0x5e71b9 of _0x44537b["getChildren"]()) {
     const _0x42c1b9 = _0x5e71b9["_clone"](true);
     _0x35abe9["_appendChild"](_0x42c1b9);
   }
   return _0x35abe9;
 }
-function P(_0x14e5d7, _0x551057 = true) {
+function P$1(_0x14e5d7, _0x551057 = true) {
   const _0xe5df1 = new DocumentFragment();
   return _0xe5df1["rootName"] = _0x14e5d7, _0xe5df1["_isAttached"] = _0x551057, _0xe5df1["isAttached"] = () => _0xe5df1["_isAttached"], _0xe5df1;
 }
@@ -155205,13 +155201,13 @@ class os extends View {
   ["_createRevisionNameInput"](_0x31bdc6) {
     const _0x1fef4c = new LabeledFieldView(this["locale"], createLabeledInputText), _0x2a42aa = _0x1fef4c["fieldView"];
     _0x2a42aa["extendTemplate"]({ "attributes": { "maxlength": "220" } });
-    let _0x3a8857 = g$1(this["locale"], "Name of the revision");
-    return !_0x31bdc6 && (_0x3a8857 += " (" + g$1(this["locale"], "optional") + ")"), _0x1fef4c["label"] = _0x3a8857, _0x2a42aa["on"]("input", () => {
+    let _0x3a8857 = g$2(this["locale"], "Name of the revision");
+    return !_0x31bdc6 && (_0x3a8857 += " (" + g$2(this["locale"], "optional") + ")"), _0x1fef4c["label"] = _0x3a8857, _0x2a42aa["on"]("input", () => {
       this["revisionNameInputValue"] = _0x2a42aa["element"]["value"]["trim"]();
     }), _0x1fef4c;
   }
 }
-let f$1 = class f5 extends Plugin {
+let f$2 = class f5 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "_saveRevisionFormView");
@@ -155226,35 +155222,35 @@ let f$1 = class f5 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [u$1];
+    return [u$2];
   }
   ["init"]() {
     const _0x5e6281 = this["editor"], _0x28faf0 = _0x5e6281["plugins"]["get"]("RevisionTracker");
     _0x5e6281["ui"]["componentFactory"]["add"]("revisionHistory", (_0x125876) => {
       const _0x14e3e2 = createDropdown(_0x125876), _0x5da28a = _0x14e3e2["panelView"]["children"], _0x4bf91c = new ListView(_0x125876), _0x4fff74 = new ListItemView(_0x125876), _0x36c768 = new ButtonView(_0x125876), _0x505bc2 = new ListItemView(_0x125876), _0x343d74 = new ButtonView(_0x125876);
-      return _0x14e3e2["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x28faf0, "isEnabled", _0x5e6281, "isReadOnly", (_0x3c9476, _0x453853, _0x206c06) => _0x3c9476 && _0x453853 && !_0x206c06), _0x14e3e2["buttonView"]["set"]({ "icon": history, "label": g$1(_0x125876, "Revision history"), "tooltip": true }), _0x36c768["set"]({ "label": g$1(_0x125876, "Save current revision"), "withText": true, "role": "menuitem" }), _0x36c768["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x28faf0, "isEnabled", _0x5e6281, "isReadOnly", (_0x775b92, _0x52168d, _0x87936a) => _0x775b92 && _0x52168d && !_0x87936a), _0x36c768["on"]("execute", () => this["_showDialog"]()), _0x343d74["set"]({ "label": g$1(_0x125876, "Open revision history"), "withText": true, "role": "menuitem" }), _0x343d74["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x5e6281, "isReadOnly", (_0x50beea, _0x88712c) => _0x50beea && !_0x88712c), _0x343d74["on"]("execute", () => {
+      return _0x14e3e2["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x28faf0, "isEnabled", _0x5e6281, "isReadOnly", (_0x3c9476, _0x453853, _0x206c06) => _0x3c9476 && _0x453853 && !_0x206c06), _0x14e3e2["buttonView"]["set"]({ "icon": history, "label": g$2(_0x125876, "Revision history"), "tooltip": true }), _0x36c768["set"]({ "label": g$2(_0x125876, "Save current revision"), "withText": true, "role": "menuitem" }), _0x36c768["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x28faf0, "isEnabled", _0x5e6281, "isReadOnly", (_0x775b92, _0x52168d, _0x87936a) => _0x775b92 && _0x52168d && !_0x87936a), _0x36c768["on"]("execute", () => this["_showDialog"]()), _0x343d74["set"]({ "label": g$2(_0x125876, "Open revision history"), "withText": true, "role": "menuitem" }), _0x343d74["bind"]("isEnabled")["to"](_0x28faf0, "isReady", _0x5e6281, "isReadOnly", (_0x50beea, _0x88712c) => _0x50beea && !_0x88712c), _0x343d74["on"]("execute", () => {
         _0x5e6281["config"]["get"]("revisionHistory")["showRevisionViewerCallback"](), _0x14e3e2["isOpen"] = false, _0x5e6281["editing"]["view"]["focus"]();
       }), _0x4fff74["children"]["add"](_0x36c768), _0x505bc2["children"]["add"](_0x343d74), _0x4bf91c["role"] = "menu", _0x4bf91c["items"]["addMany"]([_0x4fff74, _0x505bc2]), _0x5da28a["add"](_0x4bf91c), _0x14e3e2;
     }), _0x5e6281["ui"]["componentFactory"]["add"]("menuBar:revisionHistory", () => this["_registerMenuComponent"]());
   }
   ["_registerMenuComponent"]() {
     const _0x266282 = this["editor"], _0x2ddcc4 = _0x266282["locale"], _0x19bbf3 = new MenuBarMenuView(_0x2ddcc4), _0x59dbd1 = new MenuBarMenuListView(_0x2ddcc4);
-    _0x19bbf3["buttonView"]["set"]({ "icon": history, "label": g$1(_0x2ddcc4, "Revision history") });
+    _0x19bbf3["buttonView"]["set"]({ "icon": history, "label": g$2(_0x2ddcc4, "Revision history") });
     const _0x30912b = new MenuBarMenuListItemView(_0x2ddcc4, _0x19bbf3), _0x358d94 = new MenuBarMenuListItemButtonView(_0x2ddcc4);
-    _0x358d94["set"]({ "label": g$1(_0x2ddcc4, "Save current revision") }), _0x358d94["delegate"]("execute")["to"](_0x19bbf3), _0x358d94["on"]("execute", () => {
+    _0x358d94["set"]({ "label": g$2(_0x2ddcc4, "Save current revision") }), _0x358d94["delegate"]("execute")["to"](_0x19bbf3), _0x358d94["on"]("execute", () => {
       this["_showDialog"]();
     }), _0x30912b["children"]["add"](_0x358d94), _0x59dbd1["items"]["add"](_0x30912b);
     const _0x2415c = new MenuBarMenuListItemView(_0x2ddcc4, _0x19bbf3), _0x4bdfea = new MenuBarMenuListItemButtonView(_0x2ddcc4);
-    return _0x4bdfea["set"]({ "label": g$1(_0x2ddcc4, "Open revision history") }), _0x4bdfea["delegate"]("execute")["to"](_0x19bbf3), _0x4bdfea["on"]("execute", () => {
+    return _0x4bdfea["set"]({ "label": g$2(_0x2ddcc4, "Open revision history") }), _0x4bdfea["delegate"]("execute")["to"](_0x19bbf3), _0x4bdfea["on"]("execute", () => {
       _0x266282["config"]["get"]("revisionHistory")["showRevisionViewerCallback"]();
     }), _0x2415c["children"]["add"](_0x4bdfea), _0x59dbd1["items"]["add"](_0x2415c), _0x19bbf3["panelView"]["children"]["add"](_0x59dbd1), _0x19bbf3;
   }
   ["_showDialog"]() {
     const _0x96f94d = this["editor"], _0x4a06c5 = _0x96f94d["locale"], _0x43c69e = _0x96f94d["plugins"]["get"]("Dialog"), _0x26d89b = _0x96f94d["plugins"]["get"]("RevisionTracker");
     function _0x4fd24a(_0x3ddf1c) {
-      _0x96f94d["config"]["get"]("revisionHistory.requireRevisionName") && "" === _0x3ddf1c["revisionName"] ? _0x3ddf1c["revisionNameInputView"]["errorText"] = g$1(_0x4a06c5, "The revision name cannot be empty.") : (_0x96f94d["plugins"]["get"](u$1)["saveRevision"]({ "name": _0x3ddf1c["revisionName"] }), _0x43c69e["hide"]());
+      _0x96f94d["config"]["get"]("revisionHistory.requireRevisionName") && "" === _0x3ddf1c["revisionName"] ? _0x3ddf1c["revisionNameInputView"]["errorText"] = g$2(_0x4a06c5, "The revision name cannot be empty.") : (_0x96f94d["plugins"]["get"](u$2)["saveRevision"]({ "name": _0x3ddf1c["revisionName"] }), _0x43c69e["hide"]());
     }
-    this["_saveRevisionFormView"] || (this["_createSaveRevisionFormView"](), this["_saveRevisionFormView"]["on"]("submit", () => _0x4fd24a(this["_saveRevisionFormView"]))), this["_saveRevisionFormView"]["reset"](), _0x43c69e["show"]({ "id": "revisionSave", "title": g$1(_0x4a06c5, "Save current revision"), "isModal": true, "content": this["_saveRevisionFormView"], "actionButtons": [{ "label": g$1(_0x96f94d["locale"], "Cancel"), "withText": true, "onExecute": () => _0x43c69e["hide"]() }, { "label": g$1(_0x96f94d["locale"], "Accept"), "class": "ck-button-action", "withText": true, "onCreate"(_0x2f6af6) {
+    this["_saveRevisionFormView"] || (this["_createSaveRevisionFormView"](), this["_saveRevisionFormView"]["on"]("submit", () => _0x4fd24a(this["_saveRevisionFormView"]))), this["_saveRevisionFormView"]["reset"](), _0x43c69e["show"]({ "id": "revisionSave", "title": g$2(_0x4a06c5, "Save current revision"), "isModal": true, "content": this["_saveRevisionFormView"], "actionButtons": [{ "label": g$2(_0x96f94d["locale"], "Cancel"), "withText": true, "onExecute": () => _0x43c69e["hide"]() }, { "label": g$2(_0x96f94d["locale"], "Accept"), "class": "ck-button-action", "withText": true, "onCreate"(_0x2f6af6) {
       _0x2f6af6["bind"]("isEnabled")["to"](_0x26d89b, "isReady", _0x26d89b, "isEnabled", _0x96f94d, "isReadOnly", (_0x350a06, _0x99318a, _0x506152) => _0x350a06 && _0x99318a && !_0x506152);
     }, "onExecute": () => _0x4fd24a(this["_saveRevisionFormView"]) }] });
   }
@@ -155269,14 +155265,14 @@ let Q$1 = class Q3 extends View {
     __publicField(this, "changeId");
     __publicField(this, "_model");
     this["_model"] = _0x7d0859, this["changeId"] = _0x7d0859["id"];
-    const _0x29ed43 = this["bindTemplate"], _0x28c829 = g$1(_0xa25996, _0x7d0859["data"]["isSuggestion"] ? "Suggested by" : "add" == _0x7d0859["type"] ? "Added by" : "Removed by");
+    const _0x29ed43 = this["bindTemplate"], _0x28c829 = g$2(_0xa25996, _0x7d0859["data"]["isSuggestion"] ? "Suggested by" : "add" == _0x7d0859["type"] ? "Added by" : "Removed by");
     this["set"]("type", _0x7d0859["type"]), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck-annotation", "ck-revision-change", _0x29ed43["to"]("type", (_0x1be7b8) => "ck-revision-change__" + _0x1be7b8)], "tabindex": -1 }, "children": [{ "tag": "span", "children": [{ "tag": "span", "attributes": { "class": ["ck-revision-change__label"] }, "children": [{ "text": _0x28c829 }] }, { "text": " " + _0x7d0859["author"]["name"] }] }] });
   }
   ["focus"]() {
     this["element"]["focus"]();
   }
 };
-class r extends (/* @__PURE__ */ ObservableMixin()) {
+let r$2 = class r9 extends (/* @__PURE__ */ ObservableMixin()) {
   constructor(_0x48e8e6) {
     super();
     __publicField(this, "id");
@@ -155289,8 +155285,8 @@ class r extends (/* @__PURE__ */ ObservableMixin()) {
   ["toJSON"]() {
     return { "id": this["id"], "authorId": this["author"]["id"], "type": this["type"], "data": this["data"], "createdAt": this["createdAt"] };
   }
-}
-let c$1 = class c7 {
+};
+let c$2 = class c7 {
   constructor(_0x348cfd, _0x37ee52) {
     __publicField(this, "newRevisionId");
     __publicField(this, "oldRevisionId");
@@ -155301,7 +155297,7 @@ let c$1 = class c7 {
     for (const _0x1d4c79 of _0x4f0a86) this["changes"]["add"](_0x1d4c79);
   }
 };
-let m$2 = class m7 extends Plugin {
+let m$4 = class m7 extends Plugin {
   constructor(_0x37ee44) {
     super(_0x37ee44);
     __publicField(this, "repository");
@@ -155327,7 +155323,7 @@ let m$2 = class m7 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [u$6, ContextualBalloon, I$1, V$1];
+    return [u$7, ContextualBalloon, I$1, V$1];
   }
   ["init"]() {
     const _0x52cbb0 = this["editor"], _0x15d5b3 = new pt$1(_0x52cbb0, { "direction": "backward" }), _0x3639d8 = new pt$1(_0x52cbb0, { "direction": "forward" });
@@ -155345,7 +155341,7 @@ let m$2 = class m7 extends Plugin {
     if (!this["isEnabled"]) return;
     const _0x1f069a = this["diff"], _0x4e7a4d = this["repository"], _0x167fbc = "string" == typeof _0x333a85 ? _0x4e7a4d["getRevision"](_0x333a85) : _0x333a85, _0x28ae79 = "string" == typeof _0x58aa1d ? _0x4e7a4d["getRevision"](_0x58aa1d) : _0x58aa1d, _0x49c86c = _0x167fbc["id"], _0x7fab85 = _0x28ae79 ? _0x28ae79["id"] : null;
     if (!_0x37ee85 && this["diff"] && this["diff"]["newRevisionId"] === _0x49c86c && this["diff"]["oldRevisionId"] === _0x7fab85) return Promise["resolve"]();
-    this["isReady"] = false, this["activeView"] = null, this["activeChange"] = null, this["diff"] = new c$1(_0x49c86c, _0x7fab85);
+    this["isReady"] = false, this["activeView"] = null, this["activeChange"] = null, this["diff"] = new c$2(_0x49c86c, _0x7fab85);
     const _0x1fa870 = this["_getRevisionsRange"](_0x167fbc, _0x28ae79, true)["map"]((_0x29bab0) => this["_utils"]["loadRevisionData"](_0x29bab0, this["adapter"]));
     return _0x1fa870["push"](new Promise((_0x11a92c) => {
       setTimeout(_0x11a92c, 20);
@@ -155473,7 +155469,7 @@ let m$2 = class m7 extends Plugin {
       _0x26d8b4["model"][_0x219385] = _0x5dda94;
       const _0x3dc832 = _0x438afd["get"](_0x219385);
       if (_0x3dc832) {
-        const _0x5d75ed = _0xb397db["get"](_0x3dc832["userId"]), _0x5a5720 = new r({ "author": _0x5d75ed, "type": _0x3dc832["isAttached"] ? "add" : "remove", "data": { "isOnRoot": true }, "createdAt": /* @__PURE__ */ new Date(), "rootName": _0x219385 });
+        const _0x5d75ed = _0xb397db["get"](_0x3dc832["userId"]), _0x5a5720 = new r$2({ "author": _0x5d75ed, "type": _0x3dc832["isAttached"] ? "add" : "remove", "data": { "isOnRoot": true }, "createdAt": /* @__PURE__ */ new Date(), "rootName": _0x219385 });
         _0x44e69e["unshift"](_0x5a5720), _0x26d8b4["attributes"][_0x219385]["revisionHistoryAttachChange"] = _0x5a5720["id"];
       }
       _0x26d8b4["changes"] = _0x26d8b4["changes"]["concat"](_0x44e69e);
@@ -155657,7 +155653,7 @@ let m$2 = class m7 extends Plugin {
     function _0x145d56({ start: _0x47cc2c, end: _0x100e1a, tapeItem: _0x28d2d6, userId: _0x1973c2, type: _0x237489 }) {
       const _0x4e7df8 = _0x28d2d6["item"], _0x4a03c6 = _0x18c63e["schema"]["isBlock"](_0x4e7df8) && !_0x18c63e["schema"]["isLimit"](_0x4e7df8), _0x5e3995 = _0x47cc2c["nodeAfter"] == _0x100e1a["parent"] && _0x100e1a["isAtStart"];
       if (_0x4a03c6 && _0x5e3995) return;
-      const _0x5108d9 = _0x18c63e["createRange"](_0x47cc2c, _0x100e1a), _0x2859f8 = _0x3e5561["get"](_0x1973c2), _0x53062f = new r({ "author": _0x2859f8, "type": "isAdded" == _0x237489 || "isAddSuggestion" == _0x237489 ? "add" : "remove", "data": { "isSuggestion": "isAddSuggestion" == _0x237489 || "isRemoveSuggestion" == _0x237489 }, "createdAt": /* @__PURE__ */ new Date(), "rootName": _0x96ae44 });
+      const _0x5108d9 = _0x18c63e["createRange"](_0x47cc2c, _0x100e1a), _0x2859f8 = _0x3e5561["get"](_0x1973c2), _0x53062f = new r$2({ "author": _0x2859f8, "type": "isAdded" == _0x237489 || "isAddSuggestion" == _0x237489 ? "add" : "remove", "data": { "isSuggestion": "isAddSuggestion" == _0x237489 || "isRemoveSuggestion" == _0x237489 }, "createdAt": /* @__PURE__ */ new Date(), "rootName": _0x96ae44 });
       _0x31cfde["push"](_0x53062f), _0x33b796["markers"]["set"]("revision:" + _0x53062f["id"], _0x5108d9);
     }
     function _0x2dd92e(_0x57aa9c, _0x27e07c) {
@@ -155834,15 +155830,15 @@ function X$1(_0x41ad8c, _0x5892a0) {
 let wt$1 = class wt3 extends Command$1 {
   constructor(_0x20c174) {
     super(_0x20c174);
-    const _0x2d9197 = _0x20c174["plugins"]["get"](m$2);
+    const _0x2d9197 = _0x20c174["plugins"]["get"](m$4);
     this["affectsData"] = false, this["listenTo"](_0x2d9197, "change:isReady", () => this["refresh"]()), this["listenTo"](_0x2d9197, "change:isEnabled", () => this["refresh"]());
   }
   ["execute"]() {
-    const _0x13cc6c = this["editor"], _0x4f5f77 = _0x13cc6c["plugins"]["get"](m$2), _0x29eb64 = _0x4f5f77["isReady"] ? _0x4f5f77["diff"]["newRevisionId"] : null;
+    const _0x13cc6c = this["editor"], _0x4f5f77 = _0x13cc6c["plugins"]["get"](m$4), _0x29eb64 = _0x4f5f77["isReady"] ? _0x4f5f77["diff"]["newRevisionId"] : null;
     _0x13cc6c["config"]["get"]("revisionHistory")["restoreRevisionCallback"](_0x29eb64);
   }
   ["refresh"]() {
-    const { isReady: _0x45e827, isEnabled: _0x1ac351, repository: _0x2785c8, diff: _0x11bd68 } = this["editor"]["plugins"]["get"](m$2), _0xa90a6b = _0x11bd68 && _0x2785c8["getLaterVisibleRevision"](_0x11bd68["newRevisionId"]);
+    const { isReady: _0x45e827, isEnabled: _0x1ac351, repository: _0x2785c8, diff: _0x11bd68 } = this["editor"]["plugins"]["get"](m$4), _0xa90a6b = _0x11bd68 && _0x2785c8["getLaterVisibleRevision"](_0x11bd68["newRevisionId"]);
     this["isEnabled"] = _0x45e827 && _0x1ac351 && Boolean(_0xa90a6b);
   }
 };
@@ -155850,11 +155846,11 @@ let pt$1 = class pt2 extends Command$1 {
   constructor(_0x3bf044, { direction: _0x22fe4c }) {
     super(_0x3bf044);
     __publicField(this, "_step");
-    const _0xfa892b = _0x3bf044["plugins"]["get"](m$2);
+    const _0xfa892b = _0x3bf044["plugins"]["get"](m$4);
     this["affectsData"] = false, this["_step"] = "forward" === _0x22fe4c ? 1 : -1, this["listenTo"](_0xfa892b, "change:isReady", () => this["refresh"]()), this["listenTo"](_0xfa892b, "change:isEnabled", () => this["refresh"]()), this["listenTo"](_0xfa892b, "change:activeChange", () => this["refresh"]());
   }
   ["execute"]() {
-    const _0x4b3814 = this["editor"], _0x12dd3b = _0x4b3814["plugins"]["get"](m$2), { isNavigationMode: _0x57ed5c, currentChangeNumber: _0xfb58a0 } = _0x12dd3b;
+    const _0x4b3814 = this["editor"], _0x12dd3b = _0x4b3814["plugins"]["get"](m$4), { isNavigationMode: _0x57ed5c, currentChangeNumber: _0xfb58a0 } = _0x12dd3b;
     let _0x322ee3;
     if (_0x12dd3b["activeChange"] = _0x57ed5c ? _0x12dd3b["diff"]["changes"]["get"](_0xfb58a0 + this["_step"]) : _0x12dd3b["diff"]["changes"]["first"], _0x12dd3b["activeChange"]["data"]["isOnRoot"]) _0x322ee3 = _0x4b3814["editing"]["view"]["getDomRoot"](_0x12dd3b["activeChange"]["rootName"]);
     else {
@@ -155864,7 +155860,7 @@ let pt$1 = class pt2 extends Command$1 {
     scrollViewportToShowTarget({ "target": _0x322ee3, "viewportOffset": 40 });
   }
   ["refresh"]() {
-    const { isNavigationMode: _0x524e24, currentChangeNumber: _0x3fc3cf, numberOfChanges: _0x1b1448, isReady: _0x34a522, isEnabled: _0x218308 } = this["editor"]["plugins"]["get"](m$2);
+    const { isNavigationMode: _0x524e24, currentChangeNumber: _0x3fc3cf, numberOfChanges: _0x1b1448, isReady: _0x34a522, isEnabled: _0x218308 } = this["editor"]["plugins"]["get"](m$4);
     this["isEnabled"] = !!(_0x218308 && _0x34a522 && _0x1b1448) && (!_0x524e24 || (1 === this["_step"] ? _0x3fc3cf < _0x1b1448 - 1 : _0x3fc3cf > 0));
   }
 };
@@ -155873,11 +155869,11 @@ class li extends View {
     super(_0x525aba);
     const _0x31858c = this["bindTemplate"], _0x444908 = new ButtonView(_0x525aba), _0x21fc25 = new ButtonView(_0x525aba);
     this["set"]("isNavigationMode", false), this["set"]("isReady", false), this["set"]("currentChangeNumber", 0), this["set"]("numberOfChanges", 0), this["set"]("isForwardNavigationEnabled", false), this["set"]("isBackwardNavigationEnabled", false), this["bind"]("_isStatusLabelVisible")["to"](this, "isReady", this, "numberOfChanges", (_0x173ef0, _0x43d649) => _0x173ef0 && _0x43d649 > 0), this["bind"]("_statusText")["to"](this, "isReady", this, "currentChangeNumber", this, "numberOfChanges", this, "isNavigationMode", (_0x201ae1, _0x6b58a7, _0x12ff8c, _0x40f827) => {
-      if (!_0x201ae1) return g$1(_0x525aba, "Loading...");
-      if (!_0x12ff8c) return g$1(_0x525aba, "No changes");
-      const _0x5e410c = g$1(_0x525aba, "NUMBER_OF_CHANGES", _0x12ff8c);
-      return _0x40f827 ? g$1(_0x525aba, "X_OF_Y_CHANGES", [_0x6b58a7 + 1, _0x12ff8c]) : _0x5e410c;
-    }), _0x444908["set"]({ "label": g$1(_0x525aba, "Show previous change"), "tooltip": true, "icon": chevronUp }), _0x21fc25["set"]({ "label": g$1(_0x525aba, "Show next change"), "tooltip": true, "icon": chevronDown }), _0x444908["bind"]("isEnabled")["to"](this, "isBackwardNavigationEnabled"), _0x21fc25["bind"]("isEnabled")["to"](this, "isForwardNavigationEnabled"), _0x444908["on"]("execute", () => this["fire"]("execute", "backward")), _0x21fc25["on"]("execute", () => this["fire"]("execute", "forward")), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-revision-history-ui", "ck-revision-history-ui__changes-navigation"] }, "children": [{ "tag": "span", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__wrapper"] }, "children": [{ "tag": "span", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__label", _0x31858c["if"]("_isStatusLabelVisible", "ck-hidden", (_0x25f504) => !_0x25f504)] }, "children": [{ "text": _0x31858c["to"]("isNavigationMode", (_0x21f1f4) => _0x21f1f4 ? g$1(_0x525aba, "EDIT_X_OF_Y_REVISIONS") + ": " : g$1(_0x525aba, "Total") + ": ") }] }, { "text": _0x31858c["to"]("_statusText") }] }, new ToolbarSeparatorView(), { "tag": "div", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__navigation"] }, "children": [_0x444908, _0x21fc25] }] });
+      if (!_0x201ae1) return g$2(_0x525aba, "Loading...");
+      if (!_0x12ff8c) return g$2(_0x525aba, "No changes");
+      const _0x5e410c = g$2(_0x525aba, "NUMBER_OF_CHANGES", _0x12ff8c);
+      return _0x40f827 ? g$2(_0x525aba, "X_OF_Y_CHANGES", [_0x6b58a7 + 1, _0x12ff8c]) : _0x5e410c;
+    }), _0x444908["set"]({ "label": g$2(_0x525aba, "Show previous change"), "tooltip": true, "icon": chevronUp }), _0x21fc25["set"]({ "label": g$2(_0x525aba, "Show next change"), "tooltip": true, "icon": chevronDown }), _0x444908["bind"]("isEnabled")["to"](this, "isBackwardNavigationEnabled"), _0x21fc25["bind"]("isEnabled")["to"](this, "isForwardNavigationEnabled"), _0x444908["on"]("execute", () => this["fire"]("execute", "backward")), _0x21fc25["on"]("execute", () => this["fire"]("execute", "forward")), this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-revision-history-ui", "ck-revision-history-ui__changes-navigation"] }, "children": [{ "tag": "span", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__wrapper"] }, "children": [{ "tag": "span", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__label", _0x31858c["if"]("_isStatusLabelVisible", "ck-hidden", (_0x25f504) => !_0x25f504)] }, "children": [{ "text": _0x31858c["to"]("isNavigationMode", (_0x21f1f4) => _0x21f1f4 ? g$2(_0x525aba, "EDIT_X_OF_Y_REVISIONS") + ": " : g$2(_0x525aba, "Total") + ": ") }] }, { "text": _0x31858c["to"]("_statusText") }] }, new ToolbarSeparatorView(), { "tag": "div", "attributes": { "class": ["ck-revision-history-ui__changes-navigation__navigation"] }, "children": [_0x444908, _0x21fc25] }] });
   }
 }
 const ce = "ck-editor__editable__loading-overlay";
@@ -155915,18 +155911,18 @@ let R$1 = class R3 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [m$2, le];
+    return [m$4, le];
   }
   ["init"]() {
-    const _0x4d3091 = this["editor"], _0x421b62 = _0x4d3091["plugins"]["get"](m$2), _0x39d09d = _0x4d3091["plugins"]["get"](le);
+    const _0x4d3091 = this["editor"], _0x421b62 = _0x4d3091["plugins"]["get"](m$4), _0x39d09d = _0x4d3091["plugins"]["get"](le);
     _0x4d3091["ui"]["componentFactory"]["add"]("exitToEditing", (_0x7f1d53) => {
       const _0x35e2df = new ButtonView(_0x7f1d53);
-      return _0x35e2df["set"]({ "label": g$1(_0x7f1d53, "Back to editing"), "icon": undo, "withText": true, "tooltip": true, "class": "ck-revision-history-ui__back-to-editing" }), this["listenTo"](_0x35e2df, "execute", () => {
+      return _0x35e2df["set"]({ "label": g$2(_0x7f1d53, "Back to editing"), "icon": undo, "withText": true, "tooltip": true, "class": "ck-revision-history-ui__back-to-editing" }), this["listenTo"](_0x35e2df, "execute", () => {
         _0x4d3091["config"]["get"]("revisionHistory")["closeRevisionViewerCallback"]();
       }), _0x35e2df;
     }), _0x4d3091["ui"]["componentFactory"]["add"]("restoreRevision", (_0x3949c0) => {
       const _0x1824cc = new ButtonView(_0x3949c0);
-      return _0x1824cc["set"]({ "label": g$1(_0x3949c0, "Restore this revision"), "withText": true, "tooltip": true }), _0x1824cc["bind"]("isEnabled")["to"](_0x4d3091["commands"]["get"]("restoreRevision")), this["listenTo"](_0x1824cc, "execute", () => _0x4d3091["execute"]("restoreRevision")), _0x1824cc;
+      return _0x1824cc["set"]({ "label": g$2(_0x3949c0, "Restore this revision"), "withText": true, "tooltip": true }), _0x1824cc["bind"]("isEnabled")["to"](_0x4d3091["commands"]["get"]("restoreRevision")), this["listenTo"](_0x1824cc, "execute", () => _0x4d3091["execute"]("restoreRevision")), _0x1824cc;
     }), _0x4d3091["ui"]["componentFactory"]["add"]("changesNavigation", (_0x45b9f1) => {
       const _0x11d454 = new li(_0x45b9f1), _0x17eab3 = _0x4d3091["commands"]["get"]("showPreviousChange"), _0x366731 = _0x4d3091["commands"]["get"]("showNextChange");
       return _0x11d454["bind"]("isBackwardNavigationEnabled")["to"](_0x17eab3, "isEnabled"), _0x11d454["bind"]("isForwardNavigationEnabled")["to"](_0x366731, "isEnabled"), _0x11d454["bind"]("isReady", "currentChangeNumber", "numberOfChanges", "isNavigationMode")["to"](_0x421b62), this["listenTo"](_0x11d454, "execute", (_0x528f31, _0x4b6e65) => {
@@ -155942,7 +155938,7 @@ let lt$1 = class lt3 extends LabeledFieldView {
     super(_0x18b6d6, _0x3c6876);
     __publicField(this, "_resizeObserver", null);
     const _0x3465c0 = this["bindTemplate"];
-    this["set"]({ "label": g$1(_0x18b6d6, "Revision name"), "_tooltipString": "" }), this["fieldView"]["placeholder"] = g$1(_0x18b6d6, "Enter the revision name"), this["extendTemplate"]({ "tag": "span", "attributes": { "class": ["ck-revision-history-sidebar__revision-name"], "data-cke-tooltip-text": _0x3465c0["to"]("_tooltipString"), "data-cke-tooltip-position": "s", "data-cke-tooltip-class": "ck-tooltip_multi-line" } });
+    this["set"]({ "label": g$2(_0x18b6d6, "Revision name"), "_tooltipString": "" }), this["fieldView"]["placeholder"] = g$2(_0x18b6d6, "Enter the revision name"), this["extendTemplate"]({ "tag": "span", "attributes": { "class": ["ck-revision-history-sidebar__revision-name"], "data-cke-tooltip-text": _0x3465c0["to"]("_tooltipString"), "data-cke-tooltip-position": "s", "data-cke-tooltip-class": "ck-tooltip_multi-line" } });
   }
   ["render"]() {
     super["render"](), this["_resizeObserver"] = new ResizeObserver(this["fieldView"]["element"], () => this["_updateTooltipText"]()), this["listenTo"](this["fieldView"], "input", () => this["_updateTooltipText"]());
@@ -155962,7 +155958,7 @@ class oi extends View {
     _0x4d1525["set"]({ "content": user, "viewBox": "0 0 11 10" });
     const _0x22ec35 = ["ck", "ck-revision-history-sidebar__revision-author"];
     _0x3aada7 && _0x22ec35["push"]("ck-revision-history-sidebar__revision-author_creator");
-    const _0x2cb410 = [{ "tag": "span", "attributes": { "class": ["ck", "ck-revision-history-sidebar__revision-author__name"], "title": g$1(_0x5244fa, _0x3aada7 ? "Revision creator" : "Revision author") }, "children": [_0x4d1525, _0x444e3a["name"]] }];
+    const _0x2cb410 = [{ "tag": "span", "attributes": { "class": ["ck", "ck-revision-history-sidebar__revision-author__name"], "title": g$2(_0x5244fa, _0x3aada7 ? "Revision creator" : "Revision author") }, "children": [_0x4d1525, _0x444e3a["name"]] }];
     this["setTemplate"]({ "tag": "li", "attributes": { "class": _0x22ec35 }, "children": _0x2cb410 });
   }
 }
@@ -155971,7 +155967,7 @@ function ni(_0x374e0c, _0x253f0b) {
   _0x3f9068["panelPosition"] = "sw";
   const _0x253298 = function(_0x567945, _0x3306f5) {
     const _0x1ee083 = function(_0x1f5315, _0x420d28) {
-      const _0x7dc21b = _0x1f5315["locale"], _0x47a11e = { "Compare against selected": g$1(_0x7dc21b, "Compare against selected"), "Name this revision": g$1(_0x7dc21b, "Name this revision"), "Restore this revision": g$1(_0x7dc21b, "Restore this revision") };
+      const _0x7dc21b = _0x1f5315["locale"], _0x47a11e = { "Compare against selected": g$2(_0x7dc21b, "Compare against selected"), "Name this revision": g$2(_0x7dc21b, "Name this revision"), "Restore this revision": g$2(_0x7dc21b, "Restore this revision") };
       return _0x420d28["map"]((_0x7c773a) => {
         const _0x5e31a2 = _0x47a11e[_0x7c773a["name"]];
         return _0x5e31a2 && _0x5e31a2 !== _0x7c773a["name"] && (_0x7c773a["name"] = _0x5e31a2), _0x7c773a;
@@ -155983,7 +155979,7 @@ function ni(_0x374e0c, _0x253f0b) {
     }
     return _0x16a694;
   }(_0x374e0c, _0x253f0b);
-  return _0x374e0c["bind"]("isActionsDropdownOpen")["to"](_0x3f9068, "isOpen"), _0x3f9068["buttonView"]["set"]({ "label": g$1(_0x1fce50, "Show more items"), "tooltip": true, "tooltipPosition": "sw", "icon": threeVerticalDots }), _0x3f9068["extendTemplate"]({ "attributes": { "class": ["ck-revision-history-sidebar__revision__actions", _0xd5dc5b["if"]("isActionsDropdownOpen", "ck-on")] }, "on": { "click": _0xd5dc5b["to"]((_0x16238f) => _0x16238f["stopPropagation"]()) } }), _0x3f9068["on"]("execute", (_0xa65a5d) => {
+  return _0x374e0c["bind"]("isActionsDropdownOpen")["to"](_0x3f9068, "isOpen"), _0x3f9068["buttonView"]["set"]({ "label": g$2(_0x1fce50, "Show more items"), "tooltip": true, "tooltipPosition": "sw", "icon": threeVerticalDots }), _0x3f9068["extendTemplate"]({ "attributes": { "class": ["ck-revision-history-sidebar__revision__actions", _0xd5dc5b["if"]("isActionsDropdownOpen", "ck-on")] }, "on": { "click": _0xd5dc5b["to"]((_0x16238f) => _0x16238f["stopPropagation"]()) } }), _0x3f9068["on"]("execute", (_0xa65a5d) => {
     _0x374e0c["isReady"] && "function" == typeof _0xa65a5d["source"]["_action"] && _0xa65a5d["source"]["_action"](_0x374e0c);
   }), addListToDropdown(_0x3f9068, _0x253298, { "role": "menu" }), _0x3f9068["listenTo"](_0x374e0c, "change:isActionsDropdownOpen", (_0x2a10a1, _0x5bb869, _0x7e4047) => {
     if (_0x7e4047) for (const _0x3f56a9 of _0x3f9068["listView"]["items"]) {
@@ -155992,7 +155988,7 @@ function ni(_0x374e0c, _0x253f0b) {
     }
   }), _0x3f9068;
 }
-class ai extends (/* @__PURE__ */ c$9(View)) {
+class ai extends (/* @__PURE__ */ c$a(View)) {
   constructor(_0x37b797, _0x5a3881, _0xeaecae, _0x4c0596) {
     super(_0x37b797);
     __publicField(this, "id");
@@ -156059,7 +156055,7 @@ class as extends View {
   constructor(_0x58fd86) {
     super(_0x58fd86);
     const _0x23fd6a = new IconView();
-    _0x23fd6a["content"] = history, this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-reset_all", "ck-revision-history-sidebar__header"] }, "children": [_0x23fd6a, { "tag": "span", "attributes": { "class": ["ck", "ck-revision-history-sidebar__header__label"] }, "children": [g$1(_0x58fd86, "Revision history")] }] });
+    _0x23fd6a["content"] = history, this["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-reset_all", "ck-revision-history-sidebar__header"] }, "children": [_0x23fd6a, { "tag": "span", "attributes": { "class": ["ck", "ck-revision-history-sidebar__header__label"] }, "children": [g$2(_0x58fd86, "Revision history")] }] });
   }
 }
 class vi extends View {
@@ -156107,13 +156103,13 @@ class vi extends View {
     return this["timePeriodViews"]["find"]((_0x519e5d) => _0x519e5d["startDate"]["getTime"]() === _0x32a4f5["getTime"]());
   }
 }
-let d$1 = (_g = class extends Plugin {
+let d$3 = (_i2 = class extends Plugin {
   constructor(_0x447b44) {
     super(_0x447b44);
     __publicField(this, "_revisionViewer");
     __publicField(this, "_revisionsRepository");
     __publicField(this, "_sidebarView");
-    this["_revisionViewer"] = _0x447b44["plugins"]["get"](m$2), this["_revisionsRepository"] = this["_revisionViewer"]["repository"], this["_sidebarView"] = null;
+    this["_revisionViewer"] = _0x447b44["plugins"]["get"](m$4), this["_revisionsRepository"] = this["_revisionViewer"]["repository"], this["_sidebarView"] = null;
   }
   static get ["pluginName"]() {
     return "RevisionsSidebar";
@@ -156125,7 +156121,7 @@ let d$1 = (_g = class extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [m$2];
+    return [m$4];
   }
   ["init"]() {
     const _0x148cd2 = this["_revisionsRepository"]["_revisions"], _0x280796 = this["_createRevisionActions"](), _0x1a24ce = this["editor"]["config"]["get"]("revisionHistory.viewerSidebarContainer");
@@ -156157,25 +156153,25 @@ let d$1 = (_g = class extends Plugin {
     _0x10c385["length"] > 2 ? (this["_sidebarView"]["highlightRevisions"](_0x10c385), this["_sidebarView"]["selectRevision"](null)) : (this["_sidebarView"]["highlightRevisions"]([]), this["_sidebarView"]["selectRevision"](_0x10c385[0]));
   }
   ["_createRevisionActions"]() {
-    const _0x3cd9cc = this["editor"], _0x5d5954 = _g["availableRevisionActions"], _0x1118ba = _0x3cd9cc["config"]["get"]("revisionHistory.revisionActions") || _g["defaultRevisionActions"];
+    const _0x3cd9cc = this["editor"], _0x5d5954 = _i2["availableRevisionActions"], _0x1118ba = _0x3cd9cc["config"]["get"]("revisionHistory.revisionActions") || _i2["defaultRevisionActions"];
     if (_0x1118ba["length"]) return _0x1118ba["map"]((_0xa0ad8a) => {
       const _0x5540c6 = "string" == typeof _0xa0ad8a ? Object["assign"]({}, _0x5d5954[_0xa0ad8a]) : _0xa0ad8a;
       return _0x5540c6["action"] = _0x5540c6["action"]["bind"](this, _0x3cd9cc), _0x5540c6["isVisible"] && (_0x5540c6["isVisible"] = _0x5540c6["isVisible"]["bind"](this, _0x3cd9cc)), _0x5540c6;
     });
   }
-}, __publicField(_g, "defaultRevisionActions", /* @__PURE__ */ (() => ["compareAgainstSelected", "restoreRevision", "nameRevision"])()), __publicField(_g, "availableRevisionActions", /* @__PURE__ */ _t$1()), _g);
+}, __publicField(_i2, "defaultRevisionActions", /* @__PURE__ */ (() => ["compareAgainstSelected", "restoreRevision", "nameRevision"])()), __publicField(_i2, "availableRevisionActions", /* @__PURE__ */ _t$1()), _i2);
 function _t$1() {
   return { "compareAgainstSelected": { "name": "Compare against selected", "action": ({ plugins: _0x390094 }, _0x2e9360) => {
-    const _0x5348b8 = _0x390094["get"](m$2), _0x55d575 = _0x5348b8["repository"];
+    const _0x5348b8 = _0x390094["get"](m$4), _0x55d575 = _0x5348b8["repository"];
     let _0x16d2a3 = _0x5348b8["diff"]["newRevisionId"], _0x42686b = _0x2e9360["id"];
     _0x55d575["getIndex"](_0x16d2a3) > _0x55d575["getIndex"](_0x42686b) && ([_0x16d2a3, _0x42686b] = [_0x42686b, _0x16d2a3]), _0x5348b8["compare"](_0x16d2a3, _0x42686b);
   }, "isVisible": ({ plugins: _0x3d0f78 }, _0x39860a) => {
-    const _0xeae0b5 = _0x3d0f78["get"](m$2);
+    const _0xeae0b5 = _0x3d0f78["get"](m$4);
     return !(_0xeae0b5["repository"]["getRevisionsInDiff"](_0xeae0b5["diff"])["length"] > 2) && !_0x39860a["isSelected"];
   } }, "restoreRevision": { "name": "Restore this revision", "action": (_0x246b3a, { id: _0x3ae2bc }) => {
     _0x246b3a["config"]["get"]("revisionHistory")["restoreRevisionCallback"](_0x3ae2bc);
-  }, "isVisible": ({ plugins: _0x14a117 }, _0x58b150) => !!_0x14a117["get"](m$2)["repository"]["getLaterVisibleRevision"](_0x58b150["id"]) }, "nameRevision": { "name": "Name this revision", "action": ({ plugins: _0x702b60 }, { id: _0x143bf4, revisionNameView: _0x50ca66 }) => {
-    const _0x4de0ec = _0x702b60["get"](m$2), _0xd32ad3 = _0x4de0ec["repository"]["getEarlierVisibleRevision"](_0x143bf4);
+  }, "isVisible": ({ plugins: _0x14a117 }, _0x58b150) => !!_0x14a117["get"](m$4)["repository"]["getLaterVisibleRevision"](_0x58b150["id"]) }, "nameRevision": { "name": "Name this revision", "action": ({ plugins: _0x702b60 }, { id: _0x143bf4, revisionNameView: _0x50ca66 }) => {
+    const _0x4de0ec = _0x702b60["get"](m$4), _0xd32ad3 = _0x4de0ec["repository"]["getEarlierVisibleRevision"](_0x143bf4);
     _0x4de0ec["compare"](_0x143bf4, _0xd32ad3), _0x50ca66["focus"](), _0x50ca66["fieldView"]["select"]();
   } } };
 }
@@ -156224,7 +156220,7 @@ let it$1 = class it2 extends BoxedEditorUIView {
     super["render"](), this["stickyPanel"]["content"]["add"](this["toolbar"]), this["top"]["add"](this["stickyPanel"]), this["main"]["add"](this["editable"]);
   }
 };
-let w$1 = class w3 extends (/* @__PURE__ */ ElementApiMixin(Editor)) {
+let w$2 = class w3 extends (/* @__PURE__ */ ElementApiMixin(Editor)) {
   constructor(_0xc34948, _0x4da1bf) {
     super(_0x4da1bf);
     __publicField(this, "_ui");
@@ -156243,7 +156239,7 @@ let w$1 = class w3 extends (/* @__PURE__ */ ElementApiMixin(Editor)) {
     return await _0x327dee["initPlugins"](), await _0x327dee["ui"]["init"](_0xebdc66), await _0x327dee["data"]["init"](_0x327dee["config"]["get"]("initialData") || ""), _0x327dee["fire"]("ready"), _0x327dee;
   }
 };
-const p$1 = ["RevisionHistoryUI", "RestrictedEditingMode"];
+const p$2 = ["RevisionHistoryUI", "RestrictedEditingMode"];
 let yt$1 = class yt2 extends Plugin {
   constructor(_0x2b6f55) {
     function _0x234c08(_0x3537f2) {
@@ -156280,7 +156276,7 @@ let k$1 = class k4 extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [u$1, f$1];
+    return [u$2, f$2];
   }
   set ["adapter"](_0x2fd241) {
     this["editor"]["plugins"]["get"]("RevisionTracker")["adapter"] = _0x2fd241;
@@ -156298,10 +156294,10 @@ let k$1 = class k4 extends Plugin {
     return this["editor"]["plugins"]["get"]("RevisionsRepository")["getRevisions"](_0x3c623e || { "toJSON": false });
   }
   ["_getRevisionViewerEditorConfig"]() {
-    const _0x59b3cd = this["editor"], _0x53a771 = C$4(_0x59b3cd, p$1), _0x31a427 = _0x59b3cd["plugins"]["get"]("RevisionTracker"), _0x43b671 = _0x59b3cd["plugins"]["get"]("Users")["users"];
-    return _0x53a771["toolbar"] = ["exitToEditing", "restoreRevision", "changesNavigation"], delete _0x53a771["lazyRoots"], _0x53a771["plugins"]["push"](yt$1, m$2, R$1, class extends Plugin {
+    const _0x59b3cd = this["editor"], _0x53a771 = C$6(_0x59b3cd, p$2), _0x31a427 = _0x59b3cd["plugins"]["get"]("RevisionTracker"), _0x43b671 = _0x59b3cd["plugins"]["get"]("Users")["users"];
+    return _0x53a771["toolbar"] = ["exitToEditing", "restoreRevision", "changesNavigation"], delete _0x53a771["lazyRoots"], _0x53a771["plugins"]["push"](yt$1, m$4, R$1, class extends Plugin {
       static get ["requires"]() {
-        return [m$2, "Users"];
+        return [m$4, "Users"];
       }
       ["init"]() {
         const _0x5a6153 = this["editor"]["plugins"]["get"]("Users");
@@ -156329,7 +156325,7 @@ let k$1 = class k4 extends Plugin {
           });
         }
       }
-    }, d$1), _0x53a771;
+    }, d$3), _0x53a771;
   }
   ["_enhanceShowRevisionViewerCallback"]() {
     const _0x35731f = this["editor"]["config"]["get"]("revisionHistory")["showRevisionViewerCallback"];
@@ -156361,7 +156357,7 @@ let k$1 = class k4 extends Plugin {
   }
   ["_showRevisionViewer"](_0xc9c654) {
     const _0x7e80bc = this["editor"]["config"]["get"]("revisionHistory.editorContainer"), _0x313af3 = this["editor"]["config"]["get"]("revisionHistory.viewerContainer"), _0x1a395f = this["editor"]["config"]["get"]("revisionHistory.viewerEditorElement");
-    return w$1["create"](_0x1a395f, _0xc9c654)["then"]((_0x28f005) => (_0x313af3["style"]["display"] = "block", _0x7e80bc["style"]["display"] = "none", this["isRevisionViewerOpen"] = true, _0x28f005));
+    return w$2["create"](_0x1a395f, _0xc9c654)["then"]((_0x28f005) => (_0x313af3["style"]["display"] = "block", _0x7e80bc["style"]["display"] = "none", this["isRevisionViewerOpen"] = true, _0x28f005));
   }
   ["_closeRevisionViewer"](_0x13fd69) {
     const _0x445b05 = this["editor"]["config"]["get"]("revisionHistory.editorContainer");
@@ -156390,13 +156386,13 @@ let k$1 = class k4 extends Plugin {
         _0x1498d6["remove"](_0x1498d6["createRangeIn"](_0x4c0652)), _0x1498d6["insert"](_0x3e41ba["data"]["parse"](_0x4a618e, _0x4c0652), _0x4c0652, 0);
       }
     });
-    const _0x4892e1 = g$1(_0x3e41ba["locale"], "Restored");
+    const _0x4892e1 = g$2(_0x3e41ba["locale"], "Restored");
     if (_0x4d8ed4["name"]) _0x48a515 = -1 == _0x4d8ed4["name"]["indexOf"](_0x4892e1) ? _0x4892e1 + ": " + _0x4d8ed4["name"] : _0x4d8ed4["name"];
     else _0x48a515 = _0x4892e1 + ": " + (_0x4d8ed4["createdAt"]["toLocaleDateString"](_0x3e41ba["locale"]["uiLanguage"], { "month": "long", "day": "numeric" }) + ", " + _0x4d8ed4["createdAt"]["toLocaleTimeString"](_0x3e41ba["locale"]["uiLanguage"], { "hour": "numeric", "minute": "numeric" }));
     return await _0x1de706["saveRevision"]({ "name": _0x48a515 }), _0x8f5d7b["isReady"] = true, _0x3e41ba["config"]["get"]("revisionHistory")["closeRevisionViewerCallback"]();
   }
 };
-let L$2 = class L2 extends Plugin {
+let L$3 = class L2 extends Plugin {
   static get ["pluginName"]() {
     return "SlashCommandConfig";
   }
@@ -156756,7 +156752,7 @@ function H$1(_0x2d17ef, _0x329eb6) {
 function O$1(_0x1c1cea, _0x3f3ce8) {
   return _0x3f3ce8 + "-" + _0x1c1cea["toLowerCase"]()["split"](" ")["join"]("-");
 }
-class e extends Plugin {
+let e$1 = class e6 extends Plugin {
   static get ["pluginName"]() {
     return "SlashCommandEditing";
   }
@@ -156767,7 +156763,7 @@ class e extends Plugin {
     return true;
   }
   static get ["requires"]() {
-    return [L$2];
+    return [L$3];
   }
   ["getMatchingCommands"](_0x24be6e) {
     const _0x4d1044 = _0x24be6e && _0x24be6e["toLowerCase"]();
@@ -156779,8 +156775,8 @@ class e extends Plugin {
     }
     return _0x12f192;
   }
-}
-let K$1 = class K3 extends ButtonView {
+};
+let K$2 = class K3 extends ButtonView {
   constructor(_0x51d7af, _0x231ac1) {
     super(_0x51d7af), this["textPartView"] = this["_createTextPartView"](_0x51d7af, _0x231ac1), void 0 !== _0x231ac1["isIconColorInherited"] && (this["iconView"]["isColorInherited"] = _0x231ac1["isIconColorInherited"]), this["set"]({ "icon": _0x231ac1["icon"] || play, "withText": true, "label": _0x231ac1["title"], "class": "ck-slash-command-button" });
   }
@@ -156792,7 +156788,7 @@ let K$1 = class K3 extends ButtonView {
     return _0x2c649e["setTemplate"]({ "tag": "div", "attributes": { "class": ["ck", "ck-slash-command-button__text-part"] }, "children": _0x41b07a["description"] ? [this["labelView"], { "tag": "span", "attributes": { "class": ["ck", "ck-slash-command-button__description"] }, "children": [{ "text": _0x41b07a["description"] }] }] : [this["labelView"]] }), _0x2c649e;
   }
 };
-let s$1 = class s13 extends Plugin {
+let s$2 = class s13 extends Plugin {
   constructor(_0x3e2de7) {
     super(_0x3e2de7);
     __publicField(this, "licenseKey");
@@ -156840,13 +156836,13 @@ let s$1 = class s13 extends Plugin {
     }, { "priority": "high" });
   }
   ["_customItemRenderer"](_0x504959) {
-    const _0x1e8151 = this["editor"]["locale"], _0x584598 = new K$1(_0x1e8151, _0x504959);
+    const _0x1e8151 = this["editor"]["locale"], _0x584598 = new K$2(_0x1e8151, _0x504959);
     return _0x584598["render"](), _0x584598["element"];
   }
 };
-let m$1 = class m8 extends Plugin {
+let m$3 = class m8 extends Plugin {
   static get ["requires"]() {
-    return ["Mention", e, s$1];
+    return ["Mention", e$1, s$2];
   }
   static get ["pluginName"]() {
     return "SlashCommand";
@@ -156875,7 +156871,7 @@ let o$1 = class o8 extends Command$1 {
     });
   }
 };
-class i extends Plugin {
+let i$1 = class i13 extends Plugin {
   constructor() {
     super(...arguments);
     __publicField(this, "licenseKey");
@@ -156909,8 +156905,8 @@ class i extends Plugin {
   ["destroy"]() {
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
-}
-class b extends ListView {
+};
+let b$2 = class b3 extends ListView {
   ["filter"](_0x1aa9ec) {
     if (!_0x1aa9ec) return this["_resetFiltering"]();
     const _0x194e1b = /* @__PURE__ */ new Map(), _0x580e87 = this["items"]["map"]((_0x3d0853) => {
@@ -156930,19 +156926,19 @@ class b extends ListView {
       _0x5b7920["isVisible"] = true, _0x5b7920["buttonView"]["highlightText"](null);
     }), this["items"]["clear"](), this["items"]["addMany"](_0x3034af), { "resultsCount": _0x3034af["length"], "totalItemsCount": _0x3034af["length"] };
   }
-}
+};
 function I(_0x39c30e, _0x2f0bae) {
   return _0x39c30e["originalIndex"] - _0x2f0bae["originalIndex"];
 }
-class h extends ListItemView {
+let h$2 = class h5 extends ListItemView {
   constructor(_0x328500, _0x454253) {
     super(_0x328500);
     __publicField(this, "originalIndex");
     __publicField(this, "buttonView");
     this["originalIndex"] = _0x454253, this["buttonView"] = null;
   }
-}
-class g extends ButtonView {
+};
+let g$1 = class g4 extends ButtonView {
   constructor(_0xdaa708, _0x8425b4) {
     super(_0xdaa708);
     __publicField(this, "templateDefinition");
@@ -156952,7 +156948,7 @@ class g extends ButtonView {
     this["set"]({ "withText": true, "class": "ck-template-button", "role": "option", "icon": _0x2d4cbc }), this["iconView"]["isColorInherited"] = false;
   }
   ["render"]() {
-    super["render"](), this["textPartView"] = new L$1(this["locale"], this["templateDefinition"], this["labelView"]["element"]["id"]), this["children"]["remove"](this["labelView"]), this["children"]["add"](this["textPartView"]);
+    super["render"](), this["textPartView"] = new L$2(this["locale"], this["templateDefinition"], this["labelView"]["element"]["id"]), this["children"]["remove"](this["labelView"]), this["children"]["add"](this["textPartView"]);
   }
   ["destroy"]() {
     super["destroy"](), this["labelView"]["destroy"]();
@@ -156964,8 +156960,8 @@ class g extends ButtonView {
   ["highlightText"](_0x5d84cf) {
     this["textPartView"]["highlightText"](_0x5d84cf);
   }
-}
-let L$1 = class L3 extends View {
+};
+let L$2 = class L3 extends View {
   constructor(_0x1d877d, _0x44800e, _0x27d704) {
     super(_0x1d877d), this["title"] = _0x44800e["title"], this["description"] = _0x44800e["description"], this["titleView"] = new HighlightedTextView(), this["titleView"]["text"] = this["title"], this["titleView"]["extendTemplate"]({ "tag": "span", "attributes": { "class": ["ck-button__label"], "id": _0x27d704 } });
     const _0x2844be = [this["titleView"]];
@@ -156996,7 +156992,7 @@ function T$1(_0x3a8e94, _0x5250aa, ..._0x119b40) {
       return _0x5250aa;
   }
 }
-class s extends Plugin {
+let s$1 = class s14 extends Plugin {
   static get ["pluginName"]() {
     return "TemplateUI";
   }
@@ -157218,18 +157214,18 @@ class s extends Plugin {
     }(this);
   }
   ["_createTemplateListView"](_0xb5659f, _0x988810) {
-    const { editor: _0x5d571b } = this, _0x54d2e4 = new b(_0xb5659f);
+    const { editor: _0x5d571b } = this, _0x54d2e4 = new b$2(_0xb5659f);
     return _0x54d2e4["extendTemplate"]({ "attributes": { "role": "listbox", "class": ["ck-template-list"] } }), _0x54d2e4["items"]["addMany"](_0x988810["map"]((_0x102877, _0x3538a0) => {
-      const _0x43a3bb = new h(_0xb5659f, _0x3538a0), _0x2b8174 = new g(_0xb5659f, _0x102877);
+      const _0x43a3bb = new h$2(_0xb5659f, _0x3538a0), _0x2b8174 = new g$1(_0xb5659f, _0x102877);
       return _0x43a3bb["buttonView"] = _0x2b8174, _0x43a3bb["children"]["add"](_0x2b8174), _0x43a3bb["buttonView"]["on"]("execute", (_0x474f43) => {
         _0x5d571b["execute"]("insertTemplate", _0x474f43["source"]["templateDefinition"]["data"]), _0x5d571b["editing"]["view"]["focus"]();
       }), _0x43a3bb;
     })), _0x54d2e4;
   }
-}
-class m extends Plugin {
+};
+let m$2 = class m9 extends Plugin {
   static get ["requires"]() {
-    return [i, s];
+    return [i$1, s$1];
   }
   static get ["pluginName"]() {
     return "Template";
@@ -157240,7 +157236,7 @@ class m extends Plugin {
   static get ["isPremiumPlugin"]() {
     return true;
   }
-}
+};
 class B extends Command$1 {
   constructor(_0x40547b, _0x2ce5cf) {
     super(_0x40547b);
@@ -157325,7 +157321,7 @@ function rs(_0x31b738, _0x5aca74, _0x3dc059) {
     });
   }
 }
-class x extends Command$1 {
+let x$1 = class x4 extends Command$1 {
   constructor(_0x59f2b4, _0x2ef54c, _0x4e139b) {
     super(_0x59f2b4);
     __publicField(this, "_command");
@@ -157344,7 +157340,7 @@ class x extends Command$1 {
     }
     rs(this["editor"]["model"], this["_command"], _0x4794f9);
   }
-}
+};
 class E extends Command$1 {
   constructor(_0x234e9c, _0x22d861, _0x42345b) {
     super(_0x234e9c);
@@ -157445,8 +157441,8 @@ class o extends (/* @__PURE__ */ ObservableMixin()) {
     return this["getRanges"]()["reduce"]((_0x30e3e1, _0x52b00f) => [..._0x30e3e1, ..._0x52b00f["getItems"]()], []);
   }
   ["getFirstRange"]() {
-    var _a4;
-    return ((_a4 = this["getFirstMarker"]()) == null ? void 0 : _a4["getRange"]()) || null;
+    var _a3;
+    return ((_a3 = this["getFirstMarker"]()) == null ? void 0 : _a3["getRange"]()) || null;
   }
   ["getContainedElement"]() {
     const _0x5d7c07 = this["getRanges"]();
@@ -157481,7 +157477,7 @@ class o extends (/* @__PURE__ */ ObservableMixin()) {
     return uid()["substr"](1, 5);
   }
 }
-function c(_0xb0bc3a, _0xd69f79, _0xd85e77) {
+function c$1(_0xb0bc3a, _0xd69f79, _0xd85e77) {
   const _0x67c488 = _0xb0bc3a["t"], t2 = _0xb0bc3a["t"];
   switch (_0xd69f79) {
     case "Track changes":
@@ -157770,7 +157766,7 @@ function c(_0xb0bc3a, _0xd69f79, _0xd85e77) {
       return _0xd69f79;
   }
 }
-class f {
+let f$1 = class f6 {
   constructor(_0x14145a, _0x364270) {
     __publicField(this, "_customCallbacks");
     __publicField(this, "_itemLabels");
@@ -157797,7 +157793,7 @@ class f {
         else {
           const _0x3094ee = _0x7d1154["data"]["key"];
           if (_0x4983fc["has"](_0x3094ee)) continue;
-          _0x4983fc["add"](_0x7d1154["data"]["key"]), _0x3094ee == u ? this["_handleRenameSuggestionDescription"](_0x5dc0e1, _0x7d1154) : this["_handleAttributeSuggestionDescription"](_0x5dc0e1, _0x7d1154);
+          _0x4983fc["add"](_0x7d1154["data"]["key"]), _0x3094ee == u$1 ? this["_handleRenameSuggestionDescription"](_0x5dc0e1, _0x7d1154) : this["_handleAttributeSuggestionDescription"](_0x5dc0e1, _0x7d1154);
         }
       }
     }
@@ -157853,36 +157849,36 @@ class f {
     for (const _0x2ec5bb of _0x572ce2) switch (_0x2ec5bb["type"]) {
       case "text":
         if (_0x2ec5bb["add"] = _0x2ec5bb["add"]["replace"](/(\S)\u000A+(\S)/g, "$1 $2")["replace"](/\u000A/g, ""), _0x2ec5bb["remove"] = _0x2ec5bb["remove"]["replace"](/(\S)\u000A+(\S)/g, "$1 $2")["replace"](/\u000A/g, ""), "" != _0x2ec5bb["add"] && "" != _0x2ec5bb["remove"]) {
-          _0x4c6471["push"]({ "type": "replace", "content": c(_0x126ade, "REPLACE_TEXT", ['"' + _0x2ec5bb["remove"] + '"', '"' + _0x2ec5bb["add"] + '"']) });
+          _0x4c6471["push"]({ "type": "replace", "content": c$1(_0x126ade, "REPLACE_TEXT", ['"' + _0x2ec5bb["remove"] + '"', '"' + _0x2ec5bb["add"] + '"']) });
           continue;
         }
         if (null != _0x2ec5bb["add"]["match"](/^ +$/)) {
-          _0x4c6471["push"]({ "type": "insertion", "content": c(_0x126ade, "*Insert:* %0", c(_0x126ade, "ELEMENT_SPACE", _0x2ec5bb["add"]["length"])) });
+          _0x4c6471["push"]({ "type": "insertion", "content": c$1(_0x126ade, "*Insert:* %0", c$1(_0x126ade, "ELEMENT_SPACE", _0x2ec5bb["add"]["length"])) });
           continue;
         }
         if (null != _0x2ec5bb["remove"]["match"](/^ +$/)) {
-          _0x4c6471["push"]({ "type": "deletion", "content": c(_0x126ade, "*Remove:* %0", c(_0x126ade, "ELEMENT_SPACE", _0x2ec5bb["remove"]["length"])) });
+          _0x4c6471["push"]({ "type": "deletion", "content": c$1(_0x126ade, "*Remove:* %0", c$1(_0x126ade, "ELEMENT_SPACE", _0x2ec5bb["remove"]["length"])) });
           continue;
         }
         if ("" != _0x2ec5bb["add"]) {
-          _0x4c6471["push"]({ "type": "insertion", "content": c(_0x126ade, "*Insert:* %0", '"' + _0x2ec5bb["add"] + '"') });
+          _0x4c6471["push"]({ "type": "insertion", "content": c$1(_0x126ade, "*Insert:* %0", '"' + _0x2ec5bb["add"] + '"') });
           continue;
         }
-        _0x4c6471["push"]({ "type": "deletion", "content": c(_0x126ade, "*Remove:* %0", '"' + _0x2ec5bb["remove"] + '"') });
+        _0x4c6471["push"]({ "type": "deletion", "content": c$1(_0x126ade, "*Remove:* %0", '"' + _0x2ec5bb["remove"] + '"') });
         continue;
       case "addEmptyContainer":
       case "addObject":
-        _0x4c6471["push"]({ "type": "insertion", "content": c(_0x126ade, "*Insert:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
+        _0x4c6471["push"]({ "type": "insertion", "content": c$1(_0x126ade, "*Insert:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
         continue;
       case "removeEmptyContainer":
       case "removeObject":
-        _0x4c6471["push"]({ "type": "deletion", "content": c(_0x126ade, "*Remove:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
+        _0x4c6471["push"]({ "type": "deletion", "content": c$1(_0x126ade, "*Remove:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
         continue;
       case "addContainer":
-        _0x4c6471["push"]({ "type": "insertion", "content": c(_0x126ade, "*Split:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
+        _0x4c6471["push"]({ "type": "insertion", "content": c$1(_0x126ade, "*Split:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
         continue;
       case "removeContainer":
-        _0x4c6471["push"]({ "type": "deletion", "content": c(_0x126ade, "*Merge:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
+        _0x4c6471["push"]({ "type": "deletion", "content": c$1(_0x126ade, "*Merge:* %0", this["getItemLabel"](_0x2ec5bb["element"], _0x2ec5bb["quantity"])) });
         continue;
       case "addFormat":
         _0x5374a2["push"](_0x2ec5bb["key"]);
@@ -157895,11 +157891,11 @@ class f {
     }
     if (_0x5374a2["length"]) {
       const _0x1e0738 = _0x5374a2["map"]((_0x5428ed) => this["_attributeLabels"]["has"](_0x5428ed) ? this["_attributeLabels"]["get"](_0x5428ed) : _0x5428ed)["join"](", ");
-      _0x4c6471["push"]({ "type": "format", "content": c(this["_locale"], "*Set format:* %0", _0x1e0738) });
+      _0x4c6471["push"]({ "type": "format", "content": c$1(this["_locale"], "*Set format:* %0", _0x1e0738) });
     }
     if (_0x74db48["length"]) {
       const _0x5895cb = _0x74db48["map"]((_0x163c63) => this["_attributeLabels"]["has"](_0x163c63) ? this["_attributeLabels"]["get"](_0x163c63) : _0x163c63)["join"](", ");
-      _0x4c6471["push"]({ "type": "format", "content": c(this["_locale"], "*Remove format:* %0", _0x5895cb) });
+      _0x4c6471["push"]({ "type": "format", "content": c$1(this["_locale"], "*Remove format:* %0", _0x5895cb) });
     }
     return _0x4c6471;
   }
@@ -157914,7 +157910,7 @@ class f {
     _0x5f2c2c["push"]({ "type": _0x1f5659, "key": _0x19e7f4["key"] });
   }
   ["_handleRenameSuggestionDescription"](_0x3de9fc, _0x33e739) {
-    _0x3de9fc["push"]({ "type": "format", "content": c(this["_locale"], "*Change to:* %0", this["getItemLabel"](_0x33e739["getFirstRange"]()["start"]["nodeAfter"], 1)) });
+    _0x3de9fc["push"]({ "type": "format", "content": c$1(this["_locale"], "*Change to:* %0", this["getItemLabel"](_0x33e739["getFirstRange"]()["start"]["nodeAfter"], 1)) });
   }
   ["_handleInsertRemoveSuggestionDescription"](_0x1f84f3, _0x254f73, _0x3ccfa8) {
     if (this["_addDescriptionItems"](_0x1f84f3, _0x254f73), _0x3ccfa8 && _0x3ccfa8["getFirstRange"]() && !_0x254f73["getFirstRange"]()["end"]["isEqual"](_0x3ccfa8["getFirstRange"]()["start"])) {
@@ -157922,7 +157918,7 @@ class f {
       _0x4b87b7 && "text" == _0x4b87b7["type"] && (_0x4b87b7[_0x1d61b4] += "\n");
     }
   }
-}
+};
 class U extends Plugin {
   ["afterInit"]() {
     const _0x1b07f7 = this["editor"], _0x5dff11 = _0x1b07f7["plugins"]["get"]("TrackChangesEditing");
@@ -157934,7 +157930,7 @@ class V extends Plugin {
     const _0x277076 = this["editor"], _0x33cf71 = _0x277076["locale"];
     if (!_0x277076["plugins"]["has"]("AlignmentEditing")) return;
     const _0x37259b = _0x277076["plugins"]["get"]("TrackChangesEditing");
-    _0x37259b["enableDefaultAttributesIntegration"]("alignment"), _0x37259b["registerBlockAttribute"]("alignment"), _0x37259b["descriptionFactory"]["registerAttributeLabel"]("alignment", c(_0x33cf71, "FORMAT_ALIGNMENT")), this["_registerLegacyDescription"]();
+    _0x37259b["enableDefaultAttributesIntegration"]("alignment"), _0x37259b["registerBlockAttribute"]("alignment"), _0x37259b["descriptionFactory"]["registerAttributeLabel"]("alignment", c$1(_0x33cf71, "FORMAT_ALIGNMENT")), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
     const _0x373ef6 = this["editor"], _0x447cb9 = _0x373ef6["locale"];
@@ -157943,16 +157939,16 @@ class V extends Plugin {
       const { data: _0x30b506 } = _0xc2af59;
       if (_0x30b506 && "alignment" == _0x30b506["commandName"]) {
         const _0x2c4670 = _0x30b506["commandParams"][0]["value"];
-        return { "type": "format", "content": c(_0x447cb9, "*Format:* %0", function(_0x46f4e6) {
+        return { "type": "format", "content": c$1(_0x447cb9, "*Format:* %0", function(_0x46f4e6) {
           switch (_0x46f4e6) {
             case "left":
-              return c(_0x447cb9, "FORMAT_ALIGN_TO_LEFT");
+              return c$1(_0x447cb9, "FORMAT_ALIGN_TO_LEFT");
             case "right":
-              return c(_0x447cb9, "FORMAT_ALIGN_TO_RIGHT");
+              return c$1(_0x447cb9, "FORMAT_ALIGN_TO_RIGHT");
             case "center":
-              return c(_0x447cb9, "FORMAT_ALIGN_TO_CENTER");
+              return c$1(_0x447cb9, "FORMAT_ALIGN_TO_CENTER");
             case "justify":
-              return c(_0x447cb9, "FORMAT_JUSTIFY_TEXT");
+              return c$1(_0x447cb9, "FORMAT_JUSTIFY_TEXT");
           }
         }(_0x2c4670)) };
       }
@@ -157966,7 +157962,7 @@ class F extends Plugin {
     for (const _0x494ef2 of Zt) {
       if (!_0x125469["plugins"]["has"](_0x494ef2)) continue;
       const _0x49d3d2 = _0x494ef2["slice"](0, -7)["toLowerCase"](), _0x19d2fc = "FORMAT_" + _0x49d3d2["toUpperCase"]();
-      _0x25cbc3["enableDefaultAttributesIntegration"](_0x49d3d2), _0x25cbc3["registerInlineAttribute"](_0x49d3d2), _0x25cbc3["descriptionFactory"]["registerAttributeLabel"](_0x49d3d2, c(_0x59cda2, _0x19d2fc));
+      _0x25cbc3["enableDefaultAttributesIntegration"](_0x49d3d2), _0x25cbc3["registerInlineAttribute"](_0x49d3d2), _0x25cbc3["descriptionFactory"]["registerAttributeLabel"](_0x49d3d2, c$1(_0x59cda2, _0x19d2fc));
     }
     this["_registerLegacyDescription"]();
   }
@@ -157976,10 +157972,10 @@ class F extends Plugin {
       _0x17cb33["descriptionFactory"]["registerDescriptionCallback"]((_0x47b0a7) => {
         if ("formatInline" != _0x47b0a7["type"]) return;
         const { data: _0x5671ff } = _0x47b0a7;
-        return _0x5671ff && _0x5671ff["commandName"] === _0x460a59 ? _0x5671ff["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x11dc73, "*Format:* %0", _0x5e172f) } : { "type": "format", "content": c(_0x11dc73, "*Remove format:* %0", _0x5e172f) } : void 0;
+        return _0x5671ff && _0x5671ff["commandName"] === _0x460a59 ? _0x5671ff["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x11dc73, "*Format:* %0", _0x5e172f) } : { "type": "format", "content": c$1(_0x11dc73, "*Remove format:* %0", _0x5e172f) } : void 0;
       });
     }
-    _0x21caa0("bold", c(_0x11dc73, "FORMAT_BOLD")), _0x21caa0("italic", c(_0x11dc73, "FORMAT_ITALIC")), _0x21caa0("underline", c(_0x11dc73, "FORMAT_UNDERLINE")), _0x21caa0("code", c(_0x11dc73, "FORMAT_CODE")), _0x21caa0("strikethrough", c(_0x11dc73, "FORMAT_STRIKETHROUGH")), _0x21caa0("subscript", c(_0x11dc73, "FORMAT_SUBSCRIPT")), _0x21caa0("superscript", c(_0x11dc73, "FORMAT_SUPERSCRIPT"));
+    _0x21caa0("bold", c$1(_0x11dc73, "FORMAT_BOLD")), _0x21caa0("italic", c$1(_0x11dc73, "FORMAT_ITALIC")), _0x21caa0("underline", c$1(_0x11dc73, "FORMAT_UNDERLINE")), _0x21caa0("code", c$1(_0x11dc73, "FORMAT_CODE")), _0x21caa0("strikethrough", c$1(_0x11dc73, "FORMAT_STRIKETHROUGH")), _0x21caa0("subscript", c$1(_0x11dc73, "FORMAT_SUBSCRIPT")), _0x21caa0("superscript", c$1(_0x11dc73, "FORMAT_SUPERSCRIPT"));
   }
 }
 class G extends Plugin {
@@ -158006,8 +158002,8 @@ class G extends Plugin {
     }), _0x30199a["descriptionFactory"]["registerDescriptionCallback"]((_0x18c935) => {
       const { data: _0x1733d1 } = _0x18c935;
       if (_0x1733d1 && "blockQuote" == _0x1733d1["commandName"]) {
-        const _0xdf91db = c(_0x5da5cb, "ELEMENT_BLOCK_QUOTE");
-        return _0x1733d1["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x5da5cb, "*Set format:* %0", _0xdf91db) } : { "type": "format", "content": c(_0x5da5cb, "*Remove format:* %0", _0xdf91db) };
+        const _0xdf91db = c$1(_0x5da5cb, "ELEMENT_BLOCK_QUOTE");
+        return _0x1733d1["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x5da5cb, "*Set format:* %0", _0xdf91db) } : { "type": "format", "content": c$1(_0x5da5cb, "*Remove format:* %0", _0xdf91db) };
       }
     });
   }
@@ -158015,7 +158011,7 @@ class G extends Plugin {
 function oo(_0x158282) {
   return "blockQuote" == _0x158282["parent"]["name"];
 }
-class L extends Plugin {
+let L$1 = class L4 extends Plugin {
   ["afterInit"]() {
     const _0x328ea4 = this["editor"], _0x1ab742 = _0x328ea4["locale"], _0x104651 = _0x328ea4["plugins"]["get"]("TrackChangesEditing");
     _0x328ea4["plugins"]["has"]("BookmarkEditing") && (_0x104651["enableCommand"]("insertBookmark"), _0x104651["enableDefaultAttributesIntegration"]("updateBookmark"), _0x104651["registerBlockAttribute"]("bookmarkId"), _0x104651["descriptionFactory"]["registerDescriptionCallback"]((_0x46539a) => {
@@ -158024,26 +158020,26 @@ class L extends Plugin {
       if (null == _0x485b21) return;
       if (!_0x485b21["is"]("element", "bookmark")) return;
       const _0x1205ec = _0x485b21["getAttribute"]("bookmarkId");
-      if ("insertion" == _0x46539a["type"]) return { "type": "insertion", "content": c(_0x1ab742, "*Insert:* %0", '"' + _0x1205ec + '" ' + c(_0x1ab742, "ELEMENT_BOOKMARK")) };
-      if ("deletion" == _0x46539a["type"]) return { "type": "deletion", "content": c(_0x1ab742, "*Remove:* %0", '"' + _0x1205ec + '" ' + c(_0x1ab742, "ELEMENT_BOOKMARK")) };
+      if ("insertion" == _0x46539a["type"]) return { "type": "insertion", "content": c$1(_0x1ab742, "*Insert:* %0", '"' + _0x1205ec + '" ' + c$1(_0x1ab742, "ELEMENT_BOOKMARK")) };
+      if ("deletion" == _0x46539a["type"]) return { "type": "deletion", "content": c$1(_0x1ab742, "*Remove:* %0", '"' + _0x1205ec + '" ' + c$1(_0x1ab742, "ELEMENT_BOOKMARK")) };
       const { data: _0x4072cd } = _0x46539a;
       if (!_0x4072cd || "bookmarkId" != _0x4072cd["key"]) return;
-      return { "type": "format", "content": c(_0x1ab742, "*Set bookmark:* %0", '"' + _0x4072cd["newValue"] + '"') };
+      return { "type": "format", "content": c$1(_0x1ab742, "*Set bookmark:* %0", '"' + _0x4072cd["newValue"] + '"') };
     }));
   }
-}
+};
 class J extends Plugin {
   ["afterInit"]() {
     const _0x5381ef = this["editor"];
     _0x5381ef["plugins"]["has"]("CaseChange") && (_0x5381ef["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("changeCaseUpper"), _0x5381ef["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("changeCaseLower"), _0x5381ef["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("changeCaseTitle"));
   }
 }
-class K extends Plugin {
+let K$1 = class K4 extends Plugin {
   ["afterInit"]() {
     const _0x3d783 = this["editor"];
     _0x3d783["commands"]["get"]("ckbox") && _0x3d783["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("ckbox");
   }
-}
+};
 class H extends Plugin {
   ["afterInit"]() {
     const _0x3bd1c0 = this["editor"];
@@ -158060,12 +158056,12 @@ class H extends Plugin {
       _0xdf3c4c["change"](() => {
         for (const _0xe629f9 of _0x102114) _0xe75d57["markBlockFormat"](_0xe629f9, { "commandName": "codeBlock", "commandParams": [{ ..._0x33248a, "forceValue": _0x3417cf }], "formatGroupId": "blockName" });
       });
-    }), _0xe75d57["descriptionFactory"]["registerElementLabel"]("codeBlock", (_0x377ca4) => c(_0x47ef53, "ELEMENT_CODE_BLOCK", _0x377ca4)), _0xe75d57["descriptionFactory"]["registerDescriptionCallback"]((_0x31b9f9) => {
+    }), _0xe75d57["descriptionFactory"]["registerElementLabel"]("codeBlock", (_0x377ca4) => c$1(_0x47ef53, "ELEMENT_CODE_BLOCK", _0x377ca4)), _0xe75d57["descriptionFactory"]["registerDescriptionCallback"]((_0x31b9f9) => {
       if ("formatBlock" != _0x31b9f9["type"]) return;
       const _0x523bc2 = _0x47ef53["t"], { data: _0x3264a0 } = _0x31b9f9;
       if (!_0x3264a0 || "codeBlock" != _0x3264a0["commandName"]) return;
       const _0x2929a5 = _0x3264a0["commandParams"][0]["language"], _0xa51861 = _0x523bc2(_0x499473["find"]((_0x6089c9) => _0x6089c9["language"] === _0x2929a5)["label"])["toLowerCase"]();
-      return _0x3264a0["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x47ef53, "*Set format:* %0", c(_0x47ef53, "ELEMENT_CODE_BLOCK", 1) + " (" + _0xa51861 + ")") } : { "type": "format", "content": c(_0x47ef53, "*Remove format:* %0", c(_0x47ef53, "ELEMENT_CODE_BLOCK", 1)) };
+      return _0x3264a0["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x47ef53, "*Set format:* %0", c$1(_0x47ef53, "ELEMENT_CODE_BLOCK", 1) + " (" + _0xa51861 + ")") } : { "type": "format", "content": c$1(_0x47ef53, "*Remove format:* %0", c$1(_0x47ef53, "ELEMENT_CODE_BLOCK", 1)) };
     });
   }
 }
@@ -158136,14 +158132,14 @@ class W extends Plugin {
     if (!_0x5c8e6c["plugins"]["has"]("ListEditing")) return;
     const _0x44fcef = _0x5c8e6c["locale"], _0x34f43d = _0x5c8e6c["plugins"]["get"]("TrackChangesEditing"), _0x5c57fa = _0x5c8e6c["plugins"]["has"]("TodoListEditing"), _0x453f9a = !!_0x5c8e6c["config"]["get"]("list.multiBlock");
     function _0x234060(_0x2296d2) {
-      return { "type": "format", "content": "" + c(_0x44fcef, "*Set format:* %0", _0x2296d2) };
+      return { "type": "format", "content": "" + c$1(_0x44fcef, "*Set format:* %0", _0x2296d2) };
     }
     function _0x4dd5c1(_0x54d158) {
-      return { "type": "format", "content": "" + c(_0x44fcef, "*Remove format:* %0", _0x54d158) };
+      return { "type": "format", "content": "" + c$1(_0x44fcef, "*Remove format:* %0", _0x54d158) };
     }
     _0x34f43d["enableDefaultAttributesIntegration"]("numberedList"), _0x34f43d["enableDefaultAttributesIntegration"]("bulletedList"), _0x34f43d["enableDefaultAttributesIntegration"]("customNumberedList"), _0x34f43d["enableDefaultAttributesIntegration"]("customBulletedList"), _0x34f43d["enableDefaultAttributesIntegration"]("indentList"), _0x34f43d["enableDefaultAttributesIntegration"]("outdentList"), _0x34f43d["enableDefaultAttributesIntegration"]("splitListItemAfter"), _0x34f43d["enableDefaultAttributesIntegration"]("splitListItemBefore"), _0x34f43d["registerBlockAttribute"]("listItemId"), _0x34f43d["registerBlockAttribute"]("listType"), _0x34f43d["registerBlockAttribute"]("listIndent"), _0x453f9a && (_0x34f43d["enableDefaultAttributesIntegration"]("mergeListItemBackward"), _0x34f43d["enableDefaultAttributesIntegration"]("mergeListItemForward")), _0x5c57fa && (_0x34f43d["enableDefaultAttributesIntegration"]("todoList"), _0x34f43d["enableDefaultAttributesIntegration"]("checkTodoList"), _0x34f43d["registerBlockAttribute"]("todoListChecked"), _0x34f43d["descriptionFactory"]["registerDescriptionCallback"]((_0x41e8df) => {
       const { data: _0x2a0bc5 } = _0x41e8df;
-      if (_0x2a0bc5 && "todoListChecked" == _0x2a0bc5["key"]) return { "type": "format", "content": _0x2a0bc5["newValue"] ? c(_0x44fcef, "*Check item*") : c(_0x44fcef, "*Uncheck item*") };
+      if (_0x2a0bc5 && "todoListChecked" == _0x2a0bc5["key"]) return { "type": "format", "content": _0x2a0bc5["newValue"] ? c$1(_0x44fcef, "*Check item*") : c$1(_0x44fcef, "*Uncheck item*") };
     }), this["editor"]["model"]["document"]["registerPostFixer"]((_0x3f4d50) => {
       if (_0x3f4d50["batch"]["isUndo"]) return false;
       let _0x406df6 = false;
@@ -158152,31 +158148,31 @@ class W extends Plugin {
         "todo" != _0x1a19bd["getFirstRange"]()["start"]["nodeAfter"]["getAttribute"]("listType") && (_0x34f43d["_findSuggestions"](_0x1a19bd["getFirstRange"](), "attribute")["find"]((_0x42e531) => "listType" === _0x34f43d["_getAttributeKey"](_0x42e531["suggestion"])) || (_0x3f4d50["removeMarker"](_0x1a19bd["getFirstMarker"]()), _0x406df6 = true));
       }
       return _0x406df6;
-    })), _0x34f43d["descriptionFactory"]["registerAttributeLabel"]("listIndent", c(_0x44fcef, "FORMAT_INDENT"));
+    })), _0x34f43d["descriptionFactory"]["registerAttributeLabel"]("listIndent", c$1(_0x44fcef, "FORMAT_INDENT"));
     const _0x50aeb7 = { "type": "format", "content": "" };
     _0x34f43d["descriptionFactory"]["registerDescriptionCallback"]((_0x375f2b) => {
       const { data: _0x238813 } = _0x375f2b;
       if (!_0x238813 || "listType" != _0x238813["key"]) return;
       let _0x8f3955 = _0x375f2b["head"];
       for (; _0x8f3955; ) {
-        if (_0x8f3955["data"] && (("listStyle" == _0x8f3955["data"]["key"] || "listMarkerStyle" == _0x8f3955["data"]["key"]) && (_0x8f3955["data"]["newValue"] && "default" != _0x8f3955["data"]["newValue"] || "default" != _0x8f3955["data"]["oldValue"] && !_0x238813["newValue"]) || !_0x453f9a && _0x8f3955["data"]["key"] == u)) return _0x50aeb7;
+        if (_0x8f3955["data"] && (("listStyle" == _0x8f3955["data"]["key"] || "listMarkerStyle" == _0x8f3955["data"]["key"]) && (_0x8f3955["data"]["newValue"] && "default" != _0x8f3955["data"]["newValue"] || "default" != _0x8f3955["data"]["oldValue"] && !_0x238813["newValue"]) || !_0x453f9a && _0x8f3955["data"]["key"] == u$1)) return _0x50aeb7;
         _0x8f3955 = _0x8f3955["next"];
       }
       if (null == _0x238813["newValue"]) switch (_0x238813["oldValue"]) {
         case "bulleted":
-          return _0x4dd5c1(c(_0x44fcef, "ELEMENT_BULLETED_LIST"));
+          return _0x4dd5c1(c$1(_0x44fcef, "ELEMENT_BULLETED_LIST"));
         case "numbered":
-          return _0x4dd5c1(c(_0x44fcef, "ELEMENT_NUMBERED_LIST"));
+          return _0x4dd5c1(c$1(_0x44fcef, "ELEMENT_NUMBERED_LIST"));
         case "todo":
-          return _0x4dd5c1(c(_0x44fcef, "ELEMENT_TODO_LIST"));
+          return _0x4dd5c1(c$1(_0x44fcef, "ELEMENT_TODO_LIST"));
       }
       switch (_0x238813["newValue"]) {
         case "bulleted":
-          return _0x234060(c(_0x44fcef, "ELEMENT_BULLETED_LIST"));
+          return _0x234060(c$1(_0x44fcef, "ELEMENT_BULLETED_LIST"));
         case "numbered":
-          return _0x234060(c(_0x44fcef, "ELEMENT_NUMBERED_LIST"));
+          return _0x234060(c$1(_0x44fcef, "ELEMENT_NUMBERED_LIST"));
         case "todo":
-          return _0x234060(c(_0x44fcef, "ELEMENT_TODO_LIST"));
+          return _0x234060(c$1(_0x44fcef, "ELEMENT_TODO_LIST"));
       }
     }), _0x34f43d["descriptionFactory"]["registerDescriptionCallback"]((_0x585dee) => {
       const { data: _0x4f410f } = _0x585dee;
@@ -158186,7 +158182,7 @@ class W extends Plugin {
       const { data: _0x1362dc } = _0x7ee0c3;
       if (!_0x1362dc || "listItemId" != _0x1362dc["key"]) return;
       const _0x1a1e31 = Te(_0x7ee0c3);
-      return "newValue" == _0x1a1e31 ? { "type": "format", "content": c(_0x44fcef, "*Merge:* list item") } : "oldValue" == _0x1a1e31 ? { "type": "format", "content": c(_0x44fcef, "*Split:* list item") } : _0x50aeb7;
+      return "newValue" == _0x1a1e31 ? { "type": "format", "content": c$1(_0x44fcef, "*Merge:* list item") } : "oldValue" == _0x1a1e31 ? { "type": "format", "content": c$1(_0x44fcef, "*Split:* list item") } : _0x50aeb7;
     }), _0x5c8e6c["model"]["document"]["registerPostFixer"]((_0x462bb2) => this["listItemIdFixer"](_0x462bb2)), _0x5c8e6c["model"]["document"]["registerPostFixer"]((_0x2e456b) => this["noTrackChangesFixer"](_0x2e456b)), _0x5c8e6c["model"]["document"]["on"]("change:data", (_0x47127a, _0x270993) => {
       if (_0x270993["isUndo"] || !_0x270993["isLocal"]) return false;
       this["assureChains"]();
@@ -158250,7 +158246,7 @@ class W extends Plugin {
     }), _0x62f6e8["descriptionFactory"]["registerElementLabel"](function(_0x29a853) {
       const _0x46a92d = !_0x44b746["model"]["schema"]["isObject"](_0x29a853), _0x404a2b = _0x29a853["previousSibling"], _0x4dc256 = _0x29a853["nextSibling"], _0x5e119e = _0x29a853["getAttribute"]("listItemId"), _0x4914f3 = !_0x404a2b || _0x404a2b["getAttribute"]("listItemId") !== _0x5e119e, _0x358616 = !_0x4dc256 || _0x4dc256["getAttribute"]("listItemId") !== _0x5e119e;
       return _0x46a92d && Boolean(_0x5e119e) && _0x4914f3 && _0x358616;
-    }, (_0x163f45) => c(_0x299f35, "ELEMENT_LIST_ITEM", _0x163f45));
+    }, (_0x163f45) => c$1(_0x299f35, "ELEMENT_LIST_ITEM", _0x163f45));
   }
   ["_registerLegacyDescription"]() {
     const _0x4d9cd2 = this["editor"], _0x344ab4 = _0x4d9cd2["locale"];
@@ -158265,13 +158261,13 @@ class W extends Plugin {
       let _0xa00033, _0x4d2667, _0x121ddf, _0x18d1c3;
       switch (_0x52bb1b["commandName"]) {
         case "bulletedList":
-          _0x121ddf = _0x52bb1b["commandParams"][0]["forceValue"], _0x18d1c3 = _0x22e6e7(_0x52bb1b["commandName"]), _0xa00033 = _0x121ddf ? "*Format:* insert into %0" : "*Format:* remove from %0", !_0x18d1c3 && _0x4d9cd2["config"]["get"]("list.multiBlock") || (_0xa00033 = "*Change to:* %0"), _0x4d2667 = { "type": "format", "content": c(_0x344ab4, _0xa00033, c(_0x344ab4, "ELEMENT_BULLETED_LIST")) };
+          _0x121ddf = _0x52bb1b["commandParams"][0]["forceValue"], _0x18d1c3 = _0x22e6e7(_0x52bb1b["commandName"]), _0xa00033 = _0x121ddf ? "*Format:* insert into %0" : "*Format:* remove from %0", !_0x18d1c3 && _0x4d9cd2["config"]["get"]("list.multiBlock") || (_0xa00033 = "*Change to:* %0"), _0x4d2667 = { "type": "format", "content": c$1(_0x344ab4, _0xa00033, c$1(_0x344ab4, "ELEMENT_BULLETED_LIST")) };
           break;
         case "numberedList":
-          _0x121ddf = _0x52bb1b["commandParams"][0]["forceValue"], _0x18d1c3 = _0x22e6e7(_0x52bb1b["commandName"]), _0xa00033 = _0x121ddf ? "*Format:* insert into %0" : "*Format:* remove from %0", !_0x18d1c3 && _0x4d9cd2["config"]["get"]("list.multiBlock") || (_0xa00033 = "*Change to:* %0"), _0x4d2667 = { "type": "format", "content": c(_0x344ab4, _0xa00033, c(_0x344ab4, "ELEMENT_NUMBERED_LIST")) };
+          _0x121ddf = _0x52bb1b["commandParams"][0]["forceValue"], _0x18d1c3 = _0x22e6e7(_0x52bb1b["commandName"]), _0xa00033 = _0x121ddf ? "*Format:* insert into %0" : "*Format:* remove from %0", !_0x18d1c3 && _0x4d9cd2["config"]["get"]("list.multiBlock") || (_0xa00033 = "*Change to:* %0"), _0x4d2667 = { "type": "format", "content": c$1(_0x344ab4, _0xa00033, c$1(_0x344ab4, "ELEMENT_NUMBERED_LIST")) };
           break;
         case "indentList":
-          _0xa00033 = "*Indent:* %0", _0x4d2667 = { "type": "format", "content": c(_0x344ab4, _0xa00033, c(_0x344ab4, "ELEMENT_LIST_ITEM")) };
+          _0xa00033 = "*Indent:* %0", _0x4d2667 = { "type": "format", "content": c$1(_0x344ab4, _0xa00033, c$1(_0x344ab4, "ELEMENT_LIST_ITEM")) };
           break;
         case "outdentList":
           _0xa00033 = function(_0x58c093) {
@@ -158282,13 +158278,13 @@ class W extends Plugin {
               _0x271420 = _0x271420["nextSibling"];
             }
             return true;
-          }(_0x350513) ? c(_0x344ab4, "*Format:* remove from %0", c(_0x344ab4, function(_0x27507e) {
+          }(_0x350513) ? c$1(_0x344ab4, "*Format:* remove from %0", c$1(_0x344ab4, function(_0x27507e) {
             return "ELEMENT_" + _0x27507e["getFirstRange"]()["start"]["nodeAfter"]["getAttribute"]("listType")["toUpperCase"]() + "_LIST";
-          }(_0x350513))) : c(_0x344ab4, "*Outdent:* %0", c(_0x344ab4, "ELEMENT_LIST_ITEM")), _0x4d2667 = { "type": "format", "content": _0xa00033 };
+          }(_0x350513))) : c$1(_0x344ab4, "*Outdent:* %0", c$1(_0x344ab4, "ELEMENT_LIST_ITEM")), _0x4d2667 = { "type": "format", "content": _0xa00033 };
           break;
         case "mergeListItemBackward":
         case "mergeListItemForward":
-          false === _0x52bb1b["multipleBlocks"] && (_0xa00033 = "*Merge:* %0", _0x4d2667 = { "type": "deletion", "content": c(_0x344ab4, _0xa00033, c(_0x344ab4, "ELEMENT_LIST_ITEM")) });
+          false === _0x52bb1b["multipleBlocks"] && (_0xa00033 = "*Merge:* %0", _0x4d2667 = { "type": "deletion", "content": c$1(_0x344ab4, _0xa00033, c$1(_0x344ab4, "ELEMENT_LIST_ITEM")) });
       }
       return _0x4d2667;
     });
@@ -158313,10 +158309,10 @@ class Se extends Plugin {
     const _0x58ffa1 = { "type": "format", "content": "" };
     _0x1301d1["descriptionFactory"]["registerDescriptionCallback"](this["handleDescriptions"]["bind"](this));
     const _0x18a012 = this["editor"]["locale"];
-    _0x1301d1["descriptionFactory"]["registerAttributeLabel"]("listReversed", c(_0x18a012, "FORMAT_LIST_REVERSED")), _0x1301d1["descriptionFactory"]["registerDescriptionCallback"]((_0x2474fc) => {
+    _0x1301d1["descriptionFactory"]["registerAttributeLabel"]("listReversed", c$1(_0x18a012, "FORMAT_LIST_REVERSED")), _0x1301d1["descriptionFactory"]["registerDescriptionCallback"]((_0x2474fc) => {
       const { data: _0x2d1252 } = _0x2474fc;
       if (_0x2d1252 && "listReversed" == _0x2d1252["key"]) return null == _0x2d1252["newValue"] || 0 == _0x2d1252["newValue"] && null == _0x2d1252["oldValue"] ? _0x58ffa1 : void 0;
-    }), _0x1301d1["descriptionFactory"]["registerAttributeLabel"]("listStart", c(_0x18a012, "FORMAT_LIST_START")), _0x1301d1["descriptionFactory"]["registerDescriptionCallback"]((_0x39a33e) => {
+    }), _0x1301d1["descriptionFactory"]["registerAttributeLabel"]("listStart", c$1(_0x18a012, "FORMAT_LIST_START")), _0x1301d1["descriptionFactory"]["registerDescriptionCallback"]((_0x39a33e) => {
       const { data: _0x5126ec } = _0x39a33e;
       if (_0x5126ec && "listStart" == _0x5126ec["key"]) return null == _0x5126ec["newValue"] || 1 == _0x5126ec["newValue"] && null == _0x5126ec["oldValue"] ? _0x58ffa1 : void 0;
     }), this["editor"]["model"]["document"]["registerPostFixer"]((_0x184020) => {
@@ -158337,7 +158333,7 @@ class Se extends Plugin {
   ["handleDescriptions"](_0x5f38e9) {
     const _0x2c716b = this["editor"]["locale"], { data: _0x3420bc } = _0x5f38e9, _0x2ef9f0 = { "type": "format", "content": "" };
     if (!_0x3420bc || "listStyle" != _0x3420bc["key"]) return;
-    if (!_0x3420bc["oldValue"]) return "default" == _0x3420bc["newValue"] ? _0x2ef9f0 : { "type": "format", "content": "" + c(_0x2c716b, "*Set format:* %0", c(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["newValue"]))) };
+    if (!_0x3420bc["oldValue"]) return "default" == _0x3420bc["newValue"] ? _0x2ef9f0 : { "type": "format", "content": "" + c$1(_0x2c716b, "*Set format:* %0", c$1(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["newValue"]))) };
     if (!_0x3420bc["newValue"]) {
       if ("default" == _0x3420bc["oldValue"]) return _0x2ef9f0;
       let _0x536c47 = _0x5f38e9["head"];
@@ -158345,15 +158341,15 @@ class Se extends Plugin {
         if (_0x536c47["data"] && "listType" == _0x536c47["data"]["key"] && _0x536c47["data"]["newValue"]) return _0x2ef9f0;
         _0x536c47 = _0x536c47["next"];
       }
-      return { "type": "format", "content": "" + c(_0x2c716b, "*Remove format:* %0", c(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["oldValue"]))) };
+      return { "type": "format", "content": "" + c$1(_0x2c716b, "*Remove format:* %0", c$1(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["oldValue"]))) };
     }
-    if ("default" != _0x3420bc["newValue"]) return { "type": "format", "content": "" + c(_0x2c716b, "*Set format:* %0", c(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["newValue"]))) };
+    if ("default" != _0x3420bc["newValue"]) return { "type": "format", "content": "" + c$1(_0x2c716b, "*Set format:* %0", c$1(_0x2c716b, this["_getTranslationKeyForListStyle"](_0x3420bc["newValue"]))) };
     let _0x1411a4 = _0x5f38e9["head"];
     for (; _0x1411a4; ) {
       if (_0x1411a4["data"] && "listType" == _0x1411a4["data"]["key"] && _0x1411a4["data"]["newValue"] && _0x1411a4["data"]["oldValue"]) return _0x2ef9f0;
       _0x1411a4 = _0x1411a4["next"];
     }
-    return { "type": "format", "content": c(_0x2c716b, "*Set format:* %0", c(_0x2c716b, "ELEMENT_" + _0x5f38e9["getFirstRange"]()["start"]["nodeAfter"]["getAttribute"]("listType")["toUpperCase"]() + "_LIST_DEFAULT")) };
+    return { "type": "format", "content": c$1(_0x2c716b, "*Set format:* %0", c$1(_0x2c716b, "ELEMENT_" + _0x5f38e9["getFirstRange"]()["start"]["nodeAfter"]["getAttribute"]("listType")["toUpperCase"]() + "_LIST_DEFAULT")) };
   }
   ["_registerLegacyDescription"]() {
     const _0x291837 = this["editor"], _0x315efa = _0x291837["locale"];
@@ -158364,13 +158360,13 @@ class Se extends Plugin {
       let _0x5ad18e, _0x55918b;
       switch (_0x3db05b["commandName"]) {
         case "listStyle":
-          _0x5ad18e = "*Change to:* %0", _0x55918b = { "type": "format", "content": c(_0x315efa, _0x5ad18e, c(_0x315efa, this["_getTranslationKeyForListStyle"](_0x3db05b["commandParams"][0]["type"]))) };
+          _0x5ad18e = "*Change to:* %0", _0x55918b = { "type": "format", "content": c$1(_0x315efa, _0x5ad18e, c$1(_0x315efa, this["_getTranslationKeyForListStyle"](_0x3db05b["commandParams"][0]["type"]))) };
           break;
         case "listReversed":
-          _0x5ad18e = _0x3db05b["commandParams"][0]["reversed"] ? "*Format:* set order to reversed" : "*Format:* set order to regular", _0x55918b = { "type": "format", "content": c(_0x315efa, _0x5ad18e) };
+          _0x5ad18e = _0x3db05b["commandParams"][0]["reversed"] ? "*Format:* set order to reversed" : "*Format:* set order to regular", _0x55918b = { "type": "format", "content": c$1(_0x315efa, _0x5ad18e) };
           break;
         case "listStart":
-          _0x5ad18e = "*Format:* set start index to %0", _0x55918b = { "type": "format", "content": c(_0x315efa, _0x5ad18e, _0x3db05b["commandParams"][0]["startIndex"]) };
+          _0x5ad18e = "*Format:* set start index to %0", _0x55918b = { "type": "format", "content": c$1(_0x315efa, _0x5ad18e, _0x3db05b["commandParams"][0]["startIndex"]) };
       }
       return _0x55918b;
     });
@@ -158441,7 +158437,7 @@ class tt extends Plugin {
   ["afterInit"]() {
     const _0x3332cd = this["editor"]["locale"], _0xf73da0 = this["editor"]["plugins"]["get"]("TrackChangesEditing");
     for (const { pluginName: _0x450e4b, commandName: _0x42f825 } of ro) this["editor"]["plugins"]["has"](_0x450e4b) && (_0xf73da0["enableDefaultAttributesIntegration"](_0x42f825), _0xf73da0["registerInlineAttribute"](_0x42f825));
-    _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontSize", c(_0x3332cd, "FORMAT_FONT_SIZE")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontFamily", c(_0x3332cd, "FORMAT_FONT_FAMILY")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontColor", c(_0x3332cd, "FORMAT_FONT_COLOR")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontBackgroundColor", c(_0x3332cd, "FORMAT_FONT_BACKGROUND")), this["_registerLegacyDescription"]();
+    _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontSize", c$1(_0x3332cd, "FORMAT_FONT_SIZE")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontFamily", c$1(_0x3332cd, "FORMAT_FONT_FAMILY")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontColor", c$1(_0x3332cd, "FORMAT_FONT_COLOR")), _0xf73da0["descriptionFactory"]["registerAttributeLabel"]("fontBackgroundColor", c$1(_0x3332cd, "FORMAT_FONT_BACKGROUND")), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
     const _0x1fa675 = this["editor"], _0x483de4 = _0x1fa675["locale"];
@@ -158454,31 +158450,31 @@ class tt extends Plugin {
           const _0x330102 = _0x47e16e["commandParams"][0]["value"];
           if (_0x330102) {
             const _0x1bc206 = _0x3710f4(this["editor"]["plugins"]["get"]("FontSize")["normalizeSizeOptions"](this["editor"]["config"]["get"]("fontSize.options"))["find"]((_0x19fee8) => _0x19fee8["model"] == _0x330102)["title"])["toLowerCase"]();
-            return { "type": "format", "content": c(_0x483de4, "*Set font size:* %0", _0x1bc206) };
+            return { "type": "format", "content": c$1(_0x483de4, "*Set font size:* %0", _0x1bc206) };
           }
-          return { "type": "format", "content": c(_0x483de4, "*Reset font size*") };
+          return { "type": "format", "content": c$1(_0x483de4, "*Reset font size*") };
         }
         if ("fontFamily" == _0x47e16e["commandName"]) {
           const _0x264cf1 = _0x47e16e["commandParams"][0]["value"];
-          return _0x264cf1 ? { "type": "format", "content": c(_0x483de4, "*Set font family:* %0", _0x264cf1) } : { "type": "format", "content": c(_0x483de4, "*Reset font family*") };
+          return _0x264cf1 ? { "type": "format", "content": c$1(_0x483de4, "*Set font family:* %0", _0x264cf1) } : { "type": "format", "content": c$1(_0x483de4, "*Reset font family*") };
         }
         if ("fontColor" == _0x47e16e["commandName"]) {
           const _0x4d3d68 = _0x47e16e["commandParams"][0]["value"];
           if (_0x4d3d68) {
             const _0x40a3db = normalizeColorOptions(this["editor"]["config"]["get"]("fontColor.colors"))["find"]((_0x5b1a2e) => _0x5b1a2e["model"] == _0x4d3d68);
             let _0x10b334 = _0x4d3d68, _0x561058 = "";
-            return _0x40a3db && (_0x10b334 = _0x40a3db["label"], _0x561058 = _0x3710f4(_0x10b334)["toLowerCase"]()), { "type": "format", "content": c(_0x483de4, "*Set font color:* %0", _0x561058)["trim"](), "color": { "value": _0x4d3d68, "title": _0x561058 || _0x10b334 } };
+            return _0x40a3db && (_0x10b334 = _0x40a3db["label"], _0x561058 = _0x3710f4(_0x10b334)["toLowerCase"]()), { "type": "format", "content": c$1(_0x483de4, "*Set font color:* %0", _0x561058)["trim"](), "color": { "value": _0x4d3d68, "title": _0x561058 || _0x10b334 } };
           }
-          return { "type": "format", "content": c(_0x483de4, "*Reset font color*") };
+          return { "type": "format", "content": c$1(_0x483de4, "*Reset font color*") };
         }
         if ("fontBackgroundColor" == _0x47e16e["commandName"]) {
           const _0x318d0a = _0x47e16e["commandParams"][0]["value"];
           if (_0x318d0a) {
             const _0x4238d8 = normalizeColorOptions(this["editor"]["config"]["get"]("fontBackgroundColor.colors"))["find"]((_0x44d22d) => _0x44d22d["model"] == _0x318d0a);
             let _0x41e54b = _0x318d0a, _0x56153c = "";
-            return _0x4238d8 && (_0x41e54b = _0x4238d8["label"], _0x56153c = _0x3710f4(_0x41e54b)["toLowerCase"]()), { "type": "format", "content": c(_0x483de4, "*Set font background color:* %0", _0x56153c)["trim"](), "color": { "value": _0x318d0a, "title": _0x56153c || _0x41e54b } };
+            return _0x4238d8 && (_0x41e54b = _0x4238d8["label"], _0x56153c = _0x3710f4(_0x41e54b)["toLowerCase"]()), { "type": "format", "content": c$1(_0x483de4, "*Set font background color:* %0", _0x56153c)["trim"](), "color": { "value": _0x318d0a, "title": _0x56153c || _0x41e54b } };
           }
-          return { "type": "format", "content": c(_0x483de4, "*Reset font background color*") };
+          return { "type": "format", "content": c$1(_0x483de4, "*Reset font background color*") };
         }
       }
     });
@@ -158497,7 +158493,7 @@ class et extends Plugin {
       if (_0x366579 && "pasteFormat" === _0x366579["commandName"]) {
         const _0x1acc0f = [], _0x12c809 = _0x366579["commandParams"][0];
         for (const [_0x3815df, _0x4bab49] of Object["entries"](_0x12c809)) _0x1acc0f["push"](so(_0x5c679e, _0x3815df, _0x4bab49));
-        return _0x1acc0f["length"] ? { "type": "format", "content": c(_0x2ef4a9, "*Set format to:* %0", _0x1acc0f["join"](", ")) } : { "type": "format", "content": c(_0x2ef4a9, "*Remove all formatting*") };
+        return _0x1acc0f["length"] ? { "type": "format", "content": c$1(_0x2ef4a9, "*Set format to:* %0", _0x1acc0f["join"](", ")) } : { "type": "format", "content": c$1(_0x2ef4a9, "*Remove all formatting*") };
       }
     });
   }
@@ -158531,35 +158527,35 @@ class nt extends Plugin {
       return null !== _0x547181 ? _0x1f9b54(_0x53d840, _0x547181) : _0x1fee02(_0x53d840, _0x1e9833["title"]);
     });
     function _0x1f9b54(_0x34a6e0, _0x95307c) {
-      return c(_0x3e79c8, "ELEMENT_HEADING", [_0x34a6e0, _0x95307c]);
+      return c$1(_0x3e79c8, "ELEMENT_HEADING", [_0x34a6e0, _0x95307c]);
     }
     function _0x1fee02(_0x14a830, _0x57c5af) {
-      return c(_0x3e79c8, "ELEMENT_HEADING_CUSTOM", [_0x14a830, _0x57c5af]);
+      return c$1(_0x3e79c8, "ELEMENT_HEADING_CUSTOM", [_0x14a830, _0x57c5af]);
     }
     this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
     const _0x59fee8 = this["editor"], _0x4b8284 = _0x59fee8["locale"];
     function _0x73ed16(_0x2d2aca, _0x1e7706) {
-      return c(_0x4b8284, "ELEMENT_HEADING_CUSTOM", [_0x2d2aca, _0x1e7706]);
+      return c$1(_0x4b8284, "ELEMENT_HEADING_CUSTOM", [_0x2d2aca, _0x1e7706]);
     }
     _0x59fee8["plugins"]["get"]("TrackChangesEditing")["descriptionFactory"]["registerDescriptionCallback"]((_0x455a62) => {
       if ("formatBlock" != _0x455a62["type"]) return;
       const { data: _0x1bbd6e } = _0x455a62;
       if (_0x1bbd6e && "heading" == _0x1bbd6e["commandName"]) {
         const _0x323429 = _0x1bbd6e["commandParams"][0]["value"], _0x4de4a8 = this["_getHeadingLevel"](_0x323429);
-        if (null !== _0x4de4a8) return { "type": "format", "content": c(_0x4b8284, "*Change to:* %0", (_0xdaeae3 = 1, _0x329578 = _0x4de4a8, c(_0x4b8284, "ELEMENT_HEADING", [_0xdaeae3, _0x329578]))) };
+        if (null !== _0x4de4a8) return { "type": "format", "content": c$1(_0x4b8284, "*Change to:* %0", (_0xdaeae3 = 1, _0x329578 = _0x4de4a8, c$1(_0x4b8284, "ELEMENT_HEADING", [_0xdaeae3, _0x329578]))) };
         const _0x5a8daf = this["_headingOptions"]["find"]((_0x1aab73) => _0x1aab73["model"] === _0x323429)["title"];
-        return { "type": "format", "content": c(_0x4b8284, "*Change to:* %0", _0x73ed16(1, _0x5a8daf)) };
+        return { "type": "format", "content": c$1(_0x4b8284, "*Change to:* %0", _0x73ed16(1, _0x5a8daf)) };
       }
       var _0xdaeae3, _0x329578;
     });
   }
   ["_getHeadingLevel"](_0x203db0) {
-    var _a4;
+    var _a3;
     const _0xf68a87 = _0x203db0["match"](/^heading(\d+)/);
     if (_0xf68a87) return _0xf68a87[1];
-    const _0x359342 = (_a4 = this["_headingOptions"]) == null ? void 0 : _a4["find"]((_0x1c3259) => _0x1c3259["model"] == _0x203db0);
+    const _0x359342 = (_a3 = this["_headingOptions"]) == null ? void 0 : _a3["find"]((_0x1c3259) => _0x1c3259["model"] == _0x203db0);
     if (_0x359342 && _0x359342["view"]) {
       const _0x27a67b = _0x359342["view"], _0x1bf98 = (_0x27a67b["name"] ?? _0x27a67b)["match"](/^h(\d+)/);
       if (_0x1bf98) return _0x1bf98[1];
@@ -158572,7 +158568,7 @@ class it extends Plugin {
     const _0x1623eb = this["editor"];
     if (!_0x1623eb["plugins"]["has"]("HighlightEditing")) return;
     const _0x2674bc = _0x1623eb["plugins"]["get"]("TrackChangesEditing"), _0x61a9ac = _0x1623eb["locale"];
-    _0x2674bc["enableDefaultAttributesIntegration"]("highlight"), _0x2674bc["registerInlineAttribute"]("highlight"), _0x2674bc["descriptionFactory"]["registerAttributeLabel"]("highlight", c(_0x61a9ac, "FORMAT_HIGHLIGHT")), this["_registerLegacyDescription"]();
+    _0x2674bc["enableDefaultAttributesIntegration"]("highlight"), _0x2674bc["registerInlineAttribute"]("highlight"), _0x2674bc["descriptionFactory"]["registerAttributeLabel"]("highlight", c$1(_0x61a9ac, "FORMAT_HIGHLIGHT")), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
     const _0x21fda2 = this["editor"], _0x57a417 = _0x21fda2["locale"];
@@ -158583,9 +158579,9 @@ class it extends Plugin {
         const _0x4e3689 = _0x57a417["t"], _0x40d25d = _0x4d97dc["commandParams"][0]["value"];
         if (_0x40d25d) {
           const _0x5da4c8 = _0x21fda2["config"]["get"]("highlight.options")["find"]((_0x2b438d) => _0x2b438d["model"] == _0x40d25d), _0x2a6251 = _0x4e3689(_0x5da4c8["title"])["toLowerCase"]();
-          return { "type": "format", "content": c(_0x57a417, "*Set highlight:* %0", _0x2a6251), "color": { "value": _0x5da4c8["color"], "title": _0x5da4c8["title"] } };
+          return { "type": "format", "content": c$1(_0x57a417, "*Set highlight:* %0", _0x2a6251), "color": { "value": _0x5da4c8["color"], "title": _0x5da4c8["title"] } };
         }
-        return { "type": "format", "content": c(_0x57a417, "*Remove highlight*", c(_0x57a417, "FORMAT_HIGHLIGHT")) };
+        return { "type": "format", "content": c$1(_0x57a417, "*Remove highlight*", c$1(_0x57a417, "FORMAT_HIGHLIGHT")) };
       }
     });
   }
@@ -158596,7 +158592,7 @@ class st extends Plugin {
     if (!_0x4712ee["plugins"]["has"]("HorizontalLineEditing")) return;
     _0x4712ee["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("horizontalLine");
     const _0x30b942 = _0x4712ee["plugins"]["get"]("TrackChangesEditing"), _0x91f69d = _0x4712ee["locale"];
-    _0x30b942["descriptionFactory"]["registerElementLabel"]("horizontalLine", (_0x151c68) => c(_0x91f69d, "ELEMENT_HORIZONTAL_LINE", _0x151c68)), _0x4712ee["conversion"]["for"]("dataDowncast")["elementToStructure"]({ "model": "horizontalLine", "view": (_0x3e42e4, { writer: _0x4e58a7, options: _0x5a69f5 }) => {
+    _0x30b942["descriptionFactory"]["registerElementLabel"]("horizontalLine", (_0x151c68) => c$1(_0x91f69d, "ELEMENT_HORIZONTAL_LINE", _0x151c68)), _0x4712ee["conversion"]["for"]("dataDowncast")["elementToStructure"]({ "model": "horizontalLine", "view": (_0x3e42e4, { writer: _0x4e58a7, options: _0x5a69f5 }) => {
       if (!_0x5a69f5["showSuggestionHighlights"]) return null;
       const _0x3730f8 = _0x4e58a7["createContainerElement"]("div"), _0x133272 = _0x4e58a7["createEmptyElement"]("hr");
       return _0x4e58a7["addClass"]("ck-horizontal-line", _0x3730f8), _0x4e58a7["insert"](_0x4e58a7["createPositionAt"](_0x3730f8, 0), _0x133272), _0x3730f8;
@@ -158608,12 +158604,12 @@ class ot extends Plugin {
     const _0x1fe48d = this["editor"];
     if (!_0x1fe48d["plugins"]["has"]("HtmlEmbed")) return;
     const _0x564da8 = _0x1fe48d["plugins"]["get"]("TrackChangesEditing"), _0x4ae90a = _0x1fe48d["locale"];
-    _0x564da8["descriptionFactory"]["registerElementLabel"]("rawHtml", (_0x327cb1) => c(_0x4ae90a, "ELEMENT_HTML_EMBED", _0x327cb1)), _0x564da8["enableDefaultAttributesIntegration"]("htmlEmbed"), _0x564da8["registerBlockAttribute"]("value"), _0x564da8["descriptionFactory"]["registerDescriptionCallback"]((_0x1d7f17) => {
+    _0x564da8["descriptionFactory"]["registerElementLabel"]("rawHtml", (_0x327cb1) => c$1(_0x4ae90a, "ELEMENT_HTML_EMBED", _0x327cb1)), _0x564da8["enableDefaultAttributesIntegration"]("htmlEmbed"), _0x564da8["registerBlockAttribute"]("value"), _0x564da8["descriptionFactory"]["registerDescriptionCallback"]((_0x1d7f17) => {
       if ("attribute" != _0x1d7f17["type"]) return;
       const { data: _0x735fec } = _0x1d7f17;
       if (_0x735fec && "value" == _0x735fec["key"] && _0x1d7f17["getFirstRange"]()["start"]["nodeAfter"]["is"]("element", "rawHtml")) {
-        const _0x1ad29e = c(_0x4ae90a, "ELEMENT_HTML_EMBED");
-        return { "type": "format", "content": c(_0x4ae90a, "*Change %0 content*", _0x1ad29e) };
+        const _0x1ad29e = c$1(_0x4ae90a, "ELEMENT_HTML_EMBED");
+        return { "type": "format", "content": c$1(_0x4ae90a, "*Change %0 content*", _0x1ad29e) };
       }
     }), this["_registerLegacyDescription"]();
   }
@@ -158623,8 +158619,8 @@ class ot extends Plugin {
       if ("formatBlock" != _0xdd298a["type"]) return;
       const { data: _0x4b8a0d } = _0xdd298a;
       if (_0x4b8a0d && "htmlEmbed" == _0x4b8a0d["commandName"]) {
-        const _0x3fa202 = c(_0xc2f8, "ELEMENT_HTML_EMBED");
-        return { "type": "format", "content": c(_0xc2f8, "*Change %0 content*", _0x3fa202) };
+        const _0x3fa202 = c$1(_0xc2f8, "ELEMENT_HTML_EMBED");
+        return { "type": "format", "content": c$1(_0xc2f8, "*Change %0 content*", _0x3fa202) };
       }
     });
   }
@@ -158634,7 +158630,7 @@ class rt extends Plugin {
     const _0x29b5bf = this["editor"];
     if (!_0x29b5bf["plugins"]["has"]("ImageEditing")) return;
     const _0xdc1448 = _0x29b5bf["plugins"]["get"]("TrackChangesEditing"), _0x5a4cc8 = _0x29b5bf["plugins"]["get"]("ImageUtils"), _0x1ac527 = _0x29b5bf["locale"];
-    _0xdc1448["enableCommand"]("insertImage"), _0xdc1448["descriptionFactory"]["registerElementLabel"]("imageBlock", (_0x3295be) => c(_0x1ac527, "ELEMENT_IMAGE", _0x3295be)), _0xdc1448["descriptionFactory"]["registerElementLabel"]("imageInline", (_0x56f816) => c(_0x1ac527, "ELEMENT_INLINE_IMAGE", _0x56f816)), _0xdc1448["descriptionFactory"]["registerElementLabel"]("caption", () => c(_0x1ac527, "ELEMENT_CAPTION")), _0x29b5bf["plugins"]["has"]("ImageUploadEditing") && _0xdc1448["enableCommand"]("uploadImage"), _0x29b5bf["plugins"]["has"]("ImageBlockEditing") && _0x29b5bf["plugins"]["has"]("ImageInlineEditing") && (_0xdc1448["enableCommand"]("imageTypeInline", (_0xff3540, _0x529115) => {
+    _0xdc1448["enableCommand"]("insertImage"), _0xdc1448["descriptionFactory"]["registerElementLabel"]("imageBlock", (_0x3295be) => c$1(_0x1ac527, "ELEMENT_IMAGE", _0x3295be)), _0xdc1448["descriptionFactory"]["registerElementLabel"]("imageInline", (_0x56f816) => c$1(_0x1ac527, "ELEMENT_INLINE_IMAGE", _0x56f816)), _0xdc1448["descriptionFactory"]["registerElementLabel"]("caption", () => c$1(_0x1ac527, "ELEMENT_CAPTION")), _0x29b5bf["plugins"]["has"]("ImageUploadEditing") && _0xdc1448["enableCommand"]("uploadImage"), _0x29b5bf["plugins"]["has"]("ImageBlockEditing") && _0x29b5bf["plugins"]["has"]("ImageInlineEditing") && (_0xdc1448["enableCommand"]("imageTypeInline", (_0xff3540, _0x529115) => {
       const _0x18436f = _0x5a4cc8["getClosestSelectedImageElement"](_0x29b5bf["model"]["document"]["selection"]);
       _0x29b5bf["model"]["change"](() => {
         _0xdc1448["markBlockFormat"](_0x18436f, { "commandName": "imageTypeInline", "commandParams": [_0x529115] }, [], "convertBlockImageToInline");
@@ -158681,7 +158677,7 @@ class rt extends Plugin {
     function _0x1a237d(_0x24046b, _0x5c5b7e) {
       return _0x2c8faf(_0x24046b, _0x5c5b7e) ? [_0x24046b, _0x5c5b7e] : _0x2c8faf(_0x5c5b7e, _0x24046b) ? [_0x5c5b7e, _0x24046b] : null;
     }
-    _0x29b5bf["plugins"]["has"]("ImageResize") && (_0xdc1448["enableDefaultAttributesIntegration"]("resizeImage"), _0xdc1448["registerBlockAttribute"]("resizedWidth"), _0xdc1448["descriptionFactory"]["registerAttributeLabel"]("resizedWidth", c(_0x1ac527, "FORMAT_IMAGE_SIZE"))), _0x29b5bf["plugins"]["has"]("ImageTextAlternativeEditing") && (_0xdc1448["enableDefaultAttributesIntegration"]("imageTextAlternative"), _0xdc1448["registerBlockAttribute"]("alt")), _0x29b5bf["plugins"]["has"]("PictureEditing") && (_0xdc1448["registerBlockAttribute"]("sources"), _0xdc1448["descriptionFactory"]["registerDescriptionCallback"]((_0x35aac6) => {
+    _0x29b5bf["plugins"]["has"]("ImageResize") && (_0xdc1448["enableDefaultAttributesIntegration"]("resizeImage"), _0xdc1448["registerBlockAttribute"]("resizedWidth"), _0xdc1448["descriptionFactory"]["registerAttributeLabel"]("resizedWidth", c$1(_0x1ac527, "FORMAT_IMAGE_SIZE"))), _0x29b5bf["plugins"]["has"]("ImageTextAlternativeEditing") && (_0xdc1448["enableDefaultAttributesIntegration"]("imageTextAlternative"), _0xdc1448["registerBlockAttribute"]("alt")), _0x29b5bf["plugins"]["has"]("PictureEditing") && (_0xdc1448["registerBlockAttribute"]("sources"), _0xdc1448["descriptionFactory"]["registerDescriptionCallback"]((_0x35aac6) => {
       if ("attribute" != _0x35aac6["type"]) return;
       const { data: _0x1e507b } = _0x35aac6;
       return _0x1e507b && "sources" == _0x1e507b["key"] ? { "type": "format", "content": "" } : void 0;
@@ -158701,7 +158697,7 @@ class rt extends Plugin {
       const { data: _0x34e051 } = _0x296f7e;
       if (!_0x34e051 || "alt" != _0x34e051["key"]) return;
       const _0x35019c = _0x34e051["newValue"];
-      return _0x35019c ? { "type": "format", "content": c(_0x1ac527, "*Set image text alternative:* %0", '"' + _0x35019c + '"') } : { "type": "format", "content": c(_0x1ac527, "*Remove image text alternative*") };
+      return _0x35019c ? { "type": "format", "content": c$1(_0x1ac527, "*Set image text alternative:* %0", '"' + _0x35019c + '"') } : { "type": "format", "content": c$1(_0x1ac527, "*Remove image text alternative*") };
     }), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
@@ -158712,11 +158708,11 @@ class rt extends Plugin {
       if (_0x53b4f6) {
         if ("imageTextAlternative" == _0x53b4f6["commandName"]) {
           const _0x58281e = _0x53b4f6["commandParams"][0]["newValue"];
-          return _0x58281e ? { "type": "format", "content": c(_0xe6adcb, "*Set image text alternative:* %0", '"' + _0x58281e + '"') } : { "type": "format", "content": c(_0xe6adcb, "*Remove image text alternative*") };
+          return _0x58281e ? { "type": "format", "content": c$1(_0xe6adcb, "*Set image text alternative:* %0", '"' + _0x58281e + '"') } : { "type": "format", "content": c$1(_0xe6adcb, "*Remove image text alternative*") };
         }
         if ("resizeImage" == _0x53b4f6["commandName"]) {
           const _0x489b4f = _0x53b4f6["commandParams"][0]["width"];
-          return _0x489b4f ? { "type": "format", "content": c(_0xe6adcb, "*Set image width:* %0", _0x489b4f) } : { "type": "format", "content": c(_0xe6adcb, "*Reset image width*") };
+          return _0x489b4f ? { "type": "format", "content": c$1(_0xe6adcb, "*Set image width:* %0", _0x489b4f) } : { "type": "format", "content": c$1(_0xe6adcb, "*Reset image width*") };
         }
       }
     });
@@ -158729,7 +158725,7 @@ class at extends Plugin {
     _0x5020d6["enableDefaultAttributesIntegration"]("replaceImageSource"), _0x5020d6["registerBlockAttribute"]("src"), _0x5020d6["descriptionFactory"]["registerDescriptionCallback"]((_0x2fbd76) => {
       if ("attribute" != _0x2fbd76["type"]) return;
       const { data: _0x499009 } = _0x2fbd76;
-      return _0x499009 && "src" == _0x499009["key"] ? _0x499009["newValue"] && _0x499009["oldValue"] ? { "type": "format", "content": c(_0x496e02, "*Replace image*") } : { "type": "format", "content": "" } : void 0;
+      return _0x499009 && "src" == _0x499009["key"] ? _0x499009["newValue"] && _0x499009["oldValue"] ? { "type": "format", "content": c$1(_0x496e02, "*Replace image*") } : { "type": "format", "content": "" } : void 0;
     }), this["_handleLegacySuggestions"]();
   }
   ["_handleLegacySuggestions"]() {
@@ -158742,7 +158738,7 @@ class at extends Plugin {
       if ("formatBlock" != _0xc18fe8["type"] && "formatInline" != _0xc18fe8["type"]) return;
       const { data: _0x3c3a1f } = _0xc18fe8;
       if (!_0x3c3a1f || "replaceImageSource" != _0x3c3a1f["commandName"]) return;
-      return { "type": "format", "content": c(_0x56b9da, "*Format:* replace image URL") };
+      return { "type": "format", "content": c$1(_0x56b9da, "*Format:* replace image URL") };
     });
   }
 }
@@ -158817,9 +158813,9 @@ class ct extends Plugin {
       const { data: _0x5831b4 } = _0x37c130;
       if (!_0x5831b4 || "imageStyle" != _0x5831b4["commandName"]) return;
       const _0x57be10 = _0x5831b4["commandParams"][0]["value"];
-      return _0x5e58a4("side" === _0x57be10 ? c(_0x106be4, "FORMAT_SIDE_IMAGE") : _0x3d7603[_0x57be10] || _0x57be10);
+      return _0x5e58a4("side" === _0x57be10 ? c$1(_0x106be4, "FORMAT_SIDE_IMAGE") : _0x3d7603[_0x57be10] || _0x57be10);
       function _0x5e58a4(_0xd9432c) {
-        return { "type": "format", "content": c(_0x106be4, "*Format:* %0", _0xd9432c) };
+        return { "type": "format", "content": c$1(_0x106be4, "*Format:* %0", _0xd9432c) };
       }
     });
   }
@@ -158854,7 +158850,7 @@ class ft extends Plugin {
       for (const _0x5047b4 of ["indentBlock", "outdentBlock"]) _0x2504d8["enableDefaultAttributesIntegration"](_0x5047b4);
     }
     const _0x4fca7b = _0x489631["locale"];
-    _0x2504d8["registerBlockAttribute"]("blockIndent"), _0x2504d8["descriptionFactory"]["registerAttributeLabel"]("blockIndent", c(_0x4fca7b, "FORMAT_INDENT")), this["_registerLegacyDescription"]();
+    _0x2504d8["registerBlockAttribute"]("blockIndent"), _0x2504d8["descriptionFactory"]["registerAttributeLabel"]("blockIndent", c$1(_0x4fca7b, "FORMAT_INDENT")), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
     const _0x5896d6 = this["editor"], _0x133729 = _0x5896d6["locale"], _0x596f86 = _0x5896d6["plugins"]["get"]("TrackChangesEditing");
@@ -158864,7 +158860,7 @@ class ft extends Plugin {
       if (!_0x3e604d) return;
       if ("indentBlock" != _0x3e604d["commandName"] && "outdentBlock" != _0x3e604d["commandName"]) return;
       const _0x3397bb = _0x56745f["getItems"]()[0], _0x4e7730 = _0x596f86["descriptionFactory"]["getItemLabel"](_0x3397bb);
-      return "indentBlock" == _0x3e604d["commandName"] ? { "type": "format", "content": c(_0x133729, "*Indent:* %0", _0x4e7730) } : "outdentBlock" == _0x3e604d["commandName"] ? { "type": "format", "content": c(_0x133729, "*Outdent:* %0", _0x4e7730) } : void 0;
+      return "indentBlock" == _0x3e604d["commandName"] ? { "type": "format", "content": c$1(_0x133729, "*Indent:* %0", _0x4e7730) } : "outdentBlock" == _0x3e604d["commandName"] ? { "type": "format", "content": c$1(_0x133729, "*Outdent:* %0", _0x4e7730) } : void 0;
     });
   }
 }
@@ -158888,7 +158884,7 @@ class lt extends Plugin {
       const { data: _0x52f650 } = _0x23a45d;
       if (!_0x52f650 || "linkHref" != _0x52f650["key"]) return;
       const _0x560494 = _0x52f650["newValue"], _0x3cb24e = _0xe0d47["locale"];
-      return { "type": "format", "content": null == _0x560494 ? c(_0x3cb24e, "*Remove link*") : c(_0x3cb24e, "*Set link:* %0", '"' + _0x560494 + '"') };
+      return { "type": "format", "content": null == _0x560494 ? c$1(_0x3cb24e, "*Remove link*") : c$1(_0x3cb24e, "*Set link:* %0", '"' + _0x560494 + '"') };
     }), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
@@ -158899,9 +158895,9 @@ class lt extends Plugin {
       if (_0x4586a6) {
         if ("link" == _0x4586a6["commandName"]) {
           const _0x110251 = _0x4586a6["commandParams"][0];
-          return { "type": "format", "content": c(_0x308962, "*Set link:* %0", '"' + _0x110251 + '"') };
+          return { "type": "format", "content": c$1(_0x308962, "*Set link:* %0", '"' + _0x110251 + '"') };
         }
-        return "unlink" == _0x4586a6["commandName"] ? { "type": "format", "content": c(_0x308962, "*Remove link*") } : void 0;
+        return "unlink" == _0x4586a6["commandName"] ? { "type": "format", "content": c$1(_0x308962, "*Remove link*") } : void 0;
       }
     });
   }
@@ -158953,24 +158949,24 @@ class gt extends Plugin {
       _0x45a87d["filter"]((_0x567b35) => _0x567b35["getAttribute"]("todoListChecked") != _0x55a1c5["value"]), _0x1f80b7["model"]["change"](() => {
         for (const _0x1f624c of _0x45a87d) _0x528166["markBlockFormat"](_0x1f624c, { "commandName": "checkTodoList", "commandParams": [{ "forceValue": !_0x55a1c5["value"] }] });
       });
-    }), _0x528166["descriptionFactory"]["registerElementLabel"]("listItem", (_0x1f7f3c) => c(_0x728857, "ELEMENT_LIST_ITEM", _0x1f7f3c)), _0x528166["descriptionFactory"]["registerDescriptionCallback"]((_0x262ad3) => {
+    }), _0x528166["descriptionFactory"]["registerElementLabel"]("listItem", (_0x1f7f3c) => c$1(_0x728857, "ELEMENT_LIST_ITEM", _0x1f7f3c)), _0x528166["descriptionFactory"]["registerDescriptionCallback"]((_0x262ad3) => {
       if ("formatBlock" != _0x262ad3["type"] && "formatInline" != _0x262ad3["type"]) return;
       const { data: _0x29c24d } = _0x262ad3;
       if (_0x29c24d) {
         if ("numberedList" == _0x29c24d["commandName"] || "bulletedList" == _0x29c24d["commandName"] || "todoList" == _0x29c24d["commandName"]) switch (_0x29c24d["commandName"]["replace"]("List", "")) {
           case "bulleted":
-            return _0x1508b2(c(_0x728857, "ELEMENT_BULLETED_LIST"));
+            return _0x1508b2(c$1(_0x728857, "ELEMENT_BULLETED_LIST"));
           case "numbered":
-            return _0x1508b2(c(_0x728857, "ELEMENT_NUMBERED_LIST"));
+            return _0x1508b2(c$1(_0x728857, "ELEMENT_NUMBERED_LIST"));
           case "todo":
-            return _0x1508b2(c(_0x728857, "ELEMENT_TODO_LIST"));
+            return _0x1508b2(c$1(_0x728857, "ELEMENT_TODO_LIST"));
         }
-        if ("indentList" == _0x29c24d["commandName"]) return { "type": "format", "content": c(_0x728857, "*Indent:* %0", c(_0x728857, "ELEMENT_LIST_ITEM")) };
-        if ("outdentList" == _0x29c24d["commandName"]) return { "type": "format", "content": c(_0x728857, "*Outdent:* %0", c(_0x728857, "ELEMENT_LIST_ITEM")) };
-        if ("checkTodoList" == _0x29c24d["commandName"]) return _0x29c24d["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x728857, "*Check item*") } : { "type": "format", "content": c(_0x728857, "*Uncheck item*") };
+        if ("indentList" == _0x29c24d["commandName"]) return { "type": "format", "content": c$1(_0x728857, "*Indent:* %0", c$1(_0x728857, "ELEMENT_LIST_ITEM")) };
+        if ("outdentList" == _0x29c24d["commandName"]) return { "type": "format", "content": c$1(_0x728857, "*Outdent:* %0", c$1(_0x728857, "ELEMENT_LIST_ITEM")) };
+        if ("checkTodoList" == _0x29c24d["commandName"]) return _0x29c24d["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x728857, "*Check item*") } : { "type": "format", "content": c$1(_0x728857, "*Uncheck item*") };
       }
       function _0x1508b2(_0x4c65d9) {
-        return { "type": "format", "content": c(_0x728857, "*Change to:* %0", _0x4c65d9) };
+        return { "type": "format", "content": c$1(_0x728857, "*Change to:* %0", _0x4c65d9) };
       }
     });
   }
@@ -159032,21 +159028,21 @@ class Q extends Plugin {
     let _0x3d00b8, _0x53a843;
     switch (_0x459ec7["commandName"]) {
       case "listStyle":
-        _0x3d00b8 = "*Change to:* %0", _0x53a843 = { "type": "format", "content": c(_0x3e57e8, _0x3d00b8, c(_0x3e57e8, this["_getTranslationKeyForListStyle"](_0x459ec7["commandParams"][0]["type"]))) };
+        _0x3d00b8 = "*Change to:* %0", _0x53a843 = { "type": "format", "content": c$1(_0x3e57e8, _0x3d00b8, c$1(_0x3e57e8, this["_getTranslationKeyForListStyle"](_0x459ec7["commandParams"][0]["type"]))) };
         break;
       case "listReversed":
-        _0x3d00b8 = _0x459ec7["commandParams"][0]["reversed"] ? "*Format:* set order to reversed" : "*Format:* set order to regular", _0x53a843 = { "type": "format", "content": c(_0x3e57e8, _0x3d00b8) };
+        _0x3d00b8 = _0x459ec7["commandParams"][0]["reversed"] ? "*Format:* set order to reversed" : "*Format:* set order to regular", _0x53a843 = { "type": "format", "content": c$1(_0x3e57e8, _0x3d00b8) };
         break;
       case "listStart":
-        _0x3d00b8 = "*Format:* set start index to %0", _0x53a843 = { "type": "format", "content": c(_0x3e57e8, _0x3d00b8, _0x459ec7["commandParams"][0]["startIndex"]) };
+        _0x3d00b8 = "*Format:* set start index to %0", _0x53a843 = { "type": "format", "content": c$1(_0x3e57e8, _0x3d00b8, _0x459ec7["commandParams"][0]["startIndex"]) };
     }
     return _0x53a843;
   }
   ["_getSuggestionBlocksForListStyle"]() {
-    var _a4, _b2, _c2, _d2;
+    var _a3, _b2, _c2, _d2;
     const _0x40eefb = this["editor"]["plugins"]["get"]("LegacyListUtils");
     let _0x3eae39 = Array["from"](this["editor"]["model"]["document"]["selection"]["getSelectedBlocks"]());
-    return ((_a4 = _0x3eae39[0]) == null ? void 0 : _a4["is"]("element", "listItem")) && _0x3eae39["unshift"](..._0x40eefb["getSiblingNodes"](this["editor"]["model"]["document"]["selection"]["getFirstPosition"](), "backward")), ((_b2 = _0x3eae39[_0x3eae39["length"] - 1]) == null ? void 0 : _b2["is"]("element", "listItem")) && _0x3eae39["push"](..._0x40eefb["getSiblingNodes"](this["editor"]["model"]["document"]["selection"]["getLastPosition"](), "forward")), _0x3eae39 = [...new Set(_0x3eae39)], ((_d2 = (_c2 = this["editor"]["model"]["document"]["selection"]["getFirstPosition"]()) == null ? void 0 : _c2["parent"]) == null ? void 0 : _d2["is"]("element", "listItem")) && (_0x3eae39 = _0x3eae39["filter"]((_0x3130fb) => _0x3130fb["is"]("element", "listItem"))), _0x3eae39;
+    return ((_a3 = _0x3eae39[0]) == null ? void 0 : _a3["is"]("element", "listItem")) && _0x3eae39["unshift"](..._0x40eefb["getSiblingNodes"](this["editor"]["model"]["document"]["selection"]["getFirstPosition"](), "backward")), ((_b2 = _0x3eae39[_0x3eae39["length"] - 1]) == null ? void 0 : _b2["is"]("element", "listItem")) && _0x3eae39["push"](..._0x40eefb["getSiblingNodes"](this["editor"]["model"]["document"]["selection"]["getLastPosition"](), "forward")), _0x3eae39 = [...new Set(_0x3eae39)], ((_d2 = (_c2 = this["editor"]["model"]["document"]["selection"]["getFirstPosition"]()) == null ? void 0 : _c2["parent"]) == null ? void 0 : _d2["is"]("element", "listItem")) && (_0x3eae39 = _0x3eae39["filter"]((_0x3130fb) => _0x3130fb["is"]("element", "listItem"))), _0x3eae39;
   }
   ["_getSuggestionBlocks"](_0x5075fa) {
     const _0x4bb215 = this["editor"]["plugins"]["get"]("LegacyListUtils");
@@ -159065,7 +159061,7 @@ class dt extends Plugin {
     const _0x4a1199 = this["editor"];
     if (!_0x4a1199["plugins"]["has"]("MediaEmbedEditing")) return;
     const _0x143c03 = _0x4a1199["plugins"]["get"]("TrackChangesEditing"), _0x384d54 = _0x4a1199["locale"];
-    _0x143c03["enableCommand"]("mediaEmbed"), _0x143c03["descriptionFactory"]["registerElementLabel"]("media", (_0x3d9dd7) => c(_0x384d54, "ELEMENT_MEDIA", _0x3d9dd7)), _0x4a1199["conversion"]["for"]("dataDowncast")["elementToElement"]({ "model": "media", "view": (_0x497a4f, { writer: _0x461e0b, options: _0x1d27b8 }) => {
+    _0x143c03["enableCommand"]("mediaEmbed"), _0x143c03["descriptionFactory"]["registerElementLabel"]("media", (_0x3d9dd7) => c$1(_0x384d54, "ELEMENT_MEDIA", _0x3d9dd7)), _0x4a1199["conversion"]["for"]("dataDowncast")["elementToElement"]({ "model": "media", "view": (_0x497a4f, { writer: _0x461e0b, options: _0x1d27b8 }) => {
       if (_0x1d27b8["showSuggestionHighlights"]) return _0x461e0b["createEmptyElement"]("div");
     }, "converterPriority": "high" }), _0x4a1199["data"]["downcastDispatcher"]["on"]("attribute:url:media", (_0x12968a, _0x52d736, _0xad0d7d) => {
       _0xad0d7d["options"]["showSuggestionHighlights"] && _0x12968a["stop"]();
@@ -159083,7 +159079,7 @@ class wt extends Plugin {
     const _0x33cbfd = this["editor"];
     if (!_0x33cbfd["plugins"]["has"]("MergeFieldsEditing")) return;
     const _0x602171 = _0x33cbfd["plugins"]["get"]("TrackChangesEditing"), _0x42b955 = _0x33cbfd["locale"];
-    _0x602171["enableCommand"]("insertMergeField"), _0x602171["enableCommand"]("insertMergeFieldBlock"), _0x602171["enableCommand"]("insertMergeFieldImage"), _0x602171["descriptionFactory"]["registerElementLabel"]("mergeField", (_0x2db33d) => c(_0x42b955, "ELEMENT_MERGE_FIELD", _0x2db33d)), _0x602171["descriptionFactory"]["registerElementLabel"]("mergeFieldBlock", (_0x498a8f) => c(_0x42b955, "ELEMENT_MERGE_FIELD", _0x498a8f)), _0x602171["descriptionFactory"]["registerDescriptionCallback"]((_0x197166) => {
+    _0x602171["enableCommand"]("insertMergeField"), _0x602171["enableCommand"]("insertMergeFieldBlock"), _0x602171["enableCommand"]("insertMergeFieldImage"), _0x602171["descriptionFactory"]["registerElementLabel"]("mergeField", (_0x2db33d) => c$1(_0x42b955, "ELEMENT_MERGE_FIELD", _0x2db33d)), _0x602171["descriptionFactory"]["registerElementLabel"]("mergeFieldBlock", (_0x498a8f) => c$1(_0x42b955, "ELEMENT_MERGE_FIELD", _0x498a8f)), _0x602171["descriptionFactory"]["registerDescriptionCallback"]((_0x197166) => {
       if ("insertion" != _0x197166["type"] && "deletion" != _0x197166["type"]) return;
       const _0x47d302 = _0x197166["getContainedElement"]();
       if (null == _0x47d302) return;
@@ -159103,7 +159099,7 @@ class wt extends Plugin {
           break;
         }
       }
-      return "insertion" == _0x197166["type"] ? { "type": "insertion", "content": c(_0x42b955, "*Insert:* %0", '"' + _0xf22d43 + '" ' + c(_0x42b955, "ELEMENT_MERGE_FIELD")) } : { "type": "deletion", "content": c(_0x42b955, "*Remove:* %0", '"' + _0xf22d43 + '" ' + c(_0x42b955, "ELEMENT_MERGE_FIELD")) };
+      return "insertion" == _0x197166["type"] ? { "type": "insertion", "content": c$1(_0x42b955, "*Insert:* %0", '"' + _0xf22d43 + '" ' + c$1(_0x42b955, "ELEMENT_MERGE_FIELD")) } : { "type": "deletion", "content": c$1(_0x42b955, "*Remove:* %0", '"' + _0xf22d43 + '" ' + c$1(_0x42b955, "ELEMENT_MERGE_FIELD")) };
     });
   }
 }
@@ -159115,14 +159111,14 @@ class kt extends Plugin {
   ["handleDescriptions"](_0x957b51) {
     const _0x475efb = this["editor"]["locale"], { data: _0x576d42 } = _0x957b51, _0xeca92 = { "type": "format", "content": "" };
     if (_0x576d42 && "listMarkerStyle" == _0x576d42["key"]) {
-      if (!_0x576d42["oldValue"]) return { "type": "format", "content": c(_0x475efb, "*Set format:* %0", c(_0x475efb, "ELEMENT_MULTI_LEVEL_LIST")) + " (" + _0x576d42["newValue"] + ")" };
+      if (!_0x576d42["oldValue"]) return { "type": "format", "content": c$1(_0x475efb, "*Set format:* %0", c$1(_0x475efb, "ELEMENT_MULTI_LEVEL_LIST")) + " (" + _0x576d42["newValue"] + ")" };
       if (!_0x576d42["newValue"]) {
         let _0xee3180 = _0x957b51["head"];
         for (; _0xee3180; ) {
           if (_0xee3180["data"] && "listType" == _0xee3180["data"]["key"] && _0xee3180["data"]["newValue"]) return _0xeca92;
           _0xee3180 = _0xee3180["next"];
         }
-        return { "type": "format", "content": c(_0x475efb, "*Remove format:* %0", c(_0x475efb, "ELEMENT_MULTI_LEVEL_LIST")) + " (" + _0x576d42["oldValue"] + ")" };
+        return { "type": "format", "content": c$1(_0x475efb, "*Remove format:* %0", c$1(_0x475efb, "ELEMENT_MULTI_LEVEL_LIST")) + " (" + _0x576d42["oldValue"] + ")" };
       }
     }
   }
@@ -159133,7 +159129,7 @@ class bt extends Plugin {
     if (!_0x521c70["plugins"]["has"]("PageBreakEditing")) return;
     _0x521c70["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("pageBreak");
     const _0x4e7344 = _0x521c70["plugins"]["get"]("TrackChangesEditing"), _0x318ead = _0x521c70["locale"];
-    _0x4e7344["descriptionFactory"]["registerElementLabel"]("pageBreak", (_0x1665e0) => c(_0x318ead, "ELEMENT_PAGE_BREAK", _0x1665e0));
+    _0x4e7344["descriptionFactory"]["registerElementLabel"]("pageBreak", (_0x1665e0) => c$1(_0x318ead, "ELEMENT_PAGE_BREAK", _0x1665e0));
   }
 }
 class yt extends Plugin {
@@ -159141,7 +159137,7 @@ class yt extends Plugin {
     const _0x49eacb = this["editor"];
     if (!_0x49eacb["plugins"]["has"]("Paragraph")) return;
     const _0x290bd6 = _0x49eacb["locale"], _0x26548e = _0x49eacb["plugins"]["get"]("TrackChangesEditing");
-    _0x26548e["descriptionFactory"]["registerElementLabel"]("paragraph", (_0x44b511) => c(_0x290bd6, "ELEMENT_PARAGRAPH", _0x44b511)), _0x26548e["enableDefaultAttributesIntegration"]("paragraph"), _0x26548e["enableCommand"]("insertParagraph"), _0x49eacb["editing"]["downcastDispatcher"]["on"]("addMarker:suggestion:insertion", nr(_0x49eacb), { "priority": "highest" }), _0x49eacb["data"]["downcastDispatcher"]["on"]("addMarker:suggestion:insertion", (_0x41e9c6, _0xacd5bc, _0xe4f6c9) => {
+    _0x26548e["descriptionFactory"]["registerElementLabel"]("paragraph", (_0x44b511) => c$1(_0x290bd6, "ELEMENT_PARAGRAPH", _0x44b511)), _0x26548e["enableDefaultAttributesIntegration"]("paragraph"), _0x26548e["enableCommand"]("insertParagraph"), _0x49eacb["editing"]["downcastDispatcher"]["on"]("addMarker:suggestion:insertion", nr(_0x49eacb), { "priority": "highest" }), _0x49eacb["data"]["downcastDispatcher"]["on"]("addMarker:suggestion:insertion", (_0x41e9c6, _0xacd5bc, _0xe4f6c9) => {
       _0xe4f6c9["options"]["showSuggestionHighlights"] && nr(_0x49eacb, { "showActiveMarker": false })(_0x41e9c6, _0xacd5bc, _0xe4f6c9);
     }, { "priority": "highest" });
     const _0x265cfb = _0x26548e["descriptionFactory"];
@@ -159150,7 +159146,7 @@ class yt extends Plugin {
       const { start: _0x579873, end: _0x36c3a0 } = _0x591477["getFirstRange"]();
       if (!_0x579873["isTouching"](_0x36c3a0) || !_0x579873["nodeAfter"]) return;
       const _0x1a3859 = _0x49eacb["model"]["schema"], _0x1c6afb = _0x579873["nodeAfter"];
-      return _0x1a3859["isBlock"](_0x1c6afb) && !_0x1a3859["isLimit"](_0x1c6afb) && _0x1a3859["checkChild"](_0x1c6afb, "$text") ? { "type": "insertion", "content": c(_0x290bd6, "*Insert:* %0", _0x265cfb["getItemLabel"](_0x1c6afb, 1)) } : void 0;
+      return _0x1a3859["isBlock"](_0x1c6afb) && !_0x1a3859["isLimit"](_0x1c6afb) && _0x1a3859["checkChild"](_0x1c6afb, "$text") ? { "type": "insertion", "content": c$1(_0x290bd6, "*Insert:* %0", _0x265cfb["getItemLabel"](_0x1c6afb, 1)) } : void 0;
     }), this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
@@ -159158,7 +159154,7 @@ class yt extends Plugin {
     _0x575c95["plugins"]["get"]("TrackChangesEditing")["descriptionFactory"]["registerDescriptionCallback"]((_0x3caac5) => {
       if ("formatBlock" != _0x3caac5["type"]) return;
       const { data: _0x13a91f } = _0x3caac5;
-      return _0x13a91f && "paragraph" == _0x13a91f["commandName"] ? { "type": "format", "content": c(_0x4ff94e, "*Change to:* %0", c(_0x4ff94e, "ELEMENT_PARAGRAPH")) } : void 0;
+      return _0x13a91f && "paragraph" == _0x13a91f["commandName"] ? { "type": "format", "content": c$1(_0x4ff94e, "*Change to:* %0", c$1(_0x4ff94e, "ELEMENT_PARAGRAPH")) } : void 0;
     });
   }
 }
@@ -159191,7 +159187,7 @@ class St extends Plugin {
     _0x334046["plugins"]["get"]("TrackChangesEditing")["descriptionFactory"]["registerDescriptionCallback"]((_0x5ec5eb) => {
       if ("formatBlock" != _0x5ec5eb["type"] && "formatInline" != _0x5ec5eb["type"]) return;
       const { data: _0x57c4aa } = _0x5ec5eb;
-      return _0x57c4aa && "removeFormat" == _0x57c4aa["commandName"] ? { "type": "format", "content": c(_0x334046["locale"], "*Remove all formatting*") } : void 0;
+      return _0x57c4aa && "removeFormat" == _0x57c4aa["commandName"] ? { "type": "format", "content": c$1(_0x334046["locale"], "*Remove all formatting*") } : void 0;
     });
   }
 }
@@ -159212,7 +159208,7 @@ class It extends Plugin {
     const _0x277fe0 = _0xbdf25b["plugins"]["get"]("TrackChangesEditing");
     _0x277fe0["enableCommand"]("shiftEnter"), _0xbdf25b["editing"]["downcastDispatcher"]["on"]("addMarker:suggestion:insertion", je(_0xbdf25b), { "priority": "high" }), _0xbdf25b["editing"]["downcastDispatcher"]["on"]("addMarker:suggestion:deletion", je(_0xbdf25b), { "priority": "high" }), _0xbdf25b["data"]["downcastDispatcher"]["on"]("addMarker:suggestion", (_0x168ea1, _0x3f63b0, _0x2a130f) => {
       _0x2a130f["options"]["showSuggestionHighlights"] && je(_0xbdf25b, { "showActiveMarker": false })(_0x168ea1, _0x3f63b0, _0x2a130f);
-    }), _0x277fe0["descriptionFactory"]["registerElementLabel"]("softBreak", (_0x24d164) => c(_0xbdf25b["locale"], "ELEMENT_LINE_BREAK", _0x24d164));
+    }), _0x277fe0["descriptionFactory"]["registerElementLabel"]("softBreak", (_0x24d164) => c$1(_0xbdf25b["locale"], "ELEMENT_LINE_BREAK", _0x24d164));
   }
 }
 function je(_0x5ab4a0, { showActiveMarker: _0x12c2ad = true } = {}) {
@@ -159246,7 +159242,7 @@ class _t extends Plugin {
     }), _0x318d6b["descriptionFactory"]["registerDescriptionCallback"]((_0x4a3ab4) => {
       if ("formatBlock" != _0x4a3ab4["type"] && "formatInline" != _0x4a3ab4["type"]) return;
       const { data: _0x1e5be6 } = _0x4a3ab4;
-      return _0x1e5be6 && _0x1e5be6["commandName"] == _0xf8bc55 ? _0x1e5be6["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x1ba23d, "FORMAT_RESTRICTED_ENABLED") } : { "type": "format", "content": c(_0x1ba23d, "FORMAT_RESTRICTED_DISABLED") } : void 0;
+      return _0x1e5be6 && _0x1e5be6["commandName"] == _0xf8bc55 ? _0x1e5be6["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x1ba23d, "FORMAT_RESTRICTED_ENABLED") } : { "type": "format", "content": c$1(_0x1ba23d, "FORMAT_RESTRICTED_DISABLED") } : void 0;
     });
   }
 }
@@ -159267,8 +159263,8 @@ class vt extends Plugin {
       _0x56466c["add"](_0x43d6c4);
       for (const _0x5ee7ee of _0x4c80f0["ghsAttributes"]) _0x56466c["add"](_0x5ee7ee);
     }
-    for (const _0x9f601c of _0x4ae653) _0x3cd221["registerBlockAttribute"](_0x9f601c), _0x3cd221["descriptionFactory"]["registerAttributeLabel"](_0x9f601c, c(_0x23f601, "FORMAT_STYLE"));
-    for (const _0x543101 of _0x56466c) _0x3cd221["registerInlineAttribute"](_0x543101), _0x3cd221["descriptionFactory"]["registerAttributeLabel"](_0x543101, c(_0x23f601, "FORMAT_STYLE"));
+    for (const _0x9f601c of _0x4ae653) _0x3cd221["registerBlockAttribute"](_0x9f601c), _0x3cd221["descriptionFactory"]["registerAttributeLabel"](_0x9f601c, c$1(_0x23f601, "FORMAT_STYLE"));
+    for (const _0x543101 of _0x56466c) _0x3cd221["registerInlineAttribute"](_0x543101), _0x3cd221["descriptionFactory"]["registerAttributeLabel"](_0x543101, c$1(_0x23f601, "FORMAT_STYLE"));
     this["_registerLegacyDescription"]();
   }
   ["_registerLegacyDescription"]() {
@@ -159276,7 +159272,7 @@ class vt extends Plugin {
     _0x11e536["plugins"]["get"]("TrackChangesEditing")["descriptionFactory"]["registerDescriptionCallback"]((_0x99d206) => {
       if ("formatBlock" != _0x99d206["type"] && "formatInline" != _0x99d206["type"]) return;
       const { data: _0x4c446d } = _0x99d206;
-      return _0x4c446d && "style" === _0x4c446d["commandName"] ? _0x4c446d["commandParams"][0]["forceValue"] ? { "type": "format", "content": c(_0x984d9c, "*Set format:* %0", _0x4c446d["commandParams"][0]["styleName"]["toLowerCase"]()) } : { "type": "format", "content": c(_0x984d9c, "*Remove format:* %0", _0x4c446d["commandParams"][0]["styleName"]["toLowerCase"]()) } : void 0;
+      return _0x4c446d && "style" === _0x4c446d["commandName"] ? _0x4c446d["commandParams"][0]["forceValue"] ? { "type": "format", "content": c$1(_0x984d9c, "*Set format:* %0", _0x4c446d["commandParams"][0]["styleName"]["toLowerCase"]()) } : { "type": "format", "content": c$1(_0x984d9c, "*Remove format:* %0", _0x4c446d["commandParams"][0]["styleName"]["toLowerCase"]()) } : void 0;
     });
   }
 }
@@ -159291,7 +159287,7 @@ class Ct extends Plugin {
     const _0x3fb9b3 = this["editor"], _0x10cf9c = _0x3fb9b3["model"]["document"]["selection"];
     if (!_0x3fb9b3["plugins"]["has"]("TableEditing")) return;
     const _0x125b1e = _0x3fb9b3["locale"], _0xf89b76 = _0x3fb9b3["plugins"]["get"]("TrackChangesEditing"), _0x131986 = _0x3fb9b3["plugins"]["get"]("TableUtils");
-    _0xf89b76["descriptionFactory"]["registerElementLabel"]("table", (_0x16614d) => c(_0x125b1e, "ELEMENT_TABLE", _0x16614d)), this["_setupColumnsRowsFixing"](), _0xf89b76["enableCommand"]("insertTable"), _0xf89b76["enableCommand"]("selectTableRow"), _0xf89b76["enableCommand"]("selectTableColumn");
+    _0xf89b76["descriptionFactory"]["registerElementLabel"]("table", (_0x16614d) => c$1(_0x125b1e, "ELEMENT_TABLE", _0x16614d)), this["_setupColumnsRowsFixing"](), _0xf89b76["enableCommand"]("insertTable"), _0xf89b76["enableCommand"]("selectTableRow"), _0xf89b76["enableCommand"]("selectTableColumn");
     for (const _0x4e9b73 of ["insertTableRowAbove", "insertTableRowBelow"]) {
       const _0x2c4002 = _0x3fb9b3["commands"]["get"](_0x4e9b73);
       _0xf89b76["enableCommand"](_0x4e9b73, (_0x19494e) => {
@@ -159380,23 +159376,23 @@ class Ct extends Plugin {
       if (null != _0x33456a && _0x33456a["is"]("element", "table")) {
         if ("insertion" == _0x29e8ee["type"]) {
           const _0x35fe0a = _0x29e8ee["getItems"]()["filter"]((_0x2957ba) => _0x2957ba["is"]("$textProxy"))["map"]((_0x5a0555) => _0x5a0555["data"]);
-          if (_0x35fe0a["length"]) return { "type": "insertion", "content": c(_0x125b1e, "*Insert:* %0", c(_0x125b1e, "ELEMENT_TABLE_WITH_TEXT", '"' + _0x35fe0a["join"](" ") + '"')) };
+          if (_0x35fe0a["length"]) return { "type": "insertion", "content": c$1(_0x125b1e, "*Insert:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_WITH_TEXT", '"' + _0x35fe0a["join"](" ") + '"')) };
         }
         if ("deletion" == _0x29e8ee["type"]) {
           const _0x1b4cb8 = _0x29e8ee["getItems"]()["filter"]((_0x1f2911) => _0x1f2911["is"]("$textProxy"))["map"]((_0x1aaf2c) => _0x1aaf2c["data"]);
-          if (_0x1b4cb8["length"]) return { "type": "deletion", "content": c(_0x125b1e, "*Remove:* %0", c(_0x125b1e, "ELEMENT_TABLE_WITH_TEXT", '"' + _0x1b4cb8["join"](" ") + '"')) };
+          if (_0x1b4cb8["length"]) return { "type": "deletion", "content": c$1(_0x125b1e, "*Remove:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_WITH_TEXT", '"' + _0x1b4cb8["join"](" ") + '"')) };
         }
       }
     }), _0xf89b76["descriptionFactory"]["registerDescriptionCallback"]((_0x46342b) => {
       if ("tableRow" == _0x46342b["subType"]) {
         const _0x3fb803 = _0x46342b["getItems"]()["filter"]((_0x11bd60) => _0x11bd60["is"]("$textProxy"))["map"]((_0x1f1be5) => _0x1f1be5["data"]), _0x4daa37 = this["_getSuggestionCoords"](_0x46342b), _0x50ea29 = _0x4daa37["maxRow"] - _0x4daa37["minRow"] + 1;
-        if ("insertion" == _0x46342b["type"]) return _0x3fb803["length"] ? { "type": "insertion", "content": c(_0x125b1e, "*Insert:* %0", c(_0x125b1e, "ELEMENT_TABLE_ROW_WITH_TEXT", [_0x50ea29, '"' + _0x3fb803["join"](" ") + '"'])) } : { "type": "insertion", "content": c(_0x125b1e, "*Insert:* %0", c(_0x125b1e, "ELEMENT_TABLE_ROW", _0x50ea29)) };
-        if ("deletion" == _0x46342b["type"]) return _0x3fb803["length"] ? { "type": "deletion", "content": c(_0x125b1e, "*Remove:* %0", c(_0x125b1e, "ELEMENT_TABLE_ROW_WITH_TEXT", [_0x50ea29, '"' + _0x3fb803["join"](" ") + '"'])) } : { "type": "deletion", "content": c(_0x125b1e, "*Remove:* %0", c(_0x125b1e, "ELEMENT_TABLE_ROW", _0x50ea29)) };
+        if ("insertion" == _0x46342b["type"]) return _0x3fb803["length"] ? { "type": "insertion", "content": c$1(_0x125b1e, "*Insert:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_ROW_WITH_TEXT", [_0x50ea29, '"' + _0x3fb803["join"](" ") + '"'])) } : { "type": "insertion", "content": c$1(_0x125b1e, "*Insert:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_ROW", _0x50ea29)) };
+        if ("deletion" == _0x46342b["type"]) return _0x3fb803["length"] ? { "type": "deletion", "content": c$1(_0x125b1e, "*Remove:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_ROW_WITH_TEXT", [_0x50ea29, '"' + _0x3fb803["join"](" ") + '"'])) } : { "type": "deletion", "content": c$1(_0x125b1e, "*Remove:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_ROW", _0x50ea29)) };
       }
       if ("tableColumn" == _0x46342b["subType"]) {
         const _0x1a8b49 = _0x46342b["getItems"]()["filter"]((_0x13d204) => _0x13d204["is"]("$textProxy"))["map"]((_0x47a056) => _0x47a056["data"]), _0x5daf9c = this["_getSuggestionCoords"](_0x46342b), _0x17ad6e = _0x5daf9c["maxColumn"] - _0x5daf9c["minColumn"] + 1;
-        if ("insertion" == _0x46342b["type"]) return _0x1a8b49["length"] ? { "type": "insertion", "content": c(_0x125b1e, "*Insert:* %0", c(_0x125b1e, "ELEMENT_TABLE_COLUMN_WITH_TEXT", [_0x17ad6e, '"' + _0x1a8b49["join"](" ") + '"'])) } : { "type": "insertion", "content": c(_0x125b1e, "*Insert:* %0", c(_0x125b1e, "ELEMENT_TABLE_COLUMN", _0x17ad6e)) };
-        if ("deletion" == _0x46342b["type"]) return _0x1a8b49["length"] ? { "type": "deletion", "content": c(_0x125b1e, "*Remove:* %0", c(_0x125b1e, "ELEMENT_TABLE_COLUMN_WITH_TEXT", [_0x17ad6e, '"' + _0x1a8b49["join"](" ") + '"'])) } : { "type": "deletion", "content": c(_0x125b1e, "*Remove:* %0", c(_0x125b1e, "ELEMENT_TABLE_COLUMN", _0x17ad6e)) };
+        if ("insertion" == _0x46342b["type"]) return _0x1a8b49["length"] ? { "type": "insertion", "content": c$1(_0x125b1e, "*Insert:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_COLUMN_WITH_TEXT", [_0x17ad6e, '"' + _0x1a8b49["join"](" ") + '"'])) } : { "type": "insertion", "content": c$1(_0x125b1e, "*Insert:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_COLUMN", _0x17ad6e)) };
+        if ("deletion" == _0x46342b["type"]) return _0x1a8b49["length"] ? { "type": "deletion", "content": c$1(_0x125b1e, "*Remove:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_COLUMN_WITH_TEXT", [_0x17ad6e, '"' + _0x1a8b49["join"](" ") + '"'])) } : { "type": "deletion", "content": c$1(_0x125b1e, "*Remove:* %0", c$1(_0x125b1e, "ELEMENT_TABLE_COLUMN", _0x17ad6e)) };
       }
     }), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("insertion", "tableRow", "discard", _0x51c0a0), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("deletion", "tableRow", "accept", _0x51c0a0), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("insertion", "tableColumn", "discard", _0x4988ce), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("deletion", "tableColumn", "accept", _0x4988ce), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("insertion", "tableColumn", "join", _0x439726), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("deletion", "tableColumn", "join", _0x439726), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("insertion", "tableRow", "join", _0x5a56f1), _0xf89b76["_suggestionFactory"]["registerCustomCallback"]("deletion", "tableRow", "join", _0x5a56f1);
   }
@@ -159514,11 +159510,11 @@ class Nt extends Plugin {
     _0xe7ede3["descriptionFactory"]["registerDescriptionCallback"]((_0x2d3b06) => {
       if ("formatBlock" != _0x2d3b06["type"] && "formatInline" != _0x2d3b06["type"]) return;
       const { data: _0x160ccd } = _0x2d3b06;
-      return _0x160ccd && "mergeTableCells" == _0x160ccd["commandName"] ? { "type": "format", "content": c(_0x232bc8, "*Merge cells*") } : void 0;
+      return _0x160ccd && "mergeTableCells" == _0x160ccd["commandName"] ? { "type": "format", "content": c$1(_0x232bc8, "*Merge cells*") } : void 0;
     }), _0xe7ede3["descriptionFactory"]["registerDescriptionCallback"]((_0x1789b9) => {
       if ("formatBlock" != _0x1789b9["type"] && "formatInline" != _0x1789b9["type"]) return;
       const { data: _0x59ef33 } = _0x1789b9;
-      return _0x59ef33 ? "splitTableCellVertically" == _0x59ef33["commandName"] ? { "type": "format", "content": c(_0x232bc8, "*Split cell:* vertically") } : "splitTableCellHorizontally" == _0x59ef33["commandName"] ? { "type": "format", "content": c(_0x232bc8, "*Split cell:* horizontally") } : void 0 : void 0;
+      return _0x59ef33 ? "splitTableCellVertically" == _0x59ef33["commandName"] ? { "type": "format", "content": c$1(_0x232bc8, "*Split cell:* vertically") } : "splitTableCellHorizontally" == _0x59ef33["commandName"] ? { "type": "format", "content": c$1(_0x232bc8, "*Split cell:* horizontally") } : void 0 : void 0;
     });
     const _0x46aa94 = _0x3ceee9["_acceptFormatSuggestionCallbackFactory"]();
     for (const _0x1845fd of ["mergeTableCellUp", "mergeTableCellRight", "mergeTableCellDown", "mergeTableCellLeft"]) _0xe7ede3["_suggestionFactory"]["registerCustomCallback"]("formatBlock", _0x1845fd, "accept", _0x46aa94);
@@ -159567,7 +159563,7 @@ class Dt extends Plugin {
     const _0x26659b = this["editor"];
     if (!_0x26659b["plugins"]["has"]("TableEditing")) return;
     const _0xf76b5c = _0x26659b["locale"], _0x396065 = _0x26659b["plugins"]["get"]("TrackChangesEditing");
-    _0x396065["enableDefaultAttributesIntegration"]("setTableRowHeader"), _0x396065["enableDefaultAttributesIntegration"]("setTableColumnHeader"), _0x396065["registerBlockAttribute"]("headingRows"), _0x396065["registerBlockAttribute"]("headingColumns"), _0x396065["descriptionFactory"]["registerAttributeLabel"]("headingRows", c(_0xf76b5c, "FORMAT_HEADER_ROW")), _0x396065["descriptionFactory"]["registerAttributeLabel"]("headingColumns", c(_0xf76b5c, "FORMAT_HEADER_COLUMN")), this["_handleLegacySuggestions"]();
+    _0x396065["enableDefaultAttributesIntegration"]("setTableRowHeader"), _0x396065["enableDefaultAttributesIntegration"]("setTableColumnHeader"), _0x396065["registerBlockAttribute"]("headingRows"), _0x396065["registerBlockAttribute"]("headingColumns"), _0x396065["descriptionFactory"]["registerAttributeLabel"]("headingRows", c$1(_0xf76b5c, "FORMAT_HEADER_ROW")), _0x396065["descriptionFactory"]["registerAttributeLabel"]("headingColumns", c$1(_0xf76b5c, "FORMAT_HEADER_COLUMN")), this["_handleLegacySuggestions"]();
   }
   ["_handleLegacySuggestions"]() {
     const _0x58e602 = this["editor"]["plugins"]["get"]("TrackChangesEditing"), _0x2e8b27 = this["editor"]["plugins"]["get"]("TableUtils"), _0x51e71d = this["editor"]["plugins"]["get"](Ct)["_acceptFormatSuggestionCallbackFactory"]();
@@ -159601,7 +159597,7 @@ class Dt extends Plugin {
   ["_registerLegacyDescription"]() {
     const _0x5b5c27 = this["editor"], _0x216f85 = _0x5b5c27["locale"];
     function _0x176aa4(_0x5db118) {
-      return { "type": "format", "content": c(_0x216f85, "*Format:* %0", _0x5db118) };
+      return { "type": "format", "content": c$1(_0x216f85, "*Format:* %0", _0x5db118) };
     }
     _0x5b5c27["plugins"]["get"]("TrackChangesEditing")["descriptionFactory"]["registerDescriptionCallback"]((_0x431f80) => {
       if ("formatBlock" != _0x431f80["type"]) return;
@@ -159609,11 +159605,11 @@ class Dt extends Plugin {
       if (_0x570887) {
         if ("setTableRowHeader" == _0x570887["commandName"]) {
           const _0x103f2f = _0x570887["commandParams"][0]["forceValue"];
-          return _0x176aa4(c(_0x216f85, _0x103f2f ? "FORMAT_HEADER_ROW" : "FORMAT_REGULAR_ROW"));
+          return _0x176aa4(c$1(_0x216f85, _0x103f2f ? "FORMAT_HEADER_ROW" : "FORMAT_REGULAR_ROW"));
         }
         if ("setTableColumnHeader" == _0x570887["commandName"]) {
           const _0x4684ea = _0x570887["commandParams"][0]["forceValue"];
-          return _0x176aa4(c(_0x216f85, _0x4684ea ? "FORMAT_HEADER_COLUMN" : "FORMAT_REGULAR_COLUMN"));
+          return _0x176aa4(c$1(_0x216f85, _0x4684ea ? "FORMAT_HEADER_COLUMN" : "FORMAT_REGULAR_COLUMN"));
         }
       }
     });
@@ -159623,15 +159619,15 @@ class Ye extends Plugin {
   ["afterInit"]() {
     const _0x5a970a = this["editor"], _0xa0bbcf = _0x5a970a["locale"], _0x5be220 = _0x5a970a["plugins"]["get"]("TrackChangesEditing");
     function _0x3df2d3(_0x390430) {
-      return { "type": "format", "content": "" + c(_0xa0bbcf, "*Set table type:* %0", _0x390430) };
+      return { "type": "format", "content": "" + c$1(_0xa0bbcf, "*Set table type:* %0", _0x390430) };
     }
-    _0x5a970a["plugins"]["has"]("TableLayout") && (_0x5be220["enableCommand"]("insertTableLayout"), _0x5be220["enableDefaultAttributesIntegration"]("tableType"), _0x5be220["registerBlockAttribute"]("tableType"), _0x5be220["descriptionFactory"]["registerElementLabel"]((_0x35d17d) => _0x35d17d["is"]("element", "table") && "layout" === _0x35d17d["getAttribute"]("tableType"), (_0x466d43) => c(_0xa0bbcf, "ELEMENT_LAYOUT_TABLE", _0x466d43)), _0x5be220["descriptionFactory"]["registerDescriptionCallback"]((_0x5dcb9f) => {
+    _0x5a970a["plugins"]["has"]("TableLayout") && (_0x5be220["enableCommand"]("insertTableLayout"), _0x5be220["enableDefaultAttributesIntegration"]("tableType"), _0x5be220["registerBlockAttribute"]("tableType"), _0x5be220["descriptionFactory"]["registerElementLabel"]((_0x35d17d) => _0x35d17d["is"]("element", "table") && "layout" === _0x35d17d["getAttribute"]("tableType"), (_0x466d43) => c$1(_0xa0bbcf, "ELEMENT_LAYOUT_TABLE", _0x466d43)), _0x5be220["descriptionFactory"]["registerDescriptionCallback"]((_0x5dcb9f) => {
       const { data: _0x55bed9 } = _0x5dcb9f;
       if (_0x55bed9 && "tableType" == _0x55bed9["key"]) switch (_0x55bed9["newValue"]) {
         case "layout":
-          return _0x3df2d3(c(_0xa0bbcf, "ELEMENT_LAYOUT_TABLE"));
+          return _0x3df2d3(c$1(_0xa0bbcf, "ELEMENT_LAYOUT_TABLE"));
         case "content":
-          return _0x3df2d3(c(_0xa0bbcf, "ELEMENT_CONTENT_TABLE"));
+          return _0x3df2d3(c$1(_0xa0bbcf, "ELEMENT_CONTENT_TABLE"));
       }
     }));
   }
@@ -159664,11 +159660,11 @@ class $t extends Plugin {
         _0x34a8e7["model"]["insertContent"](_0x3563c2[0], _0x3563c2[1], _0x3563c2[2], { "forceDefaultExecution": true });
         const _0x5cfdc0 = uid(), { rowInsertionRanges: _0xd75140, columnInsertionRanges: _0x50157c, insertionRanges: _0x10e5be, deletionRanges: _0x2f2713, cells: _0x228b8e } = _0x348843;
         _0xd75140["length"] && _0x119542["markMultiRangeInsertion"](_0xd75140, "tablePasteRow", { "tablePasteChainId": _0x5cfdc0 }), _0x50157c["length"] && _0x119542["markMultiRangeInsertion"](_0x50157c, "tablePasteColumn", { "tablePasteChainId": _0x5cfdc0 }), _0x10e5be["length"] && (_0x119542["markMultiRangeInsertion"](_0x10e5be, "tablePaste", { "tablePasteChainId": _0x5cfdc0, "skipNestingCheck": true }), _0x10e5be["forEach"]((_0x35a38f) => {
-          var _a4;
-          return (_a4 = _0x35a38f["detach"]) == null ? void 0 : _a4.call(_0x35a38f);
+          var _a3;
+          return (_a3 = _0x35a38f["detach"]) == null ? void 0 : _a3.call(_0x35a38f);
         })), _0x2f2713["length"] && (_0x119542["markMultiRangeDeletion"](_0x2f2713, "tablePaste", { "tablePasteChainId": _0x5cfdc0, "skipNestingCheck": true }), _0x2f2713["forEach"]((_0x356b3d) => {
-          var _a4;
-          return (_a4 = _0x356b3d["detach"]) == null ? void 0 : _a4.call(_0x356b3d);
+          var _a3;
+          return (_a3 = _0x356b3d["detach"]) == null ? void 0 : _a3.call(_0x356b3d);
         }));
         const _0x5c0c6a = _0x119542["markMultiRangeBlockFormat"](_0x228b8e["map"](({ element: _0x2c0036 }) => _0x2c0036), { "formatGroupId": uid() }, [], "tablePasteCell", { "tablePasteChainId": _0x5cfdc0 });
         if (_0x5c0c6a) {
@@ -159719,7 +159715,7 @@ class $t extends Plugin {
       _0x348843["rowInsertionIndexes"] = new Array(_0x1bb785)["fill"](_0x2de9a8)["map"]((_0x37086e, _0x1643d1) => _0x37086e + _0x1643d1);
       for (const { cell: _0x2c2599 } of _0x2ad11b["createTableWalker"](_0x5fe844, { "startRow": _0x2de9a8, "endRow": _0x2de9a8 + _0x1bb785 - 1 })) _0x348843["rowInsertionRanges"]["push"](_0x34a8e7["model"]["createRangeOn"](_0x2c2599));
     }, { "priority": "low" }), _0x119542["descriptionFactory"]["registerDescriptionCallback"]((_0x1d6bc5) => {
-      if (_0x1d6bc5["subType"] && _0x1d6bc5["subType"]["startsWith"]("tablePaste")) return _0x1d6bc5["previous"] ? {} : { "type": "insertion", "content": c(_0x34a8e7["locale"], "*Replace table cells*") };
+      if (_0x1d6bc5["subType"] && _0x1d6bc5["subType"]["startsWith"]("tablePaste")) return _0x1d6bc5["previous"] ? {} : { "type": "insertion", "content": c$1(_0x34a8e7["locale"], "*Replace table cells*") };
     });
     const _0x13041f = () => false;
     for (const _0x104635 of ["tablePaste", "tablePasteColumn", "tablePasteRow", "tablePasteCell"]) _0x119542["_suggestionFactory"]["registerCustomCallback"]("insertion", _0x104635, "join", _0x13041f), _0x119542["_suggestionFactory"]["registerCustomCallback"]("deletion", _0x104635, "join", _0x13041f), _0x119542["_suggestionFactory"]["registerCustomCallback"]("formatBlock", _0x104635, "join", _0x13041f);
@@ -159887,7 +159883,7 @@ class Bt extends Plugin {
     const { data: _0x4a0a7f } = _0x235c53;
     if (_0x4a0a7f && "resizeTable" === _0x4a0a7f["formatGroupId"]) {
       const _0xfa72b4 = "*Format:* resize table";
-      return { "type": "format", "content": c(this["editor"]["locale"], _0xfa72b4) };
+      return { "type": "format", "content": c$1(this["editor"]["locale"], _0xfa72b4) };
     }
   }
 }
@@ -159903,7 +159899,7 @@ class Rt extends Plugin {
     if (!_0x2b0c09["commands"]["get"]("insertTableOfContents")) return;
     _0x2b0c09["plugins"]["get"]("TrackChangesEditing")["enableCommand"]("insertTableOfContents");
     const _0x5651ff = _0x2b0c09["plugins"]["get"]("TrackChangesEditing"), _0xdfae9a = _0x2b0c09["locale"];
-    _0x5651ff["descriptionFactory"]["registerElementLabel"]("tableOfContents", (_0x3884e7) => c(_0xdfae9a, "ELEMENT_TABLE_OF_CONTENTS", _0x3884e7));
+    _0x5651ff["descriptionFactory"]["registerElementLabel"]("tableOfContents", (_0x3884e7) => c$1(_0xdfae9a, "ELEMENT_TABLE_OF_CONTENTS", _0x3884e7));
   }
 }
 class xt extends Plugin {
@@ -159911,7 +159907,7 @@ class xt extends Plugin {
     const _0x43d009 = this["editor"];
     if (!_0x43d009["plugins"]["has"]("Title")) return;
     const _0x1170bd = _0x43d009["plugins"]["get"]("TrackChangesEditing");
-    _0x1170bd["descriptionFactory"]["registerElementLabel"]("title-content", () => c(_0x43d009["locale"], "ELEMENT_TITLE")), _0x43d009["model"]["document"]["registerPostFixer"]((_0x3e78e7) => {
+    _0x1170bd["descriptionFactory"]["registerElementLabel"]("title-content", () => c$1(_0x43d009["locale"], "ELEMENT_TITLE")), _0x43d009["model"]["document"]["registerPostFixer"]((_0x3e78e7) => {
       let _0x3aadac = false;
       const _0x56a805 = Array["from"](_0x43d009["model"]["document"]["differ"]["getChangedMarkers"]());
       for (const { name: _0x5d7173, data: _0x39287c } of _0x56a805) {
@@ -160016,9 +160012,9 @@ class Vt extends Plugin {
   ["handleSuggestionDescription"](_0x3c0eee) {
     if (_0x3c0eee["data"]) switch (_0x3c0eee["subType"]) {
       case "tableProperties":
-        return { "type": "format", "content": c(this["editor"]["locale"], "*Format:* change table properties") };
+        return { "type": "format", "content": c$1(this["editor"]["locale"], "*Format:* change table properties") };
       case "tableCellProperties":
-        return { "type": "format", "content": c(this["editor"]["locale"], "*Format:* change table cell properties") };
+        return { "type": "format", "content": c$1(this["editor"]["locale"], "*Format:* change table cell properties") };
     }
   }
   ["_getSuggestion"](_0x806c3e, _0x5e26cd) {
@@ -160030,8 +160026,8 @@ class Vt extends Plugin {
     return null;
   }
 }
-const u = "$elementName";
-class p extends Plugin {
+const u$1 = "$elementName";
+let p$1 = class p6 extends Plugin {
   constructor(_0x4b44c7) {
     super(_0x4b44c7);
     __publicField(this, "descriptionFactory");
@@ -160053,10 +160049,10 @@ class p extends Plugin {
       this["_model"]["change"](() => {
         for (const _0xfc081c of [..._0x2bd465, ..._0x351242]) this["_model"]["markers"]["has"](_0xfc081c) && _0x4b44c7["editing"]["reconvertMarker"](_0xfc081c);
       });
-    }), this["descriptionFactory"] = new f(this["editor"]["model"]["schema"], this["editor"]["locale"]), this["_adapter"] = null, this["_suggestionFactory"] = new Pt(this["editor"]), this["_suggestions"] = /* @__PURE__ */ new Map(), this["_commentsRepository"] = _0x4b44c7["plugins"]["get"]("CommentsRepository"), this["_enabledCommands"] = /* @__PURE__ */ new Set(), this["_model"] = this["editor"]["model"], this["_suggestionState"] = /* @__PURE__ */ new WeakMap(), this["_isForcedDefaultExecutionBlock"] = false, this["_blockAttributeKeys"] = /* @__PURE__ */ new Set([u]), this["_inlineAttributeKeys"] = /* @__PURE__ */ new Set(), _0x4b44c7["config"]["define"]("trackChanges.trackFormatChanges", "default"), this["_trackFormatChanges"] = _0x4b44c7["config"]["get"]("trackChanges.trackFormatChanges"), _0x4b44c7["config"]["define"]("trackChanges.mergeNestedSuggestions", true), this["_mergeNestedSuggestions"] = _0x4b44c7["config"]["get"]("trackChanges.mergeNestedSuggestions"), this["trackChangesCommand"] = new B(_0x4b44c7, this["_enabledCommands"]), this["_initAriaMarkerChangeAnnouncements"]();
+    }), this["descriptionFactory"] = new f$1(this["editor"]["model"]["schema"], this["editor"]["locale"]), this["_adapter"] = null, this["_suggestionFactory"] = new Pt(this["editor"]), this["_suggestions"] = /* @__PURE__ */ new Map(), this["_commentsRepository"] = _0x4b44c7["plugins"]["get"]("CommentsRepository"), this["_enabledCommands"] = /* @__PURE__ */ new Set(), this["_model"] = this["editor"]["model"], this["_suggestionState"] = /* @__PURE__ */ new WeakMap(), this["_isForcedDefaultExecutionBlock"] = false, this["_blockAttributeKeys"] = /* @__PURE__ */ new Set([u$1]), this["_inlineAttributeKeys"] = /* @__PURE__ */ new Set(), _0x4b44c7["config"]["define"]("trackChanges.trackFormatChanges", "default"), this["_trackFormatChanges"] = _0x4b44c7["config"]["get"]("trackChanges.trackFormatChanges"), _0x4b44c7["config"]["define"]("trackChanges.mergeNestedSuggestions", true), this["_mergeNestedSuggestions"] = _0x4b44c7["config"]["get"]("trackChanges.mergeNestedSuggestions"), this["trackChangesCommand"] = new B(_0x4b44c7, this["_enabledCommands"]), this["_initAriaMarkerChangeAnnouncements"]();
   }
   static get ["requires"]() {
-    return ["CommentsRepository", u$6, PendingActions, U, V, F, G, L, K, J, H, q, z, X, Y, Z, tt, et, nt, it, st, ot, rt, ct, at, ut, ft, ht, gt, Q, kt, lt, W, Se, dt, pt, wt, bt, yt, jt, St, At, It, _t, vt, Ct, Nt, Dt, Ye, Ut, $t, Bt, Rt, Vt, Ot, xt, Tt, Et];
+    return ["CommentsRepository", u$7, PendingActions, U, V, F, G, L$1, K$1, J, H, q, z, X, Y, Z, tt, et, nt, it, st, ot, rt, ct, at, ut, ft, ht, gt, Q, kt, lt, W, Se, dt, pt, wt, bt, yt, jt, St, At, It, _t, vt, Ct, Nt, Dt, Ye, Ut, $t, Bt, Rt, Vt, Ot, xt, Tt, Et];
   }
   static get ["pluginName"]() {
     return "TrackChangesEditing";
@@ -160183,7 +160179,7 @@ class p extends Plugin {
       for (const _0xd7df98 of _0x88e815) {
         if ("rename" != _0xd7df98["action"] && "refresh" != _0xd7df98["action"]) continue;
         const _0x505586 = zt(_0xd7df98["position"]["nodeAfter"], _0x3283bc["model"]), _0x2d018c = _0xd7df98["before"];
-        "rename" == _0xd7df98["action"] && _0xb905fd["push"]({ "key": u, "newValue": _0xd7df98["name"], "oldValue": _0x2d018c["name"], "range": _0x505586 });
+        "rename" == _0xd7df98["action"] && _0xb905fd["push"]({ "key": u$1, "newValue": _0xd7df98["name"], "oldValue": _0x2d018c["name"], "range": _0x505586 });
         for (const [_0x4ee9a1, _0x4556a0] of _0x2d018c["attributes"]) {
           if (!this["_isRegisteredAttribute"](_0x4ee9a1)) continue;
           const _0x12b616 = _0xd7df98["attributes"]["get"](_0x4ee9a1);
@@ -160276,7 +160272,7 @@ class p extends Plugin {
     const _0x3e5725 = new O(_0x3283bc, this["_suggestions"]);
     _0x3283bc["commands"]["add"]("acceptSuggestion", _0x3e5725), this["enableCommand"]("acceptSuggestion");
     const _0x1f6e87 = new R(_0x3283bc, this["_suggestions"]);
-    _0x3283bc["commands"]["add"]("discardSuggestion", _0x1f6e87), this["enableCommand"]("discardSuggestion"), _0x3283bc["commands"]["add"]("acceptAllSuggestions", new x(_0x3283bc, _0x3e5725, this["_suggestions"])), this["enableCommand"]("acceptAllSuggestions"), _0x3283bc["commands"]["add"]("discardAllSuggestions", new x(_0x3283bc, _0x1f6e87, this["_suggestions"])), this["enableCommand"]("discardAllSuggestions"), _0x3283bc["commands"]["add"]("acceptSelectedSuggestions", new E(_0x3283bc, _0x3e5725, this["_suggestions"])), this["enableCommand"]("acceptSelectedSuggestions"), _0x3283bc["commands"]["add"]("discardSelectedSuggestions", new E(_0x3283bc, _0x1f6e87, this["_suggestions"])), this["enableCommand"]("discardSelectedSuggestions");
+    _0x3283bc["commands"]["add"]("discardSuggestion", _0x1f6e87), this["enableCommand"]("discardSuggestion"), _0x3283bc["commands"]["add"]("acceptAllSuggestions", new x$1(_0x3283bc, _0x3e5725, this["_suggestions"])), this["enableCommand"]("acceptAllSuggestions"), _0x3283bc["commands"]["add"]("discardAllSuggestions", new x$1(_0x3283bc, _0x1f6e87, this["_suggestions"])), this["enableCommand"]("discardAllSuggestions"), _0x3283bc["commands"]["add"]("acceptSelectedSuggestions", new E(_0x3283bc, _0x3e5725, this["_suggestions"])), this["enableCommand"]("acceptSelectedSuggestions"), _0x3283bc["commands"]["add"]("discardSelectedSuggestions", new E(_0x3283bc, _0x1f6e87, this["_suggestions"])), this["enableCommand"]("discardSelectedSuggestions");
     const _0x276715 = _0x3283bc["plugins"]["get"]("CommentsRepository");
     this["listenTo"](_0x276715, "addComment", (_0x4f2021, { threadId: _0x19acf4 }) => {
       const _0x5d8ab1 = this["_suggestions"]["get"](_0x19acf4);
@@ -160920,7 +160916,7 @@ class p extends Plugin {
     return _0x4557fa;
   }
   ["_getExternalAuthor"](_0x239945) {
-    const _0x455534 = this["editor"]["plugins"]["get"]("Users"), _0x1240aa = j$2("external:" + _0x239945), _0x15d2db = _0x455534["getUser"](_0x1240aa);
+    const _0x455534 = this["editor"]["plugins"]["get"]("Users"), _0x1240aa = j$3("external:" + _0x239945), _0x15d2db = _0x455534["getUser"](_0x1240aa);
     return _0x15d2db || _0x455534["addUser"]({ "id": _0x1240aa, "name": _0x239945 });
   }
   ["_createSuggestion"](_0x34898c, _0xe0c1b5, _0x42b227, _0x2e66b3, _0x3556b8) {
@@ -160981,7 +160977,7 @@ class p extends Plugin {
   ["_setSuggestionData"](_0x363e2f) {
     const _0x50898d = _0x363e2f["id"], _0x2374c1 = this["addSuggestionData"](_0x363e2f);
     if (this["_adapter"] && this["_adapter"]["addSuggestion"]) {
-      const _0x4ee22c = this["editor"]["plugins"]["get"]("PendingActions"), _0x2c34fd = _0x2374c1["hasComments"], _0x53840a = _0x2374c1["subType"] ? _0x2374c1["type"] + ":" + _0x2374c1["subType"] : _0x2374c1["type"], _0x44422e = this["editor"]["locale"], _0x14614e = _0x4ee22c["add"](c(_0x44422e, "PENDING_ACTION_SUGGESTION")), _0x10b1dd = { "id": _0x50898d, "type": _0x53840a, "hasComments": _0x2c34fd, "data": _0x363e2f["data"] || null, "originalSuggestionId": _0x363e2f["originalSuggestionId"] || null, "attributes": _0x2374c1["attributes"] };
+      const _0x4ee22c = this["editor"]["plugins"]["get"]("PendingActions"), _0x2c34fd = _0x2374c1["hasComments"], _0x53840a = _0x2374c1["subType"] ? _0x2374c1["type"] + ":" + _0x2374c1["subType"] : _0x2374c1["type"], _0x44422e = this["editor"]["locale"], _0x14614e = _0x4ee22c["add"](c$1(_0x44422e, "PENDING_ACTION_SUGGESTION")), _0x10b1dd = { "id": _0x50898d, "type": _0x53840a, "hasComments": _0x2c34fd, "data": _0x363e2f["data"] || null, "originalSuggestionId": _0x363e2f["originalSuggestionId"] || null, "attributes": _0x2374c1["attributes"] };
       this["_adapter"]["addSuggestion"](_0x10b1dd)["then"]((_0x322ec8) => {
         _0x2374c1["_saved"] = true, _0x4ee22c["remove"](_0x14614e), _0x322ec8 && _0x322ec8["createdAt"] && (this["_suggestions"]["get"](_0x50898d)["createdAt"] = _0x322ec8["createdAt"]);
       })["catch"]((_0x52a4ed) => {
@@ -160999,7 +160995,7 @@ class p extends Plugin {
     const _0x5b25af = this["editor"]["plugins"]["get"]("PendingActions"), _0x2b5e03 = this["getSuggestion"](_0xd4a648);
     if (this["_adapter"] && this["_adapter"]["updateSuggestion"]) {
       if (_0x2b5e03["_saved"]) {
-        const _0x5117cb = _0x5b25af["add"](c(this["editor"]["locale"], "PENDING_ACTION_SUGGESTION"));
+        const _0x5117cb = _0x5b25af["add"](c$1(this["editor"]["locale"], "PENDING_ACTION_SUGGESTION"));
         this["_adapter"]["updateSuggestion"](_0xd4a648, _0x2233b6)["then"](() => {
           _0x5b25af["remove"](_0x5117cb);
         });
@@ -161062,7 +161058,7 @@ class p extends Plugin {
     if (0 == _0x31d5aa["length"]) return;
     const _0x208a31 = this["getSuggestions"]({ "skipNotAttached": true })["filter"]((_0x502d5a) => "attribute" == _0x502d5a["type"] && _0x502d5a["_isDataLoaded"]), _0x54ac19 = [], _0x2521d1 = /* @__PURE__ */ new Map();
     for (const _0x31bc2a of _0x208a31) {
-      const _0x63b806 = j$2(_0x31bc2a["attributes"]);
+      const _0x63b806 = j$3(_0x31bc2a["attributes"]);
       _0x2521d1["has"](_0x63b806) || (_0x2521d1["set"](_0x63b806, _0x54ac19["length"]), _0x54ac19["push"]([]));
       const _0xbb0cd5 = _0x2521d1["get"](_0x63b806);
       _0x54ac19[_0xbb0cd5]["push"](_0x31bc2a);
@@ -161140,7 +161136,7 @@ class p extends Plugin {
   }
   ["_getMarkerAnnouncementText"](_0x5817bd, _0x28d787, _0x54617e) {
     const _0x32d505 = _0x5817bd["startsWith"]("format") || _0x5817bd["startsWith"]("attribute") ? "FORMATTING" : _0x5817bd["toUpperCase"]();
-    return c(this["editor"]["locale"], _0x28d787 + "_" + _0x32d505 + "_SUGGESTION_ANNOUNCEMENT", _0x54617e);
+    return c$1(this["editor"]["locale"], _0x28d787 + "_" + _0x32d505 + "_SUGGESTION_ANNOUNCEMENT", _0x54617e);
   }
   ["_initAriaMarkerChangeAnnouncements"]() {
     const _0x4819be = this["editor"];
@@ -161171,7 +161167,7 @@ class p extends Plugin {
     for (const _0x524316 of _0x17d0a8) _0x2993c9["push"]({ "key": _0x524316["attributeKey"], "newValue": _0x524316["attributeNewValue"], "oldValue": _0x524316["attributeOldValue"], "range": qt(_0x524316["range"], _0x10c8f0["model"]) });
     for (const _0x5bc0ba of _0x27d75e) {
       const _0x135f13 = _0x2b911e["find"]((_0x117e20) => _0x117e20["position"]["isEqual"](_0x5bc0ba["position"]));
-      _0x135f13 && _0x2993c9["push"]({ "key": u, "newValue": _0x5bc0ba["name"], "oldValue": _0x135f13["name"], "range": _0x10c8f0["model"]["createRangeOn"](_0x5bc0ba["position"]["nodeAfter"]) });
+      _0x135f13 && _0x2993c9["push"]({ "key": u$1, "newValue": _0x5bc0ba["name"], "oldValue": _0x135f13["name"], "range": _0x10c8f0["model"]["createRangeOn"](_0x5bc0ba["position"]["nodeAfter"]) });
     }
     return 0 != _0x2993c9["length"] && this["_reduceExistingSuggestions"](_0x2dab1b, _0x2993c9);
   }
@@ -161195,7 +161191,7 @@ class p extends Plugin {
     if (0 == _0x5b5bf7["length"]) return false;
     let _0x4f676a = false;
     for (const _0x847fc4 of _0x5b5bf7) {
-      const _0x38763f = this["_findSuggestions"](_0x847fc4["range"], "attribute")["filter"]((_0x50d0de) => !_0x50d0de["meta"]["isNextTo"])["map"]((_0x3efe41) => _0x3efe41["suggestion"]), _0x29f2c4 = j$2({ "newValue": _0x847fc4["newValue"] });
+      const _0x38763f = this["_findSuggestions"](_0x847fc4["range"], "attribute")["filter"]((_0x50d0de) => !_0x50d0de["meta"]["isNextTo"])["map"]((_0x3efe41) => _0x3efe41["suggestion"]), _0x29f2c4 = j$3({ "newValue": _0x847fc4["newValue"] });
       _0x38763f["filter"]((_0x501f1c) => {
         const [_0x44a471, _0x2bc657] = _0x501f1c["subType"]["split"]("|");
         return _0x44a471 == _0x847fc4["key"] && _0x2bc657 != _0x29f2c4;
@@ -161209,7 +161205,7 @@ class p extends Plugin {
     const _0x5a8ce1 = _0x2e9703["getFirstRange"]()["getDifference"](_0x2cf86f);
     0 !== _0x5a8ce1["length"] ? 1 !== _0x5a8ce1["length"] ? this["_breakSuggestionMarker"](_0x2e9703, _0x2cf86f["start"], _0x2cf86f["end"]) : this["_setSuggestionRange"](_0x2e9703, _0x5a8ce1[0]) : _0xb2afa9["removeMarker"](_0x2e9703["getFirstMarker"]());
   }
-}
+};
 class Pt {
   constructor(_0xd87e42) {
     __publicField(this, "_editor");
@@ -161252,9 +161248,9 @@ class Pt {
     }, _0x1915a9 = (_0x58e031, _0xb8a3cc) => 1 == _0x58e031["length"] && 1 == _0xb8a3cc["length"] && _0x58e031[0]["end"]["isEqual"](_0xb8a3cc[0]["start"]), _0x5a6d4f = (_0x12a093, _0x2eb506, _0x27adc4, _0xe3431e) => Wt(_0x12a093, _0x2eb506, _0x27adc4, _0xe3431e) ? [_0x12a093, _0x2eb506] : Wt(_0x2eb506, _0x12a093, _0xe3431e, _0x27adc4) ? [_0x2eb506, _0x12a093] : null;
     this["_defaultCallbacks"]["set"]("insertion:accept", _0x1a8e04), this["_defaultCallbacks"]["set"]("insertion:discard", _0x3bd0d6), this["_defaultCallbacks"]["set"]("insertion:join", _0x1915a9), this["_defaultCallbacks"]["set"]("insertion:chain", _0x5a6d4f), this["_defaultCallbacks"]["set"]("deletion:accept", _0x3bd0d6), this["_defaultCallbacks"]["set"]("deletion:discard", _0x1a8e04), this["_defaultCallbacks"]["set"]("deletion:join", _0x1915a9), this["_defaultCallbacks"]["set"]("deletion:chain", _0x5a6d4f), this["_defaultCallbacks"]["set"]("formatInline:accept", _0xde38d9), this["_defaultCallbacks"]["set"]("formatInline:discard", _0x1a8e04), this["_defaultCallbacks"]["set"]("formatInline:join", _0x1915a9), this["_defaultCallbacks"]["set"]("formatInline:chain", _0x1a8e04), this["_defaultCallbacks"]["set"]("formatBlock:accept", _0xde38d9), this["_defaultCallbacks"]["set"]("formatBlock:discard", _0x1a8e04), this["_defaultCallbacks"]["set"]("formatBlock:join", _0x1915a9), this["_defaultCallbacks"]["set"]("formatBlock:chain", _0x1a8e04), this["_defaultCallbacks"]["set"]("attribute:accept", _0x1a8e04), this["_defaultCallbacks"]["set"]("attribute:discard", (_0x13216c, _0x2261ef) => {
       if (!_0x2261ef) return;
-      const _0x6ac928 = this["_editor"]["plugins"]["get"](p);
+      const _0x6ac928 = this["_editor"]["plugins"]["get"](p$1);
       this["_model"]["change"]((_0x244642) => {
-        if (_0x2261ef["key"] == u) for (const _0x163fc4 of _0x13216c) {
+        if (_0x2261ef["key"] == u$1) for (const _0x163fc4 of _0x13216c) {
           const _0x471f91 = _0x163fc4["start"]["nodeAfter"], _0x1d53e3 = _0x2261ef["oldValue"];
           _0x244642["rename"](_0x471f91, _0x1d53e3);
         }
@@ -161285,7 +161281,7 @@ function Jt(_0x4a16d6, _0x1678f3, _0x100f55, _0x1fce34) {
   return (!_0x4a16d6["start"]["isEqual"](_0x368f1f) || !_0x4a16d6["end"]["isEqual"](_0x579543)) && (_0x368f1f["isBefore"](_0x579543) ? _0x100f55["updateMarker"](_0x1678f3, { "range": _0x100f55["createRange"](_0x368f1f, _0x579543) }) : _0x100f55["removeMarker"](_0x1678f3), true);
 }
 function Kt(_0x1d9ddd) {
-  return j$2(_0x1d9ddd);
+  return j$3(_0x1d9ddd);
 }
 function Ht(_0xf7b3d1) {
   const _0x110bc6 = _0xf7b3d1["start"]["nodeAfter"];
@@ -161343,7 +161339,7 @@ class pe extends (/* @__PURE__ */ ObservableMixin()) {
     this["view"]["unbind"]("isEnabled"), this["view"]["unbind"]("canAccept"), this["view"]["unbind"]("canDiscard"), this["stopListening"](), this["commentThreadController"]["destroy"](), this["_pendingAction"] && this["_removePendingAction"]();
   }
   ["_setPendingAction"]() {
-    const _0x37c77f = c(this["_editor"]["locale"], "PENDING_ACTION_SUGGESTION");
+    const _0x37c77f = c$1(this["_editor"]["locale"], "PENDING_ACTION_SUGGESTION");
     this["_pendingAction"] = this["_editor"]["plugins"]["get"]("PendingActions")["add"](_0x37c77f);
   }
   ["_removePendingAction"]() {
@@ -161363,9 +161359,9 @@ class us extends View {
     __publicField(this, "_model");
     __publicField(this, "_localUser");
     __publicField(this, "_config");
-    this["commentsListView"] = null, this["commentThreadInputView"] = null, this["ariaDescriptionView"] = new F$4(_0x2d3b1c, c(_0x2d3b1c, "SUGGESTION_THREAD_DESCRIPTION")), this["set"]("isActive", false), this["set"]("authoredAt", _0x4f1080["authoredAt"]), this["bind"]("authoredAt")["to"](_0x4f1080), this["set"]("descriptionParts", []), this["set"]("isDirty", false), this["set"]("isEnabled", false), this["set"]("canAccept", false), this["set"]("canDiscard", false), this["bind"]("ariaLabel")["to"](this, "length", _0x4f1080, "authoredAt", this, "descriptionParts", (_0x4d7bd9, _0x13f8d4, _0x2e04a3) => {
+    this["commentsListView"] = null, this["commentThreadInputView"] = null, this["ariaDescriptionView"] = new F$4(_0x2d3b1c, c$1(_0x2d3b1c, "SUGGESTION_THREAD_DESCRIPTION")), this["set"]("isActive", false), this["set"]("authoredAt", _0x4f1080["authoredAt"]), this["bind"]("authoredAt")["to"](_0x4f1080), this["set"]("descriptionParts", []), this["set"]("isDirty", false), this["set"]("isEnabled", false), this["set"]("canAccept", false), this["set"]("canDiscard", false), this["bind"]("ariaLabel")["to"](this, "length", _0x4f1080, "authoredAt", this, "descriptionParts", (_0x4d7bd9, _0x13f8d4, _0x2e04a3) => {
       const _0x28afe0 = _0x2e04a3["map"]((_0x533370) => ls(_0x533370["content"]))["join"](". ") + ".";
-      return c(this["locale"], "SUGGESTION_THREAD_ARIA_LABEL", [_0x4d7bd9 - 1, _0x4f1080["author"]["name"], _0x13f8d4 ? _0x51b54c["formatDateTime"](_0x13f8d4) : "", new DOMParser()["parseFromString"](_0x28afe0, "text/html")["body"]["textContent"]]);
+      return c$1(this["locale"], "SUGGESTION_THREAD_ARIA_LABEL", [_0x4d7bd9 - 1, _0x4f1080["author"]["name"], _0x13f8d4 ? _0x51b54c["formatDateTime"](_0x13f8d4) : "", new DOMParser()["parseFromString"](_0x28afe0, "text/html")["body"]["textContent"]]);
     }), this["focusables"] = new ViewCollection(), this["focusTracker"] = new FocusTracker(), this["keystrokes"] = new KeystrokeHandler(), this["focusCycler"] = new FocusCycler({ "focusables": this["focusables"], "focusTracker": this["focusTracker"], "keystrokeHandler": this["keystrokes"], "keystrokeHandlerOptions": { "filter": (_0x41d930) => _0x41d930["target"] !== this["element"] }, "actions": { "focusPrevious": "shift+tab", "focusNext": "tab" } }), this["_model"] = _0x4f1080, this["_localUser"] = _0x363fc5, this["_config"] = _0x51b54c, _0x51b54c["disableComments"] ? this["set"]("length", 1) : this["_createCommentViews"]();
   }
   ["render"]() {
@@ -161419,7 +161415,7 @@ class we extends View {
     __publicField(this, "focusCycler");
     __publicField(this, "_model");
     __publicField(this, "_config");
-    this["_model"] = _0x6beb5d, this["_config"] = _0xd616fd, this["set"]("description", ""), this["bind"]("authoredAt")["to"](_0x6beb5d), this["acceptButton"] = this["_createButton"](c(_0x13c324, "Accept suggestion"), check, "ck-suggestion--accept", "acceptSuggestion", "sw"), this["discardButton"] = this["_createButton"](c(_0x13c324, "Discard suggestion"), cancel, "ck-suggestion--discard", "discardSuggestion", "sw"), this["userView"] = new I$3(_0x13c324, _0x6beb5d["author"], this["getUserViewNotificationText"]()), this["userView"]["extendTemplate"]({ "attributes": { "class": ["ck-suggestion__user", "ck-annotation__user"], "aria-hidden": true } }), this["focusables"] = new ViewCollection([this["acceptButton"], this["discardButton"]]), this["focusTracker"] = new FocusTracker(), this["keystrokes"] = new KeystrokeHandler(), this["focusCycler"] = new FocusCycler({ "focusables": this["focusables"], "focusTracker": this["focusTracker"], "keystrokeHandler": this["keystrokes"], "actions": { "focusPrevious": "shift+tab", "focusNext": "tab" }, "keystrokeHandlerOptions": { "filter": (_0x182a96) => _0x182a96["target"] !== this["element"] } }), this["setTemplate"](this["getTemplate"]());
+    this["_model"] = _0x6beb5d, this["_config"] = _0xd616fd, this["set"]("description", ""), this["bind"]("authoredAt")["to"](_0x6beb5d), this["acceptButton"] = this["_createButton"](c$1(_0x13c324, "Accept suggestion"), check, "ck-suggestion--accept", "acceptSuggestion", "sw"), this["discardButton"] = this["_createButton"](c$1(_0x13c324, "Discard suggestion"), cancel, "ck-suggestion--discard", "discardSuggestion", "sw"), this["userView"] = new I$3(_0x13c324, _0x6beb5d["author"], this["getUserViewNotificationText"]()), this["userView"]["extendTemplate"]({ "attributes": { "class": ["ck-suggestion__user", "ck-annotation__user"], "aria-hidden": true } }), this["focusables"] = new ViewCollection([this["acceptButton"], this["discardButton"]]), this["focusTracker"] = new FocusTracker(), this["keystrokes"] = new KeystrokeHandler(), this["focusCycler"] = new FocusCycler({ "focusables": this["focusables"], "focusTracker": this["focusTracker"], "keystrokeHandler": this["keystrokes"], "actions": { "focusPrevious": "shift+tab", "focusNext": "tab" }, "keystrokeHandlerOptions": { "filter": (_0x182a96) => _0x182a96["target"] !== this["element"] } }), this["setTemplate"](this["getTemplate"]());
   }
   ["render"]() {
     super["render"]();
@@ -161436,10 +161432,10 @@ class we extends View {
     this["element"]["focus"]();
   }
   ["getUserViewNotificationText"]() {
-    return this["_model"]["isExternal"] ? "importWord" === this["_model"]["attributes"]["@external"]["source"] ? c(this["locale"], "EXTERNAL_IMPORT_WORD_AVATAR", this["_model"]["creator"]["name"]) : c(this["locale"], "EXTERNAL_AVATAR", this["_model"]["creator"]["name"]) : null;
+    return this["_model"]["isExternal"] ? "importWord" === this["_model"]["attributes"]["@external"]["source"] ? c$1(this["locale"], "EXTERNAL_IMPORT_WORD_AVATAR", this["_model"]["creator"]["name"]) : c$1(this["locale"], "EXTERNAL_AVATAR", this["_model"]["creator"]["name"]) : null;
   }
   ["getExternalSuggestionNote"]() {
-    return "importWord" === this["_model"]["attributes"]["@external"]["source"] ? c(this["locale"], "EXTERNAL_IMPORT_WORD_SUGGESTION") : c(this["locale"], "EXTERNAL_SUGGESTION");
+    return "importWord" === this["_model"]["attributes"]["@external"]["source"] ? c$1(this["locale"], "EXTERNAL_IMPORT_WORD_SUGGESTION") : c$1(this["locale"], "EXTERNAL_SUGGESTION");
   }
   ["_createButton"](_0x1f0eb8, _0x638b1f, _0x39bef0, _0x33b2ee, _0x18165c) {
     const _0x1b6d45 = new U$3(this["locale"]);
@@ -161458,7 +161454,7 @@ class we extends View {
     });
   }
 }
-class d extends Plugin {
+let d$2 = class d5 extends Plugin {
   constructor(_0x501fc) {
     super(_0x501fc);
     __publicField(this, "licenseKey");
@@ -161473,7 +161469,7 @@ class d extends Plugin {
     _0x4339d8["define"]("trackChanges.SuggestionThreadView", fe), _0x4339d8["define"]("trackChanges.SuggestionView", we), _0x4339d8["define"]("trackChanges.disableComments", false), this["_disableComments"] = _0x4339d8["get"]("trackChanges.disableComments");
   }
   static get ["requires"]() {
-    return [p, u$6, "CommentsRepository", "Annotations", "EditorAnnotations"];
+    return [p$1, u$7, "CommentsRepository", "Annotations", "EditorAnnotations"];
   }
   static get ["pluginName"]() {
     return "TrackChangesUI";
@@ -161555,8 +161551,8 @@ class d extends Plugin {
     _0x2e590a["activeMarkers"] = _0x1b49fe;
   }
   ["_addUIComponentsToFactory"]() {
-    const _0x65d4c5 = this["editor"], _0x2e32b8 = _0x65d4c5["locale"], _0x19fcba = c(_0x2e32b8, "Track changes"), _0x2da4fc = new Collection([{ "type": "switchbutton", "model": new Model({ "withText": true, "isToggleable": true, "label": _0x19fcba, "commandName": "trackChanges", "role": "menuitemcheckbox" }) }, { "type": "separator" }, { "type": "button", "model": new Model({ "withText": true, "label": c(_0x2e32b8, "Accept all suggestions"), "commandName": "acceptAllSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c(_0x2e32b8, "Accept all selected suggestions"), "commandName": "acceptSelectedSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c(_0x2e32b8, "Discard all suggestions"), "commandName": "discardAllSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c(_0x2e32b8, "Discard all selected suggestions"), "commandName": "discardSelectedSuggestions", "role": "menuitem" }) }]);
-    _0x65d4c5["plugins"]["has"]("TrackChangesPreview") && _0x2da4fc["addMany"]([{ "type": "separator" }, { "type": "button", "model": new Model({ "withText": true, "label": c(_0x2e32b8, "Preview final content"), "commandName": "previewFinalContent", "role": "menuitem" }) }]);
+    const _0x65d4c5 = this["editor"], _0x2e32b8 = _0x65d4c5["locale"], _0x19fcba = c$1(_0x2e32b8, "Track changes"), _0x2da4fc = new Collection([{ "type": "switchbutton", "model": new Model({ "withText": true, "isToggleable": true, "label": _0x19fcba, "commandName": "trackChanges", "role": "menuitemcheckbox" }) }, { "type": "separator" }, { "type": "button", "model": new Model({ "withText": true, "label": c$1(_0x2e32b8, "Accept all suggestions"), "commandName": "acceptAllSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c$1(_0x2e32b8, "Accept all selected suggestions"), "commandName": "acceptSelectedSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c$1(_0x2e32b8, "Discard all suggestions"), "commandName": "discardAllSuggestions", "role": "menuitem" }) }, { "type": "button", "model": new Model({ "withText": true, "label": c$1(_0x2e32b8, "Discard all selected suggestions"), "commandName": "discardSelectedSuggestions", "role": "menuitem" }) }]);
+    _0x65d4c5["plugins"]["has"]("TrackChangesPreview") && _0x2da4fc["addMany"]([{ "type": "separator" }, { "type": "button", "model": new Model({ "withText": true, "label": c$1(_0x2e32b8, "Preview final content"), "commandName": "previewFinalContent", "role": "menuitem" }) }]);
     for (const _0x486bde of _0x2da4fc) if (ke(_0x486bde)) {
       const _0x388806 = _0x65d4c5["commands"]["get"](_0x486bde["model"]["commandName"]);
       _0x486bde["model"]["bind"]("isOn", "isEnabled")["to"](_0x388806, "value", "isEnabled");
@@ -161592,7 +161588,7 @@ class d extends Plugin {
     return _0x60c03["bind"]("isEnabled")["to"](_0x53b86d, "isEnabled"), _0x60c03["panelView"]["children"]["add"](_0x40b1e6), _0x60c03;
   }
   ["_initializeController"](_0x55ad58) {
-    const _0x22ac4f = this["editor"], _0x49f0ea = _0x22ac4f["config"], _0x14abec = _0x22ac4f["plugins"]["get"]("Annotations"), _0x5dee52 = _0x22ac4f["plugins"]["get"]("CommentsRepository"), _0x3188bc = _0x22ac4f["plugins"]["get"]("EditorAnnotations"), _0x477cc8 = _0x22ac4f["plugins"]["get"](u$6)["me"], _0x5cfa2b = _0x49f0ea["get"]("trackChanges")["SuggestionThreadView"], _0x449713 = _0x49f0ea["get"]("trackChanges")["SuggestionView"], { CommentsListView: _0x21cddc, CommentThreadInputView: _0x151726 } = _0x22ac4f["plugins"]["get"]("CommentsUI");
+    const _0x22ac4f = this["editor"], _0x49f0ea = _0x22ac4f["config"], _0x14abec = _0x22ac4f["plugins"]["get"]("Annotations"), _0x5dee52 = _0x22ac4f["plugins"]["get"]("CommentsRepository"), _0x3188bc = _0x22ac4f["plugins"]["get"]("EditorAnnotations"), _0x477cc8 = _0x22ac4f["plugins"]["get"](u$7)["me"], _0x5cfa2b = _0x49f0ea["get"]("trackChanges")["SuggestionThreadView"], _0x449713 = _0x49f0ea["get"]("trackChanges")["SuggestionView"], { CommentsListView: _0x21cddc, CommentThreadInputView: _0x151726 } = _0x22ac4f["plugins"]["get"]("CommentsUI");
     let _0x4141bf, _0x21c8cf, _0x605ea5;
     this["_annotationViews"]["has"](_0x55ad58["id"]) ? (_0x21c8cf = this["_annotationViews"]["get"](_0x55ad58["id"]), _0x4141bf = _0x21c8cf["mainView"]) : (_0x4141bf = new _0x5cfa2b(_0x22ac4f["locale"], _0x55ad58, _0x477cc8, { "disableComments": this["_disableComments"], "editorConfig": { ..._0x49f0ea["get"]("comments.editorConfig"), "licenseKey": _0x49f0ea["get"]("licenseKey") }, "maxCommentsWhenCollapsed": _0x49f0ea["get"]("comments.maxCommentsWhenCollapsed"), "maxThreadTotalWeight": _0x49f0ea["get"]("comments.maxThreadTotalWeight"), "maxCommentCharsWhenCollapsed": _0x49f0ea["get"]("comments.maxCommentCharsWhenCollapsed"), "formatDateTime": E$5(_0x49f0ea["get"]("locale"), _0x22ac4f["locale"]), "CommentView": _0x49f0ea["get"]("comments")["CommentView"], "CommentsListView": _0x21cddc, "CommentThreadInputView": _0x151726, "SuggestionView": _0x449713 }), _0x4141bf["suggestionView"]["acceptButton"]["on"]("execute", () => {
       _0x22ac4f["editing"]["view"]["focus"]();
@@ -161622,13 +161618,13 @@ class d extends Plugin {
     for (const _0x1e4b00 of this["_annotationViews"]["values"]()) _0x1e4b00["mainView"]["destroy"]();
     super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
   }
-}
+};
 function ke(_0x29a164) {
   return "model" in _0x29a164;
 }
 class k extends Plugin {
   static get ["requires"]() {
-    return [p, d, "Comments"];
+    return [p$1, d$2, "Comments"];
   }
   static get ["pluginName"]() {
     return "TrackChanges";
@@ -161640,25 +161636,25 @@ class k extends Plugin {
     return true;
   }
   set ["adapter"](_0x28ca75) {
-    this["editor"]["plugins"]["get"](p)["adapter"] = _0x28ca75;
+    this["editor"]["plugins"]["get"](p$1)["adapter"] = _0x28ca75;
   }
   get ["adapter"]() {
-    return this["editor"]["plugins"]["get"](p)["adapter"];
+    return this["editor"]["plugins"]["get"](p$1)["adapter"];
   }
   ["addSuggestion"](_0x37740e) {
-    return this["editor"]["plugins"]["get"](p)["addSuggestionData"](_0x37740e);
+    return this["editor"]["plugins"]["get"](p$1)["addSuggestionData"](_0x37740e);
   }
   ["getSuggestions"]({ skipNotAttached: _0x1218e7 = false, toJSON: _0x9b15e6 = false } = {}) {
-    return this["editor"]["plugins"]["get"](p)["getSuggestions"]({ "skipNotAttached": _0x1218e7, "toJSON": _0x9b15e6 });
+    return this["editor"]["plugins"]["get"](p$1)["getSuggestions"]({ "skipNotAttached": _0x1218e7, "toJSON": _0x9b15e6 });
   }
   ["getSuggestion"](_0x400212) {
-    return this["editor"]["plugins"]["get"](p)["getSuggestion"](_0x400212);
+    return this["editor"]["plugins"]["get"](p$1)["getSuggestion"](_0x400212);
   }
 }
-const w = ["Pagination"];
+const w$1 = ["Pagination"];
 class T extends Plugin {
   static get ["requires"]() {
-    return [p];
+    return [p$1];
   }
   static get ["pluginName"]() {
     return "TrackChangesData";
@@ -161718,8 +161714,8 @@ function Ge(_0x11e4b4) {
   return void 0 !== _0x11e4b4["getRootsAttributes"];
 }
 async function N(_0x3ef918, _0x1e74e5, _0x5548f1) {
-  const _0xf4f608 = C$4(_0x3ef918, w);
-  _0xf4f608["plugins"]["push"](p, D), _0xf4f608["rootsAttributes"] = Ge(_0x3ef918) ? _0x3ef918["getRootsAttributes"]() : void 0;
+  const _0xf4f608 = C$6(_0x3ef918, w$1);
+  _0xf4f608["plugins"]["push"](p$1, D), _0xf4f608["rootsAttributes"] = Ge(_0x3ef918) ? _0x3ef918["getRootsAttributes"]() : void 0;
   const _0x43ea58 = document["createDocumentFragment"](), _0x423568 = _0x3ef918["config"]["get"]("trackChangesData")["editorCreator"], _0x142b37 = await _0x423568(_0xf4f608, () => function(_0x468af6) {
     const _0x326d2a = document["createElement"]("div");
     return _0x468af6["appendChild"](_0x326d2a), _0x326d2a;
@@ -161735,6 +161731,1118 @@ async function N(_0x3ef918, _0x1e74e5, _0x5548f1) {
   }(_0x3ef918, _0x142b37), _0x142b37["execute"](_0x1e74e5 ? "acceptAllSuggestions" : "discardAllSuggestions");
   const _0x2c41ff = Ge(_0x142b37) ? _0x142b37["getFullData"](_0x5548f1) : _0x142b37["data"]["get"](_0x5548f1);
   return await _0x142b37["destroy"](), _0x2c41ff;
+}
+var calculate = function(input) {
+  var selectors, selector, i14, len, results = [];
+  selectors = input.split(",");
+  for (i14 = 0, len = selectors.length; i14 < len; i14 += 1) {
+    selector = selectors[i14];
+    if (selector.length > 0) {
+      results.push(calculateSingle(selector));
+    }
+  }
+  return results;
+};
+var calculateSingle = function(input) {
+  var selector = input, findMatch, typeCount = {
+    "a": 0,
+    "b": 0,
+    "c": 0
+  }, parts2 = [], attributeRegex = /(\[[^\]]+\])/g, idRegex = /(#[^\#\s\+>~\.\[:\)]+)/g, classRegex = /(\.[^\s\+>~\.\[:\)]+)/g, pseudoElementRegex = /(::[^\s\+>~\.\[:]+|:first-line|:first-letter|:before|:after)/gi, pseudoClassWithBracketsRegex = /(:(?!not|global|local)[\w-]+\([^\)]*\))/gi, pseudoClassRegex = /(:(?!not|global|local)[^\s\+>~\.\[:]+)/g, elementRegex = /([^\s\+>~\.\[:]+)/g;
+  findMatch = function(regex, type) {
+    var matches, i14, len, match2, index2, length2;
+    if (regex.test(selector)) {
+      matches = selector.match(regex);
+      for (i14 = 0, len = matches.length; i14 < len; i14 += 1) {
+        typeCount[type] += 1;
+        match2 = matches[i14];
+        index2 = selector.indexOf(match2);
+        length2 = match2.length;
+        parts2.push({
+          selector: input.substr(index2, length2),
+          type,
+          index: index2,
+          length: length2
+        });
+        selector = selector.replace(match2, Array(length2 + 1).join(" "));
+      }
+    }
+  };
+  (function() {
+    var replaceWithPlainText = function(regex) {
+      var matches, i14, len, match2;
+      if (regex.test(selector)) {
+        matches = selector.match(regex);
+        for (i14 = 0, len = matches.length; i14 < len; i14 += 1) {
+          match2 = matches[i14];
+          selector = selector.replace(match2, Array(match2.length + 1).join("A"));
+        }
+      }
+    }, escapeHexadecimalRegex = /\\[0-9A-Fa-f]{6}\s?/g, escapeHexadecimalRegex2 = /\\[0-9A-Fa-f]{1,5}\s/g, escapeSpecialCharacter = /\\./g;
+    replaceWithPlainText(escapeHexadecimalRegex);
+    replaceWithPlainText(escapeHexadecimalRegex2);
+    replaceWithPlainText(escapeSpecialCharacter);
+  })();
+  (function() {
+    var regex = /{[^]*/gm, matches, i14, len, match2;
+    if (regex.test(selector)) {
+      matches = selector.match(regex);
+      for (i14 = 0, len = matches.length; i14 < len; i14 += 1) {
+        match2 = matches[i14];
+        selector = selector.replace(match2, Array(match2.length + 1).join(" "));
+      }
+    }
+  })();
+  findMatch(attributeRegex, "b");
+  findMatch(idRegex, "a");
+  findMatch(classRegex, "b");
+  findMatch(pseudoElementRegex, "c");
+  findMatch(pseudoClassWithBracketsRegex, "b");
+  findMatch(pseudoClassRegex, "b");
+  selector = selector.replace(/[\*\s\+>~]/g, " ");
+  selector = selector.replace(/[#\.]/g, " ");
+  selector = selector.replace(/:not/g, "    ");
+  selector = selector.replace(/:local/g, "      ");
+  selector = selector.replace(/:global/g, "       ");
+  selector = selector.replace(/[\(\)]/g, " ");
+  findMatch(elementRegex, "c");
+  parts2.sort(function(a9, b4) {
+    return a9.index - b4.index;
+  });
+  return {
+    selector: input,
+    specificity: "0," + typeCount.a.toString() + "," + typeCount.b.toString() + "," + typeCount.c.toString(),
+    specificityArray: [0, typeCount.a, typeCount.b, typeCount.c],
+    parts: parts2
+  };
+};
+var compare = function(a9, b4) {
+  var aSpecificity, bSpecificity, i14;
+  if (typeof a9 === "string") {
+    if (a9.indexOf(",") !== -1) {
+      throw "Invalid CSS selector";
+    } else {
+      aSpecificity = calculateSingle(a9)["specificityArray"];
+    }
+  } else if (Array.isArray(a9)) {
+    if (a9.filter(function(e7) {
+      return typeof e7 === "number";
+    }).length !== 4) {
+      throw "Invalid specificity array";
+    } else {
+      aSpecificity = a9;
+    }
+  } else {
+    throw "Invalid CSS selector or specificity array";
+  }
+  if (typeof b4 === "string") {
+    if (b4.indexOf(",") !== -1) {
+      throw "Invalid CSS selector";
+    } else {
+      bSpecificity = calculateSingle(b4)["specificityArray"];
+    }
+  } else if (Array.isArray(b4)) {
+    if (b4.filter(function(e7) {
+      return typeof e7 === "number";
+    }).length !== 4) {
+      throw "Invalid specificity array";
+    } else {
+      bSpecificity = b4;
+    }
+  } else {
+    throw "Invalid CSS selector or specificity array";
+  }
+  for (i14 = 0; i14 < 4; i14 += 1) {
+    if (aSpecificity[i14] < bSpecificity[i14]) {
+      return -1;
+    } else if (aSpecificity[i14] > bSpecificity[i14]) {
+      return 1;
+    }
+  }
+  return 0;
+};
+function C$1(_0x5acb21) {
+  const _0x450510 = [];
+  let _0x24f35a = "", _0x5d40d6 = 0;
+  for (; _0x5d40d6 < _0x5acb21["length"]; ) {
+    const _0x4add62 = _0x5acb21[_0x5d40d6];
+    if ("(" === _0x4add62) {
+      const _0x47737a = M(_0x5acb21, _0x5d40d6 + 1);
+      if (-1 === _0x47737a) return [];
+      _0x24f35a += _0x5acb21["slice"](_0x5d40d6, _0x47737a + 1), _0x5d40d6 = _0x47737a + 1;
+    } else "," !== _0x4add62 || _0x24f35a["endsWith"]("\\") ? (_0x24f35a += _0x4add62, _0x5d40d6++) : (_0x450510["push"](_0x24f35a["trim"]()), _0x24f35a = "", _0x5d40d6++);
+  }
+  return _0x24f35a["trim"]() && _0x450510["push"](_0x24f35a["trim"]()), _0x450510["filter"](Boolean);
+}
+function M(_0xc0b4c5, _0x3568f9) {
+  let _0x3a920f = 1;
+  for (let _0x1641d1 = _0x3568f9; _0x1641d1 < _0xc0b4c5["length"]; _0x1641d1++) {
+    const _0x514e6b = _0xc0b4c5[_0x1641d1];
+    if ("(" === _0x514e6b) _0x3a920f++;
+    else {
+      if (")" === _0x514e6b && (_0x3a920f--, 0 === _0x3a920f)) return _0x1641d1;
+    }
+  }
+  return -1;
+}
+function d$1(_0x6e957b, _0x5b9792) {
+  const _0x2ecb63 = /* @__PURE__ */ new Map(), _0x4c0bb5 = (_0x43c536) => _0x2ecb63["has"](_0x43c536) ? _0x2ecb63["get"](_0x43c536) : _0x6e957b(_0x43c536);
+  for (const [_0x272974, _0x5621a0] of _0x5b9792["getStylesEntries"]()) if (_0x5621a0 && _0x272974["startsWith"]("--")) {
+    const _0x239d8e = b$1(_0x4c0bb5, _0x5621a0);
+    _0x2ecb63["set"](_0x272974, _0x239d8e), _0x5b9792["remove"](_0x272974);
+  }
+  for (const [_0x14c712, _0x39da9f] of _0x5b9792["getStylesEntries"]()) if (_0x39da9f) {
+    const _0x4004cd = b$1(_0x4c0bb5, _0x39da9f);
+    _0x5b9792["set"](_0x14c712, _0x4004cd);
+  }
+  return _0x2ecb63;
+}
+function b$1(_0x399569, _0xe4a805) {
+  return function(_0x7445e3, _0x617b9b) {
+    let _0x1c33fd = "", _0x189a17 = 0;
+    for (; _0x189a17 < _0x7445e3["length"]; ) {
+      const _0x481869 = _0x7445e3["indexOf"]("var(", _0x189a17);
+      if (-1 === _0x481869) {
+        _0x1c33fd += _0x7445e3["slice"](_0x189a17);
+        break;
+      }
+      _0x1c33fd += _0x7445e3["slice"](_0x189a17, _0x481869);
+      const _0x1f6974 = _0x481869 + 4, _0x5e5ce4 = M(_0x7445e3, _0x1f6974);
+      _0x1c33fd += _0x617b9b(_0x7445e3["substring"](_0x1f6974, _0x5e5ce4)), _0x189a17 = _0x5e5ce4 + 1;
+    }
+    return _0x1c33fd;
+  }(_0xe4a805, (_0x3d8293) => {
+    const [_0xcfbab, _0x317ba9] = C$1(_0x3d8293), _0x13062d = _0x399569(_0xcfbab);
+    return void 0 !== _0x13062d ? _0x13062d : _0x317ba9 ? b$1(_0x399569, _0x317ba9) : "var(" + _0xcfbab + ")";
+  });
+}
+async function r$1(_0x5b2d89) {
+  const _0x31581e = [await collectStylesheets(_0x5b2d89["stylesheets"]), _0x5b2d89["inlineCss"]]["filter"]((_0x30c4cf) => _0x30c4cf && _0x30c4cf["length"])["join"]("\n"), _0x17cae9 = await async function(_0x4e1ff2, _0xb38277) {
+    const _0x20ba0b = new CSSStyleSheet();
+    return await _0x20ba0b["replace"](_0xb38277), w(Array["from"](_0x20ba0b["cssRules"])["filter"]((_0x4dcaef) => _0x4dcaef instanceof CSSStyleRule))["flatMap"](({ selectorText: _0x283e12, contentCssText: _0x548c25 }) => {
+      const _0x232390 = C$1(_0x283e12), _0x331829 = new StylesMap(_0x4e1ff2)["setTo"](_0x548c25);
+      return _0x232390["map"]((_0x8b212e) => ({ "stylesMap": _0x331829, "flatSelector": _0x8b212e, "specificity": calculate(_0x8b212e)[0]["specificityArray"] }));
+    })["sort"]((_0xc941d9, _0x45460d) => compare(_0xc941d9["specificity"], _0x45460d["specificity"]));
+  }(_0x5b2d89["stylesProcessor"], _0x31581e);
+  return { "parsedCssRules": _0x17cae9, "rootCssVariables": function(_0x4bab3a) {
+    const _0x4879eb = /* @__PURE__ */ new Map();
+    for (const { stylesMap: _0x551bde, flatSelector: _0x45c2bf } of _0x4bab3a) {
+      if (":root" !== _0x45c2bf) continue;
+      const _0x44e5af = d$1(_0x4879eb["get"]["bind"](_0x4879eb), _0x551bde);
+      for (const [_0x15a134, _0x47e48b] of _0x44e5af) _0x4879eb["set"](_0x15a134, _0x47e48b);
+    }
+    return _0x4879eb;
+  }(_0x17cae9) };
+}
+function w(_0x5e6d45, _0x43ec29 = "") {
+  return _0x5e6d45["flatMap"]((_0xa2241c) => {
+    const { selectorText: _0x16dd03, cssText: _0x58fc0, cssRules: _0x3df8b3 } = _0xa2241c;
+    if (!_0x16dd03) return [];
+    const _0x1f2083 = _0x16dd03["replace"](/&/g, _0x43ec29);
+    let _0x1d65a7 = _0x58fc0["replace"](_0x16dd03, "")["trim"]()["replace"](/^{|}$/g, "");
+    if (!_0x3df8b3 || !_0x3df8b3["length"]) return [{ "selectorText": _0x1f2083, "contentCssText": _0x1d65a7 }];
+    for (const _0xec6f94 of _0x3df8b3) _0x1d65a7 = _0x1d65a7["replace"](_0xec6f94["cssText"], "")["trim"]();
+    return [{ "selectorText": _0x1f2083, "contentCssText": _0x1d65a7 }, ...w(Array["from"](_0x3df8b3), _0x1f2083)];
+  });
+}
+function a$1(_0x4b312e, _0x5a9f7d) {
+  const _0x1080fd = new StylesMap(_0x4b312e);
+  for (const _0x198e94 of _0x5a9f7d) {
+    let _0x24dc63 = null;
+    if (_0x24dc63 = "string" == typeof _0x198e94 ? new StylesMap(_0x4b312e)["setTo"](_0x198e94) : _0x198e94, _0x24dc63) {
+      for (const [_0x521eb1, _0x22a6d1] of _0x24dc63["getStylesEntries"]()) _0x1080fd["set"](_0x521eb1, _0x22a6d1);
+    }
+  }
+  return _0x1080fd;
+}
+let h$1 = class h6 extends Command$1 {
+  constructor(_0x451c93) {
+    super(_0x451c93);
+    __publicField(this, "_stylesProcessor");
+    this["set"]("isBusy", false), this["_stylesProcessor"] = this["editor"]["data"]["stylesProcessor"], addMarginRules(this["_stylesProcessor"]), addPaddingRules(this["_stylesProcessor"]), this["affectsData"] = false;
+  }
+  ["refresh"]() {
+    this["isEnabled"] = !this["isBusy"], this["value"] = this["isBusy"] ? "pending" : void 0;
+  }
+  async ["execute"](_0x3bc40b) {
+    const _0x5e6d56 = this["editor"]["config"]["get"]("exportInlineStyles"), { contentLanguageDirection: _0x301129 } = this["editor"]["locale"], { rootName: _0x4b7dec = "main", dataControllerDowncastOptions: _0x4042d0 = {}, transformations: _0x1838ec = _0x5e6d56["transformations"] || [] } = _0x3bc40b || {};
+    this["isBusy"] = true, this["refresh"]();
+    const _0x29807e = this["_getRootDataHTMLFragment"](_0x4b7dec, _0x4042d0), _0x45e9f4 = createElement(_0x29807e["ownerDocument"], "div", { "dir": _0x301129, "class": "ck-content" }, [_0x29807e]);
+    return this["_collectAndApplyStyles"](_0x1838ec, _0x45e9f4)["then"](() => {
+      const _0x4faef2 = function(_0x2e27ee) {
+        const _0x41d043 = _0x2e27ee["ownerDocument"]["createDocumentFragment"]();
+        for (; _0x2e27ee["firstChild"]; ) _0x41d043["appendChild"](_0x2e27ee["firstChild"]);
+        return _0x41d043;
+      }(_0x45e9f4), _0x5efd44 = _0x45e9f4["getAttribute"]("style");
+      if (_0x5efd44) for (const _0x298c71 of _0x4faef2["children"]) {
+        const _0x5e7d7d = _0x298c71["getAttribute"]("style"), _0x207441 = a$1(this["_stylesProcessor"], [_0x5efd44, _0x5e7d7d]);
+        _0x298c71["setAttribute"]("style", m$1(_0x207441));
+      }
+      return this["editor"]["data"]["htmlProcessor"]["htmlWriter"]["getHtml"](_0x4faef2);
+    })["finally"](() => {
+      this["isBusy"] = false, this["refresh"]();
+    });
+  }
+  ["_getRootDataHTMLFragment"](_0x39c0c1, _0x25e2ea) {
+    const { data: _0x33c1ee, model: _0x4d1ff7 } = this["editor"], _0x515fce = _0x4d1ff7["document"]["getRoot"](_0x39c0c1), _0x48dc9c = _0x33c1ee["toView"](_0x515fce, _0x25e2ea);
+    return _0x33c1ee["htmlProcessor"]["domConverter"]["viewToDom"](_0x48dc9c);
+  }
+  async ["_collectAndApplyStyles"](_0x1a598a, _0x469ae2) {
+    const { stylesheets: _0x32be76, inlineCss: _0x2f4e85, stripCssClasses: _0xa5b841 } = this["editor"]["config"]["get"]("exportInlineStyles"), { parsedCssRules: _0x44bff6, rootCssVariables: _0x22c79d } = await r$1({ "stylesheets": _0x32be76 || ["EDITOR_STYLES"], "stylesProcessor": this["_stylesProcessor"], "inlineCss": _0x2f4e85 });
+    this["_processElementTree"]({ "transformations": _0x1a598a, "parsedCssRules": _0x44bff6, "element": _0x469ae2, "stripCssClasses": _0xa5b841, "parentCSSVariablesLookup": _0x22c79d["get"]["bind"](_0x22c79d) });
+  }
+  ["_processElementTree"]({ element: _0x117c48, parsedCssRules: _0x25ff22, parentCSSVariablesLookup: _0x2ab2fb, stripCssClasses: _0x39042b, transformations: _0x37e990 }) {
+    const { stylesMap: _0x423ae7, localCSSVariables: _0x10404c } = function(_0x37efa4) {
+      const _0x2d2211 = _0x37efa4["element"]["getAttribute"]("style") || "", _0x242cd9 = _0x37efa4["parsedCssRules"]["filter"]((_0x319e6f) => _0x37efa4["element"]["matches"](_0x319e6f["flatSelector"]))["map"]((_0x4a6341) => _0x4a6341["stylesMap"]), _0x116396 = a$1(_0x37efa4["stylesProcessor"], [..._0x242cd9, _0x2d2211]);
+      return { "localCSSVariables": d$1(_0x37efa4["fallbackCSSVariablesLookup"], _0x116396), "stylesMap": _0x116396 };
+    }({ "stylesProcessor": this["_stylesProcessor"], "fallbackCSSVariablesLookup": _0x2ab2fb, "parsedCssRules": _0x25ff22, "element": _0x117c48 });
+    for (const _0xb429b9 of _0x37e990) _0xb429b9(_0x117c48, _0x423ae7);
+    _0x423ae7["size"] ? _0x117c48["setAttribute"]("style", m$1(_0x423ae7)) : _0x117c48["removeAttribute"]("style");
+    const _0x38dd46 = (_0xf5fafa) => _0x10404c["has"](_0xf5fafa) ? _0x10404c["get"](_0xf5fafa) : _0x2ab2fb(_0xf5fafa);
+    for (const _0x40e1d4 of _0x117c48["children"]) _0x40e1d4 instanceof HTMLElement && this["_processElementTree"]({ "element": _0x40e1d4, "parentCSSVariablesLookup": _0x38dd46, "parsedCssRules": _0x25ff22, "stripCssClasses": _0x39042b, "transformations": _0x37e990 });
+    _0x39042b && _0x117c48["removeAttribute"]("class");
+  }
+};
+function m$1(_0x3785a5) {
+  return _0x3785a5["getStylesEntries"]()["map"]((_0xa55158) => _0xa55158["join"](":"))["join"](";") + ";";
+}
+class i extends Plugin {
+  static get ["pluginName"]() {
+    return "ExportInlineStylesEditing";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["init"]() {
+    this["editor"]["config"]["define"]("exportInlineStyles", {}), this["editor"]["commands"]["add"]("exportInlineStyles", new h$1(this["editor"]));
+  }
+  ["afterInit"]() {
+    !async function(_0x27a528) {
+      const _0x5eb478 = _0x53ca9e([68, 104, 65, 102, 105, 89, 49, 75, 79, 51, 114, 106, 109, 78, 54, 72, 77, 100, 52, 84, 69, 107, 71, 48, 85, 81, 111, 112, 116, 55, 76, 121, 70, 90, 101, 110, 118, 66, 50, 56, 86, 120, 80, 97, 67, 98, 73, 53, 115, 99, 57, 82, 87, 103, 88, 117, 83, 122, 108, 119, 74, 113]), _0x249ba8 = 1844545555, _0x362a16 = 1844898891 ^ _0x249ba8, _0x3bcf65 = window[_0x53ca9e([68, 97, 116, 101])][_0x53ca9e([110, 111, 119])](), _0x4a3b20 = _0x27a528[_0x53ca9e([101, 100, 105, 116, 111, 114])], _0x6cd42d = new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x54c7d1) => {
+        _0x4a3b20[_0x53ca9e([111, 110, 99, 101])](_0x53ca9e([114, 101, 97, 100, 121]), _0x54c7d1);
+      }), _0x2b7eb5 = { [_0x53ca9e([107, 116, 121])]: _0x53ca9e([69, 67]), [_0x53ca9e([117, 115, 101])]: _0x53ca9e([115, 105, 103]), [_0x53ca9e([99, 114, 118])]: _0x53ca9e([80, 45, 50, 53, 54]), [_0x53ca9e([120])]: _0x53ca9e([105, 67, 106, 79, 67, 118, 68, 70, 73, 54, 108, 81, 72, 72, 84, 49, 56, 106, 86, 119, 82, 102, 107, 102, 72, 81, 50, 97, 95, 77, 121, 109, 84, 51, 53, 76, 81, 86, 111, 70, 83, 65, 73]), [_0x53ca9e([121])]: _0x53ca9e([107, 88, 73, 121, 74, 52, 101, 118, 116, 67, 69, 70, 82, 109, 120, 75, 83, 85, 112, 75, 57, 102, 68, 87, 52, 53, 57, 118, 88, 79, 118, 86, 114, 104, 102, 54, 117, 81, 65, 101, 79, 105, 111]), [_0x53ca9e([97, 108, 103])]: _0x53ca9e([69, 83, 50, 53, 54]) }, _0x107185 = _0x4a3b20[_0x53ca9e([99, 111, 110, 102, 105, 103])][_0x53ca9e([103, 101, 116])](_0x53ca9e([108, 105, 99, 101, 110, 115, 101, 75, 101, 121]));
+      async function _0x92ce58() {
+        let _0x3fa8a3, _0x54995f = null, _0x5e2ce1 = null;
+        try {
+          if (_0x107185 == _0x53ca9e([71, 80, 76])) return _0x53ca9e([78, 111, 116, 65, 108, 108, 111, 119, 101, 100]);
+          if (_0x3fa8a3 = _0x48914d(), !_0x3fa8a3) return _0x53ca9e([73, 110, 118, 97, 108, 105, 100]);
+          return _0x3fa8a3[_0x53ca9e([117, 115, 97, 103, 101, 69, 110, 100, 112, 111, 105, 110, 116])] && (_0x5e2ce1 = _0x10f1b9(_0x3fa8a3[_0x53ca9e([117, 115, 97, 103, 101, 69, 110, 100, 112, 111, 105, 110, 116])], _0x3fa8a3[_0x53ca9e([106, 116, 105])])), await _0xaab45b() ? _0x1196e1() ? _0x2da6ed() ? _0x53ca9e([69, 120, 112, 105, 114, 101, 100]) : _0x11cdd2() ? (_0x3fa8a3[_0x53ca9e([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])] == _0x53ca9e([101, 118, 97, 108, 117, 97, 116, 105, 111, 110]) && (_0x54995f = _0x4cbb9b(_0x53ca9e([69, 118, 97, 108, 117, 97, 116, 105, 111, 110, 76, 105, 109, 105, 116]))), _0x3fa8a3[_0x53ca9e([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])] == _0x53ca9e([116, 114, 105, 97, 108]) && (_0x54995f = _0x4cbb9b(_0x53ca9e([84, 114, 105, 97, 108, 76, 105, 109, 105, 116]))), await _0x4fa2e6()) : _0x53ca9e([68, 111, 109, 97, 105, 110, 76, 105, 109, 105, 116]) : _0x53ca9e([78, 111, 116, 65, 108, 108, 111, 119, 101, 100]) : _0x53ca9e([73, 110, 118, 97, 108, 105, 100]);
+        } catch (_0x2c35f5) {
+          return _0x53ca9e([73, 110, 118, 97, 108, 105, 100]);
+        }
+        function _0x2da6ed() {
+          const _0x5e0361 = [_0x53ca9e([101, 118, 97, 108, 117, 97, 116, 105, 111, 110]), _0x53ca9e([116, 114, 105, 97, 108])][_0x53ca9e([105, 110, 99, 108, 117, 100, 101, 115])](_0x3fa8a3[_0x53ca9e([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])]) ? _0x3bcf65 / 1e3 : 3600 * _0x362a16;
+          return _0x3fa8a3[_0x53ca9e([101, 120, 112])] < _0x5e0361;
+        }
+        function _0x1196e1() {
+          const _0x247932 = _0x3fa8a3[_0x53ca9e([102, 101, 97, 116, 117, 114, 101, 115])];
+          return !!_0x247932 && (!!_0x247932[_0x53ca9e([105, 110, 99, 108, 117, 100, 101, 115])](_0x53ca9e([42])) || !!_0x247932[_0x53ca9e([105, 110, 99, 108, 117, 100, 101, 115])](_0x53ca9e([69, 73, 83])));
+        }
+        function _0x11cdd2() {
+          const _0x515d2f = _0x3fa8a3[_0x53ca9e([108, 105, 99, 101, 110, 115, 101, 100, 72, 111, 115, 116, 115])];
+          if (!_0x515d2f || 0 == _0x515d2f[_0x53ca9e([108, 101, 110, 103, 116, 104])]) return true;
+          const { hostname: _0x112e2f } = new URL(window[_0x53ca9e([108, 111, 99, 97, 116, 105, 111, 110])]["href"]);
+          if (_0x515d2f[_0x53ca9e([105, 110, 99, 108, 117, 100, 101, 115])](_0x112e2f)) return true;
+          const _0xaae2a4 = _0x112e2f[_0x53ca9e([115, 112, 108, 105, 116])](_0x53ca9e([46]));
+          return _0x515d2f[_0x53ca9e([102, 105, 108, 116, 101, 114])]((_0x3cf827) => _0x3cf827[_0x53ca9e([105, 110, 99, 108, 117, 100, 101, 115])](_0x53ca9e([42])))[_0x53ca9e([109, 97, 112])]((_0x4d7b23) => _0x4d7b23[_0x53ca9e([115, 112, 108, 105, 116])](_0x53ca9e([46])))[_0x53ca9e([115, 111, 109, 101])]((_0x21961f) => _0xaae2a4[_0x53ca9e([101, 118, 101, 114, 121])]((_0x17633e, _0x3de2a5) => _0x21961f[_0x3de2a5] === _0x17633e || _0x21961f[_0x3de2a5] === _0x53ca9e([42])));
+        }
+        function _0x4fa2e6() {
+          return _0x54995f && _0x5e2ce1 ? new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x5a9c8a, _0x58a92b) => {
+            _0x54995f[_0x53ca9e([116, 104, 101, 110])](_0x5a9c8a, _0x58a92b), _0x5e2ce1[_0x53ca9e([116, 104, 101, 110])]((_0x4473a2) => {
+              _0x4473a2 != _0x53ca9e([86, 97, 108, 105, 100]) && _0x5a9c8a(_0x4473a2);
+            }, _0x58a92b);
+          }) : _0x54995f || _0x5e2ce1 || _0x53ca9e([86, 97, 108, 105, 100]);
+        }
+      }
+      function _0x10f1b9(_0x528726, _0x45b806) {
+        return new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x3f0213) => {
+          if (_0x33ad8f()) return _0x3f0213(_0x53ca9e([86, 97, 108, 105, 100]));
+          _0x32ac7c(), _0x4a3b20[_0x53ca9e([100, 101, 99, 111, 114, 97, 116, 101])](_0x53ca9e([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]));
+          let _0x2c93a = false;
+          const _0x42a37f = uid();
+          function _0x15f017(_0xe31dff) {
+            return !!_0xe31dff && (typeof _0xe31dff === _0x53ca9e([111, 98, 106, 101, 99, 116]) || typeof _0xe31dff === _0x53ca9e([102, 117, 110, 99, 116, 105, 111, 110])) && typeof _0xe31dff[_0x53ca9e([116, 104, 101, 110])] === _0x53ca9e([102, 117, 110, 99, 116, 105, 111, 110]) && typeof _0xe31dff[_0x53ca9e([99, 97, 116, 99, 104])] === _0x53ca9e([102, 117, 110, 99, 116, 105, 111, 110]);
+          }
+          function _0x3aab90(_0x5b1a2d) {
+            _0x3a7343(_0x5b1a2d)[_0x53ca9e([116, 104, 101, 110])]((_0x586ec0) => {
+              if (!_0x586ec0 || _0x586ec0[_0x53ca9e([115, 116, 97, 116, 117, 115])] != _0x53ca9e([111, 107])) return _0x53ca9e([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]);
+              return _0x4e3745(_0xfe5051(_0x42a37f + _0x45b806)) != _0x586ec0[_0x53ca9e([118, 101, 114, 105, 102, 105, 99, 97, 116, 105, 111, 110])] ? _0x53ca9e([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]) : _0x53ca9e([86, 97, 108, 105, 100]);
+            })[_0x53ca9e([116, 104, 101, 110])]((_0x2d69dd) => (_0x395035(), _0x2d69dd), () => {
+              const _0x1376b7 = _0x9dc079();
+              return null == _0x1376b7 ? (_0x395035(), _0x53ca9e([86, 97, 108, 105, 100])) : _0x53ca9e(_0x3bcf65 - _0x1376b7 > (1241320467 ^ _0x249ba8) ? [85, 115, 97, 103, 101, 76, 105, 109, 105, 116] : [86, 97, 108, 105, 100]);
+            })[_0x53ca9e([116, 104, 101, 110])](_0x3f0213)[_0x53ca9e([99, 97, 116, 99, 104])](() => {
+              _0x3f0213(_0x53ca9e([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+            });
+            const _0xdda3aa = 1841784467 ^ _0x249ba8;
+            function _0x395035() {
+              const _0x7156b9 = _0x53ca9e([108, 108, 99, 116, 45]) + _0x4e3745(_0xfe5051(_0x528726)), _0xb6430 = _0x45355d(_0x4e3745(window[_0x53ca9e([77, 97, 116, 104])][_0x53ca9e([99, 101, 105, 108])](_0x3bcf65 / _0xdda3aa)));
+              window[_0x53ca9e([108, 111, 99, 97, 108, 83, 116, 111, 114, 97, 103, 101])][_0x53ca9e([115, 101, 116, 73, 116, 101, 109])](_0x7156b9, _0xb6430);
+            }
+            function _0x9dc079() {
+              const _0x2de3d9 = _0x53ca9e([108, 108, 99, 116, 45]) + _0x4e3745(_0xfe5051(_0x528726)), _0x146224 = window[_0x53ca9e([108, 111, 99, 97, 108, 83, 116, 111, 114, 97, 103, 101])][_0x53ca9e([103, 101, 116, 73, 116, 101, 109])](_0x2de3d9);
+              return _0x146224 ? window[_0x53ca9e([112, 97, 114, 115, 101, 73, 110, 116])](_0x45355d(_0x146224), 16) * _0xdda3aa : null;
+            }
+            function _0x3a7343(_0x17d4b4) {
+              return new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x1f8522, _0x254b54) => {
+                _0x17d4b4[_0x53ca9e([116, 104, 101, 110])](_0x1f8522, _0x254b54), window[_0x53ca9e([115, 101, 116, 84, 105, 109, 101, 111, 117, 116])](_0x254b54, 1844468947 ^ _0x249ba8);
+              });
+            }
+          }
+          _0x4a3b20[_0x53ca9e([111, 110])](_0x53ca9e([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]), (_0x511e00, _0x166c0e) => {
+            if (_0x166c0e[0] != _0x528726) return _0x3f0213(_0x53ca9e([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+            _0x166c0e[1] = { ..._0x166c0e[1], [_0x53ca9e([114, 101, 113, 117, 101, 115, 116, 73, 100])]: _0x42a37f };
+          }, { [_0x53ca9e([112, 114, 105, 111, 114, 105, 116, 121])]: _0x53ca9e([104, 105, 103, 104]) }), _0x4a3b20[_0x53ca9e([111, 110])](_0x53ca9e([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]), (_0x17cab6) => {
+            _0x15f017(_0x17cab6[_0x53ca9e([114, 101, 116, 117, 114, 110])]) && (_0x2c93a = true, _0x3aab90(_0x17cab6[_0x53ca9e([114, 101, 116, 117, 114, 110])]));
+          }, { [_0x53ca9e([112, 114, 105, 111, 114, 105, 116, 121])]: _0x53ca9e([108, 111, 119]) }), _0x6cd42d[_0x53ca9e([116, 104, 101, 110])](() => {
+            _0x2c93a || _0x3f0213(_0x53ca9e([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+          });
+        });
+        function _0x33ad8f() {
+          return _0x4a3b20[_0x53ca9e([101, 100, 105, 116, 105, 110, 103])][_0x53ca9e([118, 105, 101, 119])][_0x53ca9e([95, 111, 118, 101, 114, 108, 97, 121, 77, 111, 100, 101, 72, 105, 110, 116])] == _0x53ca9e([97, 117, 116, 111]);
+        }
+        function _0x32ac7c() {
+          _0x4a3b20[_0x53ca9e([101, 100, 105, 116, 105, 110, 103])][_0x53ca9e([118, 105, 101, 119])][_0x53ca9e([95, 111, 118, 101, 114, 108, 97, 121, 77, 111, 100, 101, 72, 105, 110, 116])] = _0x53ca9e([97, 117, 116, 111]);
+        }
+      }
+      function _0x4cbb9b(_0x2ae4c6) {
+        const _0x4933e4 = [new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x9a22ec) => setTimeout(_0x9a22ec, 1845016287 ^ _0x249ba8)), _0x6cd42d[_0x53ca9e([116, 104, 101, 110])](() => new window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])]((_0x583945) => {
+          let _0x57ad08 = 0;
+          _0x4a3b20[_0x53ca9e([109, 111, 100, 101, 108])][_0x53ca9e([111, 110])](_0x53ca9e([97, 112, 112, 108, 121, 79, 112, 101, 114, 97, 116, 105, 111, 110]), (_0x3c0302, _0xc93cb0) => {
+            _0xc93cb0[0][_0x53ca9e([105, 115, 68, 111, 99, 117, 109, 101, 110, 116, 79, 112, 101, 114, 97, 116, 105, 111, 110])] && _0x57ad08++, _0x57ad08 == (1844546027 ^ _0x249ba8) && (_0x583945(), _0x3c0302[_0x53ca9e([111, 102, 102])]());
+          });
+        }))];
+        return window[_0x53ca9e([80, 114, 111, 109, 105, 115, 101])][_0x53ca9e([114, 97, 99, 101])](_0x4933e4)[_0x53ca9e([116, 104, 101, 110])](() => _0x2ae4c6);
+      }
+      async function _0x4a1ccd() {
+        await _0x6cd42d;
+        const _0x452167 = _0x4a3b20["commands"][_0x53ca9e([103, 101, 116])](_0x53ca9e([101, 120, 112, 111, 114, 116, 73, 110, 108, 105, 110, 101, 83, 116, 121, 108, 101, 115]));
+        _0x452167 && _0x452167[_0x53ca9e([111, 110])](_0x53ca9e([101, 120, 101, 99, 117, 116, 101]), (_0x59a68d) => {
+          _0x59a68d["stop"]();
+        }, { "priority": _0x53ca9e([104, 105, 103, 104, 101, 115, 116]) }), _0x4a3b20[_0x53ca9e([109, 111, 100, 101, 108])][_0x53ca9e([99, 104, 97, 110, 103, 101])] = _0x5ef67f, _0x4a3b20[_0x53ca9e([109, 111, 100, 101, 108])][_0x53ca9e([101, 110, 113, 117, 101, 117, 101, 67, 104, 97, 110, 103, 101])] = _0x5ef67f, _0x4a3b20[_0x53ca9e([101, 110, 97, 98, 108, 101, 82, 101, 97, 100, 79, 110, 108, 121, 77, 111, 100, 101])](_0x53ca9e([109, 111, 100, 101, 108]));
+      }
+      function _0xd4a7df(_0x2792c8) {
+        const _0x255348 = _0x5927f1();
+        _0x4a3b20[_0x255348] = _0x53ca9e([101, 120, 112, 111, 114, 116, 73, 110, 108, 105, 110, 101, 83, 116, 121, 108, 101, 115, 76, 105, 99, 101, 110, 115, 101, 75, 101, 121]) + _0x2792c8, _0x2792c8 != _0x53ca9e([86, 97, 108, 105, 100]) && _0x4a1ccd();
+      }
+      function _0x5927f1() {
+        const _0x1d5ab6 = window[_0x53ca9e([83, 116, 114, 105, 110, 103])](window[_0x53ca9e([112, 101, 114, 102, 111, 114, 109, 97, 110, 99, 101])][_0x53ca9e([110, 111, 119])]())[_0x53ca9e([114, 101, 112, 108, 97, 99, 101])](_0x53ca9e([46]), "");
+        let _0x2ea1b1 = _0x53ca9e([68]);
+        for (let _0x29dd4a = 0; _0x29dd4a < _0x1d5ab6[_0x53ca9e([108, 101, 110, 103, 116, 104])]; _0x29dd4a += 2) {
+          let _0x768871 = window[_0x53ca9e([112, 97, 114, 115, 101, 73, 110, 116])](_0x1d5ab6[_0x53ca9e([115, 117, 98, 115, 116, 114, 105, 110, 103])](_0x29dd4a, _0x29dd4a + 2));
+          _0x768871 >= _0x5eb478[_0x53ca9e([108, 101, 110, 103, 116, 104])] && (_0x768871 -= _0x5eb478[_0x53ca9e([108, 101, 110, 103, 116, 104])]), _0x2ea1b1 += _0x5eb478[_0x768871];
+        }
+        return _0x2ea1b1;
+      }
+      function _0x48914d() {
+        const _0x474b0c = _0x107185[_0x53ca9e([115, 112, 108, 105, 116])](_0x53ca9e([46]));
+        if (3 != _0x474b0c[_0x53ca9e([108, 101, 110, 103, 116, 104])]) return null;
+        return _0x395be2(_0x474b0c[1]);
+        function _0x395be2(_0x63db4c) {
+          const _0x2b75cf = _0x19dd94(_0x63db4c);
+          return _0x2b75cf && _0x2e7b4e() ? _0x2b75cf : null;
+          function _0x2e7b4e() {
+            const _0x4ae91b = _0x2b75cf[_0x53ca9e([106, 116, 105])], _0x3c9ba2 = window[_0x53ca9e([112, 97, 114, 115, 101, 73, 110, 116])](_0x4ae91b[_0x53ca9e([115, 117, 98, 115, 116, 114, 105, 110, 103])](_0x4ae91b[_0x53ca9e([108, 101, 110, 103, 116, 104])] - 8), 16), _0x38cd49 = { ..._0x2b75cf, [_0x53ca9e([106, 116, 105])]: _0x4ae91b[_0x53ca9e([115, 117, 98, 115, 116, 114, 105, 110, 103])](0, _0x4ae91b[_0x53ca9e([108, 101, 110, 103, 116, 104])] - 8) };
+            return delete _0x38cd49[_0x53ca9e([118, 99])], _0xfe5051(_0x38cd49) == _0x3c9ba2;
+          }
+        }
+      }
+      async function _0xaab45b() {
+        let _0x48cc1b = true;
+        try {
+          const _0x5c9817 = _0x107185[_0x53ca9e([115, 112, 108, 105, 116])](_0x53ca9e([46])), [_0x545365, _0x4787f9, _0xde9c70] = _0x5c9817;
+          return _0x54659b(_0x545365), await _0x13cc1d(_0x545365, _0x4787f9, _0xde9c70), _0x48cc1b;
+        } catch (_0xfca4e5) {
+          return false;
+        }
+        function _0x54659b(_0x4c4a28) {
+          const _0x10079d = _0x19dd94(_0x4c4a28);
+          _0x10079d && _0x10079d[_0x53ca9e([97, 108, 103])] == _0x53ca9e([69, 83, 50, 53, 54]) || (_0x48cc1b = false);
+        }
+        async function _0x13cc1d(_0xca318f, _0x1d17cb, _0x3ef5bd) {
+          const _0x5485bb = window[_0x53ca9e([85, 105, 110, 116, 56, 65, 114, 114, 97, 121])][_0x53ca9e([102, 114, 111, 109])](_0x7f55d6(_0x3ef5bd), (_0x212cdd) => _0x212cdd[_0x53ca9e([99, 104, 97, 114, 67, 111, 100, 101, 65, 116])](0)), _0x290bb5 = new window[_0x53ca9e([84, 101, 120, 116, 69, 110, 99, 111, 100, 101, 114])]()[_0x53ca9e([101, 110, 99, 111, 100, 101])](_0xca318f + _0x53ca9e([46]) + _0x1d17cb), _0x443189 = window[_0x53ca9e([99, 114, 121, 112, 116, 111])][_0x53ca9e([115, 117, 98, 116, 108, 101])];
+          if (!_0x443189) return;
+          const _0x146bea = await _0x443189[_0x53ca9e([105, 109, 112, 111, 114, 116, 75, 101, 121])](_0x53ca9e([106, 119, 107]), _0x2b7eb5, { [_0x53ca9e([110, 97, 109, 101])]: _0x53ca9e([69, 67, 68, 83, 65]), [_0x53ca9e([110, 97, 109, 101, 100, 67, 117, 114, 118, 101])]: _0x53ca9e([80, 45, 50, 53, 54]) }, false, [_0x53ca9e([118, 101, 114, 105, 102, 121])]);
+          await _0x443189[_0x53ca9e([118, 101, 114, 105, 102, 121])]({ [_0x53ca9e([110, 97, 109, 101])]: _0x53ca9e([69, 67, 68, 83, 65]), [_0x53ca9e([104, 97, 115, 104])]: { [_0x53ca9e([110, 97, 109, 101])]: _0x53ca9e([83, 72, 65, 45, 50, 53, 54]) } }, _0x146bea, _0x5485bb, _0x290bb5) || (_0x48cc1b = false);
+        }
+      }
+      function _0x19dd94(_0x326ad7) {
+        return _0x326ad7[_0x53ca9e([115, 116, 97, 114, 116, 115, 87, 105, 116, 104])](_0x53ca9e([101, 121])) ? JSON[_0x53ca9e([112, 97, 114, 115, 101])](_0x7f55d6(_0x326ad7)) : null;
+      }
+      function _0x7f55d6(_0x431841) {
+        return window[_0x53ca9e([97, 116, 111, 98])](_0x431841[_0x53ca9e([114, 101, 112, 108, 97, 99, 101])](/-/g, _0x53ca9e([43]))[_0x53ca9e([114, 101, 112, 108, 97, 99, 101])](/_/g, _0x53ca9e([47])));
+      }
+      function _0xfe5051(_0x59bd60) {
+        let _0x5e99aa = 5381;
+        function _0xd33195(_0x618e3d) {
+          for (let _0xc6afee = 0; _0xc6afee < _0x618e3d[_0x53ca9e([108, 101, 110, 103, 116, 104])]; _0xc6afee++) {
+            const _0x5af385 = _0x618e3d[_0x53ca9e([99, 104, 97, 114, 67, 111, 100, 101, 65, 116])](_0xc6afee);
+            _0x5e99aa = (_0x5e99aa << 5) + _0x5e99aa + _0x5af385, _0x5e99aa &= _0x5e99aa;
+          }
+        }
+        function _0x1db435(_0x2ba80b) {
+          Array[_0x53ca9e([105, 115, 65, 114, 114, 97, 121])](_0x2ba80b) ? _0x2ba80b[_0x53ca9e([102, 111, 114, 69, 97, 99, 104])](_0x1db435) : _0x2ba80b && typeof _0x2ba80b == _0x53ca9e([111, 98, 106, 101, 99, 116]) ? Object[_0x53ca9e([101, 110, 116, 114, 105, 101, 115])](_0x2ba80b)[_0x53ca9e([115, 111, 114, 116])]()[_0x53ca9e([102, 111, 114, 69, 97, 99, 104])](([_0x31be34, _0x4e5fb9]) => {
+            _0xd33195(_0x31be34), _0x1db435(_0x4e5fb9);
+          }) : _0xd33195(window[_0x53ca9e([83, 116, 114, 105, 110, 103])](_0x2ba80b));
+        }
+        return _0x1db435(_0x59bd60), _0x5e99aa >>> 0;
+      }
+      function _0x4e3745(_0x75ef98) {
+        return _0x75ef98[_0x53ca9e([116, 111, 83, 116, 114, 105, 110, 103])](16)[_0x53ca9e([112, 97, 100, 83, 116, 97, 114, 116])](8, _0x53ca9e([48]));
+      }
+      function _0x45355d(_0x3fef6e) {
+        return _0x3fef6e[_0x53ca9e([115, 112, 108, 105, 116])]("")[_0x53ca9e([114, 101, 118, 101, 114, 115, 101])]()[_0x53ca9e([106, 111, 105, 110])]("");
+      }
+      function _0x5ef67f() {
+      }
+      function _0x53ca9e(_0x4eccd8) {
+        return _0x4eccd8["map"]((_0x5af03f) => String["fromCharCode"](_0x5af03f))["join"]("");
+      }
+      _0xd4a7df(await _0x92ce58());
+    }(this);
+  }
+}
+let n$1 = class n11 extends Plugin {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "licenseKey");
+    __publicField(this, "_licenseKeyCheckInterval");
+  }
+  static get ["pluginName"]() {
+    return "ExportInlineStyles";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  static get ["requires"]() {
+    return [i];
+  }
+  ["init"]() {
+    this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
+    const _0x417438 = this["editor"];
+    this["_licenseKeyCheckInterval"] = setInterval(() => {
+      let _0x63be94;
+      for (const _0x1bf367 in _0x417438) {
+        const _0x5bfd0a = _0x1bf367, _0x20226d = _0x417438[_0x5bfd0a];
+        if ("exportInlineStylesLicenseKeyValid" == _0x20226d || "exportInlineStylesLicenseKeyInvalid" == _0x20226d || "exportInlineStylesLicenseKeyExpired" == _0x20226d || "exportInlineStylesLicenseKeyDomainLimit" == _0x20226d || "exportInlineStylesLicenseKeyNotAllowed" == _0x20226d || "exportInlineStylesLicenseKeyEvaluationLimit" == _0x20226d || "exportInlineStylesLicenseKeyTrialLimit" == _0x20226d || "exportInlineStylesLicenseKeyUsageLimit" == _0x20226d) {
+          delete _0x417438[_0x5bfd0a], _0x63be94 = _0x20226d, clearInterval(this["_licenseKeyCheckInterval"]), this["_licenseKeyCheckInterval"] = void 0;
+          break;
+        }
+      }
+      "exportInlineStylesLicenseKeyInvalid" == _0x63be94 && _0x417438["_showLicenseError"]("invalid"), "exportInlineStylesLicenseKeyExpired" == _0x63be94 && _0x417438["_showLicenseError"]("expired"), "exportInlineStylesLicenseKeyDomainLimit" == _0x63be94 && _0x417438["_showLicenseError"]("domainLimit"), "exportInlineStylesLicenseKeyNotAllowed" == _0x63be94 && _0x417438["_showLicenseError"]("featureNotAllowed", "ExportInlineStyles"), "exportInlineStylesLicenseKeyEvaluationLimit" == _0x63be94 && _0x417438["_showLicenseError"]("evaluationLimit"), "exportInlineStylesLicenseKeyTrialLimit" == _0x63be94 && _0x417438["_showLicenseError"]("trialLimit"), "exportInlineStylesLicenseKeyUsageLimit" == _0x63be94 && _0x417438["_showLicenseError"]("usageLimit");
+    }, 1e3);
+  }
+  ["destroy"]() {
+    super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
+  }
+};
+const h = "https://ckeditor.com/docs/ckeditor5/latest";
+class $ extends Plugin {
+  static get ["pluginName"]() {
+    return "EmailConfigurationLogger";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  constructor(_0xafc697) {
+    super(_0xafc697), _0xafc697["config"]["define"]("email.logs", { "suppress": [], "suppressAll": false });
+  }
+  ["afterInit"]() {
+    !async function(_0x4006e5) {
+      const _0x61484f = _0x587938([78, 100, 66, 48, 71, 105, 67, 54, 73, 56, 98, 76, 69, 108, 51, 97, 81, 109, 118, 89, 113, 110, 80, 122, 116, 68, 79, 86, 111, 55, 52, 77, 102, 101, 50, 82, 72, 84, 74, 99, 70, 53, 83, 85, 75, 120, 106, 107, 119, 65, 49, 87, 117, 115, 103, 104, 57, 90, 114, 121, 112, 88]), _0x840750 = 1644195334, _0x413383 = 1644628574 ^ _0x840750, _0x5ae326 = window[_0x587938([68, 97, 116, 101])][_0x587938([110, 111, 119])](), _0x478c34 = _0x4006e5[_0x587938([101, 100, 105, 116, 111, 114])], _0x38d9f9 = new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x4f08d4) => {
+        _0x478c34[_0x587938([111, 110, 99, 101])](_0x587938([114, 101, 97, 100, 121]), _0x4f08d4);
+      }), _0x1ea0ad = { [_0x587938([107, 116, 121])]: _0x587938([69, 67]), [_0x587938([117, 115, 101])]: _0x587938([115, 105, 103]), [_0x587938([99, 114, 118])]: _0x587938([80, 45, 50, 53, 54]), [_0x587938([120])]: _0x587938([105, 67, 106, 79, 67, 118, 68, 70, 73, 54, 108, 81, 72, 72, 84, 49, 56, 106, 86, 119, 82, 102, 107, 102, 72, 81, 50, 97, 95, 77, 121, 109, 84, 51, 53, 76, 81, 86, 111, 70, 83, 65, 73]), [_0x587938([121])]: _0x587938([107, 88, 73, 121, 74, 52, 101, 118, 116, 67, 69, 70, 82, 109, 120, 75, 83, 85, 112, 75, 57, 102, 68, 87, 52, 53, 57, 118, 88, 79, 118, 86, 114, 104, 102, 54, 117, 81, 65, 101, 79, 105, 111]), [_0x587938([97, 108, 103])]: _0x587938([69, 83, 50, 53, 54]) }, _0x45eef3 = _0x478c34[_0x587938([99, 111, 110, 102, 105, 103])][_0x587938([103, 101, 116])](_0x587938([108, 105, 99, 101, 110, 115, 101, 75, 101, 121]));
+      async function _0x1e3801() {
+        let _0x3d3d85, _0x2ccffe = null, _0x3f457b = null;
+        try {
+          if (_0x45eef3 == _0x587938([71, 80, 76])) return _0x587938([78, 111, 116, 65, 108, 108, 111, 119, 101, 100]);
+          if (_0x3d3d85 = _0x230900(), !_0x3d3d85) return _0x587938([73, 110, 118, 97, 108, 105, 100]);
+          return _0x3d3d85[_0x587938([117, 115, 97, 103, 101, 69, 110, 100, 112, 111, 105, 110, 116])] && (_0x3f457b = _0x31123b(_0x3d3d85[_0x587938([117, 115, 97, 103, 101, 69, 110, 100, 112, 111, 105, 110, 116])], _0x3d3d85[_0x587938([106, 116, 105])])), await _0x3a8273() ? _0x440f35() ? _0xd53b8b() ? _0x587938([69, 120, 112, 105, 114, 101, 100]) : _0x581a8c() ? (_0x3d3d85[_0x587938([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])] == _0x587938([101, 118, 97, 108, 117, 97, 116, 105, 111, 110]) && (_0x2ccffe = _0x3dec24(_0x587938([69, 118, 97, 108, 117, 97, 116, 105, 111, 110, 76, 105, 109, 105, 116]))), _0x3d3d85[_0x587938([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])] == _0x587938([116, 114, 105, 97, 108]) && (_0x2ccffe = _0x3dec24(_0x587938([84, 114, 105, 97, 108, 76, 105, 109, 105, 116]))), await _0x502d9d()) : _0x587938([68, 111, 109, 97, 105, 110, 76, 105, 109, 105, 116]) : _0x587938([78, 111, 116, 65, 108, 108, 111, 119, 101, 100]) : _0x587938([73, 110, 118, 97, 108, 105, 100]);
+        } catch (_0x2c74b3) {
+          return _0x587938([73, 110, 118, 97, 108, 105, 100]);
+        }
+        function _0xd53b8b() {
+          const _0x2d1173 = [_0x587938([101, 118, 97, 108, 117, 97, 116, 105, 111, 110]), _0x587938([116, 114, 105, 97, 108])][_0x587938([105, 110, 99, 108, 117, 100, 101, 115])](_0x3d3d85[_0x587938([108, 105, 99, 101, 110, 115, 101, 84, 121, 112, 101])]) ? _0x5ae326 / 1e3 : 3600 * _0x413383;
+          return _0x3d3d85[_0x587938([101, 120, 112])] < _0x2d1173;
+        }
+        function _0x440f35() {
+          const _0x2d22e7 = _0x3d3d85[_0x587938([102, 101, 97, 116, 117, 114, 101, 115])];
+          return !!_0x2d22e7 && (!!_0x2d22e7[_0x587938([105, 110, 99, 108, 117, 100, 101, 115])](_0x587938([42])) || !!_0x2d22e7[_0x587938([105, 110, 99, 108, 117, 100, 101, 115])](_0x587938([69, 67, 72])));
+        }
+        function _0x581a8c() {
+          const _0x31f661 = _0x3d3d85[_0x587938([108, 105, 99, 101, 110, 115, 101, 100, 72, 111, 115, 116, 115])];
+          if (!_0x31f661 || 0 == _0x31f661[_0x587938([108, 101, 110, 103, 116, 104])]) return true;
+          const { hostname: _0x1599f7 } = new URL(window[_0x587938([108, 111, 99, 97, 116, 105, 111, 110])]["href"]);
+          if (_0x31f661[_0x587938([105, 110, 99, 108, 117, 100, 101, 115])](_0x1599f7)) return true;
+          const _0xf8c95b = _0x1599f7[_0x587938([115, 112, 108, 105, 116])](_0x587938([46]));
+          return _0x31f661[_0x587938([102, 105, 108, 116, 101, 114])]((_0x2ac3b5) => _0x2ac3b5[_0x587938([105, 110, 99, 108, 117, 100, 101, 115])](_0x587938([42])))[_0x587938([109, 97, 112])]((_0x11e708) => _0x11e708[_0x587938([115, 112, 108, 105, 116])](_0x587938([46])))[_0x587938([115, 111, 109, 101])]((_0xfea131) => _0xf8c95b[_0x587938([101, 118, 101, 114, 121])]((_0x4b638a, _0xf7f22e) => _0xfea131[_0xf7f22e] === _0x4b638a || _0xfea131[_0xf7f22e] === _0x587938([42])));
+        }
+        function _0x502d9d() {
+          return _0x2ccffe && _0x3f457b ? new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x2f1250, _0x318a6a) => {
+            _0x2ccffe[_0x587938([116, 104, 101, 110])](_0x2f1250, _0x318a6a), _0x3f457b[_0x587938([116, 104, 101, 110])]((_0x5f2968) => {
+              _0x5f2968 != _0x587938([86, 97, 108, 105, 100]) && _0x2f1250(_0x5f2968);
+            }, _0x318a6a);
+          }) : _0x2ccffe || _0x3f457b || _0x587938([86, 97, 108, 105, 100]);
+        }
+      }
+      function _0x31123b(_0x170da8, _0xd793b1) {
+        return new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x247175) => {
+          if (_0x28c7a1()) return _0x247175(_0x587938([86, 97, 108, 105, 100]));
+          _0x185f11(), _0x478c34[_0x587938([100, 101, 99, 111, 114, 97, 116, 101])](_0x587938([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]));
+          let _0x387555 = false;
+          const _0xbcfc1b = uid();
+          function _0x12bab4(_0x121f83) {
+            return !!_0x121f83 && (typeof _0x121f83 === _0x587938([111, 98, 106, 101, 99, 116]) || typeof _0x121f83 === _0x587938([102, 117, 110, 99, 116, 105, 111, 110])) && typeof _0x121f83[_0x587938([116, 104, 101, 110])] === _0x587938([102, 117, 110, 99, 116, 105, 111, 110]) && typeof _0x121f83[_0x587938([99, 97, 116, 99, 104])] === _0x587938([102, 117, 110, 99, 116, 105, 111, 110]);
+          }
+          function _0x568596(_0x10d197) {
+            _0x689a4e(_0x10d197)[_0x587938([116, 104, 101, 110])]((_0xbddf86) => {
+              if (!_0xbddf86 || _0xbddf86[_0x587938([115, 116, 97, 116, 117, 115])] != _0x587938([111, 107])) return _0x587938([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]);
+              return _0x1c2883(_0x54a5f7(_0xbcfc1b + _0xd793b1)) != _0xbddf86[_0x587938([118, 101, 114, 105, 102, 105, 99, 97, 116, 105, 111, 110])] ? _0x587938([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]) : _0x587938([86, 97, 108, 105, 100]);
+            })[_0x587938([116, 104, 101, 110])]((_0x1d0859) => (_0x23a800(), _0x1d0859), () => {
+              const _0x5763ac = _0x4442d3();
+              return null == _0x5763ac ? (_0x23a800(), _0x587938([86, 97, 108, 105, 100])) : _0x587938(_0x5ae326 - _0x5763ac > (1175251462 ^ _0x840750) ? [85, 115, 97, 103, 101, 76, 105, 109, 105, 116] : [86, 97, 108, 105, 100]);
+            })[_0x587938([116, 104, 101, 110])](_0x247175)[_0x587938([99, 97, 116, 99, 104])](() => {
+              _0x247175(_0x587938([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+            });
+            const _0x350a85 = 1647739014 ^ _0x840750;
+            function _0x23a800() {
+              const _0xd34984 = _0x587938([108, 108, 99, 116, 45]) + _0x1c2883(_0x54a5f7(_0x170da8)), _0x325a31 = _0x3c4e52(_0x1c2883(window[_0x587938([77, 97, 116, 104])][_0x587938([99, 101, 105, 108])](_0x5ae326 / _0x350a85)));
+              window[_0x587938([108, 111, 99, 97, 108, 83, 116, 111, 114, 97, 103, 101])][_0x587938([115, 101, 116, 73, 116, 101, 109])](_0xd34984, _0x325a31);
+            }
+            function _0x4442d3() {
+              const _0xd88b0e = _0x587938([108, 108, 99, 116, 45]) + _0x1c2883(_0x54a5f7(_0x170da8)), _0x21d24e = window[_0x587938([108, 111, 99, 97, 108, 83, 116, 111, 114, 97, 103, 101])][_0x587938([103, 101, 116, 73, 116, 101, 109])](_0xd88b0e);
+              return _0x21d24e ? window[_0x587938([112, 97, 114, 115, 101, 73, 110, 116])](_0x3c4e52(_0x21d24e), 16) * _0x350a85 : null;
+            }
+            function _0x689a4e(_0x3de65c) {
+              return new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x22b356, _0x4cd9be) => {
+                _0x3de65c[_0x587938([116, 104, 101, 110])](_0x22b356, _0x4cd9be), window[_0x587938([115, 101, 116, 84, 105, 109, 101, 111, 117, 116])](_0x4cd9be, 1644280518 ^ _0x840750);
+              });
+            }
+          }
+          _0x478c34[_0x587938([111, 110])](_0x587938([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]), (_0x208b44, _0x172f1c) => {
+            if (_0x172f1c[0] != _0x170da8) return _0x247175(_0x587938([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+            _0x172f1c[1] = { ..._0x172f1c[1], [_0x587938([114, 101, 113, 117, 101, 115, 116, 73, 100])]: _0xbcfc1b };
+          }, { [_0x587938([112, 114, 105, 111, 114, 105, 116, 121])]: _0x587938([104, 105, 103, 104]) }), _0x478c34[_0x587938([111, 110])](_0x587938([95, 115, 101, 110, 100, 85, 115, 97, 103, 101, 82, 101, 113, 117, 101, 115, 116]), (_0x57310f) => {
+            _0x12bab4(_0x57310f[_0x587938([114, 101, 116, 117, 114, 110])]) && (_0x387555 = true, _0x568596(_0x57310f[_0x587938([114, 101, 116, 117, 114, 110])]));
+          }, { [_0x587938([112, 114, 105, 111, 114, 105, 116, 121])]: _0x587938([108, 111, 119]) }), _0x38d9f9[_0x587938([116, 104, 101, 110])](() => {
+            _0x387555 || _0x247175(_0x587938([85, 115, 97, 103, 101, 76, 105, 109, 105, 116]));
+          });
+        });
+        function _0x28c7a1() {
+          return _0x478c34[_0x587938([101, 100, 105, 116, 105, 110, 103])][_0x587938([118, 105, 101, 119])][_0x587938([95, 111, 118, 101, 114, 108, 97, 121, 77, 111, 100, 101, 72, 105, 110, 116])] == _0x587938([97, 117, 116, 111]);
+        }
+        function _0x185f11() {
+          _0x478c34[_0x587938([101, 100, 105, 116, 105, 110, 103])][_0x587938([118, 105, 101, 119])][_0x587938([95, 111, 118, 101, 114, 108, 97, 121, 77, 111, 100, 101, 72, 105, 110, 116])] = _0x587938([97, 117, 116, 111]);
+        }
+      }
+      function _0x3dec24(_0x3f2173) {
+        const _0x4f21a0 = [new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x4047b7) => setTimeout(_0x4047b7, 1644777674 ^ _0x840750)), _0x38d9f9[_0x587938([116, 104, 101, 110])](() => new window[_0x587938([80, 114, 111, 109, 105, 115, 101])]((_0x25ea5e) => {
+          let _0x5e9e43 = 0;
+          _0x478c34[_0x587938([109, 111, 100, 101, 108])][_0x587938([111, 110])](_0x587938([97, 112, 112, 108, 121, 79, 112, 101, 114, 97, 116, 105, 111, 110]), (_0x270878, _0xe2f86f) => {
+            _0xe2f86f[0][_0x587938([105, 115, 68, 111, 99, 117, 109, 101, 110, 116, 79, 112, 101, 114, 97, 116, 105, 111, 110])] && _0x5e9e43++, _0x5e9e43 == (1644195838 ^ _0x840750) && (_0x25ea5e(), _0x270878[_0x587938([111, 102, 102])]());
+          });
+        }))];
+        return window[_0x587938([80, 114, 111, 109, 105, 115, 101])][_0x587938([114, 97, 99, 101])](_0x4f21a0)[_0x587938([116, 104, 101, 110])](() => _0x3f2173);
+      }
+      async function _0x429b50() {
+        await _0x38d9f9, _0x478c34[_0x587938([109, 111, 100, 101, 108])][_0x587938([99, 104, 97, 110, 103, 101])] = _0x8cf5e9, _0x478c34[_0x587938([109, 111, 100, 101, 108])][_0x587938([101, 110, 113, 117, 101, 117, 101, 67, 104, 97, 110, 103, 101])] = _0x8cf5e9, _0x478c34[_0x587938([101, 110, 97, 98, 108, 101, 82, 101, 97, 100, 79, 110, 108, 121, 77, 111, 100, 101])](_0x587938([109, 111, 100, 101, 108]));
+      }
+      function _0x305165(_0x204be1) {
+        const _0x599fb5 = _0x10487f();
+        _0x478c34[_0x599fb5] = _0x587938([101, 109, 97, 105, 108, 67, 111, 110, 102, 105, 103, 117, 114, 97, 116, 105, 111, 110, 72, 101, 108, 112, 101, 114, 76, 105, 99, 101, 110, 115, 101, 75, 101, 121]) + _0x204be1, _0x204be1 != _0x587938([86, 97, 108, 105, 100]) && _0x429b50();
+      }
+      function _0x10487f() {
+        const _0x811b6b = window[_0x587938([83, 116, 114, 105, 110, 103])](window[_0x587938([112, 101, 114, 102, 111, 114, 109, 97, 110, 99, 101])][_0x587938([110, 111, 119])]())[_0x587938([114, 101, 112, 108, 97, 99, 101])](_0x587938([46]), "");
+        let _0x2153d5 = _0x587938([78]);
+        for (let _0x5a81aa = 0; _0x5a81aa < _0x811b6b[_0x587938([108, 101, 110, 103, 116, 104])]; _0x5a81aa += 2) {
+          let _0x43fbfe = window[_0x587938([112, 97, 114, 115, 101, 73, 110, 116])](_0x811b6b[_0x587938([115, 117, 98, 115, 116, 114, 105, 110, 103])](_0x5a81aa, _0x5a81aa + 2));
+          _0x43fbfe >= _0x61484f[_0x587938([108, 101, 110, 103, 116, 104])] && (_0x43fbfe -= _0x61484f[_0x587938([108, 101, 110, 103, 116, 104])]), _0x2153d5 += _0x61484f[_0x43fbfe];
+        }
+        return _0x2153d5;
+      }
+      function _0x230900() {
+        const _0x57f276 = _0x45eef3[_0x587938([115, 112, 108, 105, 116])](_0x587938([46]));
+        if (3 != _0x57f276[_0x587938([108, 101, 110, 103, 116, 104])]) return null;
+        return _0x12f4d7(_0x57f276[1]);
+        function _0x12f4d7(_0x2f22ef) {
+          const _0x2d7fca = _0x3f010c(_0x2f22ef);
+          return _0x2d7fca && _0x48df46() ? _0x2d7fca : null;
+          function _0x48df46() {
+            const _0x793d4f = _0x2d7fca[_0x587938([106, 116, 105])], _0x33d5db = window[_0x587938([112, 97, 114, 115, 101, 73, 110, 116])](_0x793d4f[_0x587938([115, 117, 98, 115, 116, 114, 105, 110, 103])](_0x793d4f[_0x587938([108, 101, 110, 103, 116, 104])] - 8), 16), _0x5e7c99 = { ..._0x2d7fca, [_0x587938([106, 116, 105])]: _0x793d4f[_0x587938([115, 117, 98, 115, 116, 114, 105, 110, 103])](0, _0x793d4f[_0x587938([108, 101, 110, 103, 116, 104])] - 8) };
+            return delete _0x5e7c99[_0x587938([118, 99])], _0x54a5f7(_0x5e7c99) == _0x33d5db;
+          }
+        }
+      }
+      async function _0x3a8273() {
+        let _0x8f86f3 = true;
+        try {
+          const _0x246272 = _0x45eef3[_0x587938([115, 112, 108, 105, 116])](_0x587938([46])), [_0x33cae7, _0x568e19, _0x439700] = _0x246272;
+          return _0x418710(_0x33cae7), await _0xab688(_0x33cae7, _0x568e19, _0x439700), _0x8f86f3;
+        } catch (_0x9281cd) {
+          return false;
+        }
+        function _0x418710(_0xb0deeb) {
+          const _0x4f3b61 = _0x3f010c(_0xb0deeb);
+          _0x4f3b61 && _0x4f3b61[_0x587938([97, 108, 103])] == _0x587938([69, 83, 50, 53, 54]) || (_0x8f86f3 = false);
+        }
+        async function _0xab688(_0x4356fd, _0x134b38, _0x29e888) {
+          const _0x59e9fc = window[_0x587938([85, 105, 110, 116, 56, 65, 114, 114, 97, 121])][_0x587938([102, 114, 111, 109])](_0x3c0535(_0x29e888), (_0xb70c31) => _0xb70c31[_0x587938([99, 104, 97, 114, 67, 111, 100, 101, 65, 116])](0)), _0x4745fd = new window[_0x587938([84, 101, 120, 116, 69, 110, 99, 111, 100, 101, 114])]()[_0x587938([101, 110, 99, 111, 100, 101])](_0x4356fd + _0x587938([46]) + _0x134b38), _0xc4856f = window[_0x587938([99, 114, 121, 112, 116, 111])][_0x587938([115, 117, 98, 116, 108, 101])];
+          if (!_0xc4856f) return;
+          const _0x5334d1 = await _0xc4856f[_0x587938([105, 109, 112, 111, 114, 116, 75, 101, 121])](_0x587938([106, 119, 107]), _0x1ea0ad, { [_0x587938([110, 97, 109, 101])]: _0x587938([69, 67, 68, 83, 65]), [_0x587938([110, 97, 109, 101, 100, 67, 117, 114, 118, 101])]: _0x587938([80, 45, 50, 53, 54]) }, false, [_0x587938([118, 101, 114, 105, 102, 121])]);
+          await _0xc4856f[_0x587938([118, 101, 114, 105, 102, 121])]({ [_0x587938([110, 97, 109, 101])]: _0x587938([69, 67, 68, 83, 65]), [_0x587938([104, 97, 115, 104])]: { [_0x587938([110, 97, 109, 101])]: _0x587938([83, 72, 65, 45, 50, 53, 54]) } }, _0x5334d1, _0x59e9fc, _0x4745fd) || (_0x8f86f3 = false);
+        }
+      }
+      function _0x3f010c(_0x994b98) {
+        return _0x994b98[_0x587938([115, 116, 97, 114, 116, 115, 87, 105, 116, 104])](_0x587938([101, 121])) ? JSON[_0x587938([112, 97, 114, 115, 101])](_0x3c0535(_0x994b98)) : null;
+      }
+      function _0x3c0535(_0x4f211e) {
+        return window[_0x587938([97, 116, 111, 98])](_0x4f211e[_0x587938([114, 101, 112, 108, 97, 99, 101])](/-/g, _0x587938([43]))[_0x587938([114, 101, 112, 108, 97, 99, 101])](/_/g, _0x587938([47])));
+      }
+      function _0x54a5f7(_0x312801) {
+        let _0xa914f5 = 5381;
+        function _0x42edc0(_0x123e42) {
+          for (let _0x1aa48d = 0; _0x1aa48d < _0x123e42[_0x587938([108, 101, 110, 103, 116, 104])]; _0x1aa48d++) {
+            const _0x20371d = _0x123e42[_0x587938([99, 104, 97, 114, 67, 111, 100, 101, 65, 116])](_0x1aa48d);
+            _0xa914f5 = (_0xa914f5 << 5) + _0xa914f5 + _0x20371d, _0xa914f5 &= _0xa914f5;
+          }
+        }
+        function _0x58fc5d(_0x493a9f) {
+          Array[_0x587938([105, 115, 65, 114, 114, 97, 121])](_0x493a9f) ? _0x493a9f[_0x587938([102, 111, 114, 69, 97, 99, 104])](_0x58fc5d) : _0x493a9f && typeof _0x493a9f == _0x587938([111, 98, 106, 101, 99, 116]) ? Object[_0x587938([101, 110, 116, 114, 105, 101, 115])](_0x493a9f)[_0x587938([115, 111, 114, 116])]()[_0x587938([102, 111, 114, 69, 97, 99, 104])](([_0xbdce6f, _0x3b18d5]) => {
+            _0x42edc0(_0xbdce6f), _0x58fc5d(_0x3b18d5);
+          }) : _0x42edc0(window[_0x587938([83, 116, 114, 105, 110, 103])](_0x493a9f));
+        }
+        return _0x58fc5d(_0x312801), _0xa914f5 >>> 0;
+      }
+      function _0x1c2883(_0x31bee5) {
+        return _0x31bee5[_0x587938([116, 111, 83, 116, 114, 105, 110, 103])](16)[_0x587938([112, 97, 100, 83, 116, 97, 114, 116])](8, _0x587938([48]));
+      }
+      function _0x3c4e52(_0x5de468) {
+        return _0x5de468[_0x587938([115, 112, 108, 105, 116])]("")[_0x587938([114, 101, 118, 101, 114, 115, 101])]()[_0x587938([106, 111, 105, 110])]("");
+      }
+      function _0x8cf5e9() {
+      }
+      function _0x587938(_0x4b8756) {
+        return _0x4b8756["map"]((_0x40033d) => String["fromCharCode"](_0x40033d))["join"]("");
+      }
+      _0x305165(await _0x1e3801());
+    }(this);
+  }
+  ["_logSuppressibleWarning"](_0x51fa63, _0x1b48e9) {
+    if (this["_isSuppressedLog"](_0x51fa63, _0x1b48e9)) return;
+    const _0x2d26a7 = h + "/support/error-codes.html#error-" + _0x51fa63;
+    console["warn"]("%cEmailConfigurationHelper%c " + _0x51fa63, "background: #E65100; color: white; padding: 2px 4px;", "", ..._0x1b48e9 ? [_0x1b48e9] : [], "\nRead more: " + _0x2d26a7);
+  }
+  ["_logSuppressibleInfo"](_0x313cd3, _0xf86884, _0xa0f357) {
+    if (this["_isSuppressedLog"](_0x313cd3)) return;
+    let _0x1fd1a3 = _0xf86884;
+    _0xa0f357 && (_0x1fd1a3 += "\nRead more: " + (h + "/" + _0xa0f357)), console["info"]("%cEmailConfigurationHelper%c " + _0x313cd3, "background: #4169E1; color: white; padding: 2px 4px;", "", _0x1fd1a3);
+  }
+  ["_checkUnsupportedPlugin"](_0x43b03b, _0x194b78) {
+    this["editor"]["plugins"]["has"](_0x43b03b) && this["_logSuppressibleWarning"]("email-configuration-unsupported-plugin", { "pluginName": _0x43b03b, ..._0x194b78 });
+  }
+  ["_validateConfigColorValue"](_0x2103f3) {
+    const _0x3d4c49 = this["editor"]["config"]["get"](_0x2103f3);
+    if (!_0x3d4c49) return;
+    const _0x12fc7f = Array["isArray"](_0x3d4c49), _0x3fc0fc = _0x12fc7f ? _0x3d4c49 : [_0x3d4c49];
+    for (const [_0x30253f, _0x4c9dbf] of _0x3fc0fc["entries"]()) {
+      const _0x4aada4 = "string" == typeof _0x4c9dbf ? _0x4c9dbf : _0x4c9dbf["color"];
+      P(_0x4aada4) && this["_logSuppressibleWarning"]("email-configuration-unsupported-color-value", { "configPath": _0x12fc7f ? _0x2103f3 + "[" + _0x30253f + "]" : _0x2103f3, "color": _0x4aada4 });
+    }
+  }
+  ["_validateConfigColorFormat"](_0x4ffd88) {
+    const _0x53683b = this["editor"]["config"]["get"](_0x4ffd88);
+    var _0x494aa5;
+    _0x53683b && ((_0x494aa5 = _0x53683b) && b["includes"](_0x494aa5) && this["_logSuppressibleWarning"]("email-configuration-unsupported-color-format", { "configPath": _0x4ffd88, "format": _0x53683b }));
+  }
+  ["_isSuppressedLog"](_0x4f7b2f, _0x5e40c4) {
+    const _0x5a9eec = this["editor"]["config"]["get"]("email.logs");
+    return !!_0x5a9eec["suppressAll"] || (!("function" != typeof _0x5a9eec["suppress"] || !_0x5a9eec["suppress"](_0x4f7b2f, _0x5e40c4)) || !(!Array["isArray"](_0x5a9eec["suppress"]) || !_0x5a9eec["suppress"]["includes"](_0x4f7b2f)));
+  }
+}
+const b = ["hsl", "hsla", "hwb", "lab", "lch", "oklab", "oklch", "color-mix", "rgba"];
+function P(_0x329357) {
+  return !!_0x329357 && b["some"]((_0x116d5f) => _0x329357["includes"](_0x116d5f + "("));
+}
+class e extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "HighlightEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("Highlight");
+  }
+}
+class r extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "ImageEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("ImageBlock");
+  }
+}
+class n extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "MathTypeEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("MathType");
+  }
+}
+class x extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "ExportInlineStylesEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const _0x275c3 = this["editor"]["plugins"]["get"]($);
+    this["editor"]["plugins"]["has"]("ExportInlineStyles") || _0x275c3["_logSuppressibleWarning"]("email-configuration-missing-export-inline-styles-plugin");
+  }
+}
+class a extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "ListEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const _0x1783e5 = this["editor"]["plugins"]["get"]($), _0xa64cbb = this["editor"]["config"]["get"]("list");
+    _0xa64cbb && _0xa64cbb["properties"] && _0xa64cbb["properties"]["reversed"] && _0x1783e5["_logSuppressibleWarning"]("email-configuration-unsupported-reversed-list");
+  }
+}
+class s extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "TableEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["_checkRequiredTablePlugins"](), this["_checkTableConfig"]();
+  }
+  ["_checkRequiredTablePlugins"]() {
+    const { plugins: _0x4805cb } = this["editor"], _0x191c7a = _0x4805cb["get"]($);
+    _0x4805cb["has"]("Table") && (_0x4805cb["has"]("PlainTableOutput") || _0x191c7a["_logSuppressibleWarning"]("email-configuration-missing-plain-table-output-plugin"), _0x4805cb["has"]("TableLayout") || _0x191c7a["_logSuppressibleWarning"]("email-configuration-missing-table-layout-plugin"));
+  }
+  ["_checkTableConfig"]() {
+    const { config: _0x420ae2, plugins: _0x5b3a94 } = this["editor"];
+    _0x420ae2["get"]("table") && _0x5b3a94["has"]("Table") && (this["_checkTablePropertiesConfig"]("tableCellProperties"), this["_checkTablePropertiesConfig"]("tableProperties"));
+  }
+  ["_checkTablePropertiesConfig"](_0x33aaf9) {
+    const _0x3fa164 = this["editor"]["plugins"]["get"]($);
+    _0x3fa164["_validateConfigColorValue"]("table." + _0x33aaf9 + ".borderColors"), _0x3fa164["_validateConfigColorValue"]("table." + _0x33aaf9 + ".backgroundColors"), _0x3fa164["_validateConfigColorValue"]("table." + _0x33aaf9 + ".defaultProperties.borderColor"), _0x3fa164["_validateConfigColorValue"]("table." + _0x33aaf9 + ".defaultProperties"), _0x3fa164["_validateConfigColorFormat"]("table." + _0x33aaf9 + ".colorPicker.format");
+  }
+}
+class l extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "EmptyBlockEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const _0x6bc696 = this["editor"]["plugins"]["get"]($);
+    this["editor"]["plugins"]["has"]("EmptyBlock") || _0x6bc696["_logSuppressibleInfo"]("email-configuration-missing-empty-block-plugin", "Consider enabling the EmptyBlock plugin to ensure that exported content has empty blocks.", "features/email-editing/email#empty-block-plugin");
+  }
+}
+class m extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "FontEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const { plugins: _0x14f241 } = this["editor"];
+    _0x14f241["has"]("FontColorEditing") && this["_checkColorConfig"]("fontColor"), _0x14f241["has"]("FontBackgroundColorEditing") && this["_checkColorConfig"]("fontBackgroundColor");
+  }
+  ["_checkColorConfig"](_0x3391d5) {
+    const _0x41f183 = this["editor"]["plugins"]["get"]($);
+    this["editor"]["config"]["get"](_0x3391d5) && (_0x41f183["_validateConfigColorValue"](_0x3391d5 + ".colors"), _0x41f183["_validateConfigColorValue"](_0x3391d5 + ".documentColors"), _0x41f183["_validateConfigColorFormat"](_0x3391d5 + ".colorPicker.format"));
+  }
+}
+class g extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "SourceEditingEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const { plugins: _0xce7b51 } = this["editor"], _0x2bfec4 = _0xce7b51["get"]($);
+    _0xce7b51["has"]("SourceEditing") || _0xce7b51["has"]("SourceEditingEnhanced") || _0x2bfec4["_logSuppressibleWarning"]("email-configuration-missing-source-editing-plugin");
+  }
+}
+class p extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "MarkdownEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("Markdown");
+  }
+}
+const _f2 = class _f2 extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "GeneralHtmlIntegrationSupport";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["init"]() {
+    const { plugins: _0x2cf883 } = this["editor"];
+    if (!_0x2cf883["has"]("DataFilter")) return;
+    const _0x4175b9 = _0x2cf883["get"]("DataFilter"), _0x2097a7 = _0x2cf883["get"]($);
+    for (const _0xc743f6 of _f2["UNSUPPORTED_ELEMENTS"]) _0x4175b9["once"]("register:" + _0xc743f6, (_0x48ab3e, _0x534d35) => {
+      _0x2097a7["_logSuppressibleWarning"]("email-unsupported-html-element", { "element": _0x534d35["view"] });
+    });
+  }
+};
+__publicField(_f2, "UNSUPPORTED_ELEMENTS", /* @__PURE__ */ new Set(["object", "article", "details", "main", "nav", "summary", "abbr", "acronym", "bdi", "output", "hgroup", "form", "input", "button", "audio", "canvas", "meter", "progress", "iframe"]));
+let f = _f2;
+class u extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "MergeFieldsEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const _0x5979b0 = this["editor"]["plugins"]["get"]($);
+    this["editor"]["plugins"]["has"]("MergeFields") || _0x5979b0["_logSuppressibleInfo"]("email-configuration-missing-merge-fields-plugin", "Consider enabling the MergeFields plugin which allows inserting dynamic data placeholders into content.", "features/email-editing/email#merge-fields-plugin");
+  }
+}
+class c extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "TemplateEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    const _0x19de61 = this["editor"]["plugins"]["get"]($);
+    this["editor"]["plugins"]["has"]("Template") || _0x19de61["_logSuppressibleInfo"]("email-configuration-missing-template-plugin", "Consider enabling the Template plugin which allows inserting predefined e-mail templates into the editor.", "features/email-editing/email#template-plugin");
+  }
+}
+class L extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "UploadEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("Base64UploadAdapter");
+  }
+}
+class d extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "MediaEmbedEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("MediaEmbed");
+  }
+}
+class y extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "TodoListEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("TodoList");
+  }
+}
+class j extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "MultiLevelListEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("MultiLevelList", { "description": "The multi-level lists are rendered incorrectly in Outlook 2021." });
+  }
+}
+class C extends Plugin {
+  static get ["requires"]() {
+    return [$];
+  }
+  static get ["pluginName"]() {
+    return "LinkEmailIntegration";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  ["afterInit"]() {
+    this["editor"]["plugins"]["get"]($)["_checkUnsupportedPlugin"]("LinkImage", { "description": "Block images are unsupported in email environments. The LinkImage plugin is designed to work exclusively with block images, which makes it not applicable for email integration. Inline images are still supported and function correctly with the standard Link feature." });
+  }
+}
+class K extends Plugin {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "licenseKey");
+    __publicField(this, "_licenseKeyCheckInterval");
+  }
+  static get ["pluginName"]() {
+    return "EmailConfigurationHelper";
+  }
+  static get ["isOfficialPlugin"]() {
+    return true;
+  }
+  static get ["isPremiumPlugin"]() {
+    return true;
+  }
+  static get ["requires"]() {
+    return [e, r, n, x, a, s, l, m, g, p, f, u, c, L, d, y, j, C];
+  }
+  ["init"]() {
+    this["licenseKey"] = this["editor"]["config"]["get"]("licenseKey");
+    const _0x2c26de = this["editor"];
+    this["_licenseKeyCheckInterval"] = setInterval(() => {
+      let _0x51d8ff;
+      for (const _0x66262e in _0x2c26de) {
+        const _0x5045a5 = _0x66262e, _0x34c979 = _0x2c26de[_0x5045a5];
+        if ("emailConfigurationHelperLicenseKeyValid" == _0x34c979 || "emailConfigurationHelperLicenseKeyInvalid" == _0x34c979 || "emailConfigurationHelperLicenseKeyExpired" == _0x34c979 || "emailConfigurationHelperLicenseKeyDomainLimit" == _0x34c979 || "emailConfigurationHelperLicenseKeyNotAllowed" == _0x34c979 || "emailConfigurationHelperLicenseKeyEvaluationLimit" == _0x34c979 || "emailConfigurationHelperLicenseKeyTrialLimit" == _0x34c979 || "emailConfigurationHelperLicenseKeyUsageLimit" == _0x34c979) {
+          delete _0x2c26de[_0x5045a5], _0x51d8ff = _0x34c979, clearInterval(this["_licenseKeyCheckInterval"]), this["_licenseKeyCheckInterval"] = void 0;
+          break;
+        }
+      }
+      "emailConfigurationHelperLicenseKeyInvalid" == _0x51d8ff && _0x2c26de["_showLicenseError"]("invalid"), "emailConfigurationHelperLicenseKeyExpired" == _0x51d8ff && _0x2c26de["_showLicenseError"]("expired"), "emailConfigurationHelperLicenseKeyDomainLimit" == _0x51d8ff && _0x2c26de["_showLicenseError"]("domainLimit"), "emailConfigurationHelperLicenseKeyNotAllowed" == _0x51d8ff && _0x2c26de["_showLicenseError"]("featureNotAllowed", "EmailConfigurationHelper"), "emailConfigurationHelperLicenseKeyEvaluationLimit" == _0x51d8ff && _0x2c26de["_showLicenseError"]("evaluationLimit"), "emailConfigurationHelperLicenseKeyTrialLimit" == _0x51d8ff && _0x2c26de["_showLicenseError"]("trialLimit"), "emailConfigurationHelperLicenseKeyUsageLimit" == _0x51d8ff && _0x2c26de["_showLicenseError"]("usageLimit");
+    }, 1e3);
+  }
+  ["destroy"]() {
+    super["destroy"](), this["_licenseKeyCheckInterval"] && clearInterval(this["_licenseKeyCheckInterval"]);
+  }
 }
 const corePlugins = {
   "CKFinderUploadAdapter": CKFinderUploadAdapter,
@@ -161829,31 +162937,33 @@ const corePlugins = {
 const premiumPlugins = {
   "CKBox": CKBox,
   "CKBoxImageEdit": CKBoxImageEdit,
-  "AIAssistant": r$7,
+  "AIAssistant": r$9,
   "OpenAITextAdapter": O$7,
   "AWSTextAdapter": D$3,
-  "CaseChange": s$d,
-  "DocumentOutline": u$5,
-  "Comments": p$9,
+  "CaseChange": s$e,
+  "DocumentOutline": u$6,
+  "Comments": p$a,
   "ExportPdf": o$5,
-  "ExportWord": s$8,
-  "FormatPainter": n$3,
+  "ExportWord": s$9,
+  "FormatPainter": n$5,
   "ImportWord": o$2,
-  "MergeFields": c$6,
-  "MultiLevelList": s$7,
-  "PasteFromOfficeEnhanced": a$2,
-  "SlashCommand": m$1,
-  "TableOfContents": a$6,
-  "PresenceList": s$2,
+  "MergeFields": c$7,
+  "MultiLevelList": s$8,
+  "PasteFromOfficeEnhanced": a$4,
+  "SlashCommand": m$3,
+  "TableOfContents": a$8,
+  "PresenceList": s$3,
   "RevisionHistory": k$1,
-  "RealTimeCollaborativeComments": m$3,
-  "RealTimeCollaborativeEditing": n,
-  "RealTimeCollaborativeRevisionHistory": g$2,
-  "RealTimeCollaborativeTrackChanges": p$2,
+  "RealTimeCollaborativeComments": m$5,
+  "RealTimeCollaborativeEditing": n$2,
+  "RealTimeCollaborativeRevisionHistory": g$3,
+  "RealTimeCollaborativeTrackChanges": p$3,
   "TrackChanges": k,
   "TrackChangesData": T,
-  "Pagination": a$3,
-  "Template": m
+  "Pagination": a$5,
+  "Template": m$2,
+  "ExportInlineStyles": n$1,
+  "EmailConfigurationHelper": K
 };
 const communityPlugins = {};
 function configFactory(config) {
@@ -161887,12 +162997,12 @@ function configFactory(config) {
 }
 class BlazorClassicEditor extends ClassicEditor {
   static async create(sourceElementOrData, config, reference) {
-    var _a4;
+    var _a3;
     config = configFactory(config);
     const editor = await super.create(sourceElementOrData, config);
     const wordCount = editor.plugins.get("WordCount");
     const editorElement = editor.ui.view.editable.element;
-    const wordCountElement = (_a4 = editorElement == null ? void 0 : editorElement.closest(".editor-container_classic-editor")) == null ? void 0 : _a4.querySelector(".editor_container__word-count");
+    const wordCountElement = (_a3 = editorElement == null ? void 0 : editorElement.closest(".editor-container_classic-editor")) == null ? void 0 : _a3.querySelector(".editor_container__word-count");
     if (wordCountElement) {
       wordCountElement.appendChild(wordCount.wordCountContainer);
     }
