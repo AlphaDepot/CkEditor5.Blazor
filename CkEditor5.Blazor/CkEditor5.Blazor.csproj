@@ -14,7 +14,11 @@
         <PackageProjectUrl>https://github.com/AlphaDepot/CkEditor5.Blazor</PackageProjectUrl>
         <RepositoryUrl>https://github.com/AlphaDepot/CkEditor5.Blazor</RepositoryUrl>
     </PropertyGroup>
-
+    
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
 
     <ItemGroup>
         <SupportedPlatform Include="browser" />
