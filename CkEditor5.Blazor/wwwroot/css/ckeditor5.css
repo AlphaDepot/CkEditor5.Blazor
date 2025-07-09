@@ -4384,12 +4384,12 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 :root {
-    --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
-    --ck-color-mention-text: hsl(341, 100%, 30%);
+    --ck-content-color-mention-background: hsla(341, 100%, 30%, 0.1);
+    --ck-content-color-mention-text: hsl(341, 100%, 30%);
 }
 .ck-content .mention {
-    background: var(--ck-color-mention-background);
-    color: var(--ck-color-mention-text);
+    background: var(--ck-content-color-mention-background);
+    color: var(--ck-content-color-mention-text);
 }
 /*
  * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
@@ -4856,7 +4856,13 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 :root {
-    --ck-color-selector-focused-cell-background: hsla(212, 90%, 80%, .3);
+    --ck-color-table-focused-cell-background: hsla(212, 90%, 80%, .3);
+    --ck-table-content-default-border-color: hsl(0, 0%, 83%);
+}
+/* Dashed outline for table without any border. */
+.ck-widget.table table[style*="border:none"],
+.ck-widget.table table[style*="border-style:none"] {
+    outline: var(--ck-table-content-default-border-color) 1px dashed;
 }
 /**
 		 * While setting outline is fine, the border should not be modified here
@@ -4864,12 +4870,15 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
 		 * So do not use `@mixin ck-focus-ring;` here, or any other border styles.
 		 * See more: https://github.com/ckeditor/ckeditor5/issues/16979
 		 */
-.ck-widget.table td.ck-editor__nested-editable.ck-editor__nested-editable_focused,
-.ck-widget.table th.ck-editor__nested-editable.ck-editor__nested-editable_focused,
-.ck-widget.table td.ck-editor__nested-editable:focus,
-.ck-widget.table th.ck-editor__nested-editable:focus {
+.ck-widget.table td.ck-editor__nested-editable, .ck-widget.table th.ck-editor__nested-editable {
+    outline: unset;
+}
+.ck-widget.table td.ck-editor__nested-editable.ck-editor__nested-editable_focused:not(.ck-editor__editable_selected),
+.ck-widget.table th.ck-editor__nested-editable.ck-editor__nested-editable_focused:not(.ck-editor__editable_selected),
+.ck-widget.table td.ck-editor__nested-editable:not(.ck-editor__editable_selected):focus,
+.ck-widget.table th.ck-editor__nested-editable:not(.ck-editor__editable_selected):focus {
     /* A very slight background to highlight the focused cell */
-    background: var(--ck-color-selector-focused-cell-background);
+    background: var(--ck-color-table-focused-cell-background);
     outline: 1px solid var(--ck-color-focus-border);
     outline-offset: -1px; /* progressive enhancement - no IE support */
 }
@@ -4987,7 +4996,6 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
 .ck.ck-editor__editable .table table th.ck-editor__editable_selected {
     position: relative;
     caret-color: transparent;
-    outline: unset;
     box-shadow: unset;
 
     /* https://github.com/ckeditor/ckeditor5/issues/6446 */
@@ -5774,6 +5782,7 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
 
 .ck.ck-clipboard-drop-target-line {
     position: absolute;
+    z-index: var(--ck-z-default);
     pointer-events: none;
 }
 
@@ -5823,6 +5832,28 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
+:root {
+    --ck-content-font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+    --ck-content-font-size: medium;
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    --ck-content-font-color: #000;
+    --ck-content-line-height: 1.5;
+    --ck-content-word-break: break-word;
+}
+
+.ck-content {
+    font-family: var(--ck-content-font-family);
+    font-size: var(--ck-content-font-size);
+    color: var(--ck-content-font-color);
+    line-height: var(--ck-content-line-height);
+    word-break: var(--ck-content-word-break);
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
 .ck.ck-editor {
     /* All the elements within `.ck-editor` are positioned relatively to it.
 	 If any element needs to be positioned with respect to the <body>, etc.,
@@ -5843,6 +5874,77 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
 .ck.ck-menu-bar {
     border: none;
     border-bottom: 1px solid var(--ck-color-toolbar-border);
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-emoji {
+    width: 320px;
+}
+
+.ck .ck.ck-emoji__search {
+    display: flex;
+    padding: var(--ck-spacing-large);
+    padding-bottom: var(--ck-spacing-medium);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ck .ck.ck-emoji__search > .ck.ck-search {
+    flex: 1;
+}
+
+/*
+ * Classes used by the "fake visual selection" displayed in the content when an input
+ * in the emoji picker UI has focus (the browser does not render the native selection in this state).
+ */
+.ck .ck-fake-emoji-selection {
+    background: var(--ck-color-link-fake-selection);
+}
+
+/* A collapsed fake visual selection. */
+.ck .ck-fake-emoji-selection_collapsed {
+    height: 100%;
+    border-right: 1px solid var(--ck-color-base-text);
+    margin-right: -1px;
+    outline: solid 1px hsla(0, 0%, 100%, .5);
+}
+
+div.ck.ck-balloon-panel.ck-emoji-picker-balloon {
+    z-index: calc( var( --ck-z-dialog ) + 1 );
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-emoji__categories-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--ck-spacing-large);
+}
+
+.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text {
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding: 0;
+    font-size: var(--ck-font-size-big);
+    min-width: var(--ck-font-size-big);
+    min-height: var(--ck-font-size-big);
+}
+
+.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text.ck-emoji__category-item.ck-on {
+    border-bottom-color: var(--ck-color-base-active);
+}
+
+.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text > span {
+    margin: auto;
 }
 
 /*
@@ -5908,53 +6010,6 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck.ck-emoji__categories-list {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 var(--ck-spacing-large);
-}
-
-.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text {
-    border-width: 0;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-    padding: 0;
-    font-size: var(--ck-font-size-big);
-    min-width: var(--ck-font-size-big);
-    min-height: var(--ck-font-size-big);
-}
-
-.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text.ck-emoji__category-item.ck-on {
-    border-bottom-color: var(--ck-color-base-active);
-}
-
-.ck.ck-emoji__categories-list > .ck.ck-button.ck-button_with-text > span {
-    margin: auto;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-emoji__skin-tone {
-    margin-left: var(--ck-spacing-standard);
-}
-
-.ck.ck-emoji__skin-tone > .ck.ck-dropdown .ck.ck-list__item {
-    min-width: 1em;
-}
-
-.ck.ck-emoji__skin-tone > .ck.ck-dropdown .ck-button.ck-dropdown__button .ck-button__label {
-    width: initial;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
 .ck.ck-form.ck-emoji-picker-form {
     padding-bottom: 0;
 
@@ -5974,40 +6029,16 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck.ck-emoji {
-    width: 320px;
+.ck.ck-emoji__skin-tone {
+    margin-left: var(--ck-spacing-standard);
 }
 
-.ck .ck.ck-emoji__search {
-    display: flex;
-    padding: var(--ck-spacing-large);
-    padding-bottom: var(--ck-spacing-medium);
-    justify-content: space-between;
-    align-items: center;
+.ck.ck-emoji__skin-tone > .ck.ck-dropdown .ck.ck-list__item {
+    min-width: 1em;
 }
 
-.ck .ck.ck-emoji__search > .ck.ck-search {
-    flex: 1;
-}
-
-/*
- * Classes used by the "fake visual selection" displayed in the content when an input
- * in the emoji picker UI has focus (the browser does not render the native selection in this state).
- */
-.ck .ck-fake-emoji-selection {
-    background: var(--ck-color-link-fake-selection);
-}
-
-/* A collapsed fake visual selection. */
-.ck .ck-fake-emoji-selection_collapsed {
-    height: 100%;
-    border-right: 1px solid var(--ck-color-base-text);
-    margin-right: -1px;
-    outline: solid 1px hsla(0, 0%, 100%, .5);
-}
-
-div.ck.ck-balloon-panel.ck-emoji-picker-balloon {
-    z-index: calc( var( --ck-z-dialog ) + 1 );
+.ck.ck-emoji__skin-tone > .ck.ck-dropdown .ck-button.ck-dropdown__button .ck-button__label {
+    width: initial;
 }
 
 /*
@@ -6094,19 +6125,26 @@ div.ck.ck-balloon-panel.ck-emoji-picker-balloon {
 
 /* The values should be synchronized with the "FONT_SIZE_PRESET_UNITS" object in the "/src/fontsize/utils.js" file. */
 
+:root {
+    --ck-content-font-size-tiny: 0.7em;
+    --ck-content-font-size-small: 0.85em;
+    --ck-content-font-size-big: 1.4em;
+    --ck-content-font-size-huge: 1.8em;
+}
+
 /* Styles should be prefixed with the `.ck-content` class.
 See https://github.com/ckeditor/ckeditor5/issues/6636 */
 .ck-content .text-tiny {
-    font-size: .7em;
+    font-size: var(--ck-content-font-size-tiny);
 }
 .ck-content .text-small {
-    font-size: .85em;
+    font-size: var(--ck-content-font-size-small);
 }
 .ck-content .text-big {
-    font-size: 1.4em;
+    font-size: var(--ck-content-font-size-big);
 }
 .ck-content .text-huge {
-    font-size: 1.8em;
+    font-size: var(--ck-content-font-size-huge);
 }
 
 /*
@@ -6183,9 +6221,21 @@ Fullscreen layout:
 :not(body> .ck-fullscreen__main-wrapper).ck-fullscreen__main-wrapper {
     position: absolute;
 }
+.ck-fullscreen__main-wrapper:not(body> .ck-fullscreen__main-wrapper) .ck-fullscreen__top-wrapper {
+    border-top: 1px solid var(--ck-color-base-border);
+    border-left: 1px solid var(--ck-color-base-border);
+    border-right: 1px solid var(--ck-color-base-border);
+    border-radius: var(--ck-border-radius) 0;
+}
 
 .ck-fullscreen__menu-bar .ck.ck-menu-bar {
     border: none;
+}
+
+.ck.ck-fullscreen__toolbar .ck-toolbar {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 }
 
 .ck-fullscreen__main-wrapper .ck-fullscreen__editable-wrapper {
@@ -6197,20 +6247,8 @@ Fullscreen layout:
     max-height: 100%;
 }
 
-.ck-fullscreen__sidebar {
-    width: 300px;
-    margin-top: var(--ck-fullscreen-editor-top-margin);
-    margin-left: 10px;
-    flex-shrink: 0;
-}
-
-.ck-fullscreen__sidebar[data-ck-fullscreen="right-sidebar"] {
-    margin-right: auto;
-}
-
 .ck-fullscreen__main-wrapper .ck-fullscreen__editable {
     margin-top: var(--ck-fullscreen-editor-top-margin);
-    margin-bottom: 56px;
     height: 100%;
     margin-left: auto;
 }
@@ -6223,9 +6261,14 @@ Fullscreen layout:
 
 .ck-fullscreen__main-wrapper .ck-fullscreen__editable .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     box-sizing: border-box;
+    /* Make sure the border is taken into account. */
     width: calc(210mm + 2px);
+    /* Make sure the border is taken into account. */
+    max-width: calc(210mm + 2px);
     min-height: 297mm;
     height: fit-content;
+    /* Reset margins that may be present on editable. We add them in other places. */
+    margin: 0;
     padding: 20mm 12mm;
     border: 1px var(--ck-color-base-border) solid;
     background: hsl(0, 0%, 100%);
@@ -6234,6 +6277,12 @@ Fullscreen layout:
 
 .ck-fullscreen__main-wrapper .ck-fullscreen__editable .ck-source-editing-area {
     width: calc(210mm + 2px);
+}
+
+.ck-fullscreen__sidebar {
+    width: 300px;
+    margin-top: var(--ck-fullscreen-editor-top-margin);
+    margin-left: 10px;
 }
 
 .ck-fullscreen__left-sidebar {
@@ -6250,12 +6299,15 @@ Fullscreen layout:
     flex-direction: column;
 }
 
-.ck-fullscreen__left-sidebar .ck.ck-presence-list--collapsed {
-    --ck-user-avatar-size: 32px;
+.ck-fullscreen__left-sidebar > :first-child {
+    /* Set minimal width if there is any item in the sidebar. */
+    min-width: 300px;
+    /* We have to use padding-top instead of margin-top because margin is scrollable. */
+    padding-top: var(--ck-fullscreen-editor-top-margin);
 }
 
-.ck-fullscreen__left-sidebar> :first-child {
-    padding-top: var(--ck-fullscreen-editor-top-margin);
+.ck-fullscreen__left-sidebar .ck.ck-presence-list--collapsed {
+    --ck-user-avatar-size: 32px;
 }
 
 .ck-fullscreen__left-sidebar .ck-user {
@@ -6269,6 +6321,12 @@ Fullscreen layout:
 .ck-fullscreen__left-sidebar-item {
     padding: var(--ck-spacing-medium);
     margin-bottom: var(--ck-spacing-medium);
+
+    /* First header should not have top padding. */
+}
+
+.ck-fullscreen__left-sidebar-item:first-child {
+    padding-top: 0;
 }
 
 .ck-fullscreen__left-sidebar-item:last-child {
@@ -6290,7 +6348,7 @@ Fullscreen layout:
     top: 0;
 }
 
-.ck-fullscreen__left-sidebar--sticky> :first-child {
+.ck-fullscreen__left-sidebar--sticky > :first-child {
     padding-top: 0;
 }
 
@@ -6311,6 +6369,16 @@ Fullscreen layout:
 .ck-fullscreen__document-outline-wrapper {
     padding-top: 0;
     overflow-y: auto;
+}
+
+.ck-fullscreen__sidebar.ck-fullscreen__right-sidebar {
+    margin-top: var(--ck-fullscreen-editor-top-margin);
+    margin-right: auto;
+}
+
+.ck-fullscreen__sidebar.ck-fullscreen__right-sidebar> :first-child {
+    /* Set minimal width if there is any item in the sidebar. */
+    min-width: 300px;
 }
 
 /*
@@ -6340,35 +6408,35 @@ Fullscreen layout:
  */
 
 :root {
-    --ck-highlight-marker-yellow: hsl(60, 97%, 73%);
-    --ck-highlight-marker-green: hsl(120, 93%, 68%);
-    --ck-highlight-marker-pink: hsl(345, 96%, 73%);
-    --ck-highlight-marker-blue: hsl(201, 97%, 72%);
-    --ck-highlight-pen-red: hsl(0, 85%, 49%);
-    --ck-highlight-pen-green: hsl(112, 100%, 27%);
+    --ck-content-highlight-marker-yellow: hsl(60, 97%, 73%);
+    --ck-content-highlight-marker-green: hsl(120, 93%, 68%);
+    --ck-content-highlight-marker-pink: hsl(345, 96%, 73%);
+    --ck-content-highlight-marker-blue: hsl(201, 97%, 72%);
+    --ck-content-highlight-pen-red: hsl(0, 85%, 49%);
+    --ck-content-highlight-pen-green: hsl(112, 100%, 27%);
 }
 
 .ck-content .marker-yellow {
-    background-color: var(--ck-highlight-marker-yellow);
+    background-color: var(--ck-content-highlight-marker-yellow);
 }
 .ck-content .marker-green {
-    background-color: var(--ck-highlight-marker-green);
+    background-color: var(--ck-content-highlight-marker-green);
 }
 .ck-content .marker-pink {
-    background-color: var(--ck-highlight-marker-pink);
+    background-color: var(--ck-content-highlight-marker-pink);
 }
 .ck-content .marker-blue {
-    background-color: var(--ck-highlight-marker-blue);
+    background-color: var(--ck-content-highlight-marker-blue);
 }
 
 .ck-content .pen-red {
-    color: var(--ck-highlight-pen-red);
+    color: var(--ck-content-highlight-pen-red);
 
     /* Override default yellow background of `<mark>` from user agent stylesheet */
     background-color: transparent;
 }
 .ck-content .pen-green {
-    color: var(--ck-highlight-pen-green);
+    color: var(--ck-content-highlight-pen-green);
 
     /* Override default yellow background of `<mark>` from user agent stylesheet */
     background-color: transparent;
@@ -6524,8 +6592,8 @@ span.ck-widget.html-object-embed {
  */
 
 :root {
-    --ck-color-image-caption-background: hsl(0, 0%, 97%);
-    --ck-color-image-caption-text: hsl(0, 0%, 20%);
+    --ck-content-color-image-caption-background: hsl(0, 0%, 97%);
+    --ck-content-color-image-caption-text: hsl(0, 0%, 20%);
     --ck-color-image-caption-highlighted-background: hsl(52deg 100% 50%);
 }
 
@@ -6533,9 +6601,10 @@ span.ck-widget.html-object-embed {
 .ck-content .image > figcaption {
     display: table-caption;
     caption-side: bottom;
-    word-break: break-word;
-    color: var(--ck-color-image-caption-text);
-    background-color: var(--ck-color-image-caption-background);
+    word-break: normal;
+    overflow-wrap: anywhere;
+    color: var(--ck-content-color-image-caption-text);
+    background-color: var(--ck-content-color-image-caption-background);
     padding: .6em;
     font-size: .75em;
     outline-offset: -1px;
@@ -6567,23 +6636,8 @@ span.ck-widget.html-object-embed {
     }
 
     100% {
-        background-color: var(--ck-color-image-caption-background);
+        background-color: var(--ck-content-color-image-caption-background);
     }
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-image-insert-url {
-    width: 400px;
-    padding: var(--ck-spacing-large) var(--ck-spacing-large) 0;
-}
-
-.ck.ck-image-insert-url .ck-image-insert-url__action-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 /*
@@ -6642,8 +6696,8 @@ span.ck-widget.html-object-embed {
  */
 
 :root {
-    --ck-image-style-spacing: 1.5em;
-    --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
+    --ck-content-image-style-spacing: 1.5em;
+    --ck-content-inline-image-style-spacing: calc(var(--ck-content-image-style-spacing) / 2);
 }
 
 /* See: https://github.com/ckeditor/ckeditor5/issues/16317 */
@@ -6654,7 +6708,7 @@ span.ck-widget.html-object-embed {
 
 .ck-content .image.image-style-block-align-left,
 .ck-content .image.image-style-block-align-right {
-    max-width: calc(100% - var(--ck-image-style-spacing));
+    max-width: calc(100% - var(--ck-content-image-style-spacing));
 }
 
 /* Allows displaying multiple floating images in the same line.
@@ -6667,18 +6721,18 @@ span.ck-widget.html-object-embed {
 
 .ck-content .image.image-style-side {
     float: right;
-    margin-left: var(--ck-image-style-spacing);
+    margin-left: var(--ck-content-image-style-spacing);
     max-width: 50%;
 }
 
 .ck-content .image.image-style-align-left {
     float: left;
-    margin-right: var(--ck-image-style-spacing);
+    margin-right: var(--ck-content-image-style-spacing);
 }
 
 .ck-content .image.image-style-align-right {
     float: right;
-    margin-left: var(--ck-image-style-spacing);
+    margin-left: var(--ck-content-image-style-spacing);
 }
 
 .ck-content .image.image-style-block-align-right {
@@ -6698,12 +6752,12 @@ span.ck-widget.html-object-embed {
 
 .ck-content .image-style-align-left {
     float: left;
-    margin-right: var(--ck-image-style-spacing);
+    margin-right: var(--ck-content-image-style-spacing);
 }
 
 .ck-content .image-style-align-right {
     float: right;
-    margin-left: var(--ck-image-style-spacing);
+    margin-left: var(--ck-content-image-style-spacing);
 }
 
 /* Simulates margin collapsing with the preceding paragraph, which does not work for the floating elements. */
@@ -6716,16 +6770,16 @@ span.ck-widget.html-object-embed {
 
 .ck-content .image-inline.image-style-align-left,
 .ck-content .image-inline.image-style-align-right {
-    margin-top: var(--ck-inline-image-style-spacing);
-    margin-bottom: var(--ck-inline-image-style-spacing);
+    margin-top: var(--ck-content-inline-image-style-spacing);
+    margin-bottom: var(--ck-content-inline-image-style-spacing);
 }
 
 .ck-content .image-inline.image-style-align-left {
-    margin-right: var(--ck-inline-image-style-spacing);
+    margin-right: var(--ck-content-inline-image-style-spacing);
 }
 
 .ck-content .image-inline.image-style-align-right {
-    margin-left: var(--ck-inline-image-style-spacing);
+    margin-left: var(--ck-content-inline-image-style-spacing);
 }
 
 /* The button should display as a regular drop-down if the action button
@@ -6973,14 +7027,14 @@ span.ck-widget.html-object-embed {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck.ck-link-providers > .ck-link-providers__list {
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+.ck.ck-image-insert-url {
+    width: 400px;
+    padding: var(--ck-spacing-large) var(--ck-spacing-large) 0;
 }
 
-.ck.ck-link-providers > .ck-link-providers__list .ck-button > .ck-icon {
-    flex-shrink: 0;
+.ck.ck-image-insert-url .ck-image-insert-url__action-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /*
@@ -7036,6 +7090,21 @@ span.ck-widget.html-object-embed {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
+.ck.ck-link-providers > .ck-link-providers__list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.ck.ck-link-providers > .ck-link-providers__list .ck-button > .ck-icon {
+    flex-shrink: 0;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
 .ck-editor__editable .ck-list-bogus-paragraph {
     display: block;
 }
@@ -7047,6 +7116,73 @@ span.ck-widget.html-object-embed {
 
 .ck.ck-list-styles-list {
     display: grid;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+:root {
+    --ck-content-list-marker-color: var(--ck-content-font-color);
+    --ck-content-list-marker-font-family: var(--ck-content-font-family);
+    --ck-content-list-marker-font-size: var(--ck-content-font-size);
+}
+
+/* Opinionated list content styling: prevents content shift
+	 * when a list becomes multi-block (Enter + Backspace scenario).
+	 * See: https://github.com/ckeditor/ckeditor5/pull/18801
+	 */
+
+.ck-content li > p:first-of-type {
+    margin-top: 0;
+}
+
+/* Prevents margins from appearing when a bogus paragraph
+	 * receives line height or text alignment.
+	 * Ensures a consistent experience with the first paragraph.
+	 * See: https://github.com/ckeditor/ckeditor5/pull/18801
+	 */
+
+.ck-content li > p:only-child {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ck-content li.ck-list-marker-bold::marker {
+    font-weight: bold;
+}
+
+.ck-content li.ck-list-marker-italic::marker {
+    font-style: italic;
+}
+
+.ck-content li.ck-list-marker-color::marker {
+    color: var(--ck-content-list-marker-color);
+}
+
+.ck-content li.ck-list-marker-font-family::marker {
+    font-family: var(--ck-content-list-marker-font-family);
+}
+
+.ck-content li.ck-list-marker-font-size::marker {
+    font-size: var(--ck-content-list-marker-font-size);
+}
+
+.ck-content li.ck-list-marker-font-size-tiny::marker {
+    font-size: var(--ck-content-font-size-tiny);
+}
+
+.ck-content li.ck-list-marker-font-size-small::marker {
+    font-size: var(--ck-content-font-size-small);
+}
+
+.ck-content li.ck-list-marker-font-size-big::marker {
+    font-size: var(--ck-content-font-size-big);
+}
+
+.ck-content li.ck-list-marker-font-size-huge::marker {
+    font-size: var(--ck-content-font-size-huge);
 }
 
 /*
@@ -7096,7 +7232,7 @@ span.ck-widget.html-object-embed {
  */
 
 :root {
-    --ck-todo-list-checkmark-size: 16px;
+    --ck-content-todo-list-checkmark-size: 16px;
 }
 
 /*
@@ -7116,8 +7252,8 @@ span.ck-widget.html-object-embed {
     -webkit-appearance: none;
     display: inline-block;
     position: relative;
-    width: var(--ck-todo-list-checkmark-size);
-    height: var(--ck-todo-list-checkmark-size);
+    width: var(--ck-content-todo-list-checkmark-size);
+    height: var(--ck-content-todo-list-checkmark-size);
     vertical-align: middle;
     /* Needed on iOS */
     border: 0;
@@ -7158,13 +7294,13 @@ span.ck-widget.html-object-embed {
     content: '';
 
     /* Calculate tick position, size and border-width proportional to the checkmark size. */
-    left: calc( var(--ck-todo-list-checkmark-size) / 3 );
-    top: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
-    width: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
-    height: calc( var(--ck-todo-list-checkmark-size) / 2.6 );
+    left: calc( var(--ck-content-todo-list-checkmark-size) / 3 );
+    top: calc( var(--ck-content-todo-list-checkmark-size) / 5.3 );
+    width: calc( var(--ck-content-todo-list-checkmark-size) / 5.3 );
+    height: calc( var(--ck-content-todo-list-checkmark-size) / 2.6 );
     border-style: solid;
     border-color: transparent;
-    border-width: 0 calc( var(--ck-todo-list-checkmark-size) / 8 ) calc( var(--ck-todo-list-checkmark-size) / 8 ) 0;
+    border-width: 0 calc( var(--ck-content-todo-list-checkmark-size) / 8 ) calc( var(--ck-content-todo-list-checkmark-size) / 8 ) 0;
     transform: rotate(45deg);
 }
 .ck-content .todo-list .todo-list__label > input[checked]::before {
@@ -7202,8 +7338,8 @@ span.ck-widget.html-object-embed {
     -webkit-appearance: none;
     display: inline-block;
     position: relative;
-    width: var(--ck-todo-list-checkmark-size);
-    height: var(--ck-todo-list-checkmark-size);
+    width: var(--ck-content-todo-list-checkmark-size);
+    height: var(--ck-content-todo-list-checkmark-size);
     vertical-align: middle;
     /* Needed on iOS */
     border: 0;
@@ -7244,13 +7380,13 @@ span.ck-widget.html-object-embed {
     content: '';
 
     /* Calculate tick position, size and border-width proportional to the checkmark size. */
-    left: calc( var(--ck-todo-list-checkmark-size) / 3 );
-    top: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
-    width: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
-    height: calc( var(--ck-todo-list-checkmark-size) / 2.6 );
+    left: calc( var(--ck-content-todo-list-checkmark-size) / 3 );
+    top: calc( var(--ck-content-todo-list-checkmark-size) / 5.3 );
+    width: calc( var(--ck-content-todo-list-checkmark-size) / 5.3 );
+    height: calc( var(--ck-content-todo-list-checkmark-size) / 2.6 );
     border-style: solid;
     border-color: transparent;
-    border-width: 0 calc( var(--ck-todo-list-checkmark-size) / 8 ) calc( var(--ck-todo-list-checkmark-size) / 8 ) 0;
+    border-width: 0 calc( var(--ck-content-todo-list-checkmark-size) / 8 ) calc( var(--ck-content-todo-list-checkmark-size) / 8 ) 0;
     transform: rotate(45deg);
 }
 .ck-editor__editable.ck-content .todo-list .todo-list__label > span[contenteditable=false] > input[checked]::before {
@@ -7560,7 +7696,6 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
     text-transform: uppercase;
     border: 1px solid hsl(0, 0%, 77%);
     border-radius: 2px;
-    font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
     font-size: 0.75em;
     font-weight: bold;
     color: hsl(0, 0%, 20%);
@@ -8348,29 +8483,6 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck.ck-character-grid {
-    max-width: 100%;
-}
-
-.ck.ck-character-grid .ck-character-grid__tiles {
-    display: grid;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-character-info {
-    display: flex;
-    justify-content: space-between;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
 /*
  * Note: This file should contain the wireframe styles only. But since there are no such styles,
  * it acts as a message to the builder telling that it should look for the corresponding styles
@@ -8462,6 +8574,29 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
+.ck.ck-character-grid {
+    max-width: 100%;
+}
+
+.ck.ck-character-grid .ck-character-grid__tiles {
+    display: grid;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-character-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
 :root {
     --ck-style-panel-columns: 3;
 }
@@ -8512,8 +8647,7 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
     height: 100%;
 }
 
-.ck-content figure.table:not(.layout-table),
-.ck-content table.table:not(.layout-table) {
+.ck-content .table:not(.layout-table) {
     /* Give the table widget some air and center it horizontally */
     /* The first value should be equal to --ck-spacing-large variable if used in the editor context
 		to avoid the content jumping (See https://github.com/ckeditor/ckeditor5/issues/9825). */
@@ -8550,29 +8684,67 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 .ck-content figure.table:not(.layout-table) > table > thead > tr > th,
 .ck-content table.table:not(.layout-table) > tbody > tr > th,
 .ck-content figure.table:not(.layout-table) > table > tbody > tr > th {
-    /* stylelint-enable no-descending-specificity */
+
     min-width: 2em;
-    padding: .4em;
+    padding: 0.4em;
 
     /* The border is inherited from .ck-editor__nested-editable styles, so theoretically it's not necessary here.
 					However, the border is a content style, so it should use .ck-content (so it works outside the editor).
 					Hence, the duplication. See https://github.com/ckeditor/ckeditor5/issues/6314 */
     border: 1px solid hsl(0, 0%, 75%);
+    /* Opinionated table content styling: prevents content from shifting
+					 * when Enter is pressed in the first cell.
+					 * See: https://github.com/ckeditor/ckeditor5/pull/18801
+					 */
 }
 
-/**
- * Expanding the table to the full height of the parent container is necessary because tables
- * are rendered inside <figure> elements, which is kinda buggy in table height calculation.
- * While setting `height: 100%` fixes the issue in the editing mode described here:
- * https://github.com/ckeditor/ckeditor5/issues/6186
- *
- * it's causing another issue with the table height in the print preview mode here:
- * https://github.com/ckeditor/ckeditor5/issues/16856
- *
- * For now, resetting the height to `initial` in the print mode works as a workaround.
- */
+.ck-content table.table:not(.layout-table) > thead > tr > td > p:first-of-type, .ck-content figure.table:not(.layout-table) > table > thead > tr > td > p:first-of-type, .ck-content table.table:not(.layout-table) > tbody > tr > td > p:first-of-type, .ck-content figure.table:not(.layout-table) > table > tbody > tr > td > p:first-of-type, .ck-content table.table:not(.layout-table) > thead > tr > th > p:first-of-type, .ck-content figure.table:not(.layout-table) > table > thead > tr > th > p:first-of-type, .ck-content table.table:not(.layout-table) > tbody > tr > th > p:first-of-type, .ck-content figure.table:not(.layout-table) > table > tbody > tr > th > p:first-of-type {
+    margin-top: 0;
+}
+
+/* Mirrors the rule above for the last paragraph to keep the
+					 * experience consistent with the first paragraph.
+					 *
+					 * Together, these rules prevent margins from appearing when a
+					 * bogus paragraph becomes a real paragraph after it receives line
+					 * height, text alignment, or other block style.
+					 *
+					 * See: https://github.com/ckeditor/ckeditor5/pull/18801
+					 */
+
+.ck-content table.table:not(.layout-table) > thead > tr > td > p:last-of-type, .ck-content figure.table:not(.layout-table) > table > thead > tr > td > p:last-of-type, .ck-content table.table:not(.layout-table) > tbody > tr > td > p:last-of-type, .ck-content figure.table:not(.layout-table) > table > tbody > tr > td > p:last-of-type, .ck-content table.table:not(.layout-table) > thead > tr > th > p:last-of-type, .ck-content figure.table:not(.layout-table) > table > thead > tr > th > p:last-of-type, .ck-content table.table:not(.layout-table) > tbody > tr > th > p:last-of-type, .ck-content figure.table:not(.layout-table) > table > tbody > tr > th > p:last-of-type {
+    margin-bottom: 0;
+}
+
 @media print {
-    .ck-content figure.table > table {
+    /**
+		 * Sometimes Chrome incorrectly calculates the height of the last table row and some
+		 * of the content overlaps the paragraph that is placed directly after the table. It affects
+		 * the column split mode pagination calculation which causes mismatch between the print mode and
+		 * the preview mode.
+		 *
+		 * This issue happens only if:
+		 *
+		 * 	* The table is inside a figure element.
+		 * 	* The table has `display: table` style set.
+		 * 	* The block element is placed directly after the table.
+		 */
+    .ck-content figure.table:not(.layout-table):has(> table) {
+        display: block;
+    }
+
+    /**
+		 * Expanding the table to the full height of the parent container is necessary because tables
+		 * are rendered inside <figure> elements, which is kinda buggy in table height calculation.
+		 * While setting `height: 100%` fixes the issue in the editing mode described here:
+		 * https://github.com/ckeditor/ckeditor5/issues/6186
+		 *
+		 * it's causing another issue with the table height in the print preview mode here:
+		 * https://github.com/ckeditor/ckeditor5/issues/16856
+		 *
+		 * For now, resetting the height to `initial` in the print mode works as a workaround.
+		 */
+    .ck-content figure.table:not(.layout-table) > table {
         height: initial;
     }
 }
@@ -8596,17 +8768,6 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck .ck-insert-table-dropdown__grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
 .ck.ck-table-cell-properties-form .ck-form__row.ck-table-cell-properties-form__alignment-row {
     flex-wrap: wrap;
 }
@@ -8623,47 +8784,6 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 
 .ck.ck-table-cell-properties-form .ck-form__row.ck-table-cell-properties-form__alignment-row .ck.ck-toolbar .ck-button {
     flex-grow: 1;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-input-color {
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.ck.ck-input-color > input.ck.ck-input-text {
-    min-width: auto;
-    flex-grow: 1;
-}
-
-.ck.ck-input-color > div.ck.ck-dropdown {
-    min-width: auto;
-
-    /* This dropdown has no arrow but a color preview instead. */
-}
-
-.ck.ck-input-color > div.ck.ck-dropdown > .ck-input-color__button .ck-dropdown__arrow {
-    display: none;
-}
-
-.ck.ck-input-color .ck.ck-input-color__button {
-    /* Resolving issue with misaligned buttons on Safari (see #10589) */
-    display: flex;
-}
-
-.ck.ck-input-color .ck.ck-input-color__button .ck.ck-input-color__button__preview {
-    position: relative;
-    overflow: hidden;
-}
-
-.ck.ck-input-color .ck.ck-input-color__button .ck.ck-input-color__button__preview > .ck.ck-input-color__button__preview__no-color-indicator {
-    position: absolute;
-    display: block;
 }
 
 /*
@@ -8926,19 +9046,20 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
  */
 
 :root {
-    --ck-color-selector-caption-background: hsl(0, 0%, 97%);
-    --ck-color-selector-caption-text: hsl(0, 0%, 20%);
-    --ck-color-selector-caption-highlighted-background: hsl(52deg 100% 50%);
+    --ck-content-color-table-caption-background: hsl(0, 0%, 97%);
+    --ck-content-color-table-caption-text: hsl(0, 0%, 20%);
+    --ck-color-table-caption-highlighted-background: hsl(52deg 100% 50%);
 }
 
 /* Content styles */
 .ck-content .table > figcaption {
     display: table-caption;
     caption-side: top;
-    word-break: break-word;
+    word-break: normal;
+    overflow-wrap: anywhere;
     text-align: center;
-    color: var(--ck-color-selector-caption-text);
-    background-color: var(--ck-color-selector-caption-background);
+    color: var(--ck-content-color-table-caption-text);
+    background-color: var(--ck-content-color-table-caption-background);
     padding: .6em;
     font-size: .75em;
     outline-offset: -1px;
@@ -8973,11 +9094,11 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 
 @keyframes ck-table-caption-highlight {
     0% {
-        background-color: var(--ck-color-selector-caption-highlighted-background);
+        background-color: var(--ck-color-table-caption-highlighted-background);
     }
 
     100% {
-        background-color: var(--ck-color-selector-caption-background);
+        background-color: var(--ck-content-color-table-caption-background);
     }
 }
 
@@ -8987,7 +9108,7 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
  */
 
 :root {
-    --ck-color-selector-column-resizer-hover: var(--ck-color-base-active);
+    --ck-color-table-column-resizer-hover: var(--ck-color-base-active);
     --ck-table-column-resizer-width: 7px;
 
     /* The offset used for absolute positioning of the resizer element, so that it is placed exactly above the cell border.
@@ -9035,13 +9156,65 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 
 .ck.ck-editor__editable .table .ck-table-column-resizer:hover,
 .ck.ck-editor__editable .table .ck-table-column-resizer__active {
-    background-color: var(--ck-color-selector-column-resizer-hover);
+    background-color: var(--ck-color-table-column-resizer-hover);
     opacity: 0.25;
 }
 
 .ck.ck-editor__editable[dir=rtl] .table .ck-table-column-resizer {
     left: var(--ck-table-column-resizer-position-offset);
     right: unset;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-input-color {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.ck.ck-input-color > input.ck.ck-input-text {
+    min-width: auto;
+    flex-grow: 1;
+}
+
+.ck.ck-input-color > div.ck.ck-dropdown {
+    min-width: auto;
+
+    /* This dropdown has no arrow but a color preview instead. */
+}
+
+.ck.ck-input-color > div.ck.ck-dropdown > .ck-input-color__button .ck-dropdown__arrow {
+    display: none;
+}
+
+.ck.ck-input-color .ck.ck-input-color__button {
+    /* Resolving issue with misaligned buttons on Safari (see #10589) */
+    display: flex;
+}
+
+.ck.ck-input-color .ck.ck-input-color__button .ck.ck-input-color__button__preview {
+    position: relative;
+    overflow: hidden;
+}
+
+.ck.ck-input-color .ck.ck-input-color__button .ck.ck-input-color__button__preview > .ck.ck-input-color__button__preview__no-color-indicator {
+    position: absolute;
+    display: block;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck .ck-insert-table-dropdown__grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /*
@@ -9201,6 +9374,21 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 .ck.ck-balloon-panel.ck-evaluation-badge-balloon[class*="position_border"] {
     border: var(--ck-focus-ring);
     border-color: var(--ck-evaluation-badge-border-color);
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-aria-live-announcer {
+    position: absolute;
+    left: -10000px;
+    top: -10000px;
+}
+
+.ck.ck-aria-live-region-list {
+    list-style-type: none;
 }
 
 /*
@@ -9411,16 +9599,6 @@ a.ck.ck-button {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-.ck.ck-dialog .ck.ck-dialog__actions {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
 .ck.ck-dialog-overlay {
     user-select: none;
     overscroll-behavior: none;
@@ -9456,6 +9634,16 @@ a.ck.ck-button {
 
 .ck.ck-dialog-overlay.ck-dialog-overlay__transparent .ck.ck-dialog {
     pointer-events: all;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+.ck.ck-dialog .ck.ck-dialog__actions {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /*
@@ -9594,6 +9782,15 @@ a.ck.ck-button {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
+.ck.ck-dropdown-menu-list__nested-menu {
+    display: block;
+}
+
+/*
+ * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
 .ck.ck-dropdown-menu-list__nested-menu__button > .ck-dropdown-menu-list__nested-menu__button__arrow {
     pointer-events: none;
     z-index: var(--ck-z-default);
@@ -9609,30 +9806,6 @@ a.ck.ck-button {
     max-height: 314px; /* With the default settings, this is equal to 10 menu items. */
     overflow-y: auto;
     z-index: calc(var(--ck-z-panel) + 1);
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-dropdown-menu-list__nested-menu {
-    display: block;
-}
-
-/*
- * Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
- */
-
-.ck.ck-aria-live-announcer {
-    position: absolute;
-    left: -10000px;
-    top: -10000px;
-}
-
-.ck.ck-aria-live-region-list {
-    list-style-type: none;
 }
 
 /*
