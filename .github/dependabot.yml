@@ -11,6 +11,6 @@ updates:
       interval: "weekly"
   
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/CkEditor5.Blazor/CkEditor5.Blazor/wwwroot/js/src/"
     schedule:
       interval: "weekly" 
