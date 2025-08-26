@@ -3494,7 +3494,7 @@ of the component, floating–point numbers have been used which, for the default
     .ck.ck-find-and-replace-form {
         width: 300px;
 
-        /* Don't let the form overflow from the dialog (https://github.com/cksource/ckeditor5-commercial/issues/5913) */
+        /* Don't let the form overflow from the dialog (https://github.com/ckeditor/ckeditor5-commercial/issues/5913) */
         max-width: 100%;
 
         /* Styles specific for inputs area. */
@@ -5350,8 +5350,8 @@ a.ck.ck-button.ck-link-toolbar__preview:has( .ck-icon ) {
 .ck.ck-editor__editable.ck-blurred .ck-widget.ck-widget_selected.ck-widget_with-selection-handle:hover > .ck-widget__selection-handle:hover {
     background: var(--ck-color-widget-blurred-border);
 }
-.ck.ck-editor__editable > .ck-widget.ck-widget_with-selection-handle:first-child,
-.ck.ck-editor__editable blockquote > .ck-widget.ck-widget_with-selection-handle:first-child {
+.ck.ck-editor__editable:not(.ck-pagination-view) > .ck-widget.ck-widget_with-selection-handle:first-child,
+.ck.ck-editor__editable:not(.ck-pagination-view) blockquote > .ck-widget.ck-widget_with-selection-handle:first-child {
     /* Do not crop selection handler if a widget is a first-child in the blockquote or in the root editable.
 	In fact, anything with overflow: hidden.
 	https://github.com/ckeditor/ckeditor5-block-quote/issues/28
@@ -6603,6 +6603,7 @@ span.ck-widget.html-object-embed {
     caption-side: bottom;
     word-break: normal;
     overflow-wrap: anywhere;
+    break-before: avoid;
     color: var(--ck-content-color-image-caption-text);
     background-color: var(--ck-content-color-image-caption-background);
     padding: .6em;
@@ -7144,7 +7145,7 @@ span.ck-widget.html-object-embed {
 	 * See: https://github.com/ckeditor/ckeditor5/pull/18801
 	 */
 
-.ck-content li > p:only-child {
+.ck-content li > p:only-of-type {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -8717,22 +8718,6 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 }
 
 @media print {
-    /**
-		 * Sometimes Chrome incorrectly calculates the height of the last table row and some
-		 * of the content overlaps the paragraph that is placed directly after the table. It affects
-		 * the column split mode pagination calculation which causes mismatch between the print mode and
-		 * the preview mode.
-		 *
-		 * This issue happens only if:
-		 *
-		 * 	* The table is inside a figure element.
-		 * 	* The table has `display: table` style set.
-		 * 	* The block element is placed directly after the table.
-		 */
-    .ck-content figure.table:not(.layout-table):has(> table) {
-        display: block;
-    }
-
     /**
 		 * Expanding the table to the full height of the parent container is necessary because tables
 		 * are rendered inside <figure> elements, which is kinda buggy in table height calculation.
