@@ -8719,6 +8719,23 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 
 @media print {
     /**
+		 * Sometimes Chrome incorrectly calculates the height of the last table row and some
+		 * of the content overlaps the paragraph that is placed directly after the table. It affects
+		 * the column split mode pagination calculation which causes mismatch between the print mode and
+		 * the preview mode.
+		 *
+		 * This issue happens only if:
+		 *
+		 * 	* The table is inside a figure element.
+		 * 	* The table has `display: table` style set.
+		 * 	* The block element is placed directly after the table.
+		 */
+    .ck-content figure.table:not(.layout-table):not(:has(> figcaption)) {
+        display: block;
+        width: fit-content;
+    }
+
+    /**
 		 * Expanding the table to the full height of the parent container is necessary because tables
 		 * are rendered inside <figure> elements, which is kinda buggy in table height calculation.
 		 * While setting `height: 100%` fixes the issue in the editing mode described here:
@@ -9037,7 +9054,8 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 }
 
 /* Content styles */
-.ck-content .table > figcaption {
+.ck-content .table > figcaption,
+.ck-content figure.table > table > caption {
     display: table-caption;
     caption-side: top;
     word-break: normal;
@@ -9052,7 +9070,7 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
     /* Improve placeholder rendering in high-constrast mode (https://github.com/ckeditor/ckeditor5/issues/14907). */
 }
 @media (forced-colors: active) {
-    .ck-content .table > figcaption {
+    .ck-content .table > figcaption, .ck-content figure.table > table > caption {
         background-color: unset;
         color: unset;
     }
@@ -9060,11 +9078,11 @@ div.ck.ck-balloon-panel.ck-mention-balloon {
 
 /* Editing styles */
 @media (forced-colors: none) {
-    .ck.ck-editor__editable .table > figcaption.table__caption_highlighted {
+    .ck.ck-editor__editable .table > figcaption.table__caption_highlighted, .ck.ck-editor__editable figure.table > table > caption.table__caption_highlighted {
         animation: ck-table-caption-highlight .6s ease-out;
     }
 }
-.ck.ck-editor__editable .table > figcaption.ck-placeholder::before {
+.ck.ck-editor__editable .table > figcaption.ck-placeholder::before, .ck.ck-editor__editable figure.table > table > caption.ck-placeholder::before {
     padding-left: inherit;
     padding-right: inherit;
 
