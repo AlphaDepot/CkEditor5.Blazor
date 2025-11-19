@@ -111,7 +111,8 @@ import {
     SlashCommand,
     TableOfContents, Template, TrackChanges, TrackChangesData,
     ExportInlineStyles,
-    EmailConfigurationHelper
+    EmailConfigurationHelper,
+    Footnotes, FootnotesProperties
 } from "ckeditor5-premium-features";
 
 
@@ -241,6 +242,8 @@ export const premiumPlugins: { [key: string]: any } = {
     "Template": Template,
     "ExportInlineStyles": ExportInlineStyles,
     "EmailConfigurationHelper": EmailConfigurationHelper,
+    "Footnotes": Footnotes,
+    "FootnotesProperties": FootnotesProperties
 };
 
 // For future use of extra plugins from the community
