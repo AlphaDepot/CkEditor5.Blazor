@@ -19,22 +19,22 @@ Also add the premium features stylesheet if you are using premium plugins:
 ### Usage
 For simple usage without data handling, use the component like this:
 ```html
-<CkEditor5  />
+<CkEditor  />
 ```
 
 To handle data changes, use the OnValueChange event handler:
 ```html
-<CkEditor5 OnValueChange="HandleChangeMethod" />
+<CkEditor OnValueChanged="HandleChangeMethod" />
 ```
 
 You can also set initial data using the Value parameter:
 ```html
-<CkEditor5 Value="InitialData" OnValueChange="HandleChangeMethod" />
+<CkEditor Value="InitialData" OnValueChanged="HandleChangeMethod" />
 ```
 
 Alternatively, use a ref on the component to get and set data with the GetData and SetData methods:
 ```html
-<CkEditor5 @ref="editor" />
+<CkEditor @ref="editor" />
 ```
 ```csharp
 @code {
