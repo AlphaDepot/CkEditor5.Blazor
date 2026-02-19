@@ -47,7 +47,7 @@ namespace CkEditor5.Blazor.Models
 
         /// <summary>
         ///  Plugins configuration
-        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_core_plugincollection-PluginCollection.html" />
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_core_plugincollection.html" />
         /// </summary>
         private static object[] GetPluginsConfiguration()
         {
@@ -69,7 +69,7 @@ namespace CkEditor5.Blazor.Models
 
         /// <summary>
         ///  Heading configuration
-        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_heading_headingconfig-HeadingConfig.html" />
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_heading_headingconfig.html" />
         /// </summary>
         private static object GetHeadingConfiguration()
         {
@@ -90,7 +90,7 @@ namespace CkEditor5.Blazor.Models
 
         /// <summary>
         ///  Image configuration
-        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_image_imageconfig-ImageConfig.html" />
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_image_imageconfig.html" />
         /// </summary>
         private static object GetImageConfiguration()
         {
@@ -106,7 +106,7 @@ namespace CkEditor5.Blazor.Models
 
         /// <summary>
         ///  Link configuration
-        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_link_linkconfig-LinkConfig.html" />
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_link_linkconfigg.html" />
         /// </summary>
         private static object GetLinkConfiguration()
         {
@@ -128,7 +128,7 @@ namespace CkEditor5.Blazor.Models
 
         /// <summary>
         ///  Style configuration
-        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_style_styleconfig-StyleConfig.html" />
+        ///  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_style_styleconfig.html" />
         /// </summary>
         private static object GetStyleConfiguration()
         {
@@ -151,7 +151,7 @@ namespace CkEditor5.Blazor.Models
 
         /**
          *  Fullscreen configuration
-         *  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_fullscreen_fullscreenconfig-FullscreenConfig.html" />
+         *  For the full list of options see: <see href="https://ckeditor.com/docs/ckeditor5/latest/api/module_fullscreen_fullscreenconfig.html" />
          */
         private static object GetFullscreenConfiguration()
         {
