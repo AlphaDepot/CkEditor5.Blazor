@@ -115,8 +115,7 @@ import {
     Footnotes, FootnotesProperties
 } from "ckeditor5-premium-features";
 
-
-
+import  SourceEditingCodeMirror  from "@lstsystems/ckeditor5-source-editing-codemirror";
 
 export const corePlugins: { [key: string]: any } = {
     "CKFinderUploadAdapter": CKFinderUploadAdapter,
@@ -248,5 +247,5 @@ export const premiumPlugins: { [key: string]: any } = {
 
 // For future use of extra plugins from the community
 export const communityPlugins: { [key: string]: any } = {
-
+    "SourceEditingCodeMirror": SourceEditingCodeMirror
 };

@@ -15,6 +15,7 @@
     "vite": "^7.3.1"
   },
   "dependencies": {
+    "@lstsystems/ckeditor5-source-editing-codemirror": "^47.5.1",
     "@microsoft/dotnet-js-interop": "^10.0.0",
     "ckeditor5": "^47.5.0",
     "ckeditor5-premium-features": "^47.5.0"

@@ -63,7 +63,7 @@ namespace CkEditor5.Blazor.Models
                 "SpecialCharacters", "SpecialCharactersArrows", "SpecialCharactersCurrency", "SpecialCharactersEssentials",
                 "SpecialCharactersLatin", "SpecialCharactersMathematical", "SpecialCharactersText", "Strikethrough",
                 "Style", "Subscript", "Superscript", "Table", "TableCaption", "TableCellProperties", "TableColumnResize",
-                "TableProperties", "TableToolbar", "TextTransformation", "TodoList", "Underline", "WordCount"
+                "TableProperties", "TableToolbar", "TextTransformation", "TodoList", "Underline", "WordCount", "SourceEditingCodeMirror"
             ];
         }
 

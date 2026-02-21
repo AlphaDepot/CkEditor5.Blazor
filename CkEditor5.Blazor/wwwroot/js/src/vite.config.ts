@@ -3,6 +3,15 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 export default defineConfig({
+    // Deduplicate CKEditor imports to avoid multiple instances of CKEditor in the bundle.
+    // This is really important with CKEditor 5 community plugins, which import CKEditor from their own node_modules.
+    resolve: {
+        dedupe: [
+            'ckeditor5',
+            'ckeditor5/src',
+            'ckeditor5/dist'
+        ]
+    },
     build: {
         outDir: path.resolve(__dirname, '../dist'),
         emptyOutDir: true,
@@ -55,6 +64,10 @@ function copyCkeditorCss() {
                 {
                     from: path.resolve(root, 'node_modules/ckeditor5-premium-features/dist/ckeditor5-premium-features.css'),
                     to: path.resolve(root, '../../css/ckeditor5-premium-features.css')
+                },
+                {
+                    from: path.resolve(root, 'node_modules/@lstsystems/ckeditor5-source-editing-codemirror/dist/sourceediting-codemirror.css'),
+                    to: path.resolve(root, '../../css/ckeditor5-sourceediting-codemirror.css')
                 }
             ];
 
