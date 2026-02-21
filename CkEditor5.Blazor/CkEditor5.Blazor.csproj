@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <Title>$(AssemblyName)</Title>
-		<VersionPrefix>10.47.3</VersionPrefix>
+		<VersionPrefix>10.47.4</VersionPrefix>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>LSTSystems</Authors>
 		<Description>This package, CKEditor5.Blazor, is a Blazor wrapper for CKEditor 5, a rich text editor. It allows seamless integration of CKEditor 5 into Blazor applications, providing various editor variants such as Classic, Inline, Balloon, and Document editors. The package includes necessary configurations and JavaScript interop to facilitate the use of CKEditor 5 within Blazor components.</Description>
