@@ -11,9 +11,13 @@ dotnet add package CkEditor5.Blazor
 ```html
 <link rel="stylesheet" href="./_content/CkEditor5.Blazor/css/ckeditor5.css" />
 ```
-Also add the premium features stylesheet if you are using premium plugins:
+Add the premium features stylesheet if you are using premium plugins:
 ```html
 <link rel="stylesheet" href="./_content/CkEditor5.Blazor/css/ckeditor5-premium-features.css" />
+```
+Add the source editing code-mirror stylesheet if you are using the `SourceEditingCodeMirror` plugin:
+```html
+<link href="./_content/CkEditor5.Blazor/css/ckeditor5-sourceediting-codemirror.css" rel="stylesheet" />
 ```
 
 ### Usage
@@ -157,3 +161,6 @@ If you have a solution to this, let me know.
 ## Third-party plugins
 If you require a third-party plugin, please inform me, and I will add it to the project. Alternatively, you can create a pull request with the necessary changes, and I will review and merge it. 
 Note the plugin must be compatible with the latest version of CKEditor5 in this project.
+
+### Currently added third-party plugins:
+* [CKEditor5 Source Editing CodeMirror](https://github.com/AlphaDepot/ckeditor5-source-editing-codemirror)
