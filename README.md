@@ -19,6 +19,8 @@ Add the source editing code-mirror stylesheet if you are using the `SourceEditin
 ```html
 <link href="./_content/CkEditor5.Blazor/css/ckeditor5-sourceediting-codemirror.css" rel="stylesheet" />
 ```
+>[!IMPORTANT]
+> If you aren't using the `SourceEditingCodeMirror` plugin, do not include the source-editing CodeMirror stylesheet; it will hide the editor's default source view when the plugin is enabled.
 
 ### Usage
 For simple usage without data handling, use the component like this:
