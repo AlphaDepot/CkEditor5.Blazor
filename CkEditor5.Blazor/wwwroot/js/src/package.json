@@ -1,7 +1,7 @@
 {
   "name": "ckeditor5-blazor",
   "private": true,
-  "version": "10.47.3",
+  "version": "10.47.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
