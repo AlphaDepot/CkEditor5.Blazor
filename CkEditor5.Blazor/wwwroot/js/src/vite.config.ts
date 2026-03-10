@@ -23,6 +23,7 @@ export default defineConfig({
         },
         rollupOptions: {
             output: {
+                inlineDynamicImports: true,
                 globals: {
                     'ckeditor5-blazor': 'ckeditor5Blazor'
                 },
