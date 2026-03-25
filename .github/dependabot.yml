@@ -9,6 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 0
+
   
   - package-ecosystem: "npm"
     directory: "/CkEditor5.Blazor/CkEditor5.Blazor/wwwroot/js/src/"
