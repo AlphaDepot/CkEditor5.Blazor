@@ -21,9 +21,10 @@ export default defineConfig({
             fileName: () => `ckeditor5.js`,
             formats: ['es']
         },
-        rollupOptions: {
+
+        rolldownOptions: {
             output: {
-                inlineDynamicImports: true,
+                codeSplitting: false,
                 globals: {
                     'ckeditor5-blazor': 'ckeditor5Blazor'
                 },
@@ -98,9 +99,7 @@ function copyCkeditorCss() {
                 );
             }
 
-
-
-
+            
         }
     };
 }
