@@ -1,7 +1,7 @@
 {
   "name": "ckeditor5-blazor",
   "private": true,
-  "version": "10.48.0",
+  "version": "10.48.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,14 +10,14 @@
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.5",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.8.0",
     "typescript": "~6.0.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.13"
   },
   "dependencies": {
-    "@lstsystems/ckeditor5-source-editing-codemirror": "^47.5.1",
+    "@lstsystems/ckeditor5-source-editing-codemirror": "^48.1.0",
     "@microsoft/dotnet-js-interop": "^10.0.0",
-    "ckeditor5": "^48.0.0",
-    "ckeditor5-premium-features": "^48.0.0"
+    "ckeditor5": "^48.1.0",
+    "ckeditor5-premium-features": "^48.1.0"
   }
 }
