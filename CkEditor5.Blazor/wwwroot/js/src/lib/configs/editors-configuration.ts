@@ -89,7 +89,6 @@ import {
 } from "ckeditor5";
 import {
     AIAssistant,
-    AWSTextAdapter,
     CaseChange,
     Comments,
     DocumentOutline,
@@ -216,7 +215,6 @@ export const premiumPlugins: { [key: string]: any } = {
     "CKBoxImageEdit": CKBoxImageEdit,
     "AIAssistant": AIAssistant,
     "OpenAITextAdapter": OpenAITextAdapter,
-    "AWSTextAdapter": AWSTextAdapter,
     "CaseChange": CaseChange,
     "DocumentOutline": DocumentOutline,
     "Comments": Comments,
