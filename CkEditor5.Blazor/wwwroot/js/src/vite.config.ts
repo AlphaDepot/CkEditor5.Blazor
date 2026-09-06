@@ -2,6 +2,8 @@ import {defineConfig} from 'vite';
 import * as path from 'path';
 import * as fs from 'fs';
 
+const root = import.meta.dirname;
+
 export default defineConfig({
     // Deduplicate CKEditor imports to avoid multiple instances of CKEditor in the bundle.
     // This is really important with CKEditor 5 community plugins, which import CKEditor from their own node_modules.
@@ -13,10 +15,10 @@ export default defineConfig({
         ]
     },
     build: {
-        outDir: path.resolve(__dirname, '../dist'),
+        outDir: path.resolve(root, '../dist'),
         emptyOutDir: true,
         lib: {
-            entry: path.resolve(__dirname, 'lib/main.ts'),
+            entry: path.resolve(root, 'lib/main.ts'),
             name: 'ckeditor5-blazor',
             fileName: () => `ckeditor5.js`,
             formats: ['es']
@@ -47,7 +49,7 @@ function copyCkeditorCss() {
     return {
         name: 'copy-ckeditor-css',
         closeBundle() {
-            const root = __dirname;
+        
             const toPosix = (p: string) => p.replace(/\\/g, '/');
 
             const colors = {
